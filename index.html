@@ -762,7 +762,7 @@
     .footer-main {
       max-width: 1100px; margin: 0 auto;
       padding: 36px 32px 24px;
-      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 32px;
     }
     .footer-brand .f-name {
@@ -1895,7 +1895,15 @@
     <div class="footer-main">
       <div class="footer-brand">
         <div class="f-name">Trade<em>Convert</em></div>
-        <p>Professional unit conversion tools for contractors, electricians, HVAC technicians, plumbers and construction estimators. All calculations verified against NIST standards.</p>
+        <p style="margin-bottom: 20px;">Professional unit conversion tools for contractors, electricians, HVAC technicians, plumbers and construction estimators. All calculations verified against NIST standards.</p>
+        
+        <div style="font-size:10px; color:var(--gold2); margin-bottom:8px; text-transform:uppercase; letter-spacing:1px">Our Network</div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <a href="https://wtkpro.site/" target="_blank" style="font-size:12px; color:#9c9488; text-decoration:none">WebToolkit Pro</a>
+          <a href="https://abusufyan.xyz/" target="_blank" style="font-size:12px; color:#9c9488; text-decoration:none">Abu Sufyan</a>
+          <a href="https://severancecalculator.xyz/" target="_blank" style="font-size:12px; color:#9c9488; text-decoration:none">Severance Calc</a>
+          <a href="https://devhubindex.vercel.app/" target="_blank" style="font-size:12px; color:#9c9488; text-decoration:none">DevHub Index</a>
+        </div>
       </div>
       
       <div class="footer-col">
@@ -1924,32 +1932,24 @@
         <a href="/volume-converter" onclick="showPage('volume');return false;">Cubic Yard Calc</a>
         <a href="/temperature-converter" onclick="showPage('temperature');return false;">Temperature</a>
       </div>
-
-      <div class="footer-col">
-        <h4>Support &amp; Legal</h4>
-        <a href="/privacy" onclick="showPage('privacy');return false;">Privacy Policy</a>
-        <a href="/about" onclick="showPage('about');return false;">About Project</a>
-        <a href="/contact" onclick="showPage('contact');return false;">Contact Us</a>
-        <a href="/embed" onclick="showPage('embed');return false;">Embed Widget</a>
-        <hr style="border:0; border-top:1px solid #3d3a36; margin:8px 0">
-        <div style="font-size:10px; color:var(--gold2); margin-bottom:8px; text-transform:uppercase; letter-spacing:1px">Network</div>
-        <a href="https://wtkpro.site/" target="_blank">WebToolkit Pro</a>
-        <a href="https://abusufyan.xyz/" target="_blank">Abu Sufyan</a>
-        <a href="https://severancecalculator.xyz/" target="_blank">Severance Calc</a>
-        <a href="https://devhubindex.vercel.app/" target="_blank">DevHub Index</a>
-      </div>
-    </div>
-
-    <div style="max-width:1100px; margin:0 auto; padding: 0 32px 20px;">
-      <p style="font-size:10px; color:#6b6760; line-height:1.6; border-top: 1px solid #2d2a26; padding-top:15px;">
-        © 2024 TradeConvert. Reference tool only — verify critical calculations with licensed engineers. Not a substitute for code compliance review. 
-        All trademarked terms used for reference only.
-      </p>
     </div>
 
     <div class="footer-bottom">
-      <span>TradeConvert · Professional Reference Tools · NIST Verified</span>
-      <span>Professional Grade Suite</span>
+      <div style="width:100%; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px; border-bottom:1px solid #2d2a26; padding-bottom:15px; margin-bottom:12px;">
+        <div style="font-size:11px; color:#6b6760">
+          TradeConvert · Professional Reference Tools · NIST Verified
+        </div>
+        <div style="display:flex; gap:15px">
+          <a href="/privacy.html" onclick="showPage('privacy');return false;" style="color:#9c9488; text-decoration:none">Privacy</a>
+          <a href="/about.html" onclick="showPage('about');return false;" style="color:#9c9488; text-decoration:none">About</a>
+          <a href="/contact.html" onclick="showPage('contact');return false;" style="color:#9c9488; text-decoration:none">Contact</a>
+          <a href="/embed.html" onclick="showPage('embed');return false;" style="color:#9c9488; text-decoration:none">Embed Widget</a>
+        </div>
+      </div>
+      <div style="width:100%; display:flex; justify-content:space-between; align-items:center; font-size:10px; color:#4a4742; line-height:1.4">
+        <span>© 2024 TradeConvert. Reference tool only — verify calculations with licensed engineers.</span>
+        <span>Professional Grade Suite</span>
+      </div>
     </div>
   </footer>
 
@@ -1976,6 +1976,7 @@
   const routes = {
     '': 'home',
     '/': 'home',
+    '/index.html': 'home',
     '/pressure-converter': 'pressure',
     '/length-converter': 'length',
     '/weight-converter': 'weight',
@@ -1985,9 +1986,13 @@
     '/concrete-calculator': 'concrete',
     '/lumber-reference': 'lumber',
     '/privacy': 'privacy',
+    '/privacy.html': 'privacy',
     '/about': 'about',
+    '/about.html': 'about',
     '/contact': 'contact',
-    '/embed': 'embed'
+    '/contact.html': 'contact',
+    '/embed': 'embed',
+    '/embed.html': 'embed'
   };
   const pageMeta = {
     home: { title:'TradeConvert | Professional Construction Unit Converters', bc:['Home'], slug: '/' },
@@ -2053,8 +2058,10 @@
 
   // Initial Route Check
   window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const pageParam = params.get('page');
     const path = window.location.pathname;
-    const pageId = routes[path] || 'home';
+    const pageId = pageParam || routes[path] || 'home';
     showPage(pageId, false);
   });
 
