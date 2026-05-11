@@ -1,0 +1,37 @@
+# TradeConvert
+
+> Professional-grade unit conversion and reference tool for the building trades.
+
+TradeConvert is a high-precision reference suite designed for contractors, electricians, HVAC technicians, and plumbers. It prioritizes field accuracy, NIST-verified constants, and industry-standard reference tables (NEC, ACI, UPC).
+
+## Core Capabilities
+
+- **Pressure Converter**: PSI, bar, kPa, MPa, atm, mmHg. Includes compressive strength references.
+- **Electrical Calculator**: Watts to Amps, AWG to mm² cross-sections, NEC breaker sizing (80% rule).
+- **Concrete Calculator**: Volume estimation in cubic yards/meters, bag counts (60lb/80lb), mix ratio guides.
+- **Lumber Reference**: Board feet calculation, nominal vs. actual sizing, wood species weights.
+- **General Converters**: Length (imperial/metric), Weight (lb/kg/tons), Temperature (°F/°C/K), Volume.
+
+## Technical Standards
+
+- **Verified Constants**: All conversion factors are sourced from NIST Special Publication 811.
+- **Trade Codes**: Incorporates data from the National Electrical Code (NEC) and American Concrete Institute (ACI).
+- **Architecture**: Zero-data, client-side execution. No user data is collected or transmitted.
+
+## Routing & Navigation
+
+- **Home**: `/`
+- **Pressure**: `/pressure-converter`
+- **Electrical**: `/electrical-converter`
+- **Concrete**: `/concrete-calculator`
+- **Lumber**: `/lumber-reference`
+- **Length**: `/length-converter`
+- **Weight**: `/weight-converter`
+- **Temperature**: `/temperature-converter`
+- **Volume**: `/volume-converter`
+
+## Meta Information
+
+- **Reference Edition**: Volume I
+- **Verification**: NIST & SI Standards
+- **Development**: WebToolkit-Pro project
