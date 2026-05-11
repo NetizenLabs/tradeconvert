@@ -32,6 +32,5 @@ TradeConvert is a high-precision reference suite designed for contractors, elect
 
 ## Meta Information
 
-- **Reference Edition**: Volume I
 - **Verification**: NIST & SI Standards
 - **Development**: WebToolkit-Pro project
