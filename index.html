@@ -986,7 +986,7 @@
         <h1 id="pressure-h1">PSI to Bar Converter — Professional Pressure Unit Conversion</h1>
         <p class="hero-desc" id="pressure-desc">Convert PSI to bar, kPa, MPa and more instantly. Includes formula explanation, compressive strength tables, plumbing pressure reference and trade notes for contractors, plumbers and HVAC technicians.</p>
         <div class="hero-meta">
-          <span>🔧 Plumbing &amp; HVAC</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Plumbing &amp; HVAC</span>
           <span class="dot"></span>
           <span>Verified vs. NIST</span>
           <span class="dot"></span>
@@ -1785,6 +1785,47 @@
       </div>
     </div>
 
+    <div id="page-privacy" class="hidden">
+      <div class="page-hero"><h1>Privacy Policy</h1><p class="hero-desc">TradeConvert is a privacy-first professional reference tool. We do not track users or collect personal data.</p></div>
+      <div class="prose" style="margin-top:24px">
+        <h3>1. Data Collection</h3>
+        <p>TradeConvert is a client-side utility. All calculations are performed directly in your browser. We do not transmit your input values to our servers, nor do we store them.</p>
+        <h3>2. Cookies</h3>
+        <p>We do not use tracking cookies. We may use local storage to save your unit preferences (e.g., if you prefer Metric or Imperial) to improve your experience on subsequent visits.</p>
+        <h3>3. Analytics</h3>
+        <p>We use minimal, privacy-focused analytics to understand which tools are most useful to the trade community. This data is anonymized and does not include personally identifiable information.</p>
+      </div>
+    </div>
+
+    <div id="page-about" class="hidden">
+      <div class="page-hero"><h1>About TradeConvert</h1><p class="hero-desc">The professional standard for construction and trade unit conversions.</p></div>
+      <div class="prose" style="margin-top:24px">
+        <p>TradeConvert was built to provide tradespeople—contractors, electricians, HVAC technicians, and plumbers—with a reference tool that goes beyond simple math. We incorporate trade-specific standards (NEC, ACI, UPC) and field notes that generic converters miss.</p>
+        <p>Our mission is to provide <strong>instant, accurate, and authoritative</strong> data that helps professionals work safer and more efficiently. Every calculation is cross-verified against NIST and SI standards.</p>
+      </div>
+    </div>
+
+    <div id="page-contact" class="hidden">
+      <div class="page-hero"><h1>Contact Us</h1><p class="hero-desc">Have a suggestion for a new tool or found a bug? We want to hear from you.</p></div>
+      <div class="prose" style="margin-top:24px">
+        <p>We are constantly expanding the TradeConvert suite. If you have a specific conversion or reference table that would help your trade, please let us know.</p>
+        <p>Email: <a href="mailto:support@tradeconvert.com">support@tradeconvert.com</a></p>
+        <p>TradeConvert is a WebToolkit-Pro project.</p>
+      </div>
+    </div>
+
+    <div id="page-embed" class="hidden">
+      <div class="page-hero"><h1>Embed TradeConvert</h1><p class="hero-desc">Add professional conversion tools to your trade website or internal portal.</p></div>
+      <div class="prose" style="margin-top:24px">
+        <p>You can embed TradeConvert widgets into your site using our standard iframe snippet. Our widgets are fully responsive and ad-free.</p>
+        <div class="formula-box">
+          <div class="formula-label">Iframe Snippet</div>
+          <div class="formula-text" style="font-size:11px; word-break:break-all;">&lt;iframe src="https://tradeconvert.com/embed/pressure" width="100%" height="400" frameborder="0"&gt;&lt;/iframe&gt;</div>
+        </div>
+        <p>For custom integration or white-label solutions, please contact our engineering team.</p>
+      </div>
+    </div>
+
   </div><!-- /site-wrapper -->
 
   <!-- ═══════════════════════════════════════
@@ -1822,15 +1863,15 @@
         <a href="/temperature-converter" onclick="showPage('temperature');return false;">Temperature</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>TradeConvert · Professional Reference Tools · NIST Verified</span>
-      <span>
-        <a onclick="return false;" href="#">Privacy</a> ·
-        <a onclick="return false;" href="#">About</a> ·
-        <a onclick="return false;" href="#">Contact</a> ·
-        <a onclick="return false;" href="#">Embed Widget</a>
-      </span>
-    </div>
+      <div class="footer-bottom">
+        <span>TradeConvert · Professional Reference Tools · NIST Verified</span>
+        <span>
+          <a href="/privacy" onclick="showPage('privacy');return false;">Privacy</a> ·
+          <a href="/about" onclick="showPage('about');return false;">About</a> ·
+          <a href="/contact" onclick="showPage('contact');return false;">Contact</a> ·
+          <a href="/embed" onclick="showPage('embed');return false;">Embed Widget</a>
+        </span>
+      </div>
   </footer>
 
   <!-- ═══════════════════════════════════════
@@ -1852,7 +1893,7 @@
   }
 
   /* ── PAGE NAVIGATION ── */
-  const allPages = ['home','pressure','length','weight','electrical','temperature','volume','concrete','lumber'];
+  const allPages = ['home','pressure','length','weight','electrical','temperature','volume','concrete','lumber','privacy','about','contact','embed'];
   const routes = {
     '': 'home',
     '/': 'home',
@@ -1863,7 +1904,11 @@
     '/temperature-converter': 'temperature',
     '/volume-converter': 'volume',
     '/concrete-calculator': 'concrete',
-    '/lumber-reference': 'lumber'
+    '/lumber-reference': 'lumber',
+    '/privacy': 'privacy',
+    '/about': 'about',
+    '/contact': 'contact',
+    '/embed': 'embed'
   };
   const pageMeta = {
     home: { title:'TradeConvert | Professional Construction Unit Converters', bc:['Home'], slug: '/' },
@@ -1874,7 +1919,11 @@
     temperature: { title:'°F to °C Converter | TradeConvert', bc:['Home','Temperature','°F to °C'], slug: '/temperature-converter' },
     volume: { title:'Cubic Yards to m³ Converter | TradeConvert', bc:['Home','Volume','Cubic Yards'], slug: '/volume-converter' },
     concrete: { title:'Concrete Calculator | TradeConvert', bc:['Home','Concrete','Volume Calculator'], slug: '/concrete-calculator' },
-    lumber: { title:'Board Feet Calculator | TradeConvert', bc:['Home','Lumber','Board Feet'], slug: '/lumber-reference' }
+    lumber: { title:'Board Feet Calculator | TradeConvert', bc:['Home','Lumber','Board Feet'], slug: '/lumber-reference' },
+    privacy: { title:'Privacy Policy | TradeConvert', bc:['Home','Privacy'], slug: '/privacy' },
+    about: { title:'About TradeConvert', bc:['Home','About'], slug: '/about' },
+    contact: { title:'Contact Us | TradeConvert', bc:['Home','Contact'], slug: '/contact' },
+    embed: { title:'Embed TradeConvert', bc:['Home','Embed'], slug: '/embed' }
   };
 
   function showPage(id, push = true) {
