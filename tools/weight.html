@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weight Converter | lb to kg & US Ton Reference | TradeConvert</title>
+  <meta name="description" content="Convert weight units for construction and shipping. lb to kg, US tons to metric tons, and ounces. High precision conversion for material estimating.">
+  <meta name="keywords" content="lb to kg, kg to lb, tons to kg, weight converter, construction weight, shipping units">
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/weight">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TradeConvert Weight Converter",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "url": "https://tradeconvert.pro/weight",
+    "description": "Professional weight unit converter for building trades."
+  }
+  </script>
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · NIST Verified
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Plumbing · Electrical · HVAC · Concrete<br>
+        NIST Verified Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/pressure" class="nav-item">Pressure</a>
+      <a href="/electrical" class="nav-item">Electrical</a>
+      <a href="/concrete" class="nav-item">Concrete</a>
+      <a href="/weight" class="nav-item active">Weight</a>
+      <a href="/blog" class="nav-item">Field Notes <span class="nav-new">NEW</span></a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Weight</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <div class="page-hero">
+      <h1>Weight Converter — Lbs, Kg, Tons for Materials & Shipping</h1>
+      <p class="hero-desc">High-precision weight conversion for structural calculations and freight logistics. Optimized for construction material estimation.</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Weight Unit Converter</div>
+            <div class="tool-card-sub">lb · kg · ton · oz</div>
+          </div>
+          <div class="converter-inputs">
+            <div class="input-group">
+              <label class="input-label" for="w-from">From</label>
+              <input class="input-field" id="w-from" type="number" value="100" oninput="calcWeight()">
+              <select class="unit-select" id="w-from-u" onchange="calcWeight()">
+                <option value="lb" selected>Pounds (lb)</option>
+                <option value="kg">Kilograms (kg)</option>
+                <option value="ton_us">US Ton (2000 lb)</option>
+                <option value="ton_m">Metric Ton (1000 kg)</option>
+                <option value="oz">Ounces (oz)</option>
+              </select>
+            </div>
+            <button class="swap-btn" onclick="swapW()" aria-label="Swap units">⇄</button>
+            <div class="input-group">
+              <label class="input-label" for="w-to">To</label>
+              <input class="input-field output" id="w-to" type="text" readonly>
+              <select class="unit-select" id="w-to-u" onchange="calcWeight()">
+                <option value="lb">Pounds (lb)</option>
+                <option value="kg" selected>Kilograms (kg)</option>
+                <option value="ton_us">US Ton (2000 lb)</option>
+                <option value="ton_m">Metric Ton (1000 kg)</option>
+                <option value="oz">Ounces (oz)</option>
+              </select>
+            </div>
+          </div>
+          <div class="result-display">
+            <span class="result-number" id="w-result-n">45.3592</span>
+            <span class="result-unit" id="w-result-u">kg</span>
+            <div class="result-eq" id="w-result-eq">100 lb = 45.3592 kg</div>
+          </div>
+          <div class="formula-box">
+            <div class="formula-label">Conversion Formula</div>
+            <div class="formula-text" id="w-formula">100 × 0.453592 = 45.3592 kg</div>
+          </div>
+        </div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card accent-top">
+          <div class="sidebar-title">Quick Conversions</div>
+          <div class="qr-list">
+            <div class="qr-item"><span class="qr-label">1 kg</span><span class="qr-val">2.204 lb</span></div>
+            <div class="qr-item"><span class="qr-label">1 US Ton</span><span class="qr-val">2,000 lb</span></div>
+            <div class="qr-item"><span class="qr-label">1 Metric Ton</span><span class="qr-val">2,204.6 lb</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 TradeConvert · NIST Verified</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="/js/converters.js"></script>
+</body>
+</html>

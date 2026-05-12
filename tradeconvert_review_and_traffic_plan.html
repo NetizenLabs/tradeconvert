@@ -1,0 +1,411 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.pg{font-family:var(--font-sans);padding:0 0 2rem;max-width:680px}
+h1{font-size:20px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.sub{font-size:13px;color:var(--color-text-secondary);margin-bottom:20px}
+
+/* tabs */
+.tabs{display:flex;gap:0;border-bottom:1.5px solid var(--color-border-tertiary);margin-bottom:20px}
+.tab{font-size:12px;font-weight:500;padding:8px 16px;border:none;background:none;cursor:pointer;color:var(--color-text-secondary);border-bottom:2px solid transparent;margin-bottom:-1.5px;transition:all .15s;white-space:nowrap}
+.tab.active{color:var(--color-text-primary);border-bottom-color:var(--color-text-primary)}
+.tab:hover{color:var(--color-text-primary)}
+.panel{display:none}.panel.active{display:block}
+
+/* score card */
+.score-hero{display:flex;align-items:center;gap:20px;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:20px;margin-bottom:16px}
+.score-circle{width:80px;height:80px;border-radius:50%;background:conic-gradient(#1D9E75 0% 78%, var(--color-border-secondary) 78%);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.score-inner{width:62px;height:62px;border-radius:50%;background:var(--color-background-secondary);display:flex;align-items:center;justify-content:center;flex-direction:column}
+.score-num{font-size:22px;font-weight:500;color:var(--color-text-primary);line-height:1}
+.score-max{font-size:10px;color:var(--color-text-tertiary)}
+.score-details{flex:1}
+.score-title{font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.score-verdict{font-size:13px;color:var(--color-text-secondary);line-height:1.5}
+
+.audit-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.audit-row:last-child{border-bottom:none}
+.audit-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;margin-top:1px}
+.ai-green{background:var(--color-background-success)}
+.ai-warn{background:var(--color-background-warning)}
+.ai-red{background:var(--color-background-danger)}
+.ai-blue{background:var(--color-background-info)}
+.audit-content{flex:1}
+.audit-title{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.audit-desc{font-size:12px;color:var(--color-text-secondary);margin-top:2px;line-height:1.5}
+.audit-fix{font-size:11px;color:var(--color-text-info);margin-top:4px;font-style:italic}
+
+/* traffic channels */
+.channel-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;margin-bottom:10px}
+.ch-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.ch-name{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.ch-meta{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.ch-badges{display:flex;gap:5px;flex-wrap:wrap}
+.badge{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:500}
+.b-now{background:var(--color-background-success);color:var(--color-text-success)}
+.b-mid{background:var(--color-background-warning);color:var(--color-text-warning)}
+.b-late{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.b-free{background:var(--color-background-info);color:var(--color-text-info)}
+.b-paid{background:var(--color-background-danger);color:var(--color-text-danger)}
+.ch-steps{font-size:12px;color:var(--color-text-secondary);line-height:1.65}
+.ch-steps ul{padding-left:16px}
+.ch-steps li{margin-bottom:3px}
+.effort-bar{height:5px;border-radius:3px;background:var(--color-border-secondary);margin-top:8px;overflow:hidden}
+.effort-fill{height:100%;border-radius:3px;background:#1D9E75}
+
+.priority-box{border-left:3px solid #1D9E75;padding:10px 12px;background:var(--color-background-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;margin-bottom:10px;font-size:13px;color:var(--color-text-primary);line-height:1.6}
+.priority-box .pb-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-success);margin-bottom:4px}
+
+/* roadmap */
+.phase{margin-bottom:18px}
+.phase-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.phase-dot{width:32px;height:32px;border-radius:50%;background:var(--color-background-secondary);border:1.5px solid var(--color-border-secondary);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--color-text-primary);flex-shrink:0}
+.phase-dot.active-phase{background:#1D9E75;border-color:#1D9E75;color:white}
+.phase-title{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.phase-time{font-size:11px;color:var(--color-text-tertiary)}
+.task-list{padding-left:42px}
+.task-item{font-size:12px;color:var(--color-text-secondary);padding:4px 0;border-bottom:0.5px dotted var(--color-border-tertiary);display:flex;align-items:baseline;gap:8px}
+.task-item:last-child{border-bottom:none}
+.task-item .ti-tag{font-size:10px;padding:1px 6px;border-radius:8px;background:var(--color-background-secondary);color:var(--color-text-tertiary);white-space:nowrap;flex-shrink:0}
+
+.ask-btn{display:inline-flex;align-items:center;gap:4px;font-size:12px;padding:5px 12px;border:0.5px solid var(--color-border-secondary);border-radius:20px;background:transparent;color:var(--color-text-secondary);cursor:pointer;margin-top:12px}
+.ask-btn:hover{background:var(--color-background-secondary)}
+</style>
+
+<div class="pg">
+  <h1>TradeConvert.pro — Full Review & Traffic Blueprint</h1>
+  <p class="sub">Live site audit + every traffic source you need, ranked by impact and effort</p>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('review',this)">Site Review</button>
+    <button class="tab" onclick="switchTab('traffic',this)">Traffic Sources</button>
+    <button class="tab" onclick="switchTab('roadmap',this)">90-Day Roadmap</button>
+    <button class="tab" onclick="switchTab('google',this)">Google Reality Check</button>
+  </div>
+
+  <!-- ── TAB 1: REVIEW ── -->
+  <div id="panel-review" class="panel active">
+    <div class="score-hero">
+      <div class="score-circle">
+        <div class="score-inner"><div class="score-num">78</div><div class="score-max">/100</div></div>
+      </div>
+      <div class="score-details">
+        <div class="score-title">Strong launch — one real gap to fix</div>
+        <div class="score-verdict">The site is live, crawlable, and technically solid. SEO meta and schema are in place. The main issue: it's a single HTML file — Google will index it as ONE page, not 9 separate pages. That's your most urgent fix.</div>
+      </div>
+    </div>
+
+    <div class="audit-row">
+      <div class="audit-icon ai-green">✓</div>
+      <div class="audit-content">
+        <div class="audit-title">Meta tags & OG fully deployed</div>
+        <div class="audit-desc">Title, description, keywords, og:title, og:description, twitter:card — all present and correct on the live site. Google Search Console verification tag spotted (KWw6U4sumENSAxftr2bv…). Good — that means you've submitted it.</div>
+      </div>
+    </div>
+
+    <div class="audit-row">
+      <div class="audit-icon ai-green">✓</div>
+      <div class="audit-content">
+        <div class="audit-title">Structured data (schema.org) is in the HTML</div>
+        <div class="audit-desc">FAQPage, HowTo, BreadcrumbList, WebSite, and SoftwareApplication schemas are present. These are your AIO/GEO citation hooks. Test them at search.google.com/test/rich-results to confirm they parse correctly.</div>
+      </div>
+    </div>
+
+    <div class="audit-row">
+      <div class="audit-icon ai-green">✓</div>
+      <div class="audit-content">
+        <div class="audit-title">Answer capsules present</div>
+        <div class="audit-desc">The "Quick Answer" block at the top of each converter page is the #1 content format that gets cited in AI Overviews and Perplexity answers. This is already built in — it's a real structural advantage over competitors.</div>
+      </div>
+    </div>
+
+    <div class="audit-row">
+      <div class="audit-icon ai-red">!</div>
+      <div class="audit-content">
+        <div class="audit-title">🚨 Critical: Single-page app = single URL indexed</div>
+        <div class="audit-desc">Right now Google sees tradeconvert.pro as ONE page. Your 9 "pages" are JavaScript tab-switches — they don't have separate URLs, so Google can't index "PSI to bar converter" as its own page. You're leaving ~90% of your keyword surface area on the table.</div>
+        <div class="audit-fix">Fix: Create separate HTML files (pressure.html, electrical.html etc.) OR use a proper router (Next.js, Astro) with real URLs like tradeconvert.pro/pressure/psi-to-bar. This is priority #1 before any promotion.</div>
+      </div>
+    </div>
+
+    <div class="audit-row">
+      <div class="audit-icon ai-warn">~</div>
+      <div class="audit-content">
+        <div class="audit-title">No sitemap.xml submitted yet</div>
+        <div class="audit-desc">Google Search Console verification is there but a sitemap.xml listing all your pages is needed. Without it Google discovers pages slowly by crawling links.</div>
+        <div class="audit-fix">Fix: Create /sitemap.xml listing each page URL. Submit it in Google Search Console → Sitemaps. Also submit to Bing Webmaster Tools (separate account, free — gives you Bing + Copilot AI coverage).</div>
+      </div>
+    </div>
+
+    <div class="audit-row">
+      <div class="audit-icon ai-warn">~</div>
+      <div class="audit-content">
+        <div class="audit-title">Domain is brand new (zero authority)</div>
+        <div class="audit-desc">tradeconvert.pro has no backlinks and no history. Google treats new domains with caution for the first 3–6 months. This is normal — it's called the "Google Sandbox." Your content is good; you just need time + backlinks to exit it.</div>
+        <div class="audit-fix">Focus on 5–10 quality backlinks in month 1–2. Even 3 links from relevant sites (contractor forums, tool blogs) can significantly accelerate trust-building.</div>
+      </div>
+    </div>
+
+    <div class="audit-row">
+      <div class="audit-icon ai-blue">i</div>
+      <div class="audit-content">
+        <div class="audit-title">Classic design is a real differentiator</div>
+        <div class="audit-desc">Every competitor (UnitConverters, RapidTables, InchCalculator) uses generic modern UI. TradeConvert.pro's editorial/reference-book aesthetic is distinctive and signals professionalism to trade users. This will help with return visits and direct traffic over time.</div>
+      </div>
+    </div>
+
+    <div class="audit-row">
+      <div class="audit-icon ai-blue">i</div>
+      <div class="audit-content">
+        <div class="audit-title">.pro TLD — neutral signal</div>
+        <div class="audit-desc">.pro is not penalised but it's less trusted than .com initially. Compensate by building E-E-A-T signals: an About page, author credentials, contact details, and real backlinks. Google uses these to assess legitimacy.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB 2: TRAFFIC SOURCES ── -->
+  <div id="panel-traffic" class="panel">
+    <div class="priority-box">
+      <div class="pb-label">Direct answer to your question</div>
+      No — Google alone should NOT be your only traffic source, especially in months 1–6 while the site is in the sandbox. New sites that rely on Google solo often see zero traction for 4–6 months. You need 4–5 channels running in parallel. Here's the full picture.
+    </div>
+
+    <div class="channel-card">
+      <div class="ch-top">
+        <div><div class="ch-name">1. Google Organic (SEO)</div><div class="ch-meta">Biggest long-term channel — but slow start</div></div>
+        <div class="ch-badges"><span class="badge b-mid">Month 3–6+</span><span class="badge b-free">Free</span></div>
+      </div>
+      <div class="ch-steps">
+        <ul>
+          <li>Fix the single-URL problem FIRST (separate pages per converter)</li>
+          <li>Submit sitemap.xml to Google Search Console</li>
+          <li>Target long-tail keywords: "PSI to bar conversion table", "AWG to mm2 electrician chart", "concrete bags per cubic yard calculator"</li>
+          <li>Expect first rankings in 3–4 months for low competition queries</li>
+        </ul>
+      </div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:6px">Effort: ████████░░ 80% | Reward: ██████████ 100% (long term)</div>
+    </div>
+
+    <div class="channel-card">
+      <div class="ch-top">
+        <div><div class="ch-name">2. Reddit — Construction & Trade Communities</div><div class="ch-meta">Fastest way to get real users in week 1</div></div>
+        <div class="ch-badges"><span class="badge b-now">Do This Week</span><span class="badge b-free">Free</span></div>
+      </div>
+      <div class="ch-steps">
+        <ul>
+          <li><strong>r/Construction</strong> (460K members), <strong>r/DIY</strong> (7M), <strong>r/Plumbing</strong>, <strong>r/electricians</strong>, <strong>r/HVAC</strong></li>
+          <li>Don't post "check out my site" — answer real questions using the site as a reference tool. "Here's the conversion table: [tradeconvert.pro/pressure]"</li>
+          <li>Reddit posts rank in Google within 24–48 hours. Your tool URL gets exposure AND a backlink signal</li>
+          <li>Google now surfaces Reddit in almost every search — your mentions there compound</li>
+        </ul>
+      </div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:6px">Effort: ███░░░░░░░ 30% | Reward: ████████░░ 80% (fast)</div>
+    </div>
+
+    <div class="channel-card">
+      <div class="ch-top">
+        <div><div class="ch-name">3. Bing + Copilot (Microsoft AI)</div><div class="ch-meta">Underrated — powers ChatGPT web search & Copilot answers</div></div>
+        <div class="ch-badges"><span class="badge b-now">Do This Week</span><span class="badge b-free">Free</span></div>
+      </div>
+      <div class="ch-steps">
+        <ul>
+          <li>Submit sitemap at <strong>bing.com/webmasters</strong> — separate from Google, takes 10 minutes</li>
+          <li>Bing powers Microsoft Copilot and ChatGPT's browse-with-web mode — getting indexed here = appearing in AI answers</li>
+          <li>Construction/trade searchers over-index on Bing vs. average users (older demographic, Windows-default)</li>
+          <li>Less competition than Google for new sites — you can rank faster</li>
+        </ul>
+      </div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:6px">Effort: ██░░░░░░░░ 20% | Reward: ██████░░░░ 60% (fast win)</div>
+    </div>
+
+    <div class="channel-card">
+      <div class="ch-top">
+        <div><div class="ch-name">4. YouTube — "How to Convert" Videos</div><div class="ch-meta">Second largest search engine in the world</div></div>
+        <div class="ch-badges"><span class="badge b-mid">Month 1–2</span><span class="badge b-free">Free</span></div>
+      </div>
+      <div class="ch-steps">
+        <ul>
+          <li>Short 60–90 second videos: "How to convert PSI to bar — trade tip" with tradeconvert.pro shown on screen</li>
+          <li>YouTube description = backlink + referral traffic</li>
+          <li>Videos rank in Google for "how to convert [units]" queries within days</li>
+          <li>You don't need production quality — screen recording + voiceover is enough for a tool demo</li>
+        </ul>
+      </div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:6px">Effort: █████░░░░░ 50% | Reward: ████████░░ 80%</div>
+    </div>
+
+    <div class="channel-card">
+      <div class="ch-top">
+        <div><div class="ch-name">5. Niche Forum Embedding & Tool Directories</div><div class="ch-meta">Permanent backlinks + referral traffic</div></div>
+        <div class="ch-badges"><span class="badge b-mid">Month 1–3</span><span class="badge b-free">Free</span></div>
+      </div>
+      <div class="ch-steps">
+        <ul>
+          <li><strong>ContractorTalk.com</strong>, <strong>TheGarageJournal.com</strong>, <strong>ElectriciansForums.net</strong> — post helpful answers, link the tool</li>
+          <li>Submit to free tool directories: <strong>alternativeto.net</strong>, <strong>toolboxes.io</strong>, <strong>saashub.com</strong></li>
+          <li>Email 3–5 contractor/construction blogs offering a free embeddable widget version — each embed = permanent backlink</li>
+          <li>Product Hunt launch — construction/utility tools do well, drives a spike of 200–2,000 visitors on launch day</li>
+        </ul>
+      </div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:6px">Effort: ████░░░░░░ 40% | Reward: ██████░░░░ 60%</div>
+    </div>
+
+    <div class="channel-card">
+      <div class="ch-top">
+        <div><div class="ch-name">6. Pinterest (Surprisingly effective for reference tools)</div><div class="ch-meta">High evergreen traffic, underused by competitors</div></div>
+        <div class="ch-badges"><span class="badge b-mid">Month 2–3</span><span class="badge b-free">Free</span></div>
+      </div>
+      <div class="ch-steps">
+        <ul>
+          <li>Create image "cheat sheets" — PSI to bar quick reference card, AWG ampacity table, lumber size chart</li>
+          <li>Pinterest pins rank in Google Image search AND in Pinterest's own search</li>
+          <li>Construction, DIY, and home improvement are top Pinterest categories</li>
+          <li>Each pin links back to tradeconvert.pro — permanent referral traffic for years</li>
+        </ul>
+      </div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:6px">Effort: ███░░░░░░░ 30% | Reward: █████░░░░░ 50%</div>
+    </div>
+
+    <div class="channel-card">
+      <div class="ch-top">
+        <div><div class="ch-name">7. AI Platform Citations (Perplexity, ChatGPT, Gemini)</div><div class="ch-meta">The new frontier — growing 47% year over year</div></div>
+        <div class="ch-badges"><span class="badge b-mid">Month 2–4</span><span class="badge b-free">Free</span></div>
+      </div>
+      <div class="ch-steps">
+        <ul>
+          <li>Your answer capsule format + FAQ schema is already optimised for this — keep it</li>
+          <li>Submit URL to <strong>perplexity.ai</strong> via their publisher portal</li>
+          <li>Search your own queries in ChatGPT, Claude, Perplexity — if they don't cite you yet, the fix is more content depth + more backlinks pointing to your page</li>
+          <li>AI traffic converts 9x better than regular organic — users arrive pre-informed</li>
+        </ul>
+      </div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:6px">Effort: ██░░░░░░░░ 20% | Reward: ████████░░ 80% (growing fast)</div>
+    </div>
+  </div>
+
+  <!-- ── TAB 3: ROADMAP ── -->
+  <div id="panel-roadmap" class="panel">
+
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-dot active-phase">1</div>
+        <div><div class="phase-title">Week 1–2: Fix the Foundation</div><div class="phase-time">Before any promotion</div></div>
+      </div>
+      <div class="task-list">
+        <div class="task-item"><span>Split into separate HTML pages per converter (pressure.html, electrical.html etc.) with real URLs</span><span class="ti-tag">Critical</span></div>
+        <div class="task-item"><span>Create sitemap.xml and submit to Google Search Console</span><span class="ti-tag">Critical</span></div>
+        <div class="task-item"><span>Submit sitemap to Bing Webmaster Tools (bing.com/webmasters) — separate account</span><span class="ti-tag">10 min</span></div>
+        <div class="task-item"><span>Test schema markup at search.google.com/test/rich-results — verify FAQ, HowTo, BreadcrumbList all pass</span><span class="ti-tag">15 min</span></div>
+        <div class="task-item"><span>Add an About page with author credentials and contact info (E-E-A-T signal)</span><span class="ti-tag">1 hour</span></div>
+        <div class="task-item"><span>Add Google Analytics 4 (free) for traffic tracking from day 1</span><span class="ti-tag">30 min</span></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-dot">2</div>
+        <div><div class="phase-title">Week 2–4: First Traffic Moves</div><div class="phase-time">Community & quick wins</div></div>
+      </div>
+      <div class="task-list">
+        <div class="task-item"><span>Answer 10 real questions on r/Construction, r/DIY, r/electricians, r/Plumbing using the site as a reference</span><span class="ti-tag">Reddit</span></div>
+        <div class="task-item"><span>Post 5 helpful answers on ContractorTalk.com with tool link in signature</span><span class="ti-tag">Forum</span></div>
+        <div class="task-item"><span>Submit to Product Hunt (construction/utility category) — aim for a Tuesday launch</span><span class="ti-tag">PH Launch</span></div>
+        <div class="task-item"><span>Submit to AlternativeTo.net, SaaSHub.com, ToolDirectory.dev</span><span class="ti-tag">Directories</span></div>
+        <div class="task-item"><span>Create 3 Pinterest cheat sheet images (PSI reference card, AWG chart, lumber sizes) linking to site</span><span class="ti-tag">Pinterest</span></div>
+        <div class="task-item"><span>Record first YouTube video: "PSI to Bar — Quick Trade Reference" (60 seconds, screen capture)</span><span class="ti-tag">YouTube</span></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-dot">3</div>
+        <div><div class="phase-title">Month 2–3: Content Depth & Backlinks</div><div class="phase-time">Building authority</div></div>
+      </div>
+      <div class="task-list">
+        <div class="task-item"><span>Add 20 more converter pages (specific pairs: "bar to psi", "kPa to PSI", "awg to mm2" — each as a separate URL)</span><span class="ti-tag">SEO</span></div>
+        <div class="task-item"><span>Write 5 trade context articles: "What water pressure is too high?", "How to size a circuit breaker", "Concrete strength guide"</span><span class="ti-tag">Content</span></div>
+        <div class="task-item"><span>Email 10 contractor/construction bloggers offering a free embeddable widget of TradeConvert tools</span><span class="ti-tag">Backlinks</span></div>
+        <div class="task-item"><span>Reach out to 5 construction YouTube channels offering to be a "sponsor" (free) in exchange for a mention + link</span><span class="ti-tag">Collab</span></div>
+        <div class="task-item"><span>Build a printable PDF reference card for each category — contractors love printable cheat sheets, and PDFs get linked</span><span class="ti-tag">Link bait</span></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-dot">4</div>
+        <div><div class="phase-title">Month 3–6: Scale & Monetize</div><div class="phase-time">When traffic hits 1K/day</div></div>
+      </div>
+      <div class="task-list">
+        <div class="task-item"><span>Apply for Google AdSense (needs at least 6 months old + real traffic). Target: $2–8 RPM initially</span><span class="ti-tag">Revenue</span></div>
+        <div class="task-item"><span>Apply for Ezoic when you hit 10K monthly sessions — 2–3x better RPM than AdSense</span><span class="ti-tag">Revenue</span></div>
+        <div class="task-item"><span>Add affiliate links: Home Depot affiliate, Amazon Associates (tools, electrical equipment)</span><span class="ti-tag">Affiliate</span></div>
+        <div class="task-item"><span>Monitor Google Search Console for which pages get impressions but low CTR — improve those titles/descriptions</span><span class="ti-tag">SEO</span></div>
+        <div class="task-item"><span>Check Perplexity, Claude, ChatGPT for your target queries — are they citing tradeconvert.pro yet?</span><span class="ti-tag">AIO</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB 4: GOOGLE REALITY CHECK ── -->
+  <div id="panel-google" class="panel">
+
+    <div class="priority-box" style="border-left-color:var(--color-text-warning)">
+      <div class="pb-label" style="color:var(--color-text-warning)">The honest truth about Google traffic</div>
+      Google is still the #1 long-term traffic source for a site like this — but it takes 4–9 months for a new domain to see meaningful organic traffic. Going Google-only in that window means near-zero visitors. The multi-channel approach above fills that gap while Google trust builds.
+    </div>
+
+    <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin-bottom:16px">
+      Here's what the research actually says about traffic sources in 2025:
+    </div>
+
+    <div class="audit-row">
+      <div class="audit-icon ai-blue">G</div>
+      <div class="audit-content">
+        <div class="audit-title">Google: 56–73% of traffic for established converter sites</div>
+        <div class="audit-desc">UnitConverters.net gets 73% of traffic from Google organic. That's the end-state goal — but it took them years to build that. New sites in the Google "sandbox" period get very little for the first 3–6 months regardless of content quality.</div>
+      </div>
+    </div>
+
+    <div class="audit-row">
+      <div class="audit-icon ai-blue">AI</div>
+      <div class="audit-content">
+        <div class="audit-title">AI platforms: fastest-growing channel, up 47% in 2025</div>
+        <div class="audit-desc">Perplexity, ChatGPT, Claude, and Gemini are sending measurable referral traffic to sites they cite. Webflow reports 8% of new signups now come from AI search. For a reference tool site like TradeConvert, AI citation is a huge opportunity — your answer capsule format is already optimised for it.</div>
+      </div>
+    </div>
+
+    <div class="audit-row">
+      <div class="audit-icon ai-blue">R</div>
+      <div class="audit-content">
+        <div class="audit-title">Reddit: now the 3rd most visible site in Google SERPs</div>
+        <div class="audit-desc">After Google's August 2024 update, Reddit's traffic quadrupled from Google referrals. Posting helpful answers on r/Construction and r/electricians with your tool linked does double duty — you get Reddit traffic AND your link gets indexed/surfaced in Google results.</div>
+      </div>
+    </div>
+
+    <div class="audit-row">
+      <div class="audit-icon ai-blue">B</div>
+      <div class="audit-content">
+        <div class="audit-title">Bing: 25–30% faster indexing than Google for new sites</div>
+        <div class="audit-desc">New sites often get indexed and ranked on Bing weeks before Google. Bing also powers Microsoft Copilot — which is increasingly used by the Windows/Office professional demographic (contractors, engineers, tradespeople). Submitting your sitemap to Bing Webmaster Tools is a 10-minute task with outsized early impact.</div>
+      </div>
+    </div>
+
+    <div class="audit-row">
+      <div class="audit-icon ai-warn">!</div>
+      <div class="audit-content">
+        <div class="audit-title">Zero-click is real — but converters are protected</div>
+        <div class="audit-desc">About 41% of Google searches end without a click. But converter tools are largely protected — Google's inline answer only handles simple one-number conversions (e.g., "100 PSI in bar"). Anything with context, tables, trade notes, or multiple units still sends users to your page. Your depth of content is your moat against zero-click.</div>
+      </div>
+    </div>
+
+    <button class="ask-btn" onclick="sendPrompt('Create separate individual HTML pages for each converter on tradeconvert.pro with proper URLs and sitemaps')">Fix the single-page problem → build separate pages ↗</button>
+    <button class="ask-btn" style="margin-left:8px" onclick="sendPrompt('Write me 5 Reddit posts that naturally reference tradeconvert.pro to post in construction and electrician subreddits')">Write my Reddit posts ↗</button>
+  </div>
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-'+id).classList.add('active');
+}
+</script>

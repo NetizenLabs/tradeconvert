@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concrete Calculator | Cubic Yards & Bag Estimator | TradeConvert</title>
+  <meta name="description" content="Calculate concrete volume in cubic yards and meters. Estimate bags of Quikrete (60lb/80lb) for slabs, footings, and post holes. Professional grade accuracy.">
+  <meta name="keywords" content="concrete calculator, cubic yards calculator, concrete bags estimator, slab volume, footing calculator">
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/concrete">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TradeConvert Concrete Calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "url": "https://tradeconvert.pro/concrete",
+    "description": "Professional concrete volume and bag estimation tool."
+  }
+  </script>
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · Concrete Calc V2.0
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Plumbing · Electrical · HVAC · Concrete<br>
+        NIST Verified Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/pressure" class="nav-item">Pressure</a>
+      <a href="/electrical" class="nav-item">Electrical</a>
+      <a href="/concrete" class="nav-item active">Concrete</a>
+      <a href="/lumber" class="nav-item">Lumber</a>
+      <a href="/blog" class="nav-item">Field Notes <span class="nav-new">NEW</span></a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Concrete</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <div class="page-hero">
+      <h1>Concrete Calculator — Cubic Yards & Bag Estimator</h1>
+      <p class="hero-desc">Precisely calculate volume for slabs, footings, and columns. Estimate ready-mix truck loads or individual bags for smaller projects.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>One cubic yard of concrete equals <strong>27 cubic feet</strong>. For a standard 4-inch slab, one cubic yard covers approximately <strong>81 square feet</strong>. If using 80lb bags, you need <strong>45 bags</strong> to make one cubic yard.</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Volume Estimator</div>
+            <div class="tool-card-sub">Length × Width × Depth</div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-bottom:16px">
+            <div class="input-group">
+              <label class="input-label" for="con-l">Length (ft)</label>
+              <input class="input-field" id="con-l" type="number" value="10" oninput="calcConcrete()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="con-w">Width (ft)</label>
+              <input class="input-field" id="con-w" type="number" value="10" oninput="calcConcrete()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="con-d">Depth (in)</label>
+              <input class="input-field" id="con-d" type="number" value="4" oninput="calcConcrete()">
+            </div>
+          </div>
+          
+          <div class="section-head">Calculated Results</div>
+          <div class="chart-grid">
+            <div class="chart-cell header">Unit</div>
+            <div class="chart-cell header">Volume</div>
+            <div class="chart-cell header">Bag Type</div>
+            <div class="chart-cell header">Bags Needed</div>
+            
+            <div class="chart-cell"><span class="cv-from">Cubic Yards</span></div>
+            <div class="chart-cell"><span class="cv-to" id="con-yd3">1.23</span></div>
+            <div class="chart-cell"><span class="cv-from">60lb Bag</span></div>
+            <div class="chart-cell"><span class="cv-to" id="con-bags60">75</span></div>
+            
+            <div class="chart-cell"><span class="cv-from">Cubic Meters</span></div>
+            <div class="chart-cell"><span class="cv-to" id="con-m3">0.941</span></div>
+            <div class="chart-cell"><span class="cv-from">80lb Bag</span></div>
+            <div class="chart-cell"><span class="cv-to" id="con-bags80">56</span></div>
+          </div>
+        </div>
+
+        <h2>Concrete Coverage Reference</h2>
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead><tr><th>Slab Depth</th><th>Yards per 100 sq.ft</th><th>Sq.ft per Cubic Yard</th></tr></thead>
+            <tbody>
+              <tr><td>4 Inches</td><td class="mono">1.23 yd³</td><td class="mono">81 ft²</td></tr>
+              <tr><td>5 Inches</td><td class="mono">1.54 yd³</td><td class="mono">65 ft²</td></tr>
+              <tr><td>6 Inches</td><td class="mono">1.85 yd³</td><td class="mono">54 ft²</td></tr>
+              <tr><td>8 Inches</td><td class="mono">2.47 yd³</td><td class="mono">40 ft²</td></tr>
+            </tbody>
+            <caption>Estimates based on nominal depth. Always order 10% extra for waste and spillage.</caption>
+          </table>
+        </div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card gold-top">
+          <div class="sidebar-title">Waste Factor</div>
+          <div class="prose" style="font-size:12px">
+            <p>Always order 5–10% more concrete than calculated to account for subgrade variations, form bowing, and spillage.</p>
+            <p><strong>Rule of Thumb:</strong> Add 1/4" to your depth measurement when ordering from a ready-mix plant.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 TradeConvert · NIST Verified</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="/js/converters.js"></script>
+</body>
+</html>

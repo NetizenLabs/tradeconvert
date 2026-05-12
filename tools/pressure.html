@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PSI to Bar Converter | Professional Pressure Units | TradeConvert</title>
+  <meta name="description" content="Professional pressure unit converter for plumbing and pneumatics. Convert PSI, bar, kPa, MPa, and more. Verified NIST standards for building trades.">
+  <meta name="keywords" content="PSI to bar, bar to PSI, pressure converter, kPa to PSI, plumbing pressure, pneumatic units">
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/pressure">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TradeConvert Pressure Converter",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "url": "https://tradeconvert.pro/pressure",
+    "description": "Professional pressure unit converter for building trades. Verified NIST standards."
+  }
+  </script>
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · NIST Verified
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Plumbing · Electrical · HVAC · Concrete<br>
+        NIST Verified Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/pressure" class="nav-item active">Pressure</a>
+      <a href="/electrical" class="nav-item">Electrical</a>
+      <a href="/concrete" class="nav-item">Concrete</a>
+      <a href="/lumber" class="nav-item">Lumber</a>
+      <a href="/blog" class="nav-item">Field Notes <span class="nav-new">NEW</span></a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Pressure</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <div class="page-hero">
+      <h1>Pressure Converter — PSI, Bar, kPa for Plumbing & HVAC</h1>
+      <p class="hero-desc">Convert pressure units instantly with verified accuracy. Includes standard trade reference tables for residential water supply and pneumatic tools.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>To convert <strong>PSI to bar</strong>, multiply by <strong>0.0689476</strong>. One bar equals 14.5038 PSI. Residential water pressure typically runs <strong>40–80 PSI</strong> (2.76–5.52 bar). Pressures above 80 PSI require a pressure reducing valve per UPC code.</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Pressure Unit Converter</div>
+            <div class="tool-card-sub">PSI · Bar · kPa · MPa · atm · mmHg</div>
+          </div>
+          <div class="converter-inputs">
+            <div class="input-group">
+              <label class="input-label" for="p-from">From</label>
+              <input class="input-field" id="p-from" type="number" value="100" oninput="calcPressure()">
+              <select class="unit-select" id="p-from-u" onchange="calcPressure()">
+                <option value="psi" selected>PSI (lb/in²)</option>
+                <option value="bar">Bar</option>
+                <option value="kpa">kPa</option>
+                <option value="mpa">MPa</option>
+                <option value="atm">atm</option>
+                <option value="mmhg">mmHg</option>
+              </select>
+            </div>
+            <button class="swap-btn" onclick="swapP()" aria-label="Swap units">⇄</button>
+            <div class="input-group">
+              <label class="input-label" for="p-to">To</label>
+              <input class="input-field output" id="p-to" type="text" readonly>
+              <select class="unit-select" id="p-to-u" onchange="calcPressure()">
+                <option value="psi">PSI (lb/in²)</option>
+                <option value="bar" selected>Bar</option>
+                <option value="kpa">kPa</option>
+                <option value="mpa">MPa</option>
+                <option value="atm">atm</option>
+                <option value="mmhg">mmHg</option>
+              </select>
+            </div>
+          </div>
+          <div class="result-display">
+            <span class="result-number" id="p-result-n">6.8948</span>
+            <span class="result-unit" id="p-result-u">bar</span>
+            <div class="result-eq" id="p-result-eq">100 PSI = 6.8948 bar</div>
+          </div>
+          <div class="formula-box">
+            <div class="formula-label">Conversion Formula</div>
+            <div class="formula-text" id="p-formula">100 × 0.0689476 = 6.8948 bar</div>
+          </div>
+          
+          <div class="section-head">Quick Conversion Grid</div>
+          <div class="all-units-grid" id="p-all-units">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <h2>Standard Pressure Reference Tables</h2>
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead><tr><th>Application</th><th>PSI Range</th><th>Bar Range</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Residential Water Supply</td><td class="mono">40–80</td><td class="mono">2.76–5.52</td><td>Ideal is 60 PSI</td></tr>
+              <tr><td>Fire Sprinkler Systems</td><td class="mono">175 max</td><td class="mono">12.07</td><td>Working pressure</td></tr>
+              <tr><td>Framing Nailers</td><td class="mono">70–120</td><td class="mono">4.83–8.27</td><td>Check tool specs</td></tr>
+              <tr><td>Finish Nailers</td><td class="mono">60–100</td><td class="mono">4.14–6.89</td><td>Brad/Finish tools</td></tr>
+              <tr><td>Tire Pressure (Passenger)</td><td class="mono">30–35</td><td class="mono">2.07–2.41</td><td>Cold pressure</td></tr>
+            </tbody>
+            <caption>Common industry pressure benchmarks for field reference.</caption>
+          </table>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span>How many PSI are in 1 bar?</span><span class="faq-arrow">▶</span></div>
+          <div class="faq-a"><p>Exactly 1 bar is equal to <strong>14.5038 PSI</strong>. Conversely, 1 PSI is approximately 0.0689 bar. Bar is a metric unit of pressure used globally, while PSI (pounds per square inch) is the primary unit in North America.</p></div>
+        </div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card accent-top">
+          <div class="sidebar-title">Quick Conversions</div>
+          <div class="qr-list">
+            <div class="qr-item"><span class="qr-label">1 bar</span><span class="qr-val">14.5 PSI</span></div>
+            <div class="qr-item"><span class="qr-label">100 kPa</span><span class="qr-val">1 bar</span></div>
+            <div class="qr-item"><span class="qr-label">1 atm</span><span class="qr-val">14.7 PSI</span></div>
+            <div class="qr-item"><span class="qr-label">1 MPa</span><span class="qr-val">145 PSI</span></div>
+          </div>
+        </div>
+        <div class="trade-tip">
+          <strong><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:2px"><path d="M12 2v20M2 12h20"/></svg> Field Note</strong>
+          UPC §608.2 requires a pressure reducing valve (PRV) if static water pressure exceeds 80 PSI. High pressure voids many fixture warranties.
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 TradeConvert · NIST Verified</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="/js/converters.js"></script>
+</body>
+</html>

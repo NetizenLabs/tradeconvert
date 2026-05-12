@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Board Feet Calculator | Lumber Dimension Reference | TradeConvert</title>
+  <meta name="description" content="Calculate board feet (BF) for hardwood and dimensional lumber. Includes nominal vs actual size charts and board footage reference for common timber sizes.">
+  <meta name="keywords" content="board feet calculator, lumber calculator, nominal vs actual lumber, hardwood board feet, timber volume">
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/lumber">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TradeConvert Lumber Calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "url": "https://tradeconvert.pro/lumber",
+    "description": "Professional lumber board feet and dimension reference tool."
+  }
+  </script>
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · Hardwood Grade Standards
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Plumbing · Electrical · HVAC · Concrete<br>
+        NIST Verified Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/pressure" class="nav-item">Pressure</a>
+      <a href="/electrical" class="nav-item">Electrical</a>
+      <a href="/concrete" class="nav-item">Concrete</a>
+      <a href="/lumber" class="nav-item active">Lumber</a>
+      <a href="/blog" class="nav-item">Field Notes <span class="nav-new">NEW</span></a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Lumber</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <div class="page-hero">
+      <h1>Lumber Calculator — Board Feet & Dimension Guide</h1>
+      <p class="hero-desc">Calculate board footage for hardwood ordering and framing estimates. Reference nominal versus actual dimensions for softwood lumber.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>A <strong>Board Foot (BF)</strong> is a unit of volume equal to a board 12" wide, 12" long, and 1" thick (144 cubic inches). Formula: <strong>(Thickness" × Width" × Length') / 12</strong>. Note that hardwood is often sold by "quarters" (e.g., 4/4 is 1" thick).</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Board Feet Calculator</div>
+            <div class="tool-card-sub">Thickness" × Width" × Length'</div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-bottom:16px">
+            <div class="input-group">
+              <label class="input-label" for="lum-t">Thickness (in)</label>
+              <input class="input-field" id="lum-t" type="number" value="1" oninput="calcLumber()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="lum-w">Width (in)</label>
+              <input class="input-field" id="lum-w" type="number" value="12" oninput="calcLumber()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="lum-l">Length (ft)</label>
+              <input class="input-field" id="lum-l" type="number" value="8" oninput="calcLumber()">
+            </div>
+          </div>
+          <div class="result-display">
+            <span class="result-number" id="lum-bf">8.00</span>
+            <span class="result-unit">Board Feet</span>
+          </div>
+          <div class="formula-box">
+            <div class="formula-label">Calculation</div>
+            <div class="formula-text" id="lum-formula">(1 × 12 × 8) ÷ 12 = 8.00 BF</div>
+          </div>
+        </div>
+
+        <h2>Nominal vs. Actual Lumber Dimensions</h2>
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead><tr><th>Nominal Size</th><th>Actual Size (Dry)</th><th>Actual Size (Green)</th></tr></thead>
+            <tbody>
+              <tr><td>1 × 4</td><td class="mono">3/4 × 3 1/2</td><td class="mono">25/32 × 3 9/16</td></tr>
+              <tr><td>2 × 4</td><td class="mono">1 1/2 × 3 1/2</td><td class="mono">1 9/16 × 3 9/16</td></tr>
+              <tr><td>2 × 6</td><td class="mono">1 1/2 × 5 1/2</td><td class="mono">1 9/16 × 5 5/8</td></tr>
+              <tr><td>2 × 10</td><td class="mono">1 1/2 × 9 1/4</td><td class="mono">1 9/16 × 9 1/2</td></tr>
+              <tr><td>4 × 4</td><td class="mono">3 1/2 × 3 1/2</td><td class="mono">3 9/16 × 3 9/16</td></tr>
+            </tbody>
+            <caption>Standard dimensional lumber sizes per ALSC standards.</caption>
+          </table>
+        </div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card accent-top">
+          <div class="sidebar-title">Hardwood "Quarters"</div>
+          <div class="prose" style="font-size:12px">
+            <p>Hardwood thickness is measured in quarters of an inch:</p>
+            <ul>
+              <li>4/4 = 1 inch</li>
+              <li>5/4 = 1.25 inches</li>
+              <li>8/4 = 2 inches</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 TradeConvert · NIST Verified</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="/js/converters.js"></script>
+</body>
+</html>
