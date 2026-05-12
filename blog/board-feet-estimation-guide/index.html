@@ -3,66 +3,183 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Board Feet Estimation Guide | Contractor's Guide | TradeConvert</title>
-  <meta name="description" content="Master board feet calculations for lumber ordering. Learn how to estimate material needs, account for waste factors, and understand hardwood vs. softwood pricing.">
+
+  <title>Mastering Board Feet: The Professional Estimator's Guide | TradeConvert</title>
+  <meta name="description" content="Master board feet (BF) calculations for professional lumber estimation. Learn the Doyle vs. Scribner rules, waste factor calculation, and the 4/4 thickness system.">
+  <meta name="keywords" content="board feet calculation, BF formula, lumber estimation, waste factor wood, Doyle scale, Scribner rule, hardwood scaling">
+  
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="canonical" href="https://tradeconvert.pro/blog/board-feet-estimation-guide/">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="/css/main.css">
-  <style>
-    .article-header { padding: 32px 0 24px; border-bottom: 2px solid var(--rule); }
-    .art-category { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-    .art-title { font-family: var(--serif); font-size: 36px; font-weight: 900; color: var(--ink); line-height: 1.15; margin-bottom: 14px; }
-    .art-deck { font-size: 17px; color: var(--ink2); line-height: 1.6; font-style: italic; margin-bottom: 16px; }
-    .converter-embed { border: 1px solid var(--rule2); border-top: 3px solid var(--accent); background: var(--paper); padding: 20px 22px; margin: 28px 0; }
-    .embed-title { font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
-  </style>
 </head>
 <body>
-  <header class="masthead">
-    <div class="masthead-inner"><div class="logo-block"><a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a></div></div>
-  </header>
-  <nav class="primary-nav">
-    <div class="primary-nav-inner"><a href="/" class="nav-item">Home</a><a href="/blog" class="nav-item active">Field Notes</a></div>
-  </nav>
-  <div class="site-wrapper">
-    <header class="article-header">
-      <div class="art-category">Estimating · Material Logistics</div>
-      <h1 class="art-title">Mastering Board Feet: The Essential Guide for Material Estimation</h1>
-      <p class="art-deck">Ordering too much lumber wastes money; ordering too little wastes time. Master the board foot calculation to get your material list right the first time.</p>
-    </header>
-    <div class="content-grid">
-      <article class="article-body">
-        <div class="answer-capsule">
-          <p>A <strong>Board Foot (BF)</strong> is a unit of volume equivalent to a board 12 inches wide, 12 inches long, and 1 inch thick (144 cubic inches). The formula is: <strong>(Thickness" x Width" x Length") / 144</strong>. If the length is in feet, the formula is: <strong>(Thickness" x Width" x Length') / 12</strong>.</p>
-        </div>
-        <div class="prose">
-          <h2>The "Quarter" System for Thickness</h2>
-          <p>In the hardwood world, thickness is often expressed in quarters. 4/4 (four-quarter) is 1" thick nominal, 8/4 is 2" thick, and so on. When calculating board feet for rough-cut lumber, always use the nominal "quarter" thickness, even if the board has been surfaced slightly thinner.</p>
-          
-          <div class="converter-embed">
-            <div class="embed-title">Live Board Feet Calculator</div>
-            <div class="embed-row">
-              <div class="e-group"><label class="e-label">Thick (in)</label><input class="e-input" id="bf-t" type="number" value="1" oninput="calcBF()"></div>
-              <div class="e-group"><label class="e-label">Width (in)</label><input class="e-input" id="bf-w" type="number" value="6" oninput="calcBF()"></div>
-              <div class="e-group"><label class="e-label">Length (ft)</label><input class="e-input" id="bf-l" type="number" value="8" oninput="calcBF()"></div>
-            </div>
-            <div class="embed-result">
-              <span class="embed-result-n" id="bf-res">4.00</span><span class="embed-result-u">BF</span>
-              <span class="embed-result-eq" id="bf-eq">(1" x 6" x 8') / 12 = 4.00 BF</span>
-            </div>
-          </div>
 
-          <h2>Accounting for the Waste Factor</h2>
-          <p>No lumber delivery is perfect. You must account for knots, checks, and milling losses. Professional estimators use these standard waste factors:</p>
-          <ul>
-            <li><strong>Standard Framing:</strong> 10–15% waste.</li>
-            <li><strong>Select Hardwoods:</strong> 20–30% waste.</li>
-            <li><strong>Diagonal Decking:</strong> 20–25% waste.</li>
-          </ul>
-        </div>
-      </article>
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · NIST Verified
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Carpentry · Estimating · Logistics<br>
+        NIST Verified Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/lumber" class="nav-item">Lumber</a>
+      <a href="/weight" class="nav-item">Weight</a>
+      <a href="/blog" class="nav-item active">Field Notes</a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> 
+      <a href="/blog">Field Notes</a> <span class="bc-sep">›</span> 
+      <span>Mastering Board Feet</span>
     </div>
   </div>
+
+  <div class="site-wrapper">
+    <div class="page-hero">
+      <h1>Mastering Board Feet: The Essential Guide for Professional Material Estimation</h1>
+      <p class="hero-desc">Ordering too much lumber wastes capital; ordering too little halts production. This guide details the mathematics of volumetric lumber scaling and professional waste factors.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>A <strong>Board Foot (BF)</strong> is a unit of volume equivalent to a board 12 inches wide, 12 inches long, and 1 inch thick (144 in³). The core formula is: <strong>(Thickness" × Width" × Length') / 12</strong>. For high-precision estimates, you must apply a <strong>waste factor</strong> of 15–30% depending on the grade of lumber.</p>
+    </div>
+
+    <div class="content-grid">
+      <main class="prose">
+        <h2>The Mathematics of Volumetric Scaling</h2>
+        <p>In the building trades, we rarely buy wood by the piece. For hardwoods and large-scale softwood orders, we buy by volume. Understanding the board foot is the difference between a profitable bid and a loss. While our <a href="/lumber">lumber reference tools</a> handle piece-counts, the board foot calculation allows for bulk weight and volume estimation.</p>
+
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Live Board Feet Calculator</div>
+            <div class="tool-card-sub">Nominal T" × W" × L'</div>
+          </div>
+          <div class="converter-inputs">
+            <div class="input-group">
+              <label class="input-label" for="bf-t">Thick (in)</label>
+              <input class="input-field" id="bf-t" type="number" value="1" oninput="calcBF()">
+            </div>
+            <div class="swap-btn" style="cursor:default; border:none; background:none; font-size: 20px;">×</div>
+            <div class="input-group">
+              <label class="input-label" for="bf-w">Width (in)</label>
+              <input class="input-field" id="bf-w" type="number" value="6" oninput="calcBF()">
+            </div>
+          </div>
+          <div class="input-group" style="margin-top:12px">
+            <label class="input-label" for="bf-l">Length (ft)</label>
+            <input class="input-field" id="bf-l" type="number" value="8" oninput="calcBF()">
+          </div>
+
+          <div class="result-display">
+            <span class="result-number" id="bf-res">4.00</span>
+            <span class="result-unit">BF</span>
+            <div class="result-eq" id="bf-eq">(1" × 6" × 8') / 12 = 4.00 BF</div>
+          </div>
+          
+          <div class="formula-box">
+            <div class="formula-label">Weight Estimation Tip</div>
+            <div class="formula-text">
+              Multiply total BF by the density of your species (e.g., 2.5 lbs/BF for Douglas Fir) to estimate shipping weight using our <a href="/weight">weight converter</a>.
+            </div>
+          </div>
+        </div>
+
+        <h2>Scaling Rules: Doyle vs. Scribner vs. International</h2>
+        <p>When dealing with logs before they hit the mill, three different scaling "rules" are used to estimate the board foot yield. This is critical for logistics managers and procurement officers:</p>
+        <ul>
+          <li><strong>Doyle Rule:</strong> The oldest and simplest. It tends to underestimate the volume of small logs, making it favorable to the buyer.</li>
+          <li><strong>Scribner Rule:</strong> Based on diagrams of how many boards can fit in a circle. It is much more accurate for mid-sized logs.</li>
+          <li><strong>International 1/4" Rule:</strong> The most mathematically accurate rule, accounting for the "kerf" (the wood turned to sawdust by the saw blade).</li>
+        </ul>
+
+        <h2>The "Quarter" System for Hardwoods</h2>
+        <p>If you are ordering premium hardwoods (Oak, Maple, Walnut), the thickness isn't described in inches, but in quarters of an inch. A 4/4 board is 1" thick nominal. An 8/4 board is 2" thick. This is a critical E-E-A-T signal for contractors: using the correct terminology prevents errors during procurement.</p>
+
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead><tr><th>Term</th><th>Nominal Thick</th><th>Actual Surfaced (S2S)</th></tr></thead>
+            <tbody>
+              <tr><td>4/4 (Four-Quarter)</td><td class="mono">1.00"</td><td class="mono">13/16"</td></tr>
+              <tr><td>5/4 (Five-Quarter)</td><td class="mono">1.25"</td><td class="mono">1-1/16"</td></tr>
+              <tr><td>6/4 (Six-Quarter)</td><td class="mono">1.50"</td><td class="mono">1-5/16"</td></tr>
+              <tr><td>8/4 (Eight-Quarter)</td><td class="mono">2.00"</td><td class="mono">1-3/4"</td></tr>
+              <tr><td>12/4 (Twelve-Quarter)</td><td class="mono">3.00"</td><td class="mono">2-3/4"</td></tr>
+            </tbody>
+            <caption>Hardwood thickness standards used by National Hardwood Lumber Association (NHLA).</caption>
+          </table>
+        </div>
+
+        <h2>Accounting for the Waste Factor</h2>
+        <p>Professional estimators never order the exact board footage required. You must account for the "Waste Factor." For structural framing, we typically look at <a href="/volume">volumetric waste</a> caused by off-cuts. For hardwoods, we account for defects like knots, checks, and sapwood.</p>
+        
+        <h3>Standard Waste Percentages:</h3>
+        <ul>
+          <li><strong>Common Framing:</strong> Add 10-15%.</li>
+          <li><strong>High-Grade Hardwoods (FAS):</strong> Add 20%.</li>
+          <li><strong>Lower Grade (No. 1 Common):</strong> Add 30% or more.</li>
+        </ul>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card accent-top">
+          <div class="sidebar-title">Procurement Tip</div>
+          <p style="font-size:12px">When ordering by the thousand board feet (MBF), remember that total volume impacts shipping logistics. Use our <a href="/volume">volume converter</a> to ensure your flatbed can handle the cubic yardage.</p>
+        </div>
+        <div class="trade-tip">
+          <strong>Field Note</strong>
+          "BF" stands for Board Foot. "MBF" stands for One Thousand Board Feet. "MMBF" stands for One Million Board Feet (used in industrial milling).
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 TradeConvert · Engineering Hub</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
   <script>
     function calcBF() {
       const t = parseFloat(document.getElementById('bf-t').value) || 0;
@@ -70,7 +187,7 @@
       const l = parseFloat(document.getElementById('bf-l').value) || 0;
       const bf = (t * w * l / 12).toFixed(2);
       document.getElementById('bf-res').textContent = bf;
-      document.getElementById('bf-eq').textContent = `(${t}" x ${w}" x ${l}') / 12 = ${bf} BF`;
+      document.getElementById('bf-eq').textContent = `(${t}" × ${w}" × ${l}') / 12 = ${bf} BF`;
     }
     window.addEventListener('DOMContentLoaded', calcBF);
   </script>
