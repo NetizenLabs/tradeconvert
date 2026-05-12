@@ -32,7 +32,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--body);
-  font-size: 15px;
+  font-size: clamp(0.9rem, 0.2vw + 0.85rem, 1rem);
   line-height: 1.65;
   min-height: 100vh;
 }
@@ -51,7 +51,7 @@ body::before {
 .top-bar {
   background: var(--ink);
   color: var(--paper3);
-  font-size: 11px;
+  font-size: clamp(9px, 1.5vw, 11px);
   font-family: var(--body);
   text-align: center;
   padding: 5px 20px;
@@ -61,6 +61,7 @@ body::before {
 
 /* ══════════════════════════════════════
    MASTHEAD
+   Enhanced with fluid typography
 ══════════════════════════════════════ */
 .masthead {
   background: var(--paper);
@@ -74,20 +75,20 @@ body::before {
 .logo-block { flex: 1; }
 .logo-name {
   font-family: var(--serif);
-  font-size: 32px; font-weight: 900;
+  font-size: clamp(24px, 4vw, 32px); font-weight: 900;
   color: var(--ink); letter-spacing: -1px;
   line-height: 1;
 }
 .logo-name em { color: var(--accent); font-style: normal; }
 .logo-tagline {
-  font-size: 11px; font-family: var(--body); color: var(--ink3);
+  font-size: clamp(9px, 1.5vw, 11px); font-family: var(--body); color: var(--ink3);
   font-style: italic; margin-top: 3px; letter-spacing: .03em;
 }
 .masthead-meta {
-  text-align: right; font-size: 10px; color: var(--ink3);
+  text-align: right; font-size: clamp(9px, 1.2vw, 10px); color: var(--ink3);
   font-family: var(--body); line-height: 1.7;
 }
-.masthead-meta strong { color: var(--ink2); font-weight: 600; display: block; font-size: 11px; }
+.masthead-meta strong { color: var(--ink2); font-weight: 600; display: block; font-size: clamp(10px, 1.5vw, 11px); }
 
 /* ══════════════════════════════════════
    PRIMARY NAV
@@ -165,8 +166,8 @@ body::before {
 }
 .page-hero h1 {
   font-family: var(--serif);
-  font-size: 28px; font-weight: 700;
-  color: var(--ink); line-height: 1.2;
+  font-size: clamp(1.75rem, 5vw, 2.25rem); font-weight: 700;
+  color: var(--ink); line-height: 1.1;
   margin-bottom: 8px;
 }
 .page-hero .hero-desc {
@@ -581,5 +582,117 @@ h3 {
 .footer-bottom a { color: #6b6760; text-decoration: none; }
 .footer-bottom a:hover { color: var(--paper3); }
 
-/* Utility */
-.hidden { display: none !important; }
+/* ══════════════════════════════════════
+   MOBILE & DYNAMIC RESPONSIVENESS
+   Significant focus on mobile polish
+══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .sidebar {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .masthead {
+    padding: 14px 20px;
+  }
+  .masthead-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+  .masthead-meta {
+    text-align: center;
+  }
+  
+  /* Fixed Bottom Nav for Mobile */
+  .primary-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    background: rgba(245, 240, 232, 0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--rule);
+    border-bottom: none;
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+  }
+  .primary-nav-inner {
+    padding: 0;
+    overflow-x: visible;
+    justify-content: space-around;
+  }
+  .nav-item {
+    padding: 10px 5px;
+    font-size: 9px;
+    flex: 1;
+    text-align: center;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: var(--ink3);
+  }
+  .nav-item:hover, .nav-item.active {
+    background: none;
+    color: var(--accent);
+  }
+  .nav-item.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 0 0 4px 4px;
+  }
+
+  .site-wrapper {
+    padding: 0 20px 100px; /* Space for bottom nav */
+  }
+  .page-hero {
+    text-align: center;
+    padding: 32px 0 24px;
+  }
+  .hero-meta {
+    justify-content: center;
+  }
+  .converter-inputs {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .swap-btn {
+    transform: rotate(90deg);
+    margin-top: 0;
+  }
+  .result-number {
+    font-size: clamp(28px, 10vw, 40px);
+  }
+  .all-units-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-name { font-size: 24px; }
+  .logo-tagline { font-size: 9px; }
+  .all-units-grid { grid-template-columns: 1fr; }
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .footer-col h4::after {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--gold2); margin: 8px auto;
+  }
+}
