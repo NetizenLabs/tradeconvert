@@ -3,17 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Field Notes | TradeConvert Engineering Blog</title>
-  <meta name="description" content="Technical guides and field notes for building trades. Deep dives into plumbing codes, electrical standards, and material science.">
+
+  <title>Field Notes: Technical Framing & Plumbing Studies | TradeConvert</title>
+  <meta name="description" content="Technical research, code deep-dives, and material estimation guides for building trades. Professional insights into structural framing and plumbing standards.">
+  <meta name="keywords" content="construction blog, plumbing research, framing studies, lumber standards, technical construction guides">
   
   <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="canonical" href="https://tradeconvert.pro/blog">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  
+  <link rel="canonical" href="https://tradeconvert.pro/blog/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TradeConvert">
+  <meta property="og:title" content="Field Notes — TradeConvert Engineering Hub">
+  <meta property="og:description" content="Original technical research for modern tradesmen and architects.">
+  <meta property="og:url" content="https://tradeconvert.pro/blog/">
+  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
+
   <link rel="stylesheet" href="/css/main.css">
+  <style>
+    /* Premium Blog Grid Styling */
+    .blog-hero { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); margin-bottom: 48px; }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+    
+    .blog-card { 
+      background: var(--paper2); 
+      border: 1px solid var(--rule); 
+      padding: 24px; 
+      text-decoration: none; 
+      display: flex; 
+      flex-direction: column; 
+      transition: all .2s ease;
+      position: relative;
+    }
+    .blog-card:hover { border-color: var(--accent); background: var(--paper3); transform: translateY(-2px); }
+    
+    .cat-tag { 
+      font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; 
+      padding: 3px 8px; border-radius: 2px; margin-bottom: 12px; display: inline-block;
+      border: 1px solid transparent;
+    }
+    /* Category Colors - Ported from WTK Pro style */
+    .cat-plumbing { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
+    .cat-material { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+    .cat-carpentry { background: #fff7ed; color: #c2410c; border-color: #ffedd5; }
+
+    .card-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1.25; margin-bottom: 12px; }
+    .card-desc { font-size: 13px; color: var(--ink3); line-height: 1.6; margin-bottom: 24px; flex-grow: 1; }
+    
+    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px dotted var(--rule2); }
+    .card-date { font-size: 10px; color: var(--ink4); font-family: var(--mono); text-transform: uppercase; }
+    .card-read { font-size: 10px; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+  </style>
+
+  <!-- JSON-LD Breadcrumb List -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tradeconvert.pro" },
+      { "@type": "ListItem", "position": 2, "name": "Field Notes", "item": "https://tradeconvert.pro/blog/" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Blog Collection Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "TradeConvert Field Notes",
+    "description": "Technical framing and plumbing studies for building professionals.",
+    "url": "https://tradeconvert.pro/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "TradeConvert",
+      "url": "https://tradeconvert.pro"
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Mastering Board Feet: The Essential Guide for Material Estimation",
+        "datePublished": "2026-05-12",
+        "url": "https://tradeconvert.pro/blog/board-feet-estimation-guide/"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Lumber Dimensions: Nominal vs. Actual Size Guide",
+        "datePublished": "2026-05-12",
+        "url": "https://tradeconvert.pro/blog/lumber-dimensions-nominal-vs-actual/"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "What Water Pressure Is Too High? A Plumber's Guide to PSI Limits",
+        "datePublished": "2025-01-15",
+        "url": "https://tradeconvert.pro/blog/what-water-pressure-is-too-high/"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -31,39 +119,57 @@
       <a href="/" class="nav-item">Home</a>
       <a href="/pressure" class="nav-item">Pressure</a>
       <a href="/electrical" class="nav-item">Electrical</a>
-      <a href="/concrete" class="nav-item">Concrete</a>
       <a href="/blog" class="nav-item active">Field Notes</a>
     </div>
   </nav>
 
   <div class="site-wrapper">
-    <div class="page-hero">
-      <h1>Field Notes</h1>
-      <p class="hero-desc">Technical articles and practical guides for the modern tradesman. Focused on code compliance, safety, and efficiency.</p>
+    <div class="blog-hero">
+      <span style="font-size: 10px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .2em; display: block; margin-bottom: 12px;">📝 Field Notes & Engineering Studies</span>
+      <h1 style="font-family: var(--serif); font-size: 48px; font-weight: 900; margin-bottom: 16px;">Technical Research for <span style="color: var(--accent);">Modern Architects</span></h1>
+      <p style="font-size: 18px; color: var(--ink2); max-width: 700px; line-height: 1.6;">Original framing studies, plumbing code deep-dives, and material logistics research verified against NIST and trade standards.</p>
     </div>
 
-    <div class="related-pages-grid" style="grid-template-columns: 1fr">
-      <a href="/blog/board-feet-estimation-guide" class="rp-card">
-        <div class="rp-cat">Estimating · Material Logistics</div>
-        <div class="rp-name" style="font-size:18px">Mastering Board Feet: The Essential Guide for Material Estimation</div>
-        <div class="rp-desc">Master the board foot calculation to get your material list right the first time. Includes waste factors and a live scaling tool.</div>
+    <div class="blog-grid">
+      <!-- Article 1 -->
+      <a href="/blog/board-feet-estimation-guide" class="blog-card">
+        <span class="cat-tag cat-carpentry">Logistics</span>
+        <h2 class="card-title">Mastering Board Feet: The Essential Guide for Material Estimation</h2>
+        <p class="card-desc">Master the board foot calculation to get your material list right the first time. Includes waste factors and a live scaling tool.</p>
+        <div class="card-footer">
+          <span class="card-date">May 12, 2026</span>
+          <span class="card-read">8 MIN READ →</span>
+        </div>
       </a>
-      <a href="/blog/lumber-dimensions-nominal-vs-actual" class="rp-card">
-        <div class="rp-cat">Carpentry · Material Science</div>
-        <div class="rp-name" style="font-size:18px">Lumber Dimensions: Nominal vs. Actual Size Guide</div>
-        <div class="rp-desc">Why a 2x4 isn't actually 2x4. A deep dive into standard wood sizes, moisture content, and how to read blueprints accurately.</div>
+
+      <!-- Article 2 -->
+      <a href="/blog/lumber-dimensions-nominal-vs-actual" class="blog-card">
+        <span class="cat-tag cat-material">Material Science</span>
+        <h2 class="card-title">Lumber Dimensions: Nominal vs. Actual Size Guide</h2>
+        <p class="card-desc">Why a 2x4 isn't actually 2x4. A deep dive into standard wood sizes, moisture content, and how to read blueprints accurately.</p>
+        <div class="card-footer">
+          <span class="card-date">May 12, 2026</span>
+          <span class="card-read">10 MIN READ →</span>
+        </div>
       </a>
-      <a href="/blog/what-water-pressure-is-too-high" class="rp-card">
-        <div class="rp-cat">Plumbing · Code Compliance</div>
-        <div class="rp-name" style="font-size:18px">What Water Pressure is Too High for a House?</div>
-        <div class="rp-desc">A deep dive into residential water pressure limits, the role of Pressure Reducing Valves (PRVs), and why 80 PSI is the critical threshold for fixture safety.</div>
+
+      <!-- Article 3 -->
+      <a href="/blog/what-water-pressure-is-too-high" class="blog-card">
+        <span class="cat-tag cat-plumbing">Plumbing</span>
+        <h2 class="card-title">What Water Pressure Is Too High? A Plumber's Guide</h2>
+        <p class="card-desc">A deep dive into residential water pressure limits, the role of PRVs, and why 80 PSI is the critical threshold for fixture safety.</p>
+        <div class="card-footer">
+          <span class="card-date">Jan 15, 2025</span>
+          <span class="card-read">7 MIN READ →</span>
+        </div>
       </a>
     </div>
   </div>
 
   <footer class="site-footer">
     <div class="footer-bottom">
-      <span>© 2024 TradeConvert · Field Notes</span>
+      <span>© 2024 TradeConvert · Engineering Hub</span>
+      <a href="/privacy">Privacy</a>
     </div>
   </footer>
 
