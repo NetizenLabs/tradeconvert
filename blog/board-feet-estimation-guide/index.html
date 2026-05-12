@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Board Feet Estimation Guide | Contractor's Guide | TradeConvert</title>
+  <meta name="description" content="Master board feet calculations for lumber ordering. Learn how to estimate material needs, account for waste factors, and understand hardwood vs. softwood pricing.">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/blog/board-feet-estimation-guide/">
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    .article-header { padding: 32px 0 24px; border-bottom: 2px solid var(--rule); }
+    .art-category { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .art-title { font-family: var(--serif); font-size: 36px; font-weight: 900; color: var(--ink); line-height: 1.15; margin-bottom: 14px; }
+    .art-deck { font-size: 17px; color: var(--ink2); line-height: 1.6; font-style: italic; margin-bottom: 16px; }
+    .converter-embed { border: 1px solid var(--rule2); border-top: 3px solid var(--accent); background: var(--paper); padding: 20px 22px; margin: 28px 0; }
+    .embed-title { font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner"><div class="logo-block"><a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a></div></div>
+  </header>
+  <nav class="primary-nav">
+    <div class="primary-nav-inner"><a href="/" class="nav-item">Home</a><a href="/blog" class="nav-item active">Field Notes</a></div>
+  </nav>
+  <div class="site-wrapper">
+    <header class="article-header">
+      <div class="art-category">Estimating · Material Logistics</div>
+      <h1 class="art-title">Mastering Board Feet: The Essential Guide for Material Estimation</h1>
+      <p class="art-deck">Ordering too much lumber wastes money; ordering too little wastes time. Master the board foot calculation to get your material list right the first time.</p>
+    </header>
+    <div class="content-grid">
+      <article class="article-body">
+        <div class="answer-capsule">
+          <p>A <strong>Board Foot (BF)</strong> is a unit of volume equivalent to a board 12 inches wide, 12 inches long, and 1 inch thick (144 cubic inches). The formula is: <strong>(Thickness" x Width" x Length") / 144</strong>. If the length is in feet, the formula is: <strong>(Thickness" x Width" x Length') / 12</strong>.</p>
+        </div>
+        <div class="prose">
+          <h2>The "Quarter" System for Thickness</h2>
+          <p>In the hardwood world, thickness is often expressed in quarters. 4/4 (four-quarter) is 1" thick nominal, 8/4 is 2" thick, and so on. When calculating board feet for rough-cut lumber, always use the nominal "quarter" thickness, even if the board has been surfaced slightly thinner.</p>
+          
+          <div class="converter-embed">
+            <div class="embed-title">Live Board Feet Calculator</div>
+            <div class="embed-row">
+              <div class="e-group"><label class="e-label">Thick (in)</label><input class="e-input" id="bf-t" type="number" value="1" oninput="calcBF()"></div>
+              <div class="e-group"><label class="e-label">Width (in)</label><input class="e-input" id="bf-w" type="number" value="6" oninput="calcBF()"></div>
+              <div class="e-group"><label class="e-label">Length (ft)</label><input class="e-input" id="bf-l" type="number" value="8" oninput="calcBF()"></div>
+            </div>
+            <div class="embed-result">
+              <span class="embed-result-n" id="bf-res">4.00</span><span class="embed-result-u">BF</span>
+              <span class="embed-result-eq" id="bf-eq">(1" x 6" x 8') / 12 = 4.00 BF</span>
+            </div>
+          </div>
+
+          <h2>Accounting for the Waste Factor</h2>
+          <p>No lumber delivery is perfect. You must account for knots, checks, and milling losses. Professional estimators use these standard waste factors:</p>
+          <ul>
+            <li><strong>Standard Framing:</strong> 10–15% waste.</li>
+            <li><strong>Select Hardwoods:</strong> 20–30% waste.</li>
+            <li><strong>Diagonal Decking:</strong> 20–25% waste.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+  <script>
+    function calcBF() {
+      const t = parseFloat(document.getElementById('bf-t').value) || 0;
+      const w = parseFloat(document.getElementById('bf-w').value) || 0;
+      const l = parseFloat(document.getElementById('bf-l').value) || 0;
+      const bf = (t * w * l / 12).toFixed(2);
+      document.getElementById('bf-res').textContent = bf;
+      document.getElementById('bf-eq').textContent = `(${t}" x ${w}" x ${l}') / 12 = ${bf} BF`;
+    }
+    window.addEventListener('DOMContentLoaded', calcBF);
+  </script>
+</body>
+</html>

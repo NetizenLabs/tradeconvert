@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumber Dimensions: Nominal vs. Actual Size Guide | TradeConvert</title>
+  <meta name="description" content="Why is a 2x4 actually 1.5 x 3.5? This deep dive explains lumber dimension standards, the history of wood sizing, and how moisture content affects your framing.">
+  <meta name="keywords" content="lumber dimensions, nominal vs actual, 2x4 actual size, wood sizing chart, framing lumber standards">
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/blog/lumber-dimensions-nominal-vs-actual/">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    /* Article Specific Styles */
+    .article-header { padding: 32px 0 24px; border-bottom: 2px solid var(--rule); }
+    .art-category { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .art-title { font-family: var(--serif); font-size: 36px; font-weight: 900; color: var(--ink); line-height: 1.15; margin-bottom: 14px; }
+    .art-deck { font-size: 17px; color: var(--ink2); line-height: 1.6; font-style: italic; margin-bottom: 16px; }
+    .art-byline { display: flex; align-items: center; gap: 16px; font-size: 12px; color: var(--ink3); flex-wrap: wrap; }
+    .art-byline strong { color: var(--ink2); }
+    .art-byline .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--rule2); }
+    
+    .pullquote { border-left: 4px solid var(--accent); margin: 28px 0; padding: 12px 20px; background: var(--paper2); }
+    .pullquote p { font-family: var(--serif); font-size: 19px; font-style: italic; color: var(--ink); line-height: 1.4; margin: 0; }
+    
+    .data-table-wrap { overflow-x: auto; margin: 20px 0; }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    .data-table thead th { background: var(--paper3); font-weight: 600; font-size: 10.5px; text-transform: uppercase; padding: 8px 12px; border: 1px solid var(--rule2); text-align: left; }
+    .data-table td { padding: 7px 12px; border: 1px solid var(--rule); color: var(--ink2); }
+    
+    .converter-embed { border: 1px solid var(--rule2); border-top: 3px solid var(--accent); background: var(--paper); padding: 20px 22px; margin: 28px 0; }
+    .embed-label { font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .embed-title { font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+    .embed-row { display: grid; grid-template-columns: 1fr 36px 1fr; gap: 10px; align-items: end; }
+    .e-group { display: flex; flex-direction: column; gap: 4px; }
+    .e-label { font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink3); }
+    .e-input { background: var(--paper); border: 1px solid var(--rule2); padding: 9px 11px; font-family: var(--mono); font-size: 18px; color: var(--ink); width: 100%; outline: none; }
+    .e-input.e-output { background: var(--paper2); color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · NIST Verified
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/lumber" class="nav-item">Lumber</a>
+      <a href="/blog" class="nav-item active">Field Notes</a>
+    </div>
+  </nav>
+
+  <div class="bc-bar" style="background:var(--paper3); border-bottom:1px solid var(--rule); padding:6px 32px">
+    <div class="bc-inner" style="max-width:1060px; margin:0 auto; font-size:11px; color:var(--ink3); display:flex; gap:5px">
+      <a href="/" style="color:var(--accent); text-decoration:none">Home</a> <span class="bc-sep">›</span>
+      <a href="/blog" style="color:var(--accent); text-decoration:none">Field Notes</a> <span class="bc-sep">›</span>
+      <span>Lumber Dimensions</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <header class="article-header">
+      <div class="art-category">Carpentry · Framing · Material Science</div>
+      <h1 class="art-title">Lumber Dimensions: Why "Nominal" Size Isn't "Actual" Size</h1>
+      <p class="art-deck">The 2x4 is the most famous lie in construction. Understanding the gap between the name and the reality is critical for blueprint reading and precision framing.</p>
+      <div class="art-byline">
+        <span><strong>TradeConvert Editorial</strong></span>
+        <span class="dot"></span>
+        <span>Published May 12, 2026</span>
+        <span class="dot"></span>
+        <span class="reading-time">⏱ 10 min read</span>
+      </div>
+    </header>
+
+    <div class="content-grid">
+      <article class="article-body">
+        <div class="answer-capsule">
+          <p>The <strong>nominal size</strong> is the lumber's name (e.g., 2x4), representing its rough-cut dimensions before drying and surfacing. The <strong>actual size</strong> is what you measure in the field. For most framing lumber, the actual size is <strong>0.5" to 0.75" smaller</strong> than the nominal size. A standard 2x4 actually measures <strong>1.5" x 3.5"</strong>.</p>
+        </div>
+
+        <div class="prose">
+          <h2>The History of the "Missing" Half-Inch</h2>
+          <p>In the early 20th century, a 2x4 was often actually 2 inches by 4 inches. However, as the industry modernized, several factors led to the current standards. When a log is first milled, it is cut to its nominal dimensions (the "green" size). As the wood dries, it shrinks. To provide a smooth, consistent surface for builders, the wood is then "surfaced" or planed on all four sides (S4S). This process removes even more material.</p>
+          
+          <p>By the 1960s, the American Lumber Standard Committee formalized these reductions to ensure that a contractor in Maine and a contractor in California were using the exact same dimensions, regardless of the mill.</p>
+
+          <div class="pullquote">
+            <p>"If you design a cabinet with a 12-inch interior based on 1x12 nominal lumber, your shelf won't fit. You only have 11.25 inches of real wood."</p>
+          </div>
+
+          <h2>Lumber Dimension Reference Table</h2>
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Nominal Size</th>
+                  <th>Actual Size (Imperial)</th>
+                  <th>Actual Size (Metric)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1 x 2</td><td>3/4" x 1 1/2"</td><td>19 x 38 mm</td></tr>
+                <tr><td>1 x 4</td><td>3/4" x 3 1/2"</td><td>19 x 89 mm</td></tr>
+                <tr><td><strong>2 x 4</strong></td><td><strong>1 1/2" x 3 1/2"</strong></td><td><strong>38 x 89 mm</strong></td></tr>
+                <tr><td>2 x 6</td><td>1 1/2" x 5 1/2"</td><td>38 x 140 mm</td></tr>
+                <tr><td>2 x 8</td><td>1 1/2" x 7 1/4"</td><td>38 x 184 mm</td></tr>
+                <tr><td>2 x 10</td><td>1 1/2" x 9 1/4"</td><td>38 x 235 mm</td></tr>
+                <tr><td>2 x 12</td><td>1 1/2" x 11 1/4"</td><td>38 x 286 mm</td></tr>
+                <tr><td>4 x 4</td><td>3 1/2" x 3 1/2"</td><td>89 x 89 mm</td></tr>
+                <tr><td>6 x 6</td><td>5 1/2" x 5 1/2"</td><td>140 x 140 mm</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Why Accuracy Matters in Framing</h2>
+          <p>Understanding these dimensions is vital for two main reasons: **Structural integrity** and **Tolerance**. If an engineer calculates a load based on a 2" thick beam, but you install a 1.5" thick beam, the structure is significantly weaker. Blueprints are always drawn using actual dimensions, even if the labels use nominal names.</p>
+
+          <h3>The Moisture Factor</h3>
+          <p>Wood is a hygroscopic material—it absorbs and releases moisture. "Green" lumber (moisture content >19%) will shrink as it dries in the framing of a house. This is why many high-end builders prefer **Kiln-Dried (KD)** or **KD-HT** (Heat Treated) lumber, which has been stabilized to its final "actual" dimensions before it reaches the job site.</p>
+
+          <div class="converter-embed">
+            <div class="embed-label">Calculation Tool</div>
+            <div class="embed-title">Actual Area & Section Modulus</div>
+            <p style="font-size:12px; margin-bottom:10px">Enter nominal dimensions to see the actual cross-sectional area (useful for load calcs).</p>
+            <div class="embed-row">
+              <div class="e-group">
+                <label class="e-label">Nominal Width</label>
+                <input class="e-input" id="n-w" type="number" value="2" oninput="calcActual()">
+              </div>
+              <div class="e-group">
+                <label class="e-label">Nominal Depth</label>
+                <input class="e-input" id="n-d" type="number" value="4" oninput="calcActual()">
+              </div>
+            </div>
+            <div class="embed-result">
+              <span class="embed-result-n" id="a-res">5.25</span>
+              <span class="embed-result-u">sq. in.</span>
+              <span class="embed-result-eq" id="a-eq">Actual: 1.5" x 3.5" = 5.25 in²</span>
+            </div>
+          </div>
+          
+          <h2>Hardwood vs. Softwood Differences</h2>
+          <p>It's important to note that the table above applies to **Softwood** (construction lumber like Pine, Fir, Cedar). **Hardwoods** (Oak, Maple, Walnut) are often sold by the "quarter" system (4/4, 5/4, 8/4) and are often sold "rough-sawn," meaning they might actually be their full nominal thickness, or even slightly larger, allowing the woodworker to plane them down to a specific custom size.</p>
+        </div>
+      </article>
+
+      <aside class="sidebar">
+        <div class="sb-card top-accent">
+          <div class="sb-title">Trade Rule of Thumb</div>
+          <p style="font-size:13px; line-height:1.5">For lumber under 8" wide, subtract <strong>1/2"</strong>. For lumber 8" and wider, subtract <strong>3/4"</strong>.</p>
+        </div>
+        <div class="sb-card top-gold">
+          <div class="sb-title">Quick Metric Ref</div>
+          <div class="qr-row"><span class="qr-lbl">2x4</span><span class="qr-val">38x89mm</span></div>
+          <div class="qr-row"><span class="qr-lbl">2x6</span><span class="qr-val">38x140mm</span></div>
+          <div class="qr-row"><span class="qr-lbl">4x4</span><span class="qr-val">89x89mm</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <span>© 2024 TradeConvert · Field Notes</span>
+    </div>
+  </footer>
+
+  <script>
+    function calcActual() {
+      const w = parseFloat(document.getElementById('n-w').value);
+      const d = parseFloat(document.getElementById('n-d').value);
+      
+      let aw = w - 0.5;
+      if (w >= 8) aw = w - 0.75;
+      if (w <= 1) aw = 0.75; // 1x material is 0.75
+      
+      let ad = d - 0.5;
+      if (d >= 8) ad = d - 0.75;
+      if (d <= 1) ad = 0.75;
+      
+      const area = (aw * ad).toFixed(2);
+      document.getElementById('a-res').textContent = area;
+      document.getElementById('a-eq').textContent = `Actual: ${aw}" x ${ad}" = ${area} in²`;
+    }
+    window.addEventListener('DOMContentLoaded', calcActual);
+  </script>
+</body>
+</html>
