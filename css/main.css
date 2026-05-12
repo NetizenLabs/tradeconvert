@@ -610,51 +610,50 @@ h3 {
     text-align: center;
   }
   
-  /* Fixed Bottom Nav for Mobile */
+  /* Fixed Bottom Nav for Mobile - Refined */
   .primary-nav {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     z-index: 2000;
-    background: rgba(245, 240, 232, 0.95);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid var(--rule);
+    background: #ede8dc; /* var(--paper2) but solid for performance */
+    border-top: 1px solid var(--rule2);
     border-bottom: none;
     padding-bottom: env(safe-area-inset-bottom);
-    box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
   }
   .primary-nav-inner {
-    padding: 0;
+    padding: 6px 4px;
     overflow-x: visible;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   .nav-item {
-    padding: 10px 5px;
-    font-size: 9px;
+    padding: 8px 4px;
+    font-size: 8px;
     flex: 1;
     text-align: center;
     border-bottom: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
+    gap: 4px;
     color: var(--ink3);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
   }
   .nav-item:hover, .nav-item.active {
     background: none;
     color: var(--accent);
   }
   .nav-item.active::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 3px;
-    background: var(--accent);
-    border-radius: 0 0 4px 4px;
+    display: none; /* Removed for cleaner look */
+  }
+  .nav-item .nav-new {
+    top: 0; right: 0;
+    font-size: 7px;
+    padding: 1px 3px;
   }
 
   .site-wrapper {
@@ -663,6 +662,10 @@ h3 {
   .page-hero {
     text-align: center;
     padding: 32px 0 24px;
+  }
+  .page-hero h1 {
+    line-height: 1.2;
+    margin-bottom: 12px;
   }
   .hero-meta {
     justify-content: center;
@@ -673,10 +676,15 @@ h3 {
   }
   .swap-btn {
     transform: rotate(90deg);
-    margin-top: 0;
+    margin: 10px auto;
   }
   .result-number {
-    font-size: clamp(28px, 10vw, 40px);
+    font-size: clamp(32px, 12vw, 48px);
+  }
+  .answer-capsule {
+    background: #2d2a26;
+    border-radius: 8px;
+    padding: 24px;
   }
   .all-units-grid {
     grid-template-columns: 1fr 1fr;
