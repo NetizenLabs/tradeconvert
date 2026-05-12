@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Circuit Breaker Sizing: The 80% Rule and NEC §210.20 | TradeConvert</title>
+  <meta name="description" content="Master NEC §210.20 requirements for circuit breaker sizing. Learn the difference between continuous and non-continuous loads and how to apply the 80% rule correctly.">
+  <meta name="keywords" content="NEC 210.20, circuit breaker sizing, 80% rule electrical, continuous load calculation, breaker ampacity, wire sizing NEC">
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/blog/circuit-breaker-sizing-nec-80-rule/">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · NIST Verified
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Electrical · NEC Compliance · Load Calcs<br>
+        NFPA 70 Verified Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/electrical" class="nav-item active">Electrical</a>
+      <a href="/blog" class="nav-item">Field Notes</a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> 
+      <a href="/blog">Field Notes</a> <span class="bc-sep">›</span> 
+      <span>Circuit Breaker Sizing (NEC)</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <div class="page-hero">
+      <h1>Circuit Breaker Sizing: The 80% Rule and NEC §210.20</h1>
+      <p class="hero-desc">Overloading a circuit is a fire hazard; under-sizing a breaker is a nuisance. Mastering the relationship between ampacity and continuous loads is fundamental to NEC compliance.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>Under <strong>NEC §210.20(A)</strong>, an overcurrent protection device (circuit breaker) must be sized at no less than <strong>125% of the continuous load</strong> plus 100% of the non-continuous load. In simpler terms, for a continuous load, you should never exceed <strong>80% of the breaker's rated ampacity</strong>. For a standard 20A breaker, your continuous load limit is 16A.</p>
+    </div>
+
+    <div class="content-grid">
+      <main class="prose">
+        <h2>Continuous vs. Non-Continuous Loads</h2>
+        <p>The first step in proper electrical estimation is identifying the load type. The NEC defines a **continuous load** as any load where the maximum current is expected to continue for three hours or more (e.g., store lighting, office HVAC). Non-continuous loads are short-duration items like a toaster or a garage door opener. If you are converting power ratings to determine current, use our <a href="/electrical">Watts to Amps converter</a> to ensure your base numbers are accurate before applying the 125% multiplier.</p>
+
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">NEC Load Calculator</div>
+            <div class="tool-card-sub">Continuous Load Sizing</div>
+          </div>
+          <div class="converter-inputs">
+            <div class="input-group">
+              <label class="input-label" for="l-amp">Continuous Load (Amps)</label>
+              <input class="input-field" id="l-amp" type="number" value="12" oninput="calcNEC()">
+            </div>
+          </div>
+
+          <div class="result-display">
+            <span class="result-number" id="l-res">15</span>
+            <span class="result-unit">Amp Breaker</span>
+            <div class="result-eq" id="l-eq">12A × 125% = 15A Required</div>
+          </div>
+          
+          <div class="formula-box">
+            <div class="formula-label">NEC §210.20 Formula</div>
+            <div class="formula-text">
+              Minimum Breaker Size = (Continuous Load × 1.25) + Non-Continuous Load. 
+            </div>
+          </div>
+        </div>
+
+        <h2>Why the 125% Multiplier?</h2>
+        <p>Standard circuit breakers are thermal-magnetic devices. They generate heat as current passes through them. If a breaker is run at 100% of its capacity for several hours, the heat buildup can cause it to "nuisance trip" even if there isn't a short circuit. The 125% headroom (or the inverse 80% rule) ensures that the breaker stays cool enough to operate within its calibrated trip-curve parameters.</p>
+
+        <h2>Common Residential Examples</h2>
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead><tr><th>Breaker Size</th><th>Max Continuous Load (80%)</th><th>Max Non-Continuous Load (100%)</th></tr></thead>
+            <tbody>
+              <tr><td>15 Amp</td><td class="mono">12.0 Amps</td><td class="mono">15.0 Amps</td></tr>
+              <tr><td>20 Amp</td><td class="mono">16.0 Amps</td><td class="mono">20.0 Amps</td></tr>
+              <tr><td>30 Amp</td><td class="mono">24.0 Amps</td><td class="mono">30.0 Amps</td></tr>
+              <tr><td>50 Amp</td><td class="mono">40.0 Amps</td><td class="mono">50.0 Amps</td></tr>
+            </tbody>
+            <caption>Quick reference for standard residential OCPD sizing.</caption>
+          </table>
+        </div>
+
+        <h2>Conductor Sizing and Temperature Terminations</h2>
+        <p>It is not enough to simply size the breaker. Under **NEC §310.15**, the wire (conductor) must also be capable of carrying the load. A common mistake is using a 20A breaker with 14 AWG wire. This violates the "small conductor rule" in **NEC §240.4(D)**. Always ensure your wire gauge matches the overcurrent protection to prevent the insulation from melting before the breaker can trip.</p>
+
+        <h2>NEMA Plug Configurations</h2>
+        <p>For industrial and workshop equipment, the NEMA plug type will often dictate the circuit requirements. A NEMA 6-50 plug (common on welders) implies a 50A circuit. If you are unsure of the power requirements for a piece of machinery, check the nameplate for the "Minimum Circuit Ampacity" (MCA) and "Maximum Overcurrent Protective Device" (MOPD) ratings.</p>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card accent-top">
+          <div class="sidebar-title">Code Reference</div>
+          <p style="font-size:12px"><strong>NEC §210.20(A):</strong> "Where a branch circuit supplies continuous loads or any combination of continuous and noncontinuous loads, the rating of the overcurrent device shall not be less than the noncontinuous load plus 125 percent of the continuous load."</p>
+        </div>
+        <div class="trade-tip">
+          <strong>Field Note</strong>
+          In commercial settings, some breakers are rated for "100% continuous use." These are specialized, more expensive devices and do not require the 125% multiplier.
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 TradeConvert · Engineering Hub</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    function calcNEC() {
+      const v = parseFloat(document.getElementById('l-amp').value) || 0;
+      const res = (v * 1.25).toFixed(1);
+      document.getElementById('l-res').textContent = res;
+      document.getElementById('l-eq').textContent = `${v}A × 125% = ${res}A Required`;
+    }
+    window.addEventListener('DOMContentLoaded', calcNEC);
+  </script>
+</body>
+</html>

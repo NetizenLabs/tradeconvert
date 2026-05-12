@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Field Notes: Technical Framing & Plumbing Studies | TradeConvert</title>
-  <meta name="description" content="Technical research, code deep-dives, and material estimation guides for building trades. Professional insights into structural framing and plumbing standards.">
-  <meta name="keywords" content="construction blog, plumbing research, framing studies, lumber standards, technical construction guides">
+  <title>Field Notes: Technical Framing, Plumbing & Electrical Studies | TradeConvert</title>
+  <meta name="description" content="Technical research, code deep-dives, and material estimation guides for building trades. Professional insights into structural framing, NEC electrical, and plumbing standards.">
+  <meta name="keywords" content="construction blog, plumbing research, framing studies, lumber standards, NEC 210.20, ACI 318, technical construction guides">
   
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="canonical" href="https://tradeconvert.pro/blog/">
@@ -42,10 +42,11 @@
       padding: 3px 8px; border-radius: 2px; margin-bottom: 12px; display: inline-block;
       border: 1px solid transparent;
     }
-    /* Category Colors - Ported from WTK Pro style */
     .cat-plumbing { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
     .cat-material { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
     .cat-carpentry { background: #fff7ed; color: #c2410c; border-color: #ffedd5; }
+    .cat-electrical { background: #fef2f2; color: #b91c1c; border-color: #fecaca; }
+    .cat-concrete { background: #f8fafc; color: #475569; border-color: #e2e8f0; }
 
     .card-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1.25; margin-bottom: 12px; }
     .card-desc { font-size: 13px; color: var(--ink3); line-height: 1.6; margin-bottom: 24px; flex-grow: 1; }
@@ -73,7 +74,7 @@
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "TradeConvert Field Notes",
-    "description": "Technical framing and plumbing studies for building professionals.",
+    "description": "Technical framing, electrical, and plumbing studies for building professionals.",
     "url": "https://tradeconvert.pro/blog/",
     "publisher": {
       "@type": "Organization",
@@ -81,6 +82,18 @@
       "url": "https://tradeconvert.pro"
     },
     "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Circuit Breaker Sizing: The 80% Rule and NEC §210.20",
+        "datePublished": "2026-05-12",
+        "url": "https://tradeconvert.pro/blog/circuit-breaker-sizing-nec-80-rule/"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Concrete PSI Requirements: ACI 318 Standards for Slabs",
+        "datePublished": "2026-05-12",
+        "url": "https://tradeconvert.pro/blog/concrete-psi-requirements-aci-318/"
+      },
       {
         "@type": "BlogPosting",
         "headline": "Mastering Board Feet: The Essential Guide for Material Estimation",
@@ -127,37 +140,59 @@
     <div class="blog-hero">
       <span style="font-size: 10px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .2em; display: block; margin-bottom: 12px;">📝 Field Notes & Engineering Studies</span>
       <h1 style="font-family: var(--serif); font-size: 48px; font-weight: 900; margin-bottom: 16px;">Technical Research for <span style="color: var(--accent);">Modern Architects</span></h1>
-      <p style="font-size: 18px; color: var(--ink2); max-width: 700px; line-height: 1.6;">Original framing studies, plumbing code deep-dives, and material logistics research verified against NIST and trade standards.</p>
+      <p style="font-size: 18px; color: var(--ink2); max-width: 700px; line-height: 1.6;">Original framing studies, electrical code deep-dives, and plumbing research verified against NIST, NEC, and ACI standards.</p>
     </div>
 
     <div class="blog-grid">
-      <!-- Article 1 -->
-      <a href="/blog/board-feet-estimation-guide" class="blog-card">
-        <span class="cat-tag cat-carpentry">Logistics</span>
-        <h2 class="card-title">Mastering Board Feet: The Essential Guide for Material Estimation</h2>
-        <p class="card-desc">Master the board foot calculation to get your material list right the first time. Includes waste factors and a live scaling tool.</p>
+      <!-- Electrical -->
+      <a href="/blog/circuit-breaker-sizing-nec-80-rule" class="blog-card">
+        <span class="cat-tag cat-electrical">Electrical Code</span>
+        <h2 class="card-title">Circuit Breaker Sizing: The 80% Rule and NEC §210.20</h2>
+        <p class="card-desc">Master NEC §210.20 requirements for continuous loads. Learn why the 125% multiplier is critical for overcurrent protection.</p>
         <div class="card-footer">
           <span class="card-date">May 12, 2026</span>
-          <span class="card-read">8 MIN READ →</span>
+          <span class="card-read">9 MIN READ →</span>
         </div>
       </a>
 
-      <!-- Article 2 -->
-      <a href="/blog/lumber-dimensions-nominal-vs-actual" class="blog-card">
-        <span class="cat-tag cat-material">Material Science</span>
-        <h2 class="card-title">Lumber Dimensions: Nominal vs. Actual Size Guide</h2>
-        <p class="card-desc">Why a 2x4 isn't actually 2x4. A deep dive into standard wood sizes, moisture content, and how to read blueprints accurately.</p>
+      <!-- Concrete -->
+      <a href="/blog/concrete-psi-requirements-aci-318" class="blog-card">
+        <span class="cat-tag cat-concrete">Concrete Specs</span>
+        <h2 class="card-title">Concrete PSI Requirements: ACI 318 Standards for Slabs</h2>
+        <p class="card-desc">A deep dive into ACI durability standards. Learn the PSI requirements for foundations vs. exterior freeze-thaw slabs.</p>
         <div class="card-footer">
           <span class="card-date">May 12, 2026</span>
           <span class="card-read">10 MIN READ →</span>
         </div>
       </a>
 
-      <!-- Article 3 -->
+      <!-- Board Feet -->
+      <a href="/blog/board-feet-estimation-guide" class="blog-card">
+        <span class="cat-tag cat-carpentry">Logistics</span>
+        <h2 class="card-title">Mastering Board Feet: The Essential Guide for Estimation</h2>
+        <p class="card-desc">Master the board foot calculation for professional procurement. Includes Doyle scaling and industrial waste factors.</p>
+        <div class="card-footer">
+          <span class="card-date">May 12, 2026</span>
+          <span class="card-read">8 MIN READ →</span>
+        </div>
+      </a>
+
+      <!-- Lumber Dimensions -->
+      <a href="/blog/lumber-dimensions-nominal-vs-actual" class="blog-card">
+        <span class="cat-tag cat-material">Material Science</span>
+        <h2 class="card-title">Lumber Dimensions: Nominal vs. Actual Size Guide</h2>
+        <p class="card-desc">Understanding PS 20-20 standards. Why a 2x4 isn't 2x4 and how moisture shrinkage affects structural framing.</p>
+        <div class="card-footer">
+          <span class="card-date">May 12, 2026</span>
+          <span class="card-read">10 MIN READ →</span>
+        </div>
+      </a>
+
+      <!-- Water Pressure -->
       <a href="/blog/what-water-pressure-is-too-high" class="blog-card">
         <span class="cat-tag cat-plumbing">Plumbing</span>
         <h2 class="card-title">What Water Pressure Is Too High? A Plumber's Guide</h2>
-        <p class="card-desc">A deep dive into residential water pressure limits, the role of PRVs, and why 80 PSI is the critical threshold for fixture safety.</p>
+        <p class="card-desc">A code-based look at UPC §608.2. Why 80 PSI is the critical threshold for residential fixture safety.</p>
         <div class="card-footer">
           <span class="card-date">Jan 15, 2025</span>
           <span class="card-read">7 MIN READ →</span>
@@ -167,9 +202,28 @@
   </div>
 
   <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
     <div class="footer-bottom">
       <span>© 2024 TradeConvert · Engineering Hub</span>
-      <a href="/privacy">Privacy</a>
+      <a href="/privacy">Privacy Policy</a>
     </div>
   </footer>
 
