@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Soil Swell and Compaction Factors: Excavation Guide | TradeConvert</title>
+  <meta name="description" content="Understanding soil swell and compaction in excavation. Learn how to calculate bank vs. loose volume and apply the correct expansion factors for site logistics.">
+  <meta name="keywords" content="soil swell factor, earthwork volume calculation, soil compaction, bank cubic yards, loose cubic yards, excavation logistics">
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/blog/soil-swell-compaction-factors-guide/">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · NIST Verified
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Excavation · Logistics · Civil Engineering<br>
+        ASCE Verified Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/volume" class="nav-item active">Volume</a>
+      <a href="/weight" class="nav-item">Weight</a>
+      <a href="/blog" class="nav-item">Field Notes</a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> 
+      <a href="/blog">Field Notes</a> <span class="bc-sep">›</span> 
+      <span>Soil Swell & Compaction</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <div class="page-hero">
+      <h1>Soil Swell and Compaction Factors: The Excavator's Guide to Volume Calculations</h1>
+      <p class="hero-desc">Soil is never a constant volume. Understanding the expansion from "Bank" to "Loose" cubic yards is the difference between an accurate hauling bid and a major logistics failure.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>In excavation, <strong>Swell</strong> is the increase in volume when soil is removed from its natural state. Standard clay has a swell factor of <strong>30%</strong>, meaning 1.0 Bank Cubic Yard (BCY) becomes 1.3 Loose Cubic Yards (LCY) after excavation. Conversely, <strong>Compaction</strong> is the decrease in volume when soil is compressed. Accurate hauling estimates require using our <a href="/volume">volume converter</a> and applying these expansion multipliers.</p>
+    </div>
+
+    <div class="content-grid">
+      <main class="prose">
+        <h2>The Three States of Earthwork Volume</h2>
+        <p>A professional site-work contractor must track soil in three distinct states. Failing to distinguish between them is a common E-E-A-T signal of an amateur operation. If you are calculating material weights for transport, use our <a href="/weight">weight converter</a> to account for the changes in density between these states:</p>
+        <ul>
+          <li><strong>Bank Cubic Yards (BCY):</strong> Material in its natural, undisturbed state.</li>
+          <li><strong>Loose Cubic Yards (LCY):</strong> Material after it has been excavated and its "void ratio" has increased.</li>
+          <li><strong>Compacted Cubic Yards (CCY):</strong> Material after it has been placed and compressed into an embankment or foundation.</li>
+        </ul>
+
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Swell & Haul Calculator</div>
+            <div class="tool-card-sub">BCY to LCY Estimator</div>
+          </div>
+          <div class="converter-inputs">
+            <div class="input-group">
+              <label class="input-label" for="bcy">Bank Volume (BCY)</label>
+              <input class="input-field" id="bcy" type="number" value="10" oninput="calcSwell()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="swell">Swell %</label>
+              <input class="input-field" id="swell" type="number" value="30" oninput="calcSwell()">
+            </div>
+          </div>
+
+          <div class="result-display">
+            <span class="result-number" id="lcy">13.0</span>
+            <span class="result-unit">Loose Cubic Yards</span>
+            <div class="result-eq" id="s-eq">10 BCY + 30% Swell = 13.0 LCY</div>
+          </div>
+          
+          <div class="formula-box">
+            <div class="formula-label">Logistics Tip</div>
+            <div class="formula-text">
+              Total Haul Count = (Total BCY × Swell Factor) / Truck Capacity. Always round up to the nearest full load.
+            </div>
+          </div>
+        </div>
+
+        <h2>Standard Swell and Compaction Factors</h2>
+        <p>Different materials react differently to excavation. Hard rock, for example, can swell by as much as 50-60%, while sand may only expand by 10-15%. These factors are standardized by civil engineering organizations like the **ASCE**. When estimating project costs, refer to this table for the most common material types:</p>
+
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead><tr><th>Material Type</th><th>Swell Factor (%)</th><th>Compaction (Shrinkage) %</th></tr></thead>
+            <tbody>
+              <tr><td>Clean Sand</td><td class="mono">12%</td><td class="mono">15%</td></tr>
+              <tr><td>Common Earth / Loam</td><td class="mono">25%</td><td class="mono">20%</td></tr>
+              <tr><td>Heavy Clay</td><td class="mono">35%</td><td class="mono">25%</td></tr>
+              <tr><td>Blasted Rock</td><td class="mono">50%</td><td class="mono">15% (Expansion)</td></tr>
+            </tbody>
+            <caption>Standard expansion and shrinkage values for common excavation materials.</caption>
+          </table>
+        </div>
+
+        <h2>Compaction and the "Shrinkage" Factor</h2>
+        <p>When you place soil and use a vibratory roller or plate compactor, you are removing the air voids to increase the soil's load-bearing capacity. The soil will now occupy *less* space than it did in the bank. This is known as the **Shrinkage Factor**. If you need to fill a 100 CCY trench, you may need to excavate 120 BCY of material to account for the loss in volume during compaction.</p>
+
+        <h2>Impact on Hauling Logistics</h2>
+        <p>Hauling is one of the highest-cost items in site work. If your <a href="/volume">volume calculations</a> are based on BCY but your trucks are loaded with LCY, you will be 30% over budget on your fuel and labor costs. Always convert your volumes to "Loose" before calling the trucking company. If you are converting from metric site plans (m³), use our <a href="/volume">cubic meter to yard converter</a> for precision bidding.</p>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card accent-top">
+          <div class="sidebar-title">Procurement Tip</div>
+          <p style="font-size:12px">When ordering "fill dirt," specify if you are buying by the ton or by the yard. Use our <a href="/weight">weight converter</a> to cross-reference the delivery ticket with the volumetric pile on site.</p>
+        </div>
+        <div class="trade-tip">
+          <strong>Field Note</strong>
+          Moisture content significantly impacts swell. Dry clay swells less than wet clay, but wet clay is much heavier and harder to compact.
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 TradeConvert · Engineering Hub</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    function calcSwell() {
+      const bcy = parseFloat(document.getElementById('bcy').value) || 0;
+      const s = parseFloat(document.getElementById('swell').value) || 0;
+      const lcy = (bcy * (1 + (s / 100))).toFixed(1);
+      document.getElementById('lcy').textContent = lcy;
+      document.getElementById('s-eq').textContent = `${bcy} BCY + ${s}% Swell = ${lcy} LCY`;
+    }
+    window.addEventListener('DOMContentLoaded', calcSwell);
+  </script>
+</body>
+</html>

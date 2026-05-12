@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Field Notes: Technical Framing, Plumbing & Electrical Studies | TradeConvert</title>
-  <meta name="description" content="Technical research, code deep-dives, and material estimation guides for building trades. Professional insights into structural framing, NEC electrical, and plumbing standards.">
-  <meta name="keywords" content="construction blog, plumbing research, framing studies, lumber standards, NEC 210.20, ACI 318, technical construction guides">
+  <title>Field Notes: Technical Framing, Plumbing & Excavation Studies | TradeConvert</title>
+  <meta name="description" content="Technical research, code deep-dives, and material estimation guides for building trades. Professional insights into structural framing, excavation logistics, and plumbing standards.">
+  <meta name="keywords" content="construction blog, plumbing research, framing studies, excavation logistics, soil swell, lumber standards, NEC 210.20, ACI 318, technical construction guides">
   
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="canonical" href="https://tradeconvert.pro/blog/">
@@ -47,6 +47,7 @@
     .cat-carpentry { background: #fff7ed; color: #c2410c; border-color: #ffedd5; }
     .cat-electrical { background: #fef2f2; color: #b91c1c; border-color: #fecaca; }
     .cat-concrete { background: #f8fafc; color: #475569; border-color: #e2e8f0; }
+    .cat-excavation { background: #fefce8; color: #854d0e; border-color: #fef08a; }
 
     .card-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1.25; margin-bottom: 12px; }
     .card-desc { font-size: 13px; color: var(--ink3); line-height: 1.6; margin-bottom: 24px; flex-grow: 1; }
@@ -74,7 +75,7 @@
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "TradeConvert Field Notes",
-    "description": "Technical framing, electrical, and plumbing studies for building professionals.",
+    "description": "Technical framing, excavation, electrical, and plumbing studies for building professionals.",
     "url": "https://tradeconvert.pro/blog/",
     "publisher": {
       "@type": "Organization",
@@ -82,6 +83,12 @@
       "url": "https://tradeconvert.pro"
     },
     "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Soil Swell and Compaction Factors: The Excavator's Guide",
+        "datePublished": "2026-05-12",
+        "url": "https://tradeconvert.pro/blog/soil-swell-compaction-factors-guide/"
+      },
       {
         "@type": "BlogPosting",
         "headline": "Circuit Breaker Sizing: The 80% Rule and NEC §210.20",
@@ -131,7 +138,7 @@
     <div class="primary-nav-inner">
       <a href="/" class="nav-item">Home</a>
       <a href="/pressure" class="nav-item">Pressure</a>
-      <a href="/electrical" class="nav-item">Electrical</a>
+      <a href="/volume" class="nav-item">Volume</a>
       <a href="/blog" class="nav-item active">Field Notes</a>
     </div>
   </nav>
@@ -140,15 +147,26 @@
     <div class="blog-hero">
       <span style="font-size: 10px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .2em; display: block; margin-bottom: 12px;">📝 Field Notes & Engineering Studies</span>
       <h1 style="font-family: var(--serif); font-size: 48px; font-weight: 900; margin-bottom: 16px;">Technical Research for <span style="color: var(--accent);">Modern Architects</span></h1>
-      <p style="font-size: 18px; color: var(--ink2); max-width: 700px; line-height: 1.6;">Original framing studies, electrical code deep-dives, and plumbing research verified against NIST, NEC, and ACI standards.</p>
+      <p style="font-size: 18px; color: var(--ink2); max-width: 700px; line-height: 1.6;">Original excavation logistics, framing studies, electrical code deep-dives, and plumbing research verified against NIST, NEC, and ACI standards.</p>
     </div>
 
     <div class="blog-grid">
+      <!-- Excavation -->
+      <a href="/blog/soil-swell-compaction-factors-guide" class="blog-card">
+        <span class="cat-tag cat-excavation">Excavation Logistics</span>
+        <h2 class="card-title">Soil Swell and Compaction Factors: The Excavator's Guide</h2>
+        <p class="card-desc">Understanding Bank vs. Loose volume. Learn how soil expansion impacts hauling costs and site logistics.</p>
+        <div class="card-footer">
+          <span class="card-date">May 12, 2026</span>
+          <span class="card-read">11 MIN READ →</span>
+        </div>
+      </a>
+
       <!-- Electrical -->
       <a href="/blog/circuit-breaker-sizing-nec-80-rule" class="blog-card">
         <span class="cat-tag cat-electrical">Electrical Code</span>
         <h2 class="card-title">Circuit Breaker Sizing: The 80% Rule and NEC §210.20</h2>
-        <p class="card-desc">Master NEC §210.20 requirements for continuous loads. Learn why the 125% multiplier is critical for overcurrent protection.</p>
+        <p class="card-desc">Master NEC requirements for continuous loads. Learn why the 125% multiplier is critical for safety.</p>
         <div class="card-footer">
           <span class="card-date">May 12, 2026</span>
           <span class="card-read">9 MIN READ →</span>
@@ -159,7 +177,7 @@
       <a href="/blog/concrete-psi-requirements-aci-318" class="blog-card">
         <span class="cat-tag cat-concrete">Concrete Specs</span>
         <h2 class="card-title">Concrete PSI Requirements: ACI 318 Standards for Slabs</h2>
-        <p class="card-desc">A deep dive into ACI durability standards. Learn the PSI requirements for foundations vs. exterior freeze-thaw slabs.</p>
+        <p class="card-desc">A deep dive into ACI durability standards. Learn the PSI requirements for foundations vs. exterior slabs.</p>
         <div class="card-footer">
           <span class="card-date">May 12, 2026</span>
           <span class="card-read">10 MIN READ →</span>
@@ -170,7 +188,7 @@
       <a href="/blog/board-feet-estimation-guide" class="blog-card">
         <span class="cat-tag cat-carpentry">Logistics</span>
         <h2 class="card-title">Mastering Board Feet: The Essential Guide for Estimation</h2>
-        <p class="card-desc">Master the board foot calculation for professional procurement. Includes Doyle scaling and industrial waste factors.</p>
+        <p class="card-desc">Master the board foot calculation for professional procurement. Includes Doyle scaling and waste factors.</p>
         <div class="card-footer">
           <span class="card-date">May 12, 2026</span>
           <span class="card-read">8 MIN READ →</span>
