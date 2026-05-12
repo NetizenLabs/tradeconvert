@@ -21,14 +21,14 @@ TradeConvert is a high-precision reference suite designed for contractors, elect
 ## Routing & Navigation
 
 - **Home**: `/`
-- **Pressure**: `/pressure-converter`
-- **Electrical**: `/electrical-converter`
-- **Concrete**: `/concrete-calculator`
-- **Lumber**: `/lumber-reference`
-- **Length**: `/length-converter`
-- **Weight**: `/weight-converter`
-- **Temperature**: `/temperature-converter`
-- **Volume**: `/volume-converter`
+- **Pressure**: `/pressure`
+- **Electrical**: `/electrical`
+- **Concrete**: `/concrete`
+- **Lumber**: `/lumber`
+- **Length**: `/length`
+- **Weight**: `/weight`
+- **Temperature**: `/temperature`
+- **Volume**: `/volume`
 
 ## Meta Information
 
