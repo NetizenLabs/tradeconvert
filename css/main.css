@@ -223,14 +223,30 @@ body::before {
 }
 .tool-card-sub { font-size: 11px; color: var(--ink3); font-style: italic; }
 
+/* Standard Tool Grid (with Swap Button) */
 .converter-inputs {
-  display: grid; grid-template-columns: 1fr 44px 1fr;
-  gap: 12px; align-items: end; margin-bottom: 16px;
+  display: grid; 
+  grid-template-columns: 1fr 44px 1fr;
+  gap: 12px; 
+  align-items: end; 
+  margin-bottom: 20px;
 }
-.input-group { display: flex; flex-direction: column; gap: 5px; }
+
+/* Flexible Tool Grid (Simple 2+ Inputs) */
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.input-group { display: flex; flex-direction: column; }
+
 .input-label {
   font-size: 10px; font-weight: 600; letter-spacing: .07em;
   text-transform: uppercase; color: var(--ink3); font-family: var(--body);
+  margin-bottom: 4px;
 }
 .input-field {
   background: var(--paper);
