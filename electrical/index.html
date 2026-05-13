@@ -63,11 +63,42 @@
   <nav class="primary-nav">
     <div class="primary-nav-inner">
       <a href="/" class="nav-item">Home</a>
-      <a href="/pressure" class="nav-item">Pressure</a>
-      <a href="/electrical" class="nav-item active">Electrical</a>
-      <a href="/concrete" class="nav-item">Concrete</a>
-      <a href="/lumber" class="nav-item">Lumber</a>
-      <a href="/blog" class="nav-item">Field Notes <span class="nav-new">NEW</span></a>
+      
+      <div class="nav-dropdown">
+        <span class="nav-item active">Electrical</span>
+        <div class="dropdown-content">
+          <a href="/electrical">Watts to Amps</a>
+          <a href="/blog/voltage-drop-calculation-nec">Voltage Drop Guide</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">HVAC/Plumbing</span>
+        <div class="dropdown-content">
+          <a href="/pressure">Pressure Units</a>
+          <a href="/temperature">Temperature</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">Building</span>
+        <div class="dropdown-content">
+          <a href="/concrete">Concrete & Bags</a>
+          <a href="/lumber">Lumber & BF</a>
+          <a href="/length">Length & Layout</a>
+          <a href="/torque">Torque Specs</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">Site</span>
+        <div class="dropdown-content">
+          <a href="/volume">Volume Calc</a>
+          <a href="/weight">Weight & Ton</a>
+        </div>
+      </div>
+
+      <a href="/blog" class="nav-item">Field Notes</a>
     </div>
   </nav>
 

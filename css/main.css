@@ -126,6 +126,55 @@ body::before {
   padding: 1px 4px; border-radius: 3px; letter-spacing: .02em;
 }
 
+/* Dropdown Logic */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.nav-dropdown:hover .dropdown-content {
+  display: block;
+}
+.nav-dropdown .nav-item {
+  padding-right: 24px;
+}
+.nav-dropdown .nav-item::after {
+  content: '';
+  position: absolute; right: 8px; top: 50%;
+  transform: translateY(-50%);
+  width: 7px; height: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233d3a36' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  opacity: 0.5;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0;
+  background: var(--paper);
+  min-width: 180px;
+  box-shadow: var(--shadow2);
+  z-index: 2000;
+  border: 1px solid var(--rule2);
+  padding: 8px 0;
+}
+.dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink2);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--paper2);
+  transition: all .15s;
+}
+.dropdown-content a:last-child { border-bottom: none; }
+.dropdown-content a:hover {
+  background: var(--paper3);
+  color: var(--accent);
+}
+
 /* ══════════════════════════════════════
    BREADCRUMB
 ══════════════════════════════════════ */
@@ -627,8 +676,7 @@ h3 {
     box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
   }
   .primary-nav-inner {
-    padding: 6px 4px;
-    overflow-x: visible;
+    padding: 0 10px;
     justify-content: space-between;
   }
   .nav-item {
@@ -645,6 +693,20 @@ h3 {
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.05em;
+  }
+  .nav-dropdown { flex: 1; display: flex; flex-direction: column; }
+  .nav-dropdown .nav-item::after { display: none; } /* Hide arrow on mobile to save space */
+  .dropdown-content {
+    bottom: 100%; top: auto;
+    left: 50%; transform: translateX(-50%);
+    width: 220px;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+  }
+  .dropdown-content a {
+    padding: 14px 20px;
+    font-size: 10px;
+    text-align: center;
   }
   .nav-item:hover, .nav-item.active {
     background: none;
