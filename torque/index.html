@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+  <title>Torque Converter | lb-ft to Nm | TradeConvert</title>
+
+  <!-- Open Graph / SEO 2026 -->
+  <meta property="og:title" content="Torque Converter | lb-ft to Nm | TradeConvert 2026">
+  <meta property="og:description" content="Professional torque unit converter for automotive and structural trades. Convert lb-ft to Nm, lb-in, and kg-m with verified accuracy. Updated for 2026.">
+  <meta property="og:image" content="/assets/og-image.png">
+  <meta property="og:url" content="https://tradeconvert.pro/torque/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/assets/og-image.png">
+
+  <meta name="description" content="Professional torque converter for mechanical and structural engineering. Convert foot-pounds to Newton-meters and other units. High precision for bolt tightening specs.">
+  <meta name="keywords" content="lb-ft to nm, foot pounds to newton meters, torque converter, mechanical units, bolt torque">
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/torque">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · NIST Verified
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Plumbing · Electrical · HVAC · Concrete<br>
+        NIST Verified Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/pressure" class="nav-item">Pressure</a>
+      <a href="/electrical" class="nav-item">Electrical</a>
+      <a href="/concrete" class="nav-item">Concrete</a>
+      <a href="/torque" class="nav-item active">Torque</a>
+      <a href="/blog" class="nav-item">Field Notes <span class="nav-new">NEW</span></a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Torque</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <div class="page-hero">
+      <h1>Torque Converter — Precision for Mechanical & Structural</h1>
+      <p class="hero-desc">Precisely convert torque units for automotive repair, structural bolting, and machinery maintenance. Optimized for shop reference and engineering specs.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>To convert <strong>foot-pounds (lb-ft) to Newton-meters (Nm)</strong>, multiply by <strong>1.3558</strong>. For automotive spark plugs and small fasteners, <strong>1 lb-ft equals 12 lb-in</strong>. Proper torque is critical for preventing fastener fatigue and ensuring joint integrity in structural steel.</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Torque Unit Converter</div>
+            <div class="tool-card-sub">lb-ft · Nm · lb-in · kg-m</div>
+          </div>
+          <div class="converter-inputs">
+            <div class="input-group">
+              <label class="input-label" for="tr-from">From</label>
+              <input class="input-field" id="tr-from" type="number" value="100" oninput="calcTorque()">
+              <select class="unit-select" id="tr-from-u" onchange="calcTorque()">
+                <option value="lbft" selected>Foot-Pounds (lb-ft)</option>
+                <option value="nm">Newton-Meters (Nm)</option>
+                <option value="lbin">Inch-Pounds (lb-in)</option>
+                <option value="kgm">Kilogram-Meters (kg-m)</option>
+                <option value="ozin">Inch-Ounces (oz-in)</option>
+              </select>
+            </div>
+            <button class="swap-btn" onclick="swapTr()" aria-label="Swap units">⇄</button>
+            <div class="input-group">
+              <label class="input-label" for="tr-to">To</label>
+              <input class="input-field output" id="tr-to" type="text" readonly>
+              <select class="unit-select" id="tr-to-u" onchange="calcTorque()">
+                <option value="lbft">Foot-Pounds (lb-ft)</option>
+                <option value="nm" selected>Newton-Meters (Nm)</option>
+                <option value="lbin">Inch-Pounds (lb-in)</option>
+                <option value="kgm">Kilogram-Meters (kg-m)</option>
+                <option value="ozin">Inch-Ounces (oz-in)</option>
+              </select>
+            </div>
+          </div>
+          <div class="result-display">
+            <span class="result-number" id="tr-result-n">135.58</span>
+            <span class="result-unit" id="tr-result-u">Nm</span>
+            <div class="result-eq" id="tr-result-eq">100 lb-ft = 135.58 Nm</div>
+          </div>
+          <div class="formula-box">
+            <div class="formula-label">Conversion Formula</div>
+            <div class="formula-text" id="tr-formula">100 × 1.3558 = 135.58 Nm</div>
+          </div>
+        </div>
+
+        <h2>Common Fastener Torque Benchmarks</h2>
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead><tr><th>Fastener Type</th><th>Grade / Class</th><th>Approx. Torque (lb-ft)</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>1/4" Bolt</td><td>Grade 5</td><td class="mono">9 lb-ft</td><td>Small hardware</td></tr>
+              <tr><td>3/8" Bolt</td><td>Grade 5</td><td class="mono">30 lb-ft</td><td>General mechanical</td></tr>
+              <tr><td>1/2" Bolt</td><td>Grade 8</td><td class="mono">110 lb-ft</td><td>Heavy equipment</td></tr>
+              <tr><td>Wheel Lug Nut</td><td>Standard Car</td><td class="mono">80–100 lb-ft</td><td>Always use torque wrench</td></tr>
+              <tr><td>Spark Plug</td><td>Aluminum Head</td><td class="mono">12–15 lb-ft</td><td>Do not over-tighten</td></tr>
+            </tbody>
+            <caption>Estimates for clean, dry threads. Lubrication significantly reduces required torque.</caption>
+          </table>
+        </div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card accent-top">
+          <div class="sidebar-title">Quick Conversions</div>
+          <div class="qr-list">
+            <div class="qr-item"><span class="qr-label">1 lb-ft</span><span class="qr-val">1.356 Nm</span></div>
+            <div class="qr-item"><span class="qr-label">1 Nm</span><span class="qr-val">0.737 lb-ft</span></div>
+            <div class="qr-item"><span class="qr-label">1 lb-ft</span><span class="qr-val">12 lb-in</span></div>
+            <div class="qr-item"><span class="qr-label">1 kg-m</span><span class="qr-val">7.233 lb-ft</span></div>
+          </div>
+        </div>
+        <div class="trade-tip">
+          <strong><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:2px"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Shop Tip</strong>
+          Always "click" your torque wrench twice to verify the setting. Store torque wrenches at their lowest setting to preserve spring calibration.
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/torque">Torque</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TradeConvert · NIST Verified</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="/js/converters.js"></script>
+</body>
+</html>

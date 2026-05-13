@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+  <title>Voltage Drop Calculation Guide: NEC 2026 Standards | TradeConvert</title>
+  <meta name="description" content="Learn how to calculate voltage drop for long wire runs using NEC standards. Includes a live voltage drop calculator, AWG circular mil tables, and the 3% recommendation guide.">
+  <meta name="keywords" content="voltage drop calculation, NEC voltage drop, wire size calculator, circular mils table, electrical engineering, long wire runs">
+  <meta name="author" content="TradeConvert Editorial">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tradeconvert.pro/blog/voltage-drop-calculation-nec/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Voltage Drop Calculation Guide: NEC 2026 Standards">
+  <meta property="og:description" content="Avoid equipment failure and fire hazards by calculating voltage drop correctly. Full guide with live tool.">
+  <meta property="og:url" content="https://tradeconvert.pro/blog/voltage-drop-calculation-nec/">
+  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Voltage Drop Calculation Guide: NEC 2026 Standards",
+    "description": "Comprehensive guide to calculating voltage drop in electrical systems according to the National Electrical Code.",
+    "author": {
+      "@type": "Organization",
+      "name": "TradeConvert Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TradeConvert"
+    },
+    "datePublished": "2026-05-13T08:00:00Z"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    /* Inline specific blog styles if not in main.css */
+    .article-body { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+    .prose h2 { margin-top: 40px; border-bottom: 1px solid var(--rule); padding-bottom: 8px; }
+    .answer-capsule { background: var(--ink); color: #fff; padding: 24px; border-left: 4px solid var(--gold); margin: 32px 0; }
+    .answer-capsule strong { color: var(--gold); }
+    .tool-card { background: var(--paper2); border: 1px solid var(--rule); padding: 24px; margin: 32px 0; }
+    .ref-table-wrap { margin: 24px 0; overflow-x: auto; }
+    .ref-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .ref-table th, .ref-table td { border: 1px solid var(--rule); padding: 8px 12px; text-align: left; }
+    .ref-table th { background: var(--paper3); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+      <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/electrical" class="nav-item">Electrical</a>
+      <a href="/blog" class="nav-item active">Field Notes</a>
+    </div>
+  </nav>
+
+  <div class="site-wrapper">
+    <article class="article-body">
+      <header>
+        <div class="art-category">Electrical · NEC Compliance</div>
+        <h1>Voltage Drop Calculation Guide: NEC 2026 Standards</h1>
+        <p class="art-deck">Voltage drop is the silent killer of electrical motors and sensitive electronics. For runs over 100 feet, standard wire sizing often fails to meet code recommendations.</p>
+      </header>
+
+      <div class="answer-capsule">
+        <p>The <strong>National Electrical Code (NEC)</strong> recommends a maximum voltage drop of <strong>3%</strong> for branch circuits and a total of <strong>5%</strong> including the feeder. For a standard 120V circuit, a 3% drop is <strong>3.6 Volts</strong>. If your calculated drop exceeds this, you must increase the wire gauge (upsize) to maintain equipment performance and safety.</p>
+      </div>
+
+      <div class="prose">
+        <h2>The Physics of Voltage Drop</h2>
+        <p>Every foot of wire adds resistance to an electrical circuit. As current (Amps) flows through that resistance, voltage is lost as heat. This is known as Ohm's Law in action ($V = I \times R$). For short runs inside a house, this loss is negligible. But for a detached garage, a well pump, or a long driveway gate, the loss can be enough to prevent a motor from starting or cause a computer to reboot randomly.</p>
+
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Live Voltage Drop Calculator</div>
+            <div class="tool-card-sub">Based on $VD = (2 \times K \times I \times L) / CM$</div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:16px">
+            <div class="input-group">
+              <label class="input-label">Distance (One Way, ft)</label>
+              <input class="input-field" id="vd-len" type="number" value="150" oninput="calcVD()">
+            </div>
+            <div class="input-group">
+              <label class="input-label">Load (Amps)</label>
+              <input class="input-field" id="vd-amps" type="number" value="12" oninput="calcVD()">
+            </div>
+            <div class="input-group">
+              <label class="input-label">System Voltage</label>
+              <select class="unit-select" id="vd-volts" onchange="calcVD()">
+                <option value="120" selected>120V (Single Phase)</option>
+                <option value="240">240V (Single Phase)</option>
+                <option value="208">208V (Single Phase)</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label class="input-label">Wire Gauge (AWG)</label>
+              <select class="unit-select" id="vd-awg" onchange="calcVD()">
+                <option value="14">#14 AWG</option>
+                <option value="12" selected>#12 AWG</option>
+                <option value="10">#10 AWG</option>
+                <option value="8">#8 AWG</option>
+                <option value="6">#6 AWG</option>
+                <option value="4">#4 AWG</option>
+                <option value="2">#2 AWG</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label class="input-label">Conductor Material</label>
+              <select class="unit-select" id="vd-mat" onchange="calcVD()">
+                <option value="cu" selected>Copper (K=12.9)</option>
+                <option value="al">Aluminum (K=21.2)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="result-display" style="margin-top:20px; background:var(--paper3); padding:20px; border-left:4px solid var(--accent)">
+            <div style="font-size:12px; color:var(--ink3); text-transform:uppercase; margin-bottom:8px">Calculated Drop</div>
+            <div style="display:flex; align-items:baseline; gap:12px">
+              <span class="result-number" id="vd-result-n" style="font-size:32px; color:var(--accent)">4.25</span>
+              <span class="result-unit" style="font-size:18px">Volts Lost</span>
+              <span id="vd-result-p" style="font-size:24px; color:var(--ink2); margin-left:auto">3.54%</span>
+            </div>
+            <div id="vd-result-eq" style="font-size:13px; color:var(--ink3); font-style:italic; margin-top:8px">Drop: 4.25V (3.54%) · NEC Recommendation: < 3%</div>
+            <div id="vd-formula" style="font-family:var(--mono); font-size:11px; margin-top:12px; opacity:0.7">(2 × 12.9 × 12A × 150ft) ÷ 6530 CM = 4.25V</div>
+          </div>
+        </div>
+
+        <h2>The "Rule of Thumb" vs. The Code</h2>
+        <p>Many old-school electricians use the "100-foot rule" — if the run is over 100 feet, just go up one wire size. While often correct, it's not scientific. The NEC (National Electrical Code) doesn't technically <em>enforce</em> voltage drop as a safety violation for branch circuits (it's in the Informational Notes, like NEC 210.19(A)), but most local inspectors treat it as a requirement for "good workmanship."</p>
+
+        <h3>Why 3%?</h3>
+        <p>Sensitive electronics and electric motors are designed to operate within a specific voltage tolerance (typically +/- 10%). If you start with 120V at the panel but only have 110V at the outlet, a large motor (like a table saw or AC compressor) will draw <em>more</em> current to compensate for the lower voltage, causing it to run hotter and fail sooner.</p>
+
+        <h2>AWG Circular Mils Reference Table</h2>
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead>
+              <tr>
+                <th>Wire Size (AWG)</th>
+                <th>Circular Mils (CM)</th>
+                <th>Resistance (Ω/1k ft Cu)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>#14</td><td>4,110</td><td>3.07</td></tr>
+              <tr><td>#12</td><td>6,530</td><td>1.93</td></tr>
+              <tr><td>#10</td><td>10,380</td><td>1.21</td></tr>
+              <tr><td>#8</td><td>16,510</td><td>0.764</td></tr>
+              <tr><td>#6</td><td>26,240</td><td>0.491</td></tr>
+              <tr><td>#4</td><td>41,740</td><td>0.308</td></tr>
+              <tr><td>#2</td><td>66,360</td><td>0.194</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="trade-tip" style="background:var(--paper2); padding:16px; border-left:3px solid var(--gold); margin-top:32px">
+          <strong>⚡ Professional Tip</strong>
+          When calculating for 240V balanced loads, the "2" in the formula stays because the current must travel out on one hot and back on the other. For 3-phase systems, replace the "2" with 1.732 ($\sqrt{3}$).
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <span>© 2026 TradeConvert · NIST Verified</span>
+    </div>
+  </footer>
+
+  <script src="/js/converters.js"></script>
+</body>
+</html>

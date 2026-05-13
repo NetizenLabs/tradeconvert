@@ -632,8 +632,8 @@ h3 {
     justify-content: space-between;
   }
   .nav-item {
-    padding: 8px 4px;
-    font-size: 8px;
+    padding: 12px 4px;
+    font-size: 9px;
     flex: 1;
     text-align: center;
     border-bottom: none;

@@ -8,10 +8,10 @@
   <title>Length Converter | Inches to mm & ft to m | TradeConvert</title>
 
   <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="TradeConvert 2026 — Professional Trade Reference">
-  <meta property="og:description" content="Know exactly what you're owed and calculate trade units with precision. Verified for 2026.">
+  <meta property="og:title" content="Length Converter | Inches to mm & Feet to m | TradeConvert 2026">
+  <meta property="og:description" content="Professional length converter for carpentry and engineering. Convert inches to mm, feet to meters, and more with verified accuracy. Updated for 2026.">
   <meta property="og:image" content="/assets/og-image.png">
-  <meta property="og:url" content="https://tradeconvert.pro/">
+  <meta property="og:url" content="https://tradeconvert.pro/length/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/assets/og-image.png">
 
@@ -39,14 +39,28 @@
   <nav class="primary-nav">
     <div class="primary-nav-inner">
       <a href="/" class="nav-item">Home</a>
+      <a href="/pressure" class="nav-item">Pressure</a>
+      <a href="/electrical" class="nav-item">Electrical</a>
+      <a href="/concrete" class="nav-item">Concrete</a>
       <a href="/length" class="nav-item active">Length</a>
+      <a href="/blog" class="nav-item">Field Notes <span class="nav-new">NEW</span></a>
     </div>
   </nav>
 
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Length</span>
+    </div>
+  </div>
+
   <div class="site-wrapper">
     <div class="page-hero">
-      <h1>Length Converter — Precision for Blueprints</h1>
-      <p class="hero-desc">Convert between imperial and metric length units with blueprint-grade accuracy.</p>
+      <h1>Length Converter — Precision for Blueprints & Layout</h1>
+      <p class="hero-desc">Convert between imperial and metric length units with blueprint-grade accuracy. Includes common trade benchmarks for framing and MEP layout.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>To convert <strong>inches to millimeters</strong>, multiply by <strong>25.4</strong> exactly. For <strong>feet to meters</strong>, multiply by <strong>0.3048</strong>. In US construction, "nominal" dimensions (like a 2x4) differ from actual measurements (1.5" x 3.5"). Always verify actual dimensions before final layout.</p>
     </div>
 
     <div class="content-grid">
@@ -69,7 +83,7 @@
                 <option value="m">Meters (m)</option>
               </select>
             </div>
-            <button class="swap-btn" onclick="swapL()">⇄</button>
+            <button class="swap-btn" onclick="swapL()" aria-label="Swap units">⇄</button>
             <div class="input-group">
               <label class="input-label" for="l-to">To</label>
               <input class="input-field output" id="l-to" type="text" readonly>
@@ -98,13 +112,64 @@
             <!-- Populated by JS -->
           </div>
         </div>
+
+        <h2>Standard Trade Benchmarks</h2>
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead><tr><th>Application</th><th>Imperial</th><th>Metric (Approx)</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Standard Stud Spacing</td><td class="mono">16" OC</td><td class="mono">406 mm</td><td>Standard wall framing</td></tr>
+              <tr><td>Wide Stud Spacing</td><td class="mono">24" OC</td><td class="mono">610 mm</td><td>Advanced framing</td></tr>
+              <tr><td>Standard Ceiling Height</td><td class="mono">8' 0"</td><td class="mono">2438 mm</td><td>Residential minimum</td></tr>
+              <tr><td>Kitchen Counter Height</td><td class="mono">36"</td><td class="mono">914 mm</td><td>Finished floor to top</td></tr>
+              <tr><td>ADA Grab Bar Height</td><td class="mono">33"–36"</td><td class="mono">838–914 mm</td><td>Accessibility code</td></tr>
+            </tbody>
+            <caption>Common industry layout standards for field reference.</caption>
+          </table>
+        </div>
       </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card accent-top">
+          <div class="sidebar-title">Quick Conversions</div>
+          <div class="qr-list">
+            <div class="qr-item"><span class="qr-label">1 inch</span><span class="qr-val">25.4 mm</span></div>
+            <div class="qr-item"><span class="qr-label">1 foot</span><span class="qr-val">0.3048 m</span></div>
+            <div class="qr-item"><span class="qr-label">1 yard</span><span class="qr-val">0.9144 m</span></div>
+            <div class="qr-item"><span class="qr-label">1 meter</span><span class="qr-val">39.37 in</span></div>
+          </div>
+        </div>
+        <div class="trade-tip">
+          <strong><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:2px"><path d="M12 2v20M2 12h20"/></svg> Layout Tip</strong>
+          When converting architectural drawings, always use the 25.4 constant for mm. Rounding to "25" can lead to a 1/2" error over a 40' run.
+        </div>
+      </aside>
     </div>
   </div>
 
   <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
     <div class="footer-bottom">
       <span>© 2026 TradeConvert · NIST Verified</span>
+      <a href="/privacy">Privacy Policy</a>
     </div>
   </footer>
 

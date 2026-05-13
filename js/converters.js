@@ -169,6 +169,38 @@ function calcElec() {
   if (elFormula) elFormula.textContent = `I = P ÷ V → ${w} ÷ ${v} = ${rf}A · NEC 80%: min ${(a/0.8).toFixed(1)}A → use ${breaker}A breaker`;
 }
 
+/* ── VOLTAGE DROP ── */
+const WIRE_CM = {
+  '14': 4110, '12': 6530, '10': 10380, '8': 16510, '6': 26240, '4': 41740, '3': 52620, '2': 66360, '1': 83690, '1/0': 105600, '2/0': 133100, '3/0': 167800, '4/0': 211600
+};
+
+function calcVD() {
+  const elL = document.getElementById('vd-len');
+  if (!elL) return;
+  const l = parseFloat(elL.value) || 0;
+  const i = parseFloat(document.getElementById('vd-amps').value) || 0;
+  const v = parseFloat(document.getElementById('vd-volts').value) || 120;
+  const awg = document.getElementById('vd-awg').value;
+  const mat = document.getElementById('vd-mat').value;
+  const k = (mat === 'cu') ? 12.9 : 21.2;
+  const cm = WIRE_CM[awg];
+  
+  const vd = (2 * k * i * l) / cm;
+  const vdp = (vd / v) * 100;
+  
+  const elResN = document.getElementById('vd-result-n');
+  if (elResN) elResN.textContent = vd.toFixed(2);
+  
+  const elResP = document.getElementById('vd-result-p');
+  if (elResP) elResP.textContent = vdp.toFixed(2) + '%';
+  
+  const elResEq = document.getElementById('vd-result-eq');
+  if (elResEq) elResEq.textContent = `Drop: ${vd.toFixed(2)}V (${vdp.toFixed(2)}%) · NEC Recommendation: < 3%`;
+  
+  const elFormula = document.getElementById('vd-formula');
+  if (elFormula) elFormula.textContent = `(2 × ${k} × ${i}A × ${l}ft) ÷ ${cm} CM = ${vd.toFixed(2)}V`;
+}
+
 /* ── TEMPERATURE ── */
 function calcTemp() {
   const elFrom = document.getElementById('t-from');
@@ -210,6 +242,44 @@ function calcTemp() {
   };
   const elFormula = document.getElementById('t-formula');
   if (elFormula) elFormula.textContent = formulas[fu+'-'+tu] || `${v} = ${rf}`;
+}
+
+/* ── TORQUE CONVERTER ── */
+const TTORNM = { nm: 1, lbft: 1.355818, lbin: 0.112985, kgm: 9.80665, ozin: 0.00706155 };
+const TNAMES = { nm:'Nm', lbft:'lb-ft', lbin:'lb-in', kgm:'kg-m', ozin:'oz-in' };
+
+function calcTorque() {
+  const elFrom = document.getElementById('tr-from');
+  if (!elFrom) return;
+  const v = parseFloat(elFrom.value) || 0;
+  const fu = document.getElementById('tr-from-u').value;
+  const tu = document.getElementById('tr-to-u').value;
+  const nm = v * TTORNM[fu];
+  const res = nm / TTORNM[tu];
+  const rf = fmt(res);
+  
+  const elTo = document.getElementById('tr-to');
+  if (elTo) elTo.value = rf;
+  
+  const elResN = document.getElementById('tr-result-n');
+  if (elResN) elResN.textContent = rf;
+  
+  const elResU = document.getElementById('tr-result-u');
+  if (elResU) elResU.textContent = TNAMES[tu];
+  
+  const elResEq = document.getElementById('tr-result-eq');
+  if (elResEq) elResEq.textContent = `${fmt(v)} ${TNAMES[fu]} = ${rf} ${TNAMES[tu]}`;
+  
+  const elFormula = document.getElementById('tr-formula');
+  if (elFormula) elFormula.textContent = `${fmt(v)} × ${fmt(TTORNM[fu]/TTORNM[tu])} = ${rf} ${TNAMES[tu]}`;
+}
+
+function swapTr() {
+  const a = document.getElementById('tr-from-u'), b = document.getElementById('tr-to-u');
+  if (a && b) {
+    [a.value, b.value] = [b.value, a.value];
+    calcTorque();
+  }
 }
 
 /* ── VOLUME ── */
@@ -317,7 +387,9 @@ window.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('l-from')) calcLength();
   if (document.getElementById('w-from')) calcWeight();
   if (document.getElementById('e-watts')) calcElec();
+  if (document.getElementById('vd-len')) calcVD();
   if (document.getElementById('t-from')) calcTemp();
+  if (document.getElementById('tr-from')) calcTorque();
   if (document.getElementById('v-from')) calcVol();
   if (document.getElementById('con-l')) calcConcrete();
   if (document.getElementById('lum-t')) calcLumber();
