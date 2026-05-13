@@ -8,25 +8,20 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Handle Tool Pretty URLs (Mapped to /tools/ folder)
-RewriteRule ^pressure$ tools/pressure.html [L]
-RewriteRule ^length$ tools/length.html [L]
-RewriteRule ^electrical$ tools/electrical.html [L]
-RewriteRule ^concrete$ tools/concrete.html [L]
-RewriteRule ^lumber$ tools/lumber.html [L]
-RewriteRule ^weight$ tools/weight.html [L]
-RewriteRule ^temperature$ tools/temperature.html [L]
-RewriteRule ^volume$ tools/volume.html [L]
+# SEO 301 Redirects for Old URLs (fixing 404s)
+RewriteRule ^volume-converter/?$ /volume/ [R=301,L]
+RewriteRule ^concrete-calculator/?$ /concrete/ [R=301,L]
+RewriteRule ^length-converter/?$ /length/ [R=301,L]
+RewriteRule ^lumber-reference/?$ /lumber/ [R=301,L]
+RewriteRule ^electrical-converter/?$ /electrical/ [R=301,L]
+RewriteRule ^temperature-converter/?$ /temperature/ [R=301,L]
+RewriteRule ^pressure/psi-to-bar/?$ /pressure/ [R=301,L]
+RewriteRule ^privacy\.html$ /privacy/ [R=301,L]
+RewriteRule ^favicon\.ico$ /assets/favicon.png [R=301,L]
+RewriteRule ^search$ / [R=301,L]
+
+# Handle Embed
 RewriteRule ^embed$ tools/embed.html [L]
-
-# Handle Static Root Pages
-RewriteRule ^about$ about.html [L]
-RewriteRule ^contact$ contact.html [L]
-RewriteRule ^privacy$ privacy.html [L]
-
-# Handle Blog
-RewriteRule ^blog/?$ blog/index.html [L]
-RewriteRule ^blog/what-water-pressure-is-too-high$ blog/what-water-pressure-is-too-high.html [L]
 
 # Internal .html hiding (fallback)
 RewriteCond %{REQUEST_FILENAME} !-f
