@@ -20,6 +20,9 @@ RewriteRule ^privacy\.html$ /privacy/ [R=301,L]
 RewriteRule ^favicon\.ico$ /assets/favicon.png [R=301,L]
 RewriteRule ^search$ / [R=301,L]
 
+# Serve sitemap.xml dynamically via sitemap.php
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
 # Handle Embed
 RewriteRule ^embed$ tools/embed.html [L]
 
