@@ -151,7 +151,7 @@
         <h3>The Fundamental Target Riser Height Formula:</h3>
         <p>To calculate steps, we take the total rise, divide it by an ideal stair riser target (usually <strong>7 inches</strong>), and round up to find the step count:</p>
 
-        <div class="formula-box" style="text-align: center; font-size: 18px; font-weight: bold; padding: 20px;">
+        <div class="formula-box" style="text-align: center; font-size: clamp(12px, 3.8vw, 18px); font-weight: bold; padding: 16px 10px; overflow-x: auto; white-space: nowrap;">
           Steps Count = Ceil( Total Rise ÷ 7 inches )<br>
           Exact Riser Height = Total Rise ÷ Steps Count
         </div>
@@ -165,7 +165,7 @@
             <div class="tool-card-title">Live Stair Layout Calculator</div>
             <div class="tool-card-sub">Accurate Step Rises, Runs & Incline Sizing</div>
           </div>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
+          <div class="input-grid" style="margin-bottom:16px">
             <div class="input-group">
               <label class="input-label" for="s-rise">Total Vertical Rise (in)</label>
               <input class="input-field" id="s-rise" type="number" value="100" oninput="calcStair()">
@@ -176,7 +176,7 @@
             </div>
           </div>
 
-          <div class="result-display" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; border-top: 1px dotted var(--rule2); padding-top: 16px;">
+          <div class="result-display" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 16px; margin: 24px 0; border-top: 1px dotted var(--rule2); padding-top: 16px;">
             <div style="text-align: center;">
               <span class="result-number" id="res-s-steps" style="font-size: 28px;">14</span>
               <span class="result-unit" style="display:block; font-size:10px;">Steps (Risers)</span>
@@ -239,7 +239,7 @@
         <p>Beyond building codes, master framers use the <strong>Comfort Index Formula</strong> to ensure a natural stride:</p>
         <div class="formula-box">
           <strong>The Stair Builder's Comfort Index:</strong><br>
-          <div style="font-size:16px; font-family:var(--mono); margin: 8px 0; text-align:center;">
+          <div style="font-size: clamp(11px, 3.5vw, 16px); font-family: var(--mono); margin: 8px 0; text-align: center; overflow-x: auto; white-space: nowrap;">
             (2 × Riser Height) + Tread Run = 24 to 25 inches
           </div>
           If the index falls below 24, the stairs feel cramped. If it exceeds 25, the stairs force an awkward, unnatural stride.

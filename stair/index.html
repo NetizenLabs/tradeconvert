@@ -127,7 +127,7 @@
             <div class="tool-card-title">Stair Geometry & Layout Calculator</div>
             <div class="tool-card-sub">IRC Compliance & Comfort Checks</div>
           </div>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
+          <div class="input-grid" style="margin-bottom:16px">
             <div class="input-group">
               <label class="input-label" for="s-rise">Total Rise (inches)</label>
               <input class="input-field" id="s-rise" type="number" value="100" oninput="calcStairs()">
@@ -137,7 +137,7 @@
               <input class="input-field" id="s-target" type="number" value="7" step="0.25" oninput="calcStairs()">
             </div>
           </div>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px">
+          <div class="input-grid" style="margin-bottom:20px">
             <div class="input-group">
               <label class="input-label" for="s-tread">Target Tread Depth (in)</label>
               <input class="input-field" id="s-tread" type="number" value="10" step="0.25" oninput="calcStairs()">
@@ -186,7 +186,7 @@
           <li><strong>Riser Height Formula:</strong> Risers must divide the total height perfectly. To find it, divide total rise by target riser height, round to the nearest whole step count, then divide total rise by that count.</li>
           <li><strong>Total Run Formula:</strong> If the top step is flush with the upper floor, there is one less tread than riser count. <span class="mono" style="background:var(--paper2); padding: 2px 6px;">Total Run = Number of Treads × Tread Depth</span>.</li>
           <li><strong>Stringer Length (Hypotenuse):</strong> Using the Pythagoras theorem:
-            <div class="formula-box" style="text-align: center; font-size: 16px; font-weight: bold; margin: 12px 0;">
+            <div class="formula-box" style="text-align: center; font-size: clamp(12px, 3.8vw, 16px); font-weight: bold; margin: 12px 0; overflow-x: auto; white-space: nowrap;">
               Stringer Length = √[Total Rise² + Total Run²]
             </div>
             To ensure you have enough lumber to cut the stringer corners, standard framing adds 14 inches to this raw value before ordering structural 2x12 lumber.
