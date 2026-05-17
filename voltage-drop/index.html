@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+
+  <title>Voltage Drop Calculator | NEC 2026 Wire Size Estimator | TradeConvert</title>
+
+  <!-- Open Graph / SEO 2026 -->
+  <meta property="og:title" content="Voltage Drop Calculator | NEC 2026 Wire Size Estimator | TradeConvert">
+  <meta property="og:description" content="Calculate electrical voltage drop percentage for copper or aluminum wire runs. Handles single & three-phase configurations under NEC limits.">
+  <meta property="og:image" content="/assets/og-image.png">
+  <meta property="og:url" content="https://tradeconvert.pro/voltage-drop/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/assets/og-image.png">
+
+  <meta name="description" content="Professional NEC-compliant voltage drop calculator. Instantly calculate line voltage drop, wire size ampacity, percentage loss, and standard voltage metrics.">
+  <meta name="keywords" content="voltage drop calculator, wire size calculator, line voltage drop formula, nec wire sizing, single phase voltage drop, three phase drop">
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/voltage-drop">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TradeConvert Voltage Drop Calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "url": "https://tradeconvert.pro/voltage-drop",
+    "description": "Professional NEC-compliant electrical wire voltage drop estimator."
+  }
+  </script>
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · Electrical V1.2
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Plumbing · Electrical · HVAC · Carpentry<br>
+        NEC Code Verified Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      
+      <div class="nav-dropdown">
+        <span class="nav-item active">Electrical</span>
+        <div class="dropdown-content">
+          <a href="/electrical">Watts to Amps</a>
+          <a href="/voltage-drop">Voltage Drop Calc</a>
+          <a href="/blog/voltage-drop-calculation-nec">Voltage Drop Guide</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">HVAC/Plumbing</span>
+        <div class="dropdown-content">
+          <a href="/pressure">Pressure Units</a>
+          <a href="/temperature">Temperature</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">Building</span>
+        <div class="dropdown-content">
+          <a href="/concrete">Concrete & Bags</a>
+          <a href="/lumber">Lumber & BF</a>
+          <a href="/roofing">Roofing & Squares</a>
+          <a href="/stair">Stair Layout</a>
+          <a href="/length">Length & Layout</a>
+          <a href="/torque">Torque Specs</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">Site</span>
+        <div class="dropdown-content">
+          <a href="/volume">Volume Calc</a>
+          <a href="/weight">Weight & Ton</a>
+        </div>
+      </div>
+
+      <a href="/blog" class="nav-item">Field Notes</a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Voltage Drop Calculator</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <div class="page-hero">
+      <h1>Voltage Drop Calculator — NEC Wire Size Estimator</h1>
+      <p class="hero-desc">Calculate the exact voltage drop percentage and final load voltage over long branch circuits or feeders. Built to the National Electrical Code standards.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>The <strong>National Electrical Code (NEC) Section 210.19(A)</strong> recommends maintaining a maximum voltage drop of <strong>3% on branch circuits</strong>, and exactly **5% total** across both feeder and branch circuits combined to guarantee optimal appliance efficiency.</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Wire Voltage Drop Calculator</div>
+            <div class="tool-card-sub">NIST Material Constants · NEC Compliance Checks</div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
+            <div class="input-group">
+              <label class="input-label" for="vd-voltage">Source Voltage (V)</label>
+              <select class="input-field" id="vd-voltage" onchange="calcVD()">
+                <option value="12">12V DC</option>
+                <option value="24">24V DC</option>
+                <option value="120" selected>120V AC (Single Phase)</option>
+                <option value="208">208V AC (Three Phase)</option>
+                <option value="240">240V AC (Single Phase)</option>
+                <option value="277">277V AC (Single Phase)</option>
+                <option value="480">480V AC (Three Phase)</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="vd-phase">Phase Configuration</label>
+              <select class="input-field" id="vd-phase" onchange="calcVD()">
+                <option value="1" selected>Single-Phase / DC</option>
+                <option value="3">Three-Phase</option>
+              </select>
+            </div>
+          </div>
+          
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
+            <div class="input-group">
+              <label class="input-label" for="vd-material">Conductor Material</label>
+              <select class="input-field" id="vd-material" onchange="calcVD()">
+                <option value="copper" selected>Copper (K = 12.9)</option>
+                <option value="aluminum">Aluminum (K = 21.2)</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="vd-wire">Wire Gauge (AWG / kcmil)</label>
+              <select class="input-field" id="vd-wire" onchange="calcVD()">
+                <option value="4110">14 AWG (4,110 CM)</option>
+                <option value="6530" selected>12 AWG (6,530 CM)</option>
+                <option value="10380">10 AWG (10,380 CM)</option>
+                <option value="16510">8 AWG (16,510 CM)</option>
+                <option value="26240">6 AWG (26,240 CM)</option>
+                <option value="41740">4 AWG (41,740 CM)</option>
+                <option value="66360">2 AWG (66,360 CM)</option>
+                <option value="105600">1/0 AWG (105,600 CM)</option>
+                <option value="133100">2/0 AWG (133,100 CM)</option>
+                <option value="167800">3/0 AWG (167,800 CM)</option>
+                <option value="211600">4/0 AWG (211,600 CM)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px">
+            <div class="input-group">
+              <label class="input-label" for="vd-amps">Current Load (Amps)</label>
+              <input class="input-field" id="vd-amps" type="number" value="16" oninput="calcVD()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="vd-length">One-way Run Length (feet)</label>
+              <input class="input-field" id="vd-length" type="number" value="100" oninput="calcVD()">
+            </div>
+          </div>
+          
+          <div class="section-head">Calculated Electrical Output</div>
+          <div class="chart-grid">
+            <div class="chart-cell header">Metric Description</div>
+            <div class="chart-cell header">Calculated Output</div>
+            <div class="chart-cell header">Target Baseline</div>
+            <div class="chart-cell header">NEC Rating</div>
+            
+            <div class="chart-cell"><span class="cv-from">Calculated Voltage Drop</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-vd-volts">6.32 V</span></div>
+            <div class="chart-cell"><span class="cv-from">Voltage Drop Percentage</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-vd-pct">5.27 %</span></div>
+            
+            <div class="chart-cell"><span class="cv-from">Load Terminal Voltage</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-terminal-v">113.68 V</span></div>
+            <div class="chart-cell"><span class="cv-from">Circular Mil Rating</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-cm-spec">6,530 CM</span></div>
+          </div>
+
+          <div style="margin-top:20px; padding:12px; background:var(--paper3); border-radius:4px; font-size:12px; display:flex; justify-content:space-between; border:1px solid var(--rule);">
+            <span><strong>NEC Code Compliance:</strong> <span id="out-vd-status">Over 3% branch limit!</span></span>
+            <span id="out-vd-code" style="font-weight:700; color:#b91c1c;">⚠ CODE EXCEEDED</span>
+          </div>
+        </div>
+
+        <h2>Mathematical Voltage Drop Equations</h2>
+        <p>This calculator implements standard branch-circuit calculations using Ohm's Law and conductor resistivity metrics ($K$ factors):</p>
+        
+        <div class="formula-box">
+          <strong>Single-Phase Formulas:</strong><br>
+          <span class="mono">Voltage Drop (V_drop) = (2 × K × I × L) ÷ CM</span><br><br>
+          <strong>Three-Phase Formulas:</strong><br>
+          <span class="mono">Voltage Drop (V_drop) = (1.732 × K × I × L) ÷ CM</span>
+        </div>
+
+        <p>Where:
+          <ul>
+            <li><strong>K (Resistivity Factor):</strong> Constant representing resistance of one circular-mil foot of conductor. Copper is valued at exactly <strong>12.9 ohms</strong>, while aluminum is valued at <strong>21.2 ohms</strong> at 75°C standard temperature.</li>
+            <li><strong>I:</strong> Current load in amperes passing through the wire.</li>
+            <li><strong>L:</strong> One-way distance of the wire run from power source to load (in feet).</li>
+            <li><strong>CM:</strong> Circular mil area of the chosen wire size.</li>
+          </ul>
+        </p>
+
+        <h2>AWG Circular Mil Size Reference Chart</h2>
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead>
+              <tr>
+                <th>Wire Gauge (AWG)</th>
+                <th>Area (Circular Mils)</th>
+                <th>Resistance per 1k Ft (Cu)</th>
+                <th>Max Ampacity (75°C)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>14 AWG</td>
+                <td class="mono">4,110</td>
+                <td>3.07 ohms</td>
+                <td class="mono">15A</td>
+              </tr>
+              <tr>
+                <td>12 AWG</td>
+                <td class="mono">6,530</td>
+                <td>1.93 ohms</td>
+                <td class="mono">20A</td>
+              </tr>
+              <tr>
+                <td>10 AWG</td>
+                <td class="mono">10,380</td>
+                <td>1.24 ohms</td>
+                <td class="mono">30A</td>
+              </tr>
+              <tr>
+                <td>8 AWG</td>
+                <td class="mono">16,510</td>
+                <td>0.778 ohms</td>
+                <td class="mono">50A</td>
+              </tr>
+              <tr>
+                <td>6 AWG</td>
+                <td class="mono">26,240</td>
+                <td>0.491 ohms</td>
+                <td class="mono">65A</td>
+              </tr>
+              <tr>
+                <td>4 AWG</td>
+                <td class="mono">41,740</td>
+                <td>0.308 ohms</td>
+                <td class="mono">85A</td>
+              </tr>
+              <tr>
+                <td>2 AWG</td>
+                <td class="mono">66,360</td>
+                <td>0.194 ohms</td>
+                <td class="mono">115A</td>
+              </tr>
+            </tbody>
+            <caption>Circular mil areas and standard specifications used to compute impedance.</caption>
+          </table>
+        </div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card gold-top">
+          <div class="sidebar-title">Code Limits</div>
+          <div class="prose" style="font-size:12px">
+            <p><strong>NEC Chapter 9:</strong> Informative Annex B states:
+              <ul>
+                <li><strong>Branch Limit:</strong> Under 3% drop recommended.</li>
+                <li><strong>Combined Drop:</strong> Under 5% total drop from panel board to final outlet.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        <div class="trade-tip">
+          <strong>Field Note</strong>
+          For long runs (e.g. over 100 feet), it is common practice to step up the wire size by exactly one gauge to completely offset high voltage drop.
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+        <a href="/roofing">Roofing</a>
+        <a href="/stair">Stair Layout</a>
+        <a href="/voltage-drop">Voltage Drop</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TradeConvert · NIST Verified</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    function calcVD() {
+      const srcV = parseFloat(document.getElementById('vd-voltage').value) || 120;
+      const phase = parseFloat(document.getElementById('vd-phase').value) || 1;
+      const mat = document.getElementById('vd-material').value;
+      const cm = parseFloat(document.getElementById('vd-wire').value) || 6530;
+      const amps = parseFloat(document.getElementById('vd-amps').value) || 0;
+      const length = parseFloat(document.getElementById('vd-length').value) || 0;
+
+      // 1. Determine K resistivity constant
+      const K = (mat === 'copper') ? 12.9 : 21.2;
+
+      // 2. Voltage drop calculation
+      let vDrop = 0;
+      if (phase === 3) {
+        vDrop = (Math.sqrt(3) * K * amps * length) / cm;
+      } else {
+        vDrop = (2 * K * amps * length) / cm;
+      }
+
+      const vDropPct = (vDrop / srcV) * 100;
+      const termV = srcV - vDrop;
+
+      // 3. Write results
+      document.getElementById('out-vd-volts').textContent = vDrop.toFixed(2) + " V";
+      document.getElementById('out-vd-pct').textContent = vDropPct.toFixed(2) + " %";
+      document.getElementById('out-terminal-v').textContent = termV.toFixed(2) + " V";
+      document.getElementById('out-cm-spec').textContent = Number(cm).toLocaleString() + " CM";
+
+      // 4. Code Checks (Limit: 3%)
+      const codeEl = document.getElementById('out-vd-code');
+      const statusEl = document.getElementById('out-vd-status');
+      
+      if (vDropPct <= 3.0) {
+        codeEl.textContent = "✔ NEC COMPLIANT";
+        codeEl.style.color = "#15803d";
+        statusEl.textContent = "Within 3% branch code limit.";
+      } else if (vDropPct <= 5.0) {
+        codeEl.textContent = "⚠ ADVISORY WARNING";
+        codeEl.style.color = "#b45309";
+        statusEl.textContent = "Caution: Exceeds 3% branch recommendation.";
+      } else {
+        codeEl.textContent = "✘ CODE EXCEEDED";
+        codeEl.style.color = "#b91c1c";
+        statusEl.textContent = "Exceeds 5% combined feeder/branch limit!";
+      }
+    }
+
+    // Auto-adjust phases drop dropdown list based on standard voltages select values
+    document.getElementById('vd-voltage').addEventListener('change', function() {
+      const val = parseInt(this.value);
+      const phaseSelect = document.getElementById('vd-phase');
+      if (val === 208 || val === 480) {
+        phaseSelect.value = "3";
+      } else {
+        phaseSelect.value = "1";
+      }
+      calcVD();
+    });
+
+    window.addEventListener('DOMContentLoaded', calcVD);
+  </script>
+</body>
+</html>

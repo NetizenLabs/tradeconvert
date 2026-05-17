@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+
+  <title>Conduit Fill Calculator | NEC 2026 Wire Capacity Estimator | TradeConvert</title>
+
+  <!-- Open Graph / SEO 2026 -->
+  <meta property="og:title" content="Conduit Fill Calculator | NEC 2026 Wire Capacity Estimator | TradeConvert">
+  <meta property="og:description" content="Calculate NEC-compliant conduit fill percentage. Automatically computes wire area and limits for EMT, PVC, and rigid conduits.">
+  <meta property="og:image" content="/assets/og-image.png">
+  <meta property="og:url" content="https://tradeconvert.pro/conduit-fill/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/assets/og-image.png">
+
+  <meta name="description" content="Professional NEC conduit fill calculator. Instantly check max wire count capacities, fill percentages, and standard conduit sizes based on NEC Chapter 9.">
+  <meta name="keywords" content="conduit fill calculator, conduit capacity estimator, emt conduit fill, wire area calculator, electrical conduit size chart, nec conduit fill table">
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/conduit-fill">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TradeConvert Conduit Fill Calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "url": "https://tradeconvert.pro/conduit-fill",
+    "description": "Professional NEC-compliant electrical conduit wire capacity estimator."
+  }
+  </script>
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · Electrical V1.3
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Plumbing · Electrical · HVAC · Carpentry<br>
+        NEC Code Verified Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      
+      <div class="nav-dropdown">
+        <span class="nav-item active">Electrical</span>
+        <div class="dropdown-content">
+          <a href="/electrical">Watts to Amps</a>
+          <a href="/voltage-drop">Voltage Drop Calc</a>
+          <a href="/conduit-fill">Conduit Fill Calc</a>
+          <a href="/blog/voltage-drop-calculation-nec">Voltage Drop Guide</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">HVAC/Plumbing</span>
+        <div class="dropdown-content">
+          <a href="/pressure">Pressure Units</a>
+          <a href="/temperature">Temperature</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">Building</span>
+        <div class="dropdown-content">
+          <a href="/concrete">Concrete & Bags</a>
+          <a href="/lumber">Lumber & BF</a>
+          <a href="/roofing">Roofing & Squares</a>
+          <a href="/stair">Stair Layout</a>
+          <a href="/length">Length & Layout</a>
+          <a href="/torque">Torque Specs</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">Site</span>
+        <div class="dropdown-content">
+          <a href="/volume">Volume Calc</a>
+          <a href="/weight">Weight & Ton</a>
+        </div>
+      </div>
+
+      <a href="/blog" class="nav-item">Field Notes</a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Conduit Fill Calculator</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <div class="page-hero">
+      <h1>Conduit Fill Calculator — NEC Wire Capacity Estimator</h1>
+      <p class="hero-desc">Calculate wire capacities and conduit sizing ratios. Ensures safe, code-compliant spacing within standard electrical raceways.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>Under **NEC Chapter 9, Table 1**, the maximum allowable fill factor for **three or more conductors** inside a conduit is exactly **40%**. For a single wire, it is **53%**, and for two wires it is **31%**. Exceeding these thresholds leads to wire heating and insulation failure.</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">NEC Conduit Fill Calculator</div>
+            <div class="tool-card-sub">THHN / THWN Insulation Standards</div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
+            <div class="input-group">
+              <label class="input-label" for="cf-conduit">Conduit Size & Type</label>
+              <select class="input-field" id="cf-conduit" onchange="calcFill()">
+                <option value="0.304" selected>1/2" EMT (0.304 in²)</option>
+                <option value="0.533">3/4" EMT (0.533 in²)</option>
+                <option value="0.864">1" EMT (0.864 in²)</option>
+                <option value="1.496">1-1/4" EMT (1.496 in²)</option>
+                <option value="2.036">1-1/2" EMT (2.036 in²)</option>
+                <option value="3.356">2" EMT (3.356 in²)</option>
+                <option value="5.858">2-1/2" EMT (5.858 in²)</option>
+                <option value="8.846">3" EMT (8.846 in²)</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="cf-wire">Wire Insulation / Size</label>
+              <select class="input-field" id="cf-wire" onchange="calcFill()">
+                <option value="0.0097">14 AWG THHN (0.0097 in²)</option>
+                <option value="0.0133" selected>12 AWG THHN (0.0133 in²)</option>
+                <option value="0.0211">10 AWG THHN (0.0211 in²)</option>
+                <option value="0.0366">8 AWG THHN (0.0366 in²)</option>
+                <option value="0.0507">6 AWG THHN (0.0507 in²)</option>
+                <option value="0.0824">4 AWG THHN (0.0824 in²)</option>
+                <option value="0.1158">2 AWG THHN (0.1158 in²)</option>
+                <option value="0.1855">1/0 AWG THHN (0.1855 in²)</option>
+                <option value="0.2223">2/0 AWG THHN (0.2223 in²)</option>
+                <option value="0.2679">3/0 AWG THHN (0.2679 in²)</option>
+                <option value="0.3237">4/0 AWG THHN (0.3237 in²)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px">
+            <div class="input-group">
+              <label class="input-label" for="cf-qty">Wire Quantity</label>
+              <input class="input-field" id="cf-qty" type="number" value="4" min="1" oninput="calcFill()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" style="opacity: 0.5;">Target standard</label>
+              <input class="input-field" style="background:var(--paper3); color:var(--ink3)" disabled value="NEC 2026 Compliance">
+            </div>
+          </div>
+          
+          <div class="section-head">Conduit Spatial Output</div>
+          <div class="chart-grid">
+            <div class="chart-cell header">Conduit Dimension</div>
+            <div class="chart-cell header">Estimated Result</div>
+            <div class="chart-cell header">NEC Target Limit</div>
+            <div class="chart-cell header">Spacing Status</div>
+            
+            <div class="chart-cell"><span class="cv-from">Total Conduit Area</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-total-area">0.304 in²</span></div>
+            <div class="chart-cell"><span class="cv-from">Total Wires Area</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-wires-area">0.053 in²</span></div>
+            
+            <div class="chart-cell"><span class="cv-from">Calculated Fill Percentage</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-fill-pct">17.5 %</span></div>
+            <div class="chart-cell"><span class="cv-from">Allowable Fill Limit</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-limit-pct">40.0 %</span></div>
+          </div>
+
+          <div style="margin-top:20px; padding:12px; background:var(--paper3); border-radius:4px; font-size:12px; display:flex; justify-content:space-between; border:1px solid var(--rule);">
+            <span><strong>Conduit Fill Status:</strong> <span id="out-fill-status">Passes! Plenty of space remaining.</span></span>
+            <span id="out-fill-code" style="font-weight:700; color:#15803d;">✔ NEC COMPLIANT</span>
+          </div>
+        </div>
+
+        <h2>Standard Conduit Fill Rules</h2>
+        <p>The NEC regulates the maximum fill ratio of conductors to prevent overheating due to current flow and to allow cables to be safely pulled without tearing insulation:</p>
+        
+        <div class="formula-box">
+          <strong>NEC Chapter 9, Table 1 Fill Limits:</strong><br>
+          <ul>
+            <li><strong>1 Wire inside conduit:</strong> Max 53% fill ratio.</li>
+            <li><strong>2 Wires inside conduit:</strong> Max 31% fill ratio.</li>
+            <li><strong>3+ Wires inside conduit:</strong> Max 40% fill ratio.</li>
+          </ul>
+        </div>
+
+        <h2>THHN/THWN Conductor Area Table (sq. in.)</h2>
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead>
+              <tr>
+                <th>Wire Gauge (AWG)</th>
+                <th>Insulated Area (sq. in.)</th>
+                <th>Standard Conduit Size (40% limit)</th>
+                <th>Max 12 AWG wires allowed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>14 AWG</td>
+                <td class="mono">0.0097</td>
+                <td>1/2" EMT</td>
+                <td class="mono">12 wires</td>
+              </tr>
+              <tr>
+                <td>12 AWG</td>
+                <td class="mono">0.0133</td>
+                <td>1/2" EMT</td>
+                <td class="mono">9 wires</td>
+              </tr>
+              <tr>
+                <td>10 AWG</td>
+                <td class="mono">0.0211</td>
+                <td>1/2" EMT</td>
+                <td class="mono">5 wires</td>
+              </tr>
+              <tr>
+                <td>8 AWG</td>
+                <td class="mono">0.0366</td>
+                <td>3/4" EMT</td>
+                <td class="mono">5 wires</td>
+              </tr>
+              <tr>
+                <td>6 AWG</td>
+                <td class="mono">0.0507</td>
+                <td>1" EMT</td>
+                <td class="mono">6 wires</td>
+              </tr>
+              <tr>
+                <td>4 AWG</td>
+                <td class="mono">0.0824</td>
+                <td>1" EMT</td>
+                <td class="mono">4 wires</td>
+              </tr>
+            </tbody>
+            <caption>THHN/THWN copper insulation space benchmarks.</caption>
+          </table>
+        </div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card gold-top">
+          <div class="sidebar-title">Code Exemption</div>
+          <div class="prose" style="font-size:12px">
+            <p><strong>Nipple Rules:</strong> For conduit sections not exceeding **24 inches** in total length, the fill limit is increased to exactly **60%** under NEC Chapter 9, Note 4.</p>
+          </div>
+        </div>
+        <div class="trade-tip">
+          <strong>Field Note</strong>
+          If you have more than **3 current-carrying conductors** in a single raceway, remember to apply the **NEC ampacity derating factors**!
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+        <a href="/roofing">Roofing</a>
+        <a href="/stair">Stair Layout</a>
+        <a href="/voltage-drop">Voltage Drop</a>
+        <a href="/conduit-fill">Conduit Fill</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TradeConvert · NIST Verified</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    function calcFill() {
+      const conduitArea = parseFloat(document.getElementById('cf-conduit').value) || 0.304;
+      const wireArea = parseFloat(document.getElementById('cf-wire').value) || 0.0133;
+      const qty = parseInt(document.getElementById('cf-qty').value) || 0;
+
+      if (qty <= 0 || conduitArea <= 0) return;
+
+      // 1. Calculate combined wire area
+      const totalWireArea = wireArea * qty;
+
+      // 2. Identify maximum fill threshold under NEC rules
+      let limitPct = 40.0;
+      if (qty === 1) limitPct = 53.0;
+      else if (qty === 2) limitPct = 31.0;
+
+      // 3. Compute fill ratio percentage
+      const fillPct = (totalWireArea / conduitArea) * 100;
+
+      // 4. Print outputs
+      document.getElementById('out-total-area').textContent = conduitArea.toFixed(3) + " in²";
+      document.getElementById('out-wires-area').textContent = totalWireArea.toFixed(3) + " in²";
+      document.getElementById('out-fill-pct').textContent = fillPct.toFixed(1) + " %";
+      document.getElementById('out-limit-pct').textContent = limitPct.toFixed(1) + " %";
+
+      // 5. Code checking
+      const statusEl = document.getElementById('out-fill-status');
+      const codeEl = document.getElementById('out-fill-code');
+
+      if (fillPct <= limitPct) {
+        codeEl.textContent = "✔ NEC COMPLIANT";
+        codeEl.style.color = "#15803d";
+        statusEl.textContent = "Passes! Safe spatial clearance remaining.";
+      } else {
+        codeEl.textContent = "✘ OVERFILL VIOLATION";
+        codeEl.style.color = "#b91c1c";
+        statusEl.textContent = "Overfilled! Requires a larger conduit size.";
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', calcFill);
+  </script>
+</body>
+</html>
