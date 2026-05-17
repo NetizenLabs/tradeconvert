@@ -239,20 +239,24 @@ body::before {
    ANSWER CAPSULE — #1 for AI / GEO
 ══════════════════════════════════════ */
 .answer-capsule {
-  background: var(--ink);
-  color: var(--paper);
-  padding: 16px 20px;
-  margin: 20px 0;
+  background: var(--paper2);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--gold);
+  border-radius: 4px;
+  padding: 18px 20px;
+  margin: 24px 0;
   position: relative;
+  box-shadow: var(--shadow);
 }
 .answer-capsule::before {
   content: 'QUICK ANSWER';
   display: block; font-family: var(--body);
-  font-size: 9px; font-weight: 600; letter-spacing: .1em;
-  color: var(--gold2); margin-bottom: 6px;
+  font-size: 10px; font-weight: 700; letter-spacing: .12em;
+  color: var(--gold2); margin-bottom: 8px;
 }
 .answer-capsule p {
-  font-size: 14px; line-height: 1.6; color: var(--ink);
+  font-size: 14px; line-height: 1.65; color: var(--ink2);
+  margin: 0;
 }
 .answer-capsule strong { color: var(--gold2); font-weight: 600; }
 
@@ -748,7 +752,6 @@ h3 {
     font-size: clamp(32px, 12vw, 48px);
   }
   .answer-capsule {
-    background: #2d2a26;
     border-radius: 8px;
     padding: 24px;
   }
