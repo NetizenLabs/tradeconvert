@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+
+  <title>Paint Coverage Calculator | Gallon & Quart Estimator | TradeConvert</title>
+
+  <!-- Open Graph / SEO 2026 -->
+  <meta property="og:title" content="Paint Coverage Calculator | Gallon & Quart Estimator | TradeConvert">
+  <meta property="og:description" content="Calculate standard paint gallons and quarts needed for your walls and ceilings. Instantly handles doors, windows, multiple coats, and custom spreads.">
+  <meta property="og:image" content="/assets/og-image.png">
+  <meta property="og:url" content="https://tradeconvert.pro/paint/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/assets/og-image.png">
+
+  <meta name="description" content="Professional paint calculator for estimating interior walls and ceilings. Supports coat multiplication, door and window deductions, and quart optimization.">
+  <meta name="keywords" content="paint calculator, paint coverage estimator, gallons of paint needed, wall painting calculator, paint quart calculator, paint spread rate">
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/paint">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TradeConvert Paint Coverage Calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "url": "https://tradeconvert.pro/paint",
+    "description": "Professional interior wall and ceiling paint coverage estimator."
+  }
+  </script>
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · Paint V1.0
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Plumbing · Electrical · HVAC · Carpentry<br>
+        Professional Painting Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      
+      <div class="nav-dropdown">
+        <span class="nav-item">Electrical</span>
+        <div class="dropdown-content">
+          <a href="/electrical">Watts to Amps</a>
+          <a href="/voltage-drop">Voltage Drop Calc</a>
+          <a href="/conduit-fill">Conduit Fill Calc</a>
+          <a href="/blog/voltage-drop-calculation-nec">Voltage Drop Guide</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">HVAC/Plumbing</span>
+        <div class="dropdown-content">
+          <a href="/pressure">Pressure Units</a>
+          <a href="/temperature">Temperature</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item active">Building</span>
+        <div class="dropdown-content">
+          <a href="/concrete">Concrete & Bags</a>
+          <a href="/lumber">Lumber & BF</a>
+          <a href="/roofing">Roofing & Squares</a>
+          <a href="/stair">Stair Layout</a>
+          <a href="/drywall">Drywall Calculator</a>
+          <a href="/paint">Paint Calculator</a>
+          <a href="/length">Length & Layout</a>
+          <a href="/torque">Torque Specs</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">Site</span>
+        <div class="dropdown-content">
+          <a href="/volume">Volume Calc</a>
+          <a href="/weight">Weight & Ton</a>
+        </div>
+      </div>
+
+      <a href="/blog" class="nav-item">Field Notes</a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Paint Calculator</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <div class="page-hero">
+      <h1>Paint Coverage Calculator &mdash; Gallon & Quart Estimator</h1>
+      <p class="hero-desc">Estimate the exact amount of paint needed for your next renovation. Calculates wall and ceiling areas, opening deductions, and recommends matching container sizes.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>A single **gallon of quality paint** typically covers between **350 and 400 square feet** on smooth, primed walls. For textured surfaces, new drywall, or dark colors, coverage decreases to **250 to 300 square feet per gallon**. There are exactly **4 quarts in a gallon**.</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Interior Paint Estimator</div>
+            <div class="tool-card-sub">Multi-Coat Spread Sizing & Deductions</div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
+            <div class="input-group">
+              <label class="input-label" for="p-l">Room Length (ft)</label>
+              <input class="input-field" id="p-l" type="number" value="16" oninput="calcPaint()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="p-w">Room Width (ft)</label>
+              <input class="input-field" id="p-w" type="number" value="12" oninput="calcPaint()">
+            </div>
+          </div>
+          
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
+            <div class="input-group">
+              <label class="input-label" for="p-h">Ceiling Height (ft)</label>
+              <input class="input-field" id="p-h" type="number" value="8" oninput="calcPaint()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="p-spread">Spread Rate (sq ft/gal)</label>
+              <select class="input-field" id="p-spread" onchange="calcPaint()">
+                <option value="350" selected>350 sq ft (Standard Wall)</option>
+                <option value="400">400 sq ft (Smooth/Primed)</option>
+                <option value="250">250 sq ft (Rough/Textured)</option>
+                <option value="300">300 sq ft (New Drywall)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-bottom:20px">
+            <div class="input-group">
+              <label class="input-label" for="p-deduct">Openings Deduct (sq ft)</label>
+              <input class="input-field" id="p-deduct" type="number" value="40" oninput="calcPaint()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="p-coats">Number of Coats</label>
+              <select class="input-field" id="p-coats" onchange="calcPaint()">
+                <option value="1">1 Coat</option>
+                <option value="2" selected>2 Coats (Recommended)</option>
+                <option value="3">3 Coats</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="p-mode">Include Ceiling?</label>
+              <select class="input-field" id="p-mode" onchange="calcPaint()">
+                <option value="both" selected>Walls & Ceiling</option>
+                <option value="walls">Walls Only</option>
+                <option value="ceiling">Ceiling Only</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="section-head">Calculated Paint Output</div>
+          <div class="chart-grid">
+            <div class="chart-cell header">Area Specification</div>
+            <div class="chart-cell header">Surface Sq Ft</div>
+            <div class="chart-cell header">Total Spread Area</div>
+            <div class="chart-cell header">Recommended Buy</div>
+            
+            <div class="chart-cell"><span class="cv-from">Ceiling Surface Area</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-p-ceiling">192 ft²</span></div>
+            <div class="chart-cell"><span class="cv-from">Wall Surface Area</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-p-walls">448 ft²</span></div>
+            
+            <div class="chart-cell"><span class="cv-from">Net Total Surface Area</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-p-net">600 ft²</span></div>
+            <div class="chart-cell"><span class="cv-from">Required Paint</span></div>
+            <div class="chart-cell"><span class="cv-to" style="font-weight:700; color:var(--accent);" id="out-p-gallons">4 Gallons</span></div>
+          </div>
+
+          <div style="margin-top:20px; padding:12px; background:var(--paper3); border-radius:4px; font-size:12px; display:flex; justify-content:space-between; border:1px solid var(--rule);">
+            <span><strong>Smart Purchase breakdown:</strong> <span id="out-p-quarts">Exact: 3.43 Gallons (Buy 3 Gallons + 2 Quarts)</span></span>
+            <span style="font-weight:700; color:#15803d;">✔ ESTIMATED</span>
+          </div>
+        </div>
+
+        <h2>Standard Paint Math Formulas</h2>
+        <p>This paint estimator calculates total geometric area and adjusts for coat multipliers and surface texture profiles:</p>
+        
+        <div class="formula-box">
+          <strong>Geometric Area Calculations:</strong><br>
+          <span class="mono">Ceiling Area = Length × Width</span><br>
+          <span class="mono">Wall Area = 2 × (Length + Width) × Ceiling Height</span><br>
+          <span class="mono">Total Net Area = (Ceiling Area + Wall Area) - Deductible Openings</span><br>
+          <span class="mono">Total Spread Area = Total Net Area × Number of Coats</span><br>
+          <span class="mono">Total Gallons Needed = Total Spread Area ÷ Spread Rate per Gallon</span>
+        </div>
+
+        <h2>Paint Coverage Standards (per Gallon)</h2>
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead>
+              <tr>
+                <th>Surface Condition</th>
+                <th>Standard Spread Rate</th>
+                <th>Recommended Primer</th>
+                <th>Drying Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:600;">Smooth/Primed Wall</td>
+                <td class="mono">350 - 400 sq ft</td>
+                <td>Self-priming paint typically okay.</td>
+                <td>2 - 4 hours</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Rough/Textured Wall</td>
+                <td class="mono">250 - 300 sq ft</td>
+                <td>High-build primer recommended.</td>
+                <td>4 hours</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Unfinished Drywall</td>
+                <td class="mono">250 - 300 sq ft</td>
+                <td>PVA drywall primer (Mandatory!).</td>
+                <td>2 hours</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Masonry / Brick</td>
+                <td class="mono">150 - 200 sq ft</td>
+                <td>Alkali-resistant masonry sealer.</td>
+                <td>8 hours</td>
+              </tr>
+            </tbody>
+            <caption>Standard wall covering spreads based on paint textures.</caption>
+          </table>
+        </div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card gold-top">
+          <div class="sidebar-title">Quart Optimization</div>
+          <div class="prose" style="font-size:12px">
+            <p><strong>Cost-Saving Tip:</strong> If your calculation requires 3.1 gallons, do not buy 4 full gallons! Buying 3 gallons and 1 quart is significantly cheaper and reduces leftover waste.</p>
+          </div>
+        </div>
+        <div class="trade-tip">
+          <strong>Field Note</strong>
+          Write down the paint brand, base type, and color mixing code formula on a piece of painter's tape and stick it behind the light switch plate in the room for future touch-ups!
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+        <a href="/roofing">Roofing</a>
+        <a href="/stair">Stair Layout</a>
+        <a href="/voltage-drop">Voltage Drop</a>
+        <a href="/conduit-fill">Conduit Fill</a>
+        <a href="/drywall">Drywall</a>
+        <a href="/paint">Paint</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TradeConvert · NIST Verified</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    function calcPaint() {
+      const length = parseFloat(document.getElementById('p-l').value) || 0;
+      const width = parseFloat(document.getElementById('p-w').value) || 0;
+      const height = parseFloat(document.getElementById('p-h').value) || 0;
+      const spread = parseFloat(document.getElementById('p-spread').value) || 350;
+      const deduct = parseFloat(document.getElementById('p-deduct').value) || 0;
+      const coats = parseInt(document.getElementById('p-coats').value) || 2;
+      const mode = document.getElementById('p-mode').value;
+
+      // 1. Calculate ceiling area
+      let ceilingArea = length * width;
+      if (mode === 'walls') ceilingArea = 0;
+
+      // 2. Calculate wall area
+      let wallArea = 2 * (length + width) * height;
+      if (mode === 'ceiling') wallArea = 0;
+
+      // 3. Compute net total surface area
+      let netArea = (ceilingArea + wallArea) - deduct;
+      if (netArea < 0) netArea = 0;
+
+      // 4. Paint needed based on coats and spread rates
+      const totalSpreadArea = netArea * coats;
+      const gallonsExact = totalSpreadArea / spread;
+      const gallonsNeeded = Math.ceil(gallonsExact);
+
+      // 5. Smart Buy recommendation (Gallons + Quarts)
+      const wholeGallons = Math.floor(gallonsExact);
+      const remainingGallonFraction = gallonsExact - wholeGallons;
+      const quartsNeeded = Math.ceil(remainingGallonFraction * 4);
+      
+      let smartBuyText = "";
+      if (quartsNeeded === 0) {
+        smartBuyText = `Buy exactly ${wholeGallons} Gallon` + (wholeGallons !== 1 ? "s" : "");
+      } else if (quartsNeeded === 3 && wholeGallons > 0) {
+        smartBuyText = `Buy ${wholeGallons + 1} Gallon` + (wholeGallons !== 0 ? "s" : "") + ` (Cheaper than adding quarts!)`;
+      } else {
+        smartBuyText = `Exact: ${gallonsExact.toFixed(2)} Gal (Buy ${wholeGallons} Gal + ${quartsNeeded} Quart` + (quartsNeeded !== 1 ? "s" : "") + `)`;
+      }
+
+      // 6. Write outputs
+      document.getElementById('out-p-ceiling').textContent = ceilingArea.toFixed(0) + " ft²";
+      document.getElementById('out-p-walls').textContent = wallArea.toFixed(0) + " ft²";
+      document.getElementById('out-p-net').textContent = netArea.toFixed(0) + " ft²";
+      document.getElementById('out-p-gallons').textContent = gallonsNeeded + " Gallon" + (gallonsNeeded !== 1 ? "s" : "");
+      document.getElementById('out-p-quarts').textContent = smartBuyText;
+    }
+
+    window.addEventListener('DOMContentLoaded', calcPaint);
+  </script>
+</body>
+</html>

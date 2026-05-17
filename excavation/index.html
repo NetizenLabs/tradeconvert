@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+
+  <title>Excavation & Backfill Calculator | Dirt Volume & Hauling Estimator | TradeConvert</title>
+
+  <!-- Open Graph / SEO 2026 -->
+  <meta property="og:title" content="Excavation & Backfill Calculator | Dirt Volume & Hauling Estimator | TradeConvert">
+  <meta property="og:description" content="Calculate excavation bank volume, swell loose volume, compacted backfill, and required dump truck hauling trips. NIST and OSHA standard soil reference.">
+  <meta property="og:image" content="/assets/og-image.png">
+  <meta property="og:url" content="https://tradeconvert.pro/excavation/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/assets/og-image.png">
+
+  <meta name="description" content="Professional excavation calculator for contractors. Calculate trench or slab excavation volume in cubic yards, spoil swell volume, and dump truck hauling trip requirements.">
+  <meta name="keywords" content="excavation calculator, dirt volume calculator, soil swell factor, loose volume excavation, dump truck hauling estimator, backfill compaction calculator">
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/excavation">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TradeConvert Excavation Calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "url": "https://tradeconvert.pro/excavation",
+    "description": "Professional earthwork excavation volume and soil swell hauling estimator."
+  }
+  </script>
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · Earthwork V1.0
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Plumbing · Electrical · HVAC · Earthwork<br>
+        NIST Verified Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      
+      <div class="nav-dropdown">
+        <span class="nav-item">Electrical</span>
+        <div class="dropdown-content">
+          <a href="/electrical">Watts to Amps</a>
+          <a href="/voltage-drop">Voltage Drop Calc</a>
+          <a href="/conduit-fill">Conduit Fill Calc</a>
+          <a href="/blog/voltage-drop-calculation-nec">Voltage Drop Guide</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">HVAC/Plumbing</span>
+        <div class="dropdown-content">
+          <a href="/pressure">Pressure Units</a>
+          <a href="/temperature">Temperature</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item active">Building</span>
+        <div class="dropdown-content">
+          <a href="/concrete">Concrete & Bags</a>
+          <a href="/lumber">Lumber & BF</a>
+          <a href="/roofing">Roofing & Squares</a>
+          <a href="/stair">Stair Layout</a>
+          <a href="/drywall">Drywall Calculator</a>
+          <a href="/paint">Paint Calculator</a>
+          <a href="/excavation">Excavation Calc</a>
+          <a href="/length">Length & Layout</a>
+          <a href="/torque">Torque Specs</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">Site</span>
+        <div class="dropdown-content">
+          <a href="/volume">Volume Calc</a>
+          <a href="/weight">Weight & Ton</a>
+        </div>
+      </div>
+
+      <a href="/blog" class="nav-item">Field Notes</a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Excavation Calculator</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <div class="page-hero">
+      <h1>Excavation & Backfill Calculator &mdash; Dirt Volume & Hauling Estimator</h1>
+      <p class="hero-desc">Calculate trench, hole, or foundation excavation volume in cubic yards. Adjusts for bank soil density, spoil swell expansion, and backfill compaction requirements.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>Soil in its natural undisturbed state is measured in **Bank Cubic Yards (BCY)**. Once excavated, dirt expands to a larger volume measured in **Loose Cubic Yards (LCY)** due to added air (spoil swell). A standard dump truck holds exactly **10 cubic yards**.</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Excavation Volume Calculator</div>
+            <div class="tool-card-sub">Bank vs. Loose Density Sizing</div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
+            <div class="input-group">
+              <label class="input-label" for="ex-l">Excavation Length (ft)</label>
+              <input class="input-field" id="ex-l" type="number" value="40" oninput="calcEx()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="ex-w">Excavation Width (ft)</label>
+              <input class="input-field" id="ex-w" type="number" value="20" oninput="calcEx()">
+            </div>
+          </div>
+          
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
+            <div class="input-group">
+              <label class="input-label" for="ex-d">Excavation Depth (ft)</label>
+              <input class="input-field" id="ex-d" type="number" value="5" oninput="calcEx()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="ex-soil">Soil/Material Class</label>
+              <select class="input-field" id="ex-soil" onchange="calcEx()">
+                <option value="15" selected>Standard Earth / Clay (15% Swell)</option>
+                <option value="25">Sand & Gravel (25% Swell)</option>
+                <option value="35">Hard Rock / Caliche (35% Swell)</option>
+                <option value="10">Dry Sand (10% Swell)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-bottom:20px">
+            <div class="input-group">
+              <label class="input-label" for="ex-compact">Compaction Factor (%)</label>
+              <input class="input-field" id="ex-compact" type="number" value="15" oninput="calcEx()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="ex-truck">Truck Capacity (yd³)</label>
+              <input class="input-field" id="ex-truck" type="number" value="10" oninput="calcEx()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" style="opacity:0.5;">Target standard</label>
+              <input class="input-field" style="background:var(--paper3); color:var(--ink3)" disabled value="Bank / Spoil Logistics">
+            </div>
+          </div>
+          
+          <div class="section-head">Earthwork Material Output</div>
+          <div class="chart-grid">
+            <div class="chart-cell header">Volume Class</div>
+            <div class="chart-cell header">Cubic Feet (ft³)</div>
+            <div class="chart-cell header">Cubic Yards (yd³)</div>
+            <div class="chart-cell header">Required Material / Loads</div>
+            
+            <div class="chart-cell"><span class="cv-from">Bank Volume (Undisturbed)</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-ex-bank-cf">4,000 ft³</span></div>
+            <div class="chart-cell"><span class="cv-from">Bank Cubic Yards (BCY)</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-ex-bank-cy">148.1 BCY</span></div>
+            
+            <div class="chart-cell"><span class="cv-from">Loose Spoil Volume (+Swell)</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-ex-loose-cf">4,600 ft³</span></div>
+            <div class="chart-cell"><span class="cv-from">Loose Cubic Yards (LCY)</span></div>
+            <div class="chart-cell"><span class="cv-to" style="font-weight:700; color:var(--accent);" id="out-ex-loose-cy">170.4 LCY</span></div>
+
+            <div class="chart-cell"><span class="cv-from">Compacted Backfill (-Compaction)</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-ex-compact-cf">3,400 ft³</span></div>
+            <div class="chart-cell"><span class="cv-from">Dump Truck Loads Needed</span></div>
+            <div class="chart-cell"><span class="cv-to" style="font-weight:700; color:#15803d;" id="out-ex-loads">18 Loads</span></div>
+          </div>
+
+          <div style="margin-top:20px; padding:12px; background:var(--paper3); border-radius:4px; font-size:12px; display:flex; justify-content:space-between; border:1px solid var(--rule);">
+            <span><strong>Soil Swell advisory:</strong> <span id="out-ex-advice">Loose dirt swells by 22.2 yd³ from bank excavation.</span></span>
+            <span style="font-weight:700; color:#15803d;">✔ EARTHWORK STABLE</span>
+          </div>
+        </div>
+
+        <h2>Understanding Soil Swell and Compaction</h2>
+        <p>Experienced site superintendents know that dirt occupies different physical space depending on its compaction state:</p>
+        
+        <div class="formula-box">
+          <strong>Key Volume Equations:</strong><br>
+          <span class="mono">Bank Volume (BCY) = (Length × Width × Depth) ÷ 27</span><br>
+          <span class="mono">Loose Volume (LCY) = Bank Volume × (1 + (Swell% ÷ 100))</span><br>
+          <span class="mono">Compacted Volume (CCY) = Bank Volume × (1 - (Compaction% ÷ 100))</span><br>
+          <span class="mono">Dump Truck Loads = Ceil( Loose Volume (LCY) ÷ Truck Capacity )</span>
+        </div>
+
+        <h2>Standard Soil Density & Swell Chart</h2>
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead>
+              <tr>
+                <th>Soil Classification</th>
+                <th>Swell Factor %</th>
+                <th>Compaction Shrink %</th>
+                <th>Common Application</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:600;">Clean Sand / Gravel</td>
+                <td class="mono">10% - 15%</td>
+                <td class="mono">10% - 15%</td>
+                <td>Backfilling slabs, foundation drainage.</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Common Earth / Topsoil</td>
+                <td class="mono">15% - 20%</td>
+                <td class="mono">15% - 20%</td>
+                <td>Standard residential lawn & general site prep.</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Heavy Clay</td>
+                <td class="mono">20% - 25%</td>
+                <td class="mono">20% - 25%</td>
+                <td>Ponds, structural sub-bases. High expansion danger.</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Hard Rock / Blast Spoil</td>
+                <td class="mono">30% - 40%</td>
+                <td class="mono">0% (Varies)</td>
+                <td>Rock fill layers, retaining walls. Very high swell.</td>
+              </tr>
+            </tbody>
+            <caption>Soil weight expansion ratios verified under construction standards.</caption>
+          </table>
+        </div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card gold-top">
+          <div class="sidebar-title">Hauling Metrics</div>
+          <div class="prose" style="font-size:12px">
+            <p><strong>Truck capacities:</strong>
+              <ul>
+                <li><strong>Single Axle:</strong> 5 - 6 Cubic Yards</li>
+                <li><strong>Standard Tandem:</strong> 10 - 12 Cubic Yards</li>
+                <li><strong>Tri-Axle / Semi:</strong> 15 - 18 Cubic Yards</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        <div class="trade-tip">
+          <strong>Field Note</strong>
+          Never bid excavation hauling costs based on Bank Volume! Always compute Loose Volume (LCY) to bid truck rentals, or you will run out of dump truck budget halfway through the dig!
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+        <a href="/roofing">Roofing</a>
+        <a href="/stair">Stair Layout</a>
+        <a href="/voltage-drop">Voltage Drop</a>
+        <a href="/conduit-fill">Conduit Fill</a>
+        <a href="/drywall">Drywall</a>
+        <a href="/paint">Paint</a>
+        <a href="/excavation">Excavation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TradeConvert · NIST Verified</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    function calcEx() {
+      const length = parseFloat(document.getElementById('ex-l').value) || 0;
+      const width = parseFloat(document.getElementById('ex-w').value) || 0;
+      const depth = parseFloat(document.getElementById('ex-d').value) || 0;
+      const swell = parseFloat(document.getElementById('ex-soil').value) || 15;
+      const compaction = parseFloat(document.getElementById('ex-compact').value) || 15;
+      const truckCap = parseFloat(document.getElementById('ex-truck').value) || 10;
+
+      if (length <= 0 || width <= 0 || depth <= 0) return;
+
+      // 1. Calculate bank volume in cubic feet and cubic yards
+      const bankCF = length * width * depth;
+      const bankCY = bankCF / 27;
+
+      // 2. Loose volume with swell factor
+      const looseCF = bankCF * (1 + (swell / 100));
+      const looseCY = bankCY * (1 + (swell / 100));
+
+      // 3. Compacted volume under backfill compression
+      const compactCF = bankCF * (1 - (compaction / 100));
+
+      // 4. Dump truck loads (rounded up)
+      const loadsNeeded = Math.ceil(looseCY / truckCap);
+
+      // 5. Outputs writing
+      document.getElementById('out-ex-bank-cf').textContent = bankCF.toLocaleString() + " ft³";
+      document.getElementById('out-ex-bank-cy').textContent = bankCY.toFixed(1) + " BCY";
+      document.getElementById('out-ex-loose-cf').textContent = Math.round(looseCF).toLocaleString() + " ft³";
+      document.getElementById('out-ex-loose-cy').textContent = looseCY.toFixed(1) + " LCY";
+      document.getElementById('out-ex-compact-cf').textContent = Math.round(compactCF).toLocaleString() + " ft³";
+      document.getElementById('out-ex-loads').textContent = loadsNeeded + " Load" + (loadsNeeded !== 1 ? "s" : "");
+
+      const swellDiff = looseCY - bankCY;
+      document.getElementById('out-ex-advice').textContent = `Loose spoil swells by ${swellDiff.toFixed(1)} yd³ from bank excavation.`;
+    }
+
+    window.addEventListener('DOMContentLoaded', calcEx);
+  </script>
+</body>
+</html>

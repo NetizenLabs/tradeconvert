@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+
+  <title>Tile Calculator | Flooring & Backsplash Estimator | TradeConvert</title>
+
+  <!-- Open Graph / SEO 2026 -->
+  <meta property="og:title" content="Tile Calculator | Flooring & Backsplash Estimator | TradeConvert">
+  <meta property="og:description" content="Calculate standard flooring and wall tiles needed. Handles custom tile dimensions, grout joint widths, diagonal layouts, and waste offsets.">
+  <meta property="og:image" content="/assets/og-image.png">
+  <meta property="og:url" content="https://tradeconvert.pro/tile/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/assets/og-image.png">
+
+  <meta name="description" content="Professional tiling calculator for floors and walls. Mapped grid layouts with adjustable grout joint calculations, diagonal waste factors, and box counts.">
+  <meta name="keywords" content="tile calculator, flooring tile estimator, backsplash calculator, tile size grout width, subway tile counts, tile grid diagonal estimator">
+  
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="canonical" href="https://tradeconvert.pro/tile">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TradeConvert Tile Calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "url": "https://tradeconvert.pro/tile",
+    "description": "Professional flooring and wall backsplashes tile layout capacity estimator."
+  }
+  </script>
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · Tiling V1.0
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Plumbing · Electrical · HVAC · Tiling<br>
+        Professional Layout Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item">Home</a>
+      
+      <div class="nav-dropdown">
+        <span class="nav-item">Electrical</span>
+        <div class="dropdown-content">
+          <a href="/electrical">Watts to Amps</a>
+          <a href="/voltage-drop">Voltage Drop Calc</a>
+          <a href="/conduit-fill">Conduit Fill Calc</a>
+          <a href="/blog/voltage-drop-calculation-nec">Voltage Drop Guide</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">HVAC/Plumbing</span>
+        <div class="dropdown-content">
+          <a href="/pressure">Pressure Units</a>
+          <a href="/temperature">Temperature</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item active">Building</span>
+        <div class="dropdown-content">
+          <a href="/concrete">Concrete & Bags</a>
+          <a href="/lumber">Lumber & BF</a>
+          <a href="/roofing">Roofing & Squares</a>
+          <a href="/stair">Stair Layout</a>
+          <a href="/drywall">Drywall Calculator</a>
+          <a href="/paint">Paint Calculator</a>
+          <a href="/excavation">Excavation Calc</a>
+          <a href="/tile">Tile Calculator</a>
+          <a href="/length">Length & Layout</a>
+          <a href="/torque">Torque Specs</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item">Site</span>
+        <div class="dropdown-content">
+          <a href="/volume">Volume Calc</a>
+          <a href="/weight">Weight & Ton</a>
+        </div>
+      </div>
+
+      <a href="/blog" class="nav-item">Field Notes</a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Tile Calculator</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <div class="page-hero">
+      <h1>Tile Calculator &mdash; Flooring & Backsplash Estimator</h1>
+      <p class="hero-desc">Calculate the exact number of tiles and boxes needed to cover a floor or wall area. Automatically accounts for grout joint width margins and custom scrap waste factors.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>For standard **straight-grid tiling**, a **10% waste factor** is standard to cover edge offcuts. For elegant **diagonal tiling** or complex subway offsets, increase your material margins to exactly **15%**. Incorporating grout joints directly in the math slightly increases total tile coverage yields.</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Flooring & Wall Tile Calculator</div>
+            <div class="tool-card-sub">Joint Width & Diagonal Offsets Adjustment</div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
+            <div class="input-group">
+              <label class="input-label" for="t-l">Target Area Length (ft)</label>
+              <input class="input-field" id="t-l" type="number" value="12" oninput="calcTile()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="t-w">Target Area Width (ft)</label>
+              <input class="input-field" id="t-w" type="number" value="10" oninput="calcTile()">
+            </div>
+          </div>
+          
+          <div style="display:grid; grid-template-columns: 1.5fr 1fr; gap:16px; margin-bottom:16px">
+            <div class="input-group">
+              <label class="input-label" for="t-size">Standard Tile Profile (in)</label>
+              <select class="input-field" id="t-size" onchange="adjustCustomTile(this.value)">
+                <option value="12x12" selected>12" × 12" Square Tile</option>
+                <option value="24x24">24" × 24" Large Format</option>
+                <option value="18x18">18" × 18" Medium Square</option>
+                <option value="3x6">3" × 6" Subway Tile</option>
+                <option value="6x24">6" × 24" Wood Plank</option>
+                <option value="custom">Custom Dimensions...</option>
+              </select>
+            </div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+              <div class="input-group">
+                <label class="input-label" for="t-tile-w">Width (in)</label>
+                <input class="input-field" id="t-tile-w" type="number" value="12" disabled oninput="calcTile()">
+              </div>
+              <div class="input-group">
+                <label class="input-label" for="t-tile-h">Length (in)</label>
+                <input class="input-field" id="t-tile-h" type="number" value="12" disabled oninput="calcTile()">
+              </div>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-bottom:20px">
+            <div class="input-group">
+              <label class="input-label" for="t-grout">Grout Joint Width (in)</label>
+              <select class="input-field" id="t-grout" onchange="calcTile()">
+                <option value="0">No Grout Joint (Butt joint)</option>
+                <option value="0.0625">1/16" Joint</option>
+                <option value="0.125" selected>1/8" Joint</option>
+                <option value="0.1875">3/16" Joint</option>
+                <option value="0.25">1/4" Joint</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="t-waste">Waste Factor (%)</label>
+              <input class="input-field" id="t-waste" type="number" value="10" oninput="calcTile()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="t-box">Tiles per Box</label>
+              <input class="input-field" id="t-box" type="number" value="15" oninput="calcTile()">
+            </div>
+          </div>
+          
+          <div class="section-head">Calculated Tile Output</div>
+          <div class="chart-grid">
+            <div class="chart-cell header">Area Specification</div>
+            <div class="chart-cell header">Calculated Area</div>
+            <div class="chart-cell header">Individual Tile Size</div>
+            <div class="chart-cell header">Recommended Buy</div>
+            
+            <div class="chart-cell"><span class="cv-from">Total Target Surface Area</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-t-area">120 ft²</span></div>
+            <div class="chart-cell"><span class="cv-from">Single Tile Coverage</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-t-tile-size">1.02 ft² (with grout)</span></div>
+            
+            <div class="chart-cell"><span class="cv-from">Exact Tiles Needed</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-t-exact-n">118 Tiles</span></div>
+            <div class="chart-cell"><span class="cv-from">Required Tiles (+Waste)</span></div>
+            <div class="chart-cell"><span class="cv-to" style="font-weight:700; color:var(--accent);" id="out-t-total-n">130 Tiles</span></div>
+          </div>
+
+          <div style="margin-top:20px; padding:12px; background:var(--paper3); border-radius:4px; font-size:12px; display:flex; justify-content:space-between; border:1px solid var(--rule);">
+            <span><strong>Box Count Optimization:</strong> <span id="out-t-boxes">Buy 9 Full Boxes (135 tiles total)</span></span>
+            <span style="font-weight:700; color:#15803d;">✔ FLUID TILES</span>
+          </div>
+        </div>
+
+        <h2>Mathematical Tile Layout Equations</h2>
+        <p>This flooring tile calculator adjusts the nominal size of the tile by adding the grout joint width on both dimensions before dividing the overall floor dimensions:</p>
+        
+        <div class="formula-box">
+          <strong>Geometric Placement Formula:</strong><br>
+          <span class="mono">Tile Area (Sq In) = (Tile Width + Grout Joint) × (Tile Length + Grout Joint)</span><br>
+          <span class="mono">Tile Area (Sq Ft) = Tile Area (Sq In) ÷ 144</span><br>
+          <span class="mono">Exact Tiles Required = Room Area (Sq Ft) ÷ Tile Area (Sq Ft)</span><br>
+          <span class="mono">Recommended Purchase = Ceil( Exact Tiles × (1 + Waste%) )</span>
+        </div>
+
+        <h2>Standard Interior Tiling Standards</h2>
+        <div class="ref-table-wrap">
+          <table class="ref-table">
+            <thead>
+              <tr>
+                <th>Layout Configuration</th>
+                <th>Recommended Waste Factor</th>
+                <th>Standard Grout Width</th>
+                <th>Primary Aesthetic</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:600;">Straight Grid (Jack-on-Jack)</td>
+                <td class="mono">10% standard</td>
+                <td>1/8 inch</td>
+                <td>Clean, modern symmetric grid. Minimal cuts.</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Diagonal Grid (Point-to-Point)</td>
+                <td class="mono">15% high</td>
+                <td>1/16 to 1/8 inch</td>
+                <td>Increases room scale visual perception. High cuts.</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Subway Offset (Running Bond)</td>
+                <td class="mono">10% - 12%</td>
+                <td>1/16 inch</td>
+                <td>Classic staggered alignment. Highly popular in kitchens.</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Herringbone Pattern</td>
+                <td class="mono">15% - 20%</td>
+                <td>1/8 inch</td>
+                <td>High-complexity luxury borders. Maximum cutting waste.</td>
+              </tr>
+            </tbody>
+            <caption>Standard floor and backsplash grid classes.</caption>
+          </table>
+        </div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card gold-top">
+          <div class="sidebar-title">Grout Spacers</div>
+          <div class="prose" style="font-size:12px">
+            <p><strong>Spacing Tips:</strong>
+              <ul>
+                <li><strong>Glass tile:</strong> Max 1/16" grout line standard.</li>
+                <li><strong>Handmade tile:</strong> Use larger 3/16" or 1/4" joint line to hide size variances.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        <div class="trade-tip">
+          <strong>Field Note</strong>
+          Always buy at least one full extra box of tiles beyond the calculated waste factor! Keep it stored in the attic or garage so that if a tile cracks in the future, you have replacement stock from the exact same manufacturing dye lot!
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure">Pressure</a>
+        <a href="/electrical">Electrical</a>
+        <a href="/concrete">Concrete</a>
+        <a href="/lumber">Lumber</a>
+        <a href="/roofing">Roofing</a>
+        <a href="/stair">Stair Layout</a>
+        <a href="/voltage-drop">Voltage Drop</a>
+        <a href="/conduit-fill">Conduit Fill</a>
+        <a href="/drywall">Drywall</a>
+        <a href="/paint">Paint</a>
+        <a href="/excavation">Excavation</a>
+        <a href="/tile">Tile</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog">Field Notes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TradeConvert · NIST Verified</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    function adjustCustomTile(val) {
+      const wInput = document.getElementById('t-tile-w');
+      const hInput = document.getElementById('t-tile-h');
+      
+      if (val === 'custom') {
+        wInput.removeAttribute('disabled');
+        hInput.removeAttribute('disabled');
+      } else {
+        wInput.setAttribute('disabled', 'true');
+        hInput.setAttribute('disabled', 'true');
+        
+        const dims = val.split('x');
+        wInput.value = dims[0];
+        hInput.value = dims[1];
+      }
+      calcTile();
+    }
+
+    function calcTile() {
+      const length = parseFloat(document.getElementById('t-l').value) || 0;
+      const width = parseFloat(document.getElementById('t-w').value) || 0;
+      const tW = parseFloat(document.getElementById('t-tile-w').value) || 12;
+      const tH = parseFloat(document.getElementById('t-tile-h').value) || 12;
+      const grout = parseFloat(document.getElementById('t-grout').value) || 0;
+      const waste = parseFloat(document.getElementById('t-waste').value) || 0;
+      const boxQty = parseInt(document.getElementById('t-box').value) || 1;
+
+      if (length <= 0 || width <= 0 || tW <= 0 || tH <= 0) return;
+
+      // 1. Target overall area
+      const roomArea = length * width;
+
+      // 2. Adjust individual tile dimensions adding grout joint
+      const adjustedTileW = tW + grout;
+      const adjustedTileH = tH + grout;
+
+      // 3. Area of a single tile (in square feet)
+      const tileAreaSqIn = adjustedTileW * adjustedTileH;
+      const tileAreaSqFt = tileAreaSqIn / 144;
+
+      // 4. Exact tile count
+      const exactTiles = roomArea / tileAreaSqFt;
+
+      // 5. Recommended buy count with waste factor
+      const totalTiles = Math.ceil(exactTiles * (1 + (waste / 100)));
+
+      // 6. Box estimation
+      const boxesNeeded = Math.ceil(totalTiles / boxQty);
+      const totalTilesBought = boxesNeeded * boxQty;
+
+      // 7. Write outputs to UI
+      document.getElementById('out-t-area').textContent = roomArea.toLocaleString() + " ft²";
+      document.getElementById('out-t-tile-size').textContent = tileAreaSqFt.toFixed(3) + " ft² (with joint)";
+      document.getElementById('out-t-exact-n').textContent = Math.ceil(exactTiles) + " Tiles";
+      document.getElementById('out-t-total-n').textContent = totalTiles + " Tiles";
+
+      document.getElementById('out-t-boxes').textContent = `Buy ${boxesNeeded} Full Box` + (boxesNeeded !== 1 ? "es" : "") + ` (${totalTilesBought} tiles total)`;
+    }
+
+    window.addEventListener('DOMContentLoaded', calcTile);
+  </script>
+</body>
+</html>
