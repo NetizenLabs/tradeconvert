@@ -10,6 +10,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # SEO 301 Redirects for Old URLs (fixing 404s)
 RewriteRule ^volume-converter/?$ /volume/ [R=301,L]
+RewriteRule ^blog/board-feet-estimation-guide/?$ /blog/board-feet-calculator-lumber-estimation-2026/ [R=301,L]
 RewriteRule ^concrete-calculator/?$ /concrete/ [R=301,L]
 RewriteRule ^length-converter/?$ /length/ [R=301,L]
 RewriteRule ^lumber-reference/?$ /lumber/ [R=301,L]
