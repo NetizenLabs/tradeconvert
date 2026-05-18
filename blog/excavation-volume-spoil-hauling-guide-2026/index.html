@@ -166,18 +166,18 @@
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
             <div class="input-group">
               <label class="input-label" for="exg-l">Dig Length (ft)</label>
-              <input class="input-field" id="exg-l" type="number" value="40" oninput="calcEXG()">
+              <input data-agent-input="exg-l" aria-label="Input field for Dig Length (ft)" class="input-field" id="exg-l" type="number" value="40" oninput="calcEXG()">
             </div>
             <div class="input-group">
               <label class="input-label" for="exg-w">Dig Width (ft)</label>
-              <input class="input-field" id="exg-w" type="number" value="20" oninput="calcEXG()">
+              <input data-agent-input="exg-w" aria-label="Input field for Dig Width (ft)" class="input-field" id="exg-w" type="number" value="20" oninput="calcEXG()">
             </div>
           </div>
           
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px">
             <div class="input-group">
               <label class="input-label" for="exg-d">Dig Depth (ft)</label>
-              <input class="input-field" id="exg-d" type="number" value="5" oninput="calcEXG()">
+              <input data-agent-input="exg-d" aria-label="Input field for Dig Depth (ft)" class="input-field" id="exg-d" type="number" value="5" oninput="calcEXG()">
             </div>
             <div class="input-group">
               <label class="input-label" for="exg-soil">Soil Classification</label>
@@ -191,21 +191,21 @@
 
           <div class="result-display" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; border-top: 1px dotted var(--rule2); padding-top: 16px;">
             <div style="text-align: center;">
-              <span class="result-number" id="res-exg-bank" style="font-size: 28px;">148.1</span>
+              <span class="result-number" id="res-exg-bank" style="font-size: 28px;" aria-live="polite" role="status" data-agent-output="res-exg-bank" aria-label="Output calculation result for res exg bank">148.1</span>
               <span class="result-unit" style="display:block; font-size:10px;">Bank Yards (BCY)</span>
             </div>
             <div style="text-align: center;">
-              <span class="result-number" id="res-exg-loose" style="font-size: 28px;">170.4</span>
+              <span class="result-number" id="res-exg-loose" style="font-size: 28px;" aria-live="polite" role="status" data-agent-output="res-exg-loose" aria-label="Output calculation result for res exg loose">170.4</span>
               <span class="result-unit" style="display:block; font-size:10px;">Loose Yards (LCY)</span>
             </div>
             <div style="text-align: center;">
-              <span class="result-number" id="res-exg-loads" style="font-size: 28px;">18</span>
+              <span class="result-number" id="res-exg-loads" style="font-size: 28px;" aria-live="polite" role="status" data-agent-output="res-exg-loads" aria-label="Output calculation result for res exg loads">18</span>
               <span class="result-unit" style="display:block; font-size:10px;">Dump Truck Loads</span>
             </div>
           </div>
 
           <div style="padding:12px; background:var(--paper3); border-radius:4px; font-size:12px; display:flex; justify-content:space-between; border:1px solid var(--rule);">
-            <span><strong>Soil Volume advisory:</strong> <span id="res-exg-spoil">Excavated dirt expands by 22.3 loose cubic yards.</span></span>
+            <span><strong>Soil Volume advisory:</strong> <span id="res-exg-spoil" aria-live="polite" role="status" data-agent-output="res-exg-spoil" aria-label="Output calculation result for res exg spoil">Excavated dirt expands by 22.3 loose cubic yards.</span></span>
             <span style="font-weight:700; color:#15803d;">✔ EARTHWORK CALCULATOR</span>
           </div>
         </div>

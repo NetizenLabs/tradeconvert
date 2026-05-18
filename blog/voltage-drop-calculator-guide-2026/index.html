@@ -180,14 +180,14 @@
             </div>
             <div class="input-group">
               <label class="input-label" for="vd-amp">Load Current (Amps)</label>
-              <input class="input-field" id="vd-amp" type="number" value="20" oninput="calcVD()">
+              <input data-agent-input="vd-amp" aria-label="Input field for Load Current (Amps)" class="input-field" id="vd-amp" type="number" value="20" oninput="calcVD()">
             </div>
           </div>
           
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
             <div class="input-group">
               <label class="input-label" for="vd-length">One-way Run Length (ft)</label>
-              <input class="input-field" id="vd-length" type="number" value="150" oninput="calcVD()">
+              <input data-agent-input="vd-length" aria-label="Input field for One-way Run Length (ft)" class="input-field" id="vd-length" type="number" value="150" oninput="calcVD()">
             </div>
             <div class="input-group">
               <label class="input-label" for="vd-metal">Conductor Material</label>
@@ -215,22 +215,22 @@
 
           <div class="result-display" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; border-top: 1px dotted var(--rule2); padding-top: 16px;">
             <div style="text-align: center;">
-              <span class="result-number" id="res-vd-drop" style="font-size: 28px;">5.92V</span>
+              <span class="result-number" id="res-vd-drop" style="font-size: 28px;" aria-live="polite" role="status" data-agent-output="res-vd-drop" aria-label="Output calculation result for res vd drop">5.92V</span>
               <span class="result-unit" style="display:block; font-size:10px;">Voltage Loss</span>
             </div>
             <div style="text-align: center;">
-              <span class="result-number" id="res-vd-pct" style="font-size: 28px;">4.9%</span>
+              <span class="result-number" id="res-vd-pct" style="font-size: 28px;" aria-live="polite" role="status" data-agent-output="res-vd-pct" aria-label="Output calculation result for res vd pct">4.9%</span>
               <span class="result-unit" style="display:block; font-size:10px;">Drop Percentage</span>
             </div>
             <div style="text-align: center;">
-              <span class="result-number" id="res-vd-end" style="font-size: 28px;">114V</span>
+              <span class="result-number" id="res-vd-end" style="font-size: 28px;" aria-live="polite" role="status" data-agent-output="res-vd-end" aria-label="Output calculation result for res vd end">114V</span>
               <span class="result-unit" style="display:block; font-size:10px;">Terminal Voltage</span>
             </div>
           </div>
 
           <div style="padding:12px; background:var(--paper3); border-radius:4px; font-size:12px; display:flex; justify-content:space-between; border:1px solid var(--rule);">
-            <span><strong>NEC Code Spacing Check:</strong> <span id="res-vd-status">Warnings! Exceeds standard recommendations.</span></span>
-            <span id="res-vd-code" style="font-weight:700; color:#b91c1c;">✘ CODE EXCEEDED</span>
+            <span><strong>NEC Code Spacing Check:</strong> <span id="res-vd-status" aria-live="polite" role="status" data-agent-output="res-vd-status" aria-label="Output calculation result for res vd status">Warnings! Exceeds standard recommendations.</span></span>
+            <span id="res-vd-code" style="font-weight:700; color:#b91c1c;" aria-live="polite" role="status" data-agent-output="res-vd-code" aria-label="Output calculation result for res vd code">✘ CODE EXCEEDED</span>
           </div>
         </div>
 

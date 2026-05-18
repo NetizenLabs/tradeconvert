@@ -165,7 +165,7 @@
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px">
             <div class="input-group">
               <label class="input-label" for="cf-qty">Wire Quantity</label>
-              <input class="input-field" id="cf-qty" type="number" value="4" min="1" oninput="calcFill()">
+              <input data-agent-input="cf-qty" aria-label="Input field for Wire Quantity" class="input-field" id="cf-qty" type="number" value="4" min="1" oninput="calcFill()">
             </div>
             <div class="input-group">
               <label class="input-label" style="opacity: 0.5;">Target standard</label>
@@ -183,7 +183,7 @@
             <div class="chart-cell"><span class="cv-from">Total Conduit Area</span></div>
             <div class="chart-cell"><span class="cv-to" id="out-total-area">0.304 in²</span></div>
             <div class="chart-cell"><span class="cv-from">Total Wires Area</span></div>
-            <div class="chart-cell"><span class="cv-to" id="out-wires-area">0.053 in²</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-wires-area" aria-live="polite" role="status" data-agent-output="out-wires-area" aria-label="Output calculation result for out wires area">0.053 in²</span></div>
             
             <div class="chart-cell"><span class="cv-from">Calculated Fill Percentage</span></div>
             <div class="chart-cell"><span class="cv-to" id="out-fill-pct">17.5 %</span></div>

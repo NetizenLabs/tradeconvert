@@ -135,18 +135,18 @@
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
             <div class="input-group">
               <label class="input-label" for="p-l">Room Length (ft)</label>
-              <input class="input-field" id="p-l" type="number" value="16" oninput="calcPaint()">
+              <input data-agent-input="p-l" aria-label="Input field for Room Length (ft)" class="input-field" id="p-l" type="number" value="16" oninput="calcPaint()">
             </div>
             <div class="input-group">
               <label class="input-label" for="p-w">Room Width (ft)</label>
-              <input class="input-field" id="p-w" type="number" value="12" oninput="calcPaint()">
+              <input data-agent-input="p-w" aria-label="Input field for Room Width (ft)" class="input-field" id="p-w" type="number" value="12" oninput="calcPaint()">
             </div>
           </div>
           
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
             <div class="input-group">
               <label class="input-label" for="p-h">Ceiling Height (ft)</label>
-              <input class="input-field" id="p-h" type="number" value="8" oninput="calcPaint()">
+              <input data-agent-input="p-h" aria-label="Input field for Ceiling Height (ft)" class="input-field" id="p-h" type="number" value="8" oninput="calcPaint()">
             </div>
             <div class="input-group">
               <label class="input-label" for="p-spread">Spread Rate (sq ft/gal)</label>
@@ -162,7 +162,7 @@
           <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-bottom:20px">
             <div class="input-group">
               <label class="input-label" for="p-deduct">Openings Deduct (sq ft)</label>
-              <input class="input-field" id="p-deduct" type="number" value="40" oninput="calcPaint()">
+              <input data-agent-input="p-deduct" aria-label="Input field for Openings Deduct (sq ft)" class="input-field" id="p-deduct" type="number" value="40" oninput="calcPaint()">
             </div>
             <div class="input-group">
               <label class="input-label" for="p-coats">Number of Coats</label>

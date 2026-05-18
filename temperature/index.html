@@ -124,7 +124,7 @@
           <div class="converter-inputs">
             <div class="input-group">
               <label class="input-label" for="t-from">From</label>
-              <input class="input-field" id="t-from" type="number" value="68" oninput="calcTemp()">
+              <input data-agent-input="t-from" aria-label="Input field for From" class="input-field" id="t-from" type="number" value="68" oninput="calcTemp()">
               <select class="unit-select" id="t-from-u" onchange="calcTemp()">
                 <option value="f" selected>Fahrenheit (°F)</option>
                 <option value="c">Celsius (°C)</option>
@@ -134,7 +134,7 @@
             <div style="width:44px"></div>
             <div class="input-group">
               <label class="input-label" for="t-to">To</label>
-              <input class="input-field output" id="t-to" type="text" readonly>
+              <input data-agent-input="t-to" aria-label="Input field for To" class="input-field output" id="t-to" type="text" readonly>
               <select class="unit-select" id="t-to-u" onchange="calcTemp()">
                 <option value="f">Fahrenheit (°F)</option>
                 <option value="c" selected>Celsius (°C)</option>
@@ -143,9 +143,9 @@
             </div>
           </div>
           <div class="result-display">
-            <span class="result-number" id="t-result-n">20.00</span>
-            <span class="result-unit" id="t-result-u">°C</span>
-            <div class="result-eq" id="t-result-eq">68°F = 20.00°C</div>
+            <span class="result-number" id="t-result-n" aria-live="polite" role="status" data-agent-output="t-result-n" aria-label="Output calculation result for t result n">20.00</span>
+            <span class="result-unit" id="t-result-u" aria-live="polite" role="status" data-agent-output="t-result-u" aria-label="Output calculation result for t result u">°C</span>
+            <div class="result-eq" id="t-result-eq" aria-live="polite" role="status" data-agent-output="t-result-eq" aria-label="Output calculation result for t result eq">68°F = 20.00°C</div>
           </div>
           <div class="formula-box">
             <div class="formula-label">Conversion Formula</div>

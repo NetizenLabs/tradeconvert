@@ -104,7 +104,7 @@
           <div class="converter-inputs">
             <div class="input-group">
               <label class="input-label" for="l-from">From</label>
-              <input class="input-field" id="l-from" type="number" value="1" oninput="calcLength()">
+              <input data-agent-input="l-from" aria-label="Input field for From" class="input-field" id="l-from" type="number" value="1" oninput="calcLength()">
               <select class="unit-select" id="l-from-u" onchange="calcLength()">
                 <option value="in" selected>Inches (in)</option>
                 <option value="ft">Feet (ft)</option>
@@ -117,7 +117,7 @@
             <button class="swap-btn" onclick="swapL()" aria-label="Swap units">⇄</button>
             <div class="input-group">
               <label class="input-label" for="l-to">To</label>
-              <input class="input-field output" id="l-to" type="text" readonly>
+              <input data-agent-input="l-to" aria-label="Input field for To" class="input-field output" id="l-to" type="text" readonly>
               <select class="unit-select" id="l-to-u" onchange="calcLength()">
                 <option value="in">Inches (in)</option>
                 <option value="ft">Feet (ft)</option>
@@ -129,9 +129,9 @@
             </div>
           </div>
           <div class="result-display">
-            <span class="result-number" id="l-result-n">25.400</span>
-            <span class="result-unit" id="l-result-u">mm</span>
-            <div class="result-eq" id="l-result-eq">1 in = 25.4 mm</div>
+            <span class="result-number" id="l-result-n" aria-live="polite" role="status" data-agent-output="l-result-n" aria-label="Output calculation result for l result n">25.400</span>
+            <span class="result-unit" id="l-result-u" aria-live="polite" role="status" data-agent-output="l-result-u" aria-label="Output calculation result for l result u">mm</span>
+            <div class="result-eq" id="l-result-eq" aria-live="polite" role="status" data-agent-output="l-result-eq" aria-label="Output calculation result for l result eq">1 in = 25.4 mm</div>
           </div>
           <div class="formula-box">
             <div class="formula-label">Conversion Formula</div>

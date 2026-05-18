@@ -128,24 +128,24 @@
           <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-bottom:16px">
             <div class="input-group">
               <label class="input-label" for="lum-t">Thickness (in)</label>
-              <input class="input-field" id="lum-t" type="number" value="1" oninput="calcLumber()">
+              <input data-agent-input="t" aria-label="Input field for Thickness (in)" class="input-field" id="lum-t" type="number" value="1" oninput="calcLumber()">
             </div>
             <div class="input-group">
               <label class="input-label" for="lum-w">Width (in)</label>
-              <input class="input-field" id="lum-w" type="number" value="12" oninput="calcLumber()">
+              <input data-agent-input="w" aria-label="Input field for Width (in)" class="input-field" id="lum-w" type="number" value="12" oninput="calcLumber()">
             </div>
             <div class="input-group">
               <label class="input-label" for="lum-l">Length (ft)</label>
-              <input class="input-field" id="lum-l" type="number" value="8" oninput="calcLumber()">
+              <input data-agent-input="l" aria-label="Input field for Length (ft)" class="input-field" id="lum-l" type="number" value="8" oninput="calcLumber()">
             </div>
           </div>
           <div class="result-display">
-            <span class="result-number" id="lum-bf">8.00</span>
+            <span class="result-number" id="lum-bf" aria-live="polite" role="status" data-agent-output="bf" aria-label="Output calculation result for bf">8.00</span>
             <span class="result-unit">Board Feet</span>
           </div>
           <div class="formula-box">
             <div class="formula-label">Calculation</div>
-            <div class="formula-text" id="lum-formula">(1 × 12 × 8) ÷ 12 = 8.00 BF</div>
+            <div class="formula-text" id="lum-formula" aria-live="polite" role="status" data-agent-output="formula" aria-label="Output calculation result for formula">(1 × 12 × 8) ÷ 12 = 8.00 BF</div>
           </div>
         </div>
 

@@ -124,7 +124,7 @@
           <div class="converter-inputs">
             <div class="input-group">
               <label class="input-label" for="w-from">From</label>
-              <input class="input-field" id="w-from" type="number" value="100" oninput="calcWeight()">
+              <input data-agent-input="w-from" aria-label="Input field for From" class="input-field" id="w-from" type="number" value="100" oninput="calcWeight()">
               <select class="unit-select" id="w-from-u" onchange="calcWeight()">
                 <option value="lb" selected>Pounds (lb)</option>
                 <option value="kg">Kilograms (kg)</option>
@@ -136,7 +136,7 @@
             <button class="swap-btn" onclick="swapW()" aria-label="Swap units">⇄</button>
             <div class="input-group">
               <label class="input-label" for="w-to">To</label>
-              <input class="input-field output" id="w-to" type="text" readonly>
+              <input data-agent-input="w-to" aria-label="Input field for To" class="input-field output" id="w-to" type="text" readonly>
               <select class="unit-select" id="w-to-u" onchange="calcWeight()">
                 <option value="lb">Pounds (lb)</option>
                 <option value="kg" selected>Kilograms (kg)</option>
@@ -147,9 +147,9 @@
             </div>
           </div>
           <div class="result-display">
-            <span class="result-number" id="w-result-n">45.3592</span>
-            <span class="result-unit" id="w-result-u">kg</span>
-            <div class="result-eq" id="w-result-eq">100 lb = 45.3592 kg</div>
+            <span class="result-number" id="w-result-n" aria-live="polite" role="status" data-agent-output="w-result-n" aria-label="Output calculation result for w result n">45.3592</span>
+            <span class="result-unit" id="w-result-u" aria-live="polite" role="status" data-agent-output="w-result-u" aria-label="Output calculation result for w result u">kg</span>
+            <div class="result-eq" id="w-result-eq" aria-live="polite" role="status" data-agent-output="w-result-eq" aria-label="Output calculation result for w result eq">100 lb = 45.3592 kg</div>
           </div>
           <div class="formula-box">
             <div class="formula-label">Conversion Formula</div>

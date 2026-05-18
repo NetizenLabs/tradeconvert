@@ -116,7 +116,7 @@
           <div class="converter-inputs">
             <div class="input-group">
               <label class="input-label" for="tr-from">From</label>
-              <input class="input-field" id="tr-from" type="number" value="100" oninput="calcTorque()">
+              <input data-agent-input="tr-from" aria-label="Input field for From" class="input-field" id="tr-from" type="number" value="100" oninput="calcTorque()">
               <select class="unit-select" id="tr-from-u" onchange="calcTorque()">
                 <option value="lbft" selected>Foot-Pounds (lb-ft)</option>
                 <option value="nm">Newton-Meters (Nm)</option>
@@ -128,7 +128,7 @@
             <button class="swap-btn" onclick="swapTr()" aria-label="Swap units">⇄</button>
             <div class="input-group">
               <label class="input-label" for="tr-to">To</label>
-              <input class="input-field output" id="tr-to" type="text" readonly>
+              <input data-agent-input="tr-to" aria-label="Input field for To" class="input-field output" id="tr-to" type="text" readonly>
               <select class="unit-select" id="tr-to-u" onchange="calcTorque()">
                 <option value="lbft">Foot-Pounds (lb-ft)</option>
                 <option value="nm" selected>Newton-Meters (Nm)</option>
@@ -139,9 +139,9 @@
             </div>
           </div>
           <div class="result-display">
-            <span class="result-number" id="tr-result-n">135.58</span>
-            <span class="result-unit" id="tr-result-u">Nm</span>
-            <div class="result-eq" id="tr-result-eq">100 lb-ft = 135.58 Nm</div>
+            <span class="result-number" id="tr-result-n" aria-live="polite" role="status" data-agent-output="tr-result-n" aria-label="Output calculation result for tr result n">135.58</span>
+            <span class="result-unit" id="tr-result-u" aria-live="polite" role="status" data-agent-output="tr-result-u" aria-label="Output calculation result for tr result u">Nm</span>
+            <div class="result-eq" id="tr-result-eq" aria-live="polite" role="status" data-agent-output="tr-result-eq" aria-label="Output calculation result for tr result eq">100 lb-ft = 135.58 Nm</div>
           </div>
           <div class="formula-box">
             <div class="formula-label">Conversion Formula</div>

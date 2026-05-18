@@ -134,18 +134,18 @@
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
             <div class="input-group">
               <label class="input-label" for="dw-l">Room Length (ft)</label>
-              <input class="input-field" id="dw-l" type="number" value="16" oninput="calcDrywall()">
+              <input data-agent-input="dw-l" aria-label="Input field for Room Length (ft)" class="input-field" id="dw-l" type="number" value="16" oninput="calcDrywall()">
             </div>
             <div class="input-group">
               <label class="input-label" for="dw-w">Room Width (ft)</label>
-              <input class="input-field" id="dw-w" type="number" value="12" oninput="calcDrywall()">
+              <input data-agent-input="dw-w" aria-label="Input field for Room Width (ft)" class="input-field" id="dw-w" type="number" value="12" oninput="calcDrywall()">
             </div>
           </div>
           
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
             <div class="input-group">
               <label class="input-label" for="dw-h">Ceiling Height (ft)</label>
-              <input class="input-field" id="dw-h" type="number" value="8" oninput="calcDrywall()">
+              <input data-agent-input="dw-h" aria-label="Input field for Ceiling Height (ft)" class="input-field" id="dw-h" type="number" value="8" oninput="calcDrywall()">
             </div>
             <div class="input-group">
               <label class="input-label" for="dw-size">Drywall Sheet Size</label>
@@ -159,11 +159,11 @@
           <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-bottom:20px">
             <div class="input-group">
               <label class="input-label" for="dw-deduct">Openings Deduct (sq ft)</label>
-              <input class="input-field" id="dw-deduct" type="number" value="40" oninput="calcDrywall()">
+              <input data-agent-input="dw-deduct" aria-label="Input field for Openings Deduct (sq ft)" class="input-field" id="dw-deduct" type="number" value="40" oninput="calcDrywall()">
             </div>
             <div class="input-group">
               <label class="input-label" for="dw-waste">Waste Factor (%)</label>
-              <input class="input-field" id="dw-waste" type="number" value="10" oninput="calcDrywall()">
+              <input data-agent-input="dw-waste" aria-label="Input field for Waste Factor (%)" class="input-field" id="dw-waste" type="number" value="10" oninput="calcDrywall()">
             </div>
             <div class="input-group">
               <label class="input-label" for="dw-mode">Include Ceiling?</label>

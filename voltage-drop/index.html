@@ -180,11 +180,11 @@
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px">
             <div class="input-group">
               <label class="input-label" for="vd-amps">Current Load (Amps)</label>
-              <input class="input-field" id="vd-amps" type="number" value="16" oninput="calcVD()">
+              <input data-agent-input="vd-amps" aria-label="Input field for Current Load (Amps)" class="input-field" id="vd-amps" type="number" value="16" oninput="calcVD()">
             </div>
             <div class="input-group">
               <label class="input-label" for="vd-length">One-way Run Length (feet)</label>
-              <input class="input-field" id="vd-length" type="number" value="100" oninput="calcVD()">
+              <input data-agent-input="vd-length" aria-label="Input field for One-way Run Length (feet)" class="input-field" id="vd-length" type="number" value="100" oninput="calcVD()">
             </div>
           </div>
           

@@ -160,37 +160,37 @@
           <div class="input-grid">
             <div class="input-group">
               <label class="input-label" for="r-w">Building Width (ft)</label>
-              <input class="input-field" id="r-w" type="number" value="30" oninput="calcRoof()">
+              <input data-agent-input="r-w" aria-label="Input field for Building Width (ft)" class="input-field" id="r-w" type="number" value="30" oninput="calcRoof()">
             </div>
             <div class="input-group">
               <label class="input-label" for="r-l">Building Length (ft)</label>
-              <input class="input-field" id="r-l" type="number" value="40" oninput="calcRoof()">
+              <input data-agent-input="r-l" aria-label="Input field for Building Length (ft)" class="input-field" id="r-l" type="number" value="40" oninput="calcRoof()">
             </div>
             <div class="input-group">
               <label class="input-label" for="r-pitch">Roof Pitch (X/12)</label>
-              <input class="input-field" id="r-pitch" type="number" value="6" step="1" oninput="calcRoof()">
+              <input data-agent-input="r-pitch" aria-label="Input field for Roof Pitch (X/12)" class="input-field" id="r-pitch" type="number" value="6" step="1" oninput="calcRoof()">
             </div>
             <div class="input-group">
               <label class="input-label" for="r-waste">Waste Factor (%)</label>
-              <input class="input-field" id="r-waste" type="number" value="10" oninput="calcRoof()">
+              <input data-agent-input="r-waste" aria-label="Input field for Waste Factor (%)" class="input-field" id="r-waste" type="number" value="10" oninput="calcRoof()">
             </div>
           </div>
 
           <div class="result-display" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; border-top: 1px dotted var(--rule2); padding-top: 16px;">
             <div style="text-align: center;">
-              <span class="result-number" id="res-slope" style="font-size: 22px;">1.118</span>
+              <span class="result-number" id="res-slope" style="font-size: 22px;" aria-live="polite" role="status" data-agent-output="res-slope" aria-label="Output calculation result for res slope">1.118</span>
               <span class="result-unit" style="display:block; font-size:9px;">Slope Factor</span>
             </div>
             <div style="text-align: center;">
-              <span class="result-number" id="res-sqft" style="font-size: 22px;">1341</span>
+              <span class="result-number" id="res-sqft" style="font-size: 22px;" aria-live="polite" role="status" data-agent-output="res-sqft" aria-label="Output calculation result for res sqft">1341</span>
               <span class="result-unit" style="display:block; font-size:9px;">Surface Area</span>
             </div>
             <div style="text-align: center;">
-              <span class="result-number" id="res-sq" style="font-size: 22px;">13.4</span>
+              <span class="result-number" id="res-sq" style="font-size: 22px;" aria-live="polite" role="status" data-agent-output="res-sq" aria-label="Output calculation result for res sq">13.4</span>
               <span class="result-unit" style="display:block; font-size:9px;">Squares (SQ)</span>
             </div>
             <div style="text-align: center;">
-              <span class="result-number" id="res-bundles" style="font-size: 22px;">41</span>
+              <span class="result-number" id="res-bundles" style="font-size: 22px;" aria-live="polite" role="status" data-agent-output="res-bundles" aria-label="Output calculation result for res bundles">41</span>
               <span class="result-unit" style="display:block; font-size:9px;">Bundles</span>
             </div>
           </div>

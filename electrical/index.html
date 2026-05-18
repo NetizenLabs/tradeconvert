@@ -128,7 +128,7 @@
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
             <div class="input-group">
               <label class="input-label" for="e-watts">Watts (Power)</label>
-              <input class="input-field" id="e-watts" type="number" value="2400" oninput="calcElec()">
+              <input data-agent-input="e-watts" aria-label="Input field for Watts (Power)" class="input-field" id="e-watts" type="number" value="2400" oninput="calcElec()">
             </div>
             <div class="input-group">
               <label class="input-label" for="e-volts">Voltage</label>
@@ -145,9 +145,9 @@
             </div>
           </div>
           <div class="result-display">
-            <span class="result-number" id="e-result-n">20.00</span>
+            <span class="result-number" id="e-result-n" aria-live="polite" role="status" data-agent-output="e-result-n" aria-label="Output calculation result for e result n">20.00</span>
             <span class="result-unit">Amps</span>
-            <div class="result-eq" id="e-result-eq">2400W ÷ 120V = 20.00A</div>
+            <div class="result-eq" id="e-result-eq" aria-live="polite" role="status" data-agent-output="e-result-eq" aria-label="Output calculation result for e result eq">2400W ÷ 120V = 20.00A</div>
           </div>
           <div class="formula-box">
             <div class="formula-label">Ohm's Law (P = I × V)</div>

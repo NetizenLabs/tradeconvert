@@ -129,7 +129,7 @@
           <div class="converter-inputs">
             <div class="input-group">
               <label class="input-label" for="p-from">From</label>
-              <input class="input-field" id="p-from" type="number" value="100" oninput="calcPressure()">
+              <input data-agent-input="p-from" aria-label="Input field for From" class="input-field" id="p-from" type="number" value="100" oninput="calcPressure()">
               <select class="unit-select" id="p-from-u" onchange="calcPressure()">
                 <option value="psi" selected>PSI (lb/in²)</option>
                 <option value="bar">Bar</option>
@@ -142,7 +142,7 @@
             <button class="swap-btn" onclick="swapP()" aria-label="Swap units">⇄</button>
             <div class="input-group">
               <label class="input-label" for="p-to">To</label>
-              <input class="input-field output" id="p-to" type="text" readonly>
+              <input data-agent-input="p-to" aria-label="Input field for To" class="input-field output" id="p-to" type="text" readonly>
               <select class="unit-select" id="p-to-u" onchange="calcPressure()">
                 <option value="psi">PSI (lb/in²)</option>
                 <option value="bar" selected>Bar</option>
@@ -154,9 +154,9 @@
             </div>
           </div>
           <div class="result-display">
-            <span class="result-number" id="p-result-n">6.8948</span>
-            <span class="result-unit" id="p-result-u">bar</span>
-            <div class="result-eq" id="p-result-eq">100 PSI = 6.8948 bar</div>
+            <span class="result-number" id="p-result-n" aria-live="polite" role="status" data-agent-output="p-result-n" aria-label="Output calculation result for p result n">6.8948</span>
+            <span class="result-unit" id="p-result-u" aria-live="polite" role="status" data-agent-output="p-result-u" aria-label="Output calculation result for p result u">bar</span>
+            <div class="result-eq" id="p-result-eq" aria-live="polite" role="status" data-agent-output="p-result-eq" aria-label="Output calculation result for p result eq">100 PSI = 6.8948 bar</div>
           </div>
           <div class="formula-box">
             <div class="formula-label">Conversion Formula</div>

@@ -124,7 +124,7 @@
           <div class="converter-inputs">
             <div class="input-group">
               <label class="input-label" for="v-from">From</label>
-              <input class="input-field" id="v-from" type="number" value="1" oninput="calcVol()">
+              <input data-agent-input="v-from" aria-label="Input field for From" class="input-field" id="v-from" type="number" value="1" oninput="calcVol()">
               <select class="unit-select" id="v-from-u" onchange="calcVol()">
                 <option value="yd3" selected>Cubic Yards (yd³)</option>
                 <option value="ft3">Cubic Feet (ft³)</option>
@@ -136,7 +136,7 @@
             <button class="swap-btn" onclick="swapV()" aria-label="Swap units">⇄</button>
             <div class="input-group">
               <label class="input-label" for="v-to">To</label>
-              <input class="input-field output" id="v-to" type="text" readonly>
+              <input data-agent-input="v-to" aria-label="Input field for To" class="input-field output" id="v-to" type="text" readonly>
               <select class="unit-select" id="v-to-u" onchange="calcVol()">
                 <option value="yd3">Cubic Yards (yd³)</option>
                 <option value="ft3">Cubic Feet (ft³)</option>
@@ -147,9 +147,9 @@
             </div>
           </div>
           <div class="result-display">
-            <span class="result-number" id="v-result-n">0.7646</span>
-            <span class="result-unit" id="v-result-u">m³</span>
-            <div class="result-eq" id="v-result-eq">1 yd³ = 0.7646 m³</div>
+            <span class="result-number" id="v-result-n" aria-live="polite" role="status" data-agent-output="v-result-n" aria-label="Output calculation result for v result n">0.7646</span>
+            <span class="result-unit" id="v-result-u" aria-live="polite" role="status" data-agent-output="v-result-u" aria-label="Output calculation result for v result u">m³</span>
+            <div class="result-eq" id="v-result-eq" aria-live="polite" role="status" data-agent-output="v-result-eq" aria-label="Output calculation result for v result eq">1 yd³ = 0.7646 m³</div>
           </div>
           <div class="formula-box">
             <div class="formula-label">Conversion Formula</div>

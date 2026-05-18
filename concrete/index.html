@@ -128,15 +128,15 @@
           <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-bottom:16px">
             <div class="input-group">
               <label class="input-label" for="con-l">Length (ft)</label>
-              <input class="input-field" id="con-l" type="number" value="10" oninput="calcConcrete()">
+              <input data-agent-input="l" aria-label="Input field for Length (ft)" class="input-field" id="con-l" type="number" value="10" oninput="calcConcrete()">
             </div>
             <div class="input-group">
               <label class="input-label" for="con-w">Width (ft)</label>
-              <input class="input-field" id="con-w" type="number" value="10" oninput="calcConcrete()">
+              <input data-agent-input="w" aria-label="Input field for Width (ft)" class="input-field" id="con-w" type="number" value="10" oninput="calcConcrete()">
             </div>
             <div class="input-group">
               <label class="input-label" for="con-d">Depth (in)</label>
-              <input class="input-field" id="con-d" type="number" value="4" oninput="calcConcrete()">
+              <input data-agent-input="d" aria-label="Input field for Depth (in)" class="input-field" id="con-d" type="number" value="4" oninput="calcConcrete()">
             </div>
           </div>
           
@@ -148,14 +148,14 @@
             <div class="chart-cell header">Bags Needed</div>
             
             <div class="chart-cell"><span class="cv-from">Cubic Yards</span></div>
-            <div class="chart-cell"><span class="cv-to" id="con-yd3">1.23</span></div>
+            <div class="chart-cell"><span class="cv-to" id="con-yd3" aria-live="polite" role="status" data-agent-output="yd3" aria-label="Output calculation result for yd3">1.23</span></div>
             <div class="chart-cell"><span class="cv-from">60lb Bag</span></div>
-            <div class="chart-cell"><span class="cv-to" id="con-bags60">75</span></div>
+            <div class="chart-cell"><span class="cv-to" id="con-bags60" aria-live="polite" role="status" data-agent-output="bags60" aria-label="Output calculation result for bags60">75</span></div>
             
             <div class="chart-cell"><span class="cv-from">Cubic Meters</span></div>
-            <div class="chart-cell"><span class="cv-to" id="con-m3">0.941</span></div>
+            <div class="chart-cell"><span class="cv-to" id="con-m3" aria-live="polite" role="status" data-agent-output="m3" aria-label="Output calculation result for m3">0.941</span></div>
             <div class="chart-cell"><span class="cv-from">80lb Bag</span></div>
-            <div class="chart-cell"><span class="cv-to" id="con-bags80">56</span></div>
+            <div class="chart-cell"><span class="cv-to" id="con-bags80" aria-live="polite" role="status" data-agent-output="bags80" aria-label="Output calculation result for bags80">56</span></div>
           </div>
         </div>
 

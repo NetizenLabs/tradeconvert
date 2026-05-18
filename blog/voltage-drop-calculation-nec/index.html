@@ -131,11 +131,11 @@
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:16px">
             <div class="input-group">
               <label class="input-label">Distance (One Way, ft)</label>
-              <input class="input-field" id="vd-len" type="number" value="150" oninput="calcVD()">
+              <input data-agent-input="vd-len" aria-label="Input field for vd len" class="input-field" id="vd-len" type="number" value="150" oninput="calcVD()">
             </div>
             <div class="input-group">
               <label class="input-label">Load (Amps)</label>
-              <input class="input-field" id="vd-amps" type="number" value="12" oninput="calcVD()">
+              <input data-agent-input="vd-amps" aria-label="Input field for vd amps" class="input-field" id="vd-amps" type="number" value="12" oninput="calcVD()">
             </div>
             <div class="input-group">
               <label class="input-label">System Voltage</label>
@@ -169,11 +169,11 @@
           <div class="result-display" style="margin-top:20px; background:var(--paper3); padding:20px; border-left:4px solid var(--accent)">
             <div style="font-size:12px; color:var(--ink3); text-transform:uppercase; margin-bottom:8px">Calculated Drop</div>
             <div style="display:flex; align-items:baseline; gap:12px">
-              <span class="result-number" id="vd-result-n" style="font-size:32px; color:var(--accent)">4.25</span>
+              <span class="result-number" id="vd-result-n" style="font-size:32px; color:var(--accent)" aria-live="polite" role="status" data-agent-output="vd-result-n" aria-label="Output calculation result for vd result n">4.25</span>
               <span class="result-unit" style="font-size:18px">Volts Lost</span>
-              <span id="vd-result-p" style="font-size:24px; color:var(--ink2); margin-left:auto">3.54%</span>
+              <span id="vd-result-p" style="font-size:24px; color:var(--ink2); margin-left:auto" aria-live="polite" role="status" data-agent-output="vd-result-p" aria-label="Output calculation result for vd result p">3.54%</span>
             </div>
-            <div id="vd-result-eq" style="font-size:13px; color:var(--ink3); font-style:italic; margin-top:8px">Drop: 4.25V (3.54%) · NEC Recommendation: < 3%</div>
+            <div id="vd-result-eq" style="font-size:13px; color:var(--ink3); font-style:italic; margin-top:8px" aria-live="polite" role="status" data-agent-output="vd-result-eq" aria-label="Output calculation result for vd result eq">Drop: 4.25V (3.54%) · NEC Recommendation: < 3%</div>
             <div id="vd-formula" style="font-family:var(--mono); font-size:11px; margin-top:12px; opacity:0.7">(2 × 12.9 × 12A × 150ft) ÷ 6530 CM = 4.25V</div>
           </div>
         </div>

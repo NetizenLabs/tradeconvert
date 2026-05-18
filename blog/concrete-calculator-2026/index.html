@@ -166,41 +166,41 @@
             </div>
             <div class="input-group" id="group-l">
               <label class="input-label" for="c-l">Length (ft)</label>
-              <input class="input-field" id="c-l" type="number" value="10" oninput="calcConcrete()">
+              <input data-agent-input="c-l" aria-label="Input field for Length (ft)" class="input-field" id="c-l" type="number" value="10" oninput="calcConcrete()">
             </div>
             <div class="input-group" id="group-w">
               <label class="input-label" for="c-w">Width (ft)</label>
-              <input class="input-field" id="c-w" type="number" value="10" oninput="calcConcrete()">
+              <input data-agent-input="c-w" aria-label="Input field for Width (ft)" class="input-field" id="c-w" type="number" value="10" oninput="calcConcrete()">
             </div>
             <div class="input-group" id="group-d" style="display:none;">
               <label class="input-label" for="c-d">Diameter (in)</label>
-              <input class="input-field" id="c-d" type="number" value="12" oninput="calcConcrete()">
+              <input data-agent-input="c-d" aria-label="Input field for Diameter (in)" class="input-field" id="c-d" type="number" value="12" oninput="calcConcrete()">
             </div>
             <div class="input-group" id="group-h" style="display:none;">
               <label class="input-label" for="c-h">Height / Depth (ft)</label>
-              <input class="input-field" id="c-h" type="number" value="8" oninput="calcConcrete()">
+              <input data-agent-input="c-h" aria-label="Input field for Height / Depth (ft)" class="input-field" id="c-h" type="number" value="8" oninput="calcConcrete()">
             </div>
             <div class="input-group">
               <label class="input-label" for="c-t" id="label-t">Thickness (in)</label>
-              <input class="input-field" id="c-t" type="number" value="4" oninput="calcConcrete()">
+              <input data-agent-input="c-t" aria-label="Input field for Thickness (in)" class="input-field" id="c-t" type="number" value="4" oninput="calcConcrete()">
             </div>
             <div class="input-group">
               <label class="input-label" for="c-waste">Waste Factor (%)</label>
-              <input class="input-field" id="c-waste" type="number" value="10" oninput="calcConcrete()">
+              <input data-agent-input="c-waste" aria-label="Input field for Waste Factor (%)" class="input-field" id="c-waste" type="number" value="10" oninput="calcConcrete()">
             </div>
           </div>
 
           <div class="result-display" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; border-top: 1px dotted var(--rule2); padding-top: 16px;">
             <div style="text-align: center;">
-              <span class="result-number" id="res-cy" style="font-size: 28px;">1.36</span>
+              <span class="result-number" id="res-cy" style="font-size: 28px;" aria-live="polite" role="status" data-agent-output="res-cy" aria-label="Output calculation result for res cy">1.36</span>
               <span class="result-unit" style="display:block; font-size:10px;">Cubic Yards</span>
             </div>
             <div style="text-align: center;">
-              <span class="result-number" id="res-cf" style="font-size: 28px;">36.7</span>
+              <span class="result-number" id="res-cf" style="font-size: 28px;" aria-live="polite" role="status" data-agent-output="res-cf" aria-label="Output calculation result for res cf">36.7</span>
               <span class="result-unit" style="display:block; font-size:10px;">Cubic Feet</span>
             </div>
             <div style="text-align: center;">
-              <span class="result-number" id="res-bags" style="font-size: 28px;">62</span>
+              <span class="result-number" id="res-bags" style="font-size: 28px;" aria-live="polite" role="status" data-agent-output="res-bags" aria-label="Output calculation result for res bags">62</span>
               <span class="result-unit" style="display:block; font-size:10px;">80lb Bags</span>
             </div>
           </div>
