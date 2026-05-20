@@ -8,7 +8,7 @@
   <title>Roofing Shingle & Square Calculator | TradeConvert</title>
 
   <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Roofing Calculator | Shingle & Square Estimator | TradeConvert 2026">
+  <meta property="og:title" content="Roofing Calculator | Shingle & Square Estimator | TradeConvert">
   <meta property="og:description" content="Calculate roof area, roofing squares, shingle bundles, and underlayment rolls. Adjusts for roof pitch rise/run, eave overhangs, and custom waste factors. Professional grade accuracy.">
   <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
   <meta property="og:url" content="https://tradeconvert.pro/roofing/">
@@ -16,7 +16,7 @@
   <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
 
   <meta name="description" content="Calculate roofing squares and shingle bundles based on roof length, width, and pitch rise-to-run slope multipliers. Includes starter strip math.">
-  <meta name="keywords" content="roofing calculator, roof square estimator, shingle bundle calculator, roof pitch slope factor, underlayment estimator, roof area calculation">
+  <meta name="keywords" content="roofing calculator, shingles calculator square feet, roof square foot calculator, roof square footage calculator, shingle estimate calculator, shingle square footage calculator, roofing shingle estimator, roof pitch slope factor, roof area calculation">
   
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="canonical" href="https://tradeconvert.pro/roofing/">
@@ -75,6 +75,8 @@
         <span class="nav-item">Electrical</span>
         <div class="dropdown-content">
           <a href="/electrical/">Watts to Amps</a>
+          <a href="/voltage-drop/">Voltage Drop Calc</a>
+          <a href="/conduit-fill/">Conduit Fill Calc</a>
           <a href="/blog/voltage-drop-calculation-nec/">Voltage Drop Guide</a>
         </div>
       </div>
@@ -93,6 +95,9 @@
           <a href="/concrete/">Concrete & Bags</a>
           <a href="/lumber/">Lumber & BF</a>
           <a href="/roofing/">Roofing & Squares</a>
+          <a href="/drywall/">Drywall Calculator</a>
+          <a href="/paint/">Paint Calculator</a>
+          <a href="/stair/">Stair Layout</a>
           <a href="/length/">Length & Layout</a>
           <a href="/torque/">Torque Specs</a>
         </div>
@@ -250,6 +255,63 @@
             <li><strong>Ice and Water Shield:</strong> Self-adhered membrane required in freezing climates. Typically installed along eaves extending 24 inches inside the warm exterior wall line.</li>
           </ul>
         </p>
+
+        <div class="rule-single"></div>
+
+        <h2>Frequently Asked Questions (Roofing & Shingle Estimating)</h2>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How many shingles do I need for my roof square footage? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">
+            <p>To determine exactly how many shingles you need:</p>
+            <ol>
+              <li>Find your actual sloped roof area in square feet. For instance, if your building footprint is 1,000 sq ft and you have a 4/12 slope, your sloped area is 1,054 sq ft.</li>
+              <li>Add a waste factor (typically **10%** for simple gable roofs or **15%** for complex hip roofs). For 1,054 sq ft, adding 10% waste equals 1,159 sq ft.</li>
+              <li>Since standard 3-tab and architectural shingle bundles cover **33.3 square feet**, divide the total by 33.3: <code>1,159 ÷ 33.3 = 34.8 bundles</code>.</li>
+              <li>Always round up to the next full bundle (e.g. 35 bundles total).</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What is a roofing "square" and how many bundles are in it? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">
+            <p>In the construction and roofing trades:</p>
+            <ul>
+              <li>A <strong>"Square"</strong> is a unit of measurement equal to exactly <strong>100 square feet</strong> of roof surface area.</li>
+              <li>Standard asphalt shingles are packed so that exactly <strong>3 bundles cover 1 square (100 square feet)</strong>.</li>
+              <li>Therefore, if a contractor states your roof is "15 squares," you have 1,500 square feet of surface area, which requires exactly 45 bundles of shingles (before accounting for waste, starter strip, and ridge caps).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How do you calculate roof square footage from a flat house blueprint? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">
+            <p>To estimate sloped roof square footage from a flat blueprint footprint:</p>
+            <ol>
+              <li>Calculate the flat footprint including eave and rake overhangs. (e.g. A 30' x 40' house with 1-foot overhangs has a flat roof footprint of 32' x 42' = 1,344 sq ft).</li>
+              <li>Find the slope factor multiplier corresponding to your roof's pitch (for a 6/12 pitch, the multiplier is exactly **1.118**).</li>
+              <li>Multiply the flat footprint area by the slope factor: <code>1,344 × 1.118 = 1,502.6 sq ft</code> of sloped surface.</li>
+            </ol>
+          </div>
+        </div>
+
+        <script>
+          function toggleFaq(el) {
+            const container = el.parentElement;
+            const answer = container.querySelector('.faq-a');
+            const arrow = el.querySelector('.faq-arrow');
+            
+            if (answer.style.display === 'block') {
+              answer.style.display = 'none';
+              el.classList.remove('open');
+            } else {
+              answer.style.display = 'block';
+              el.classList.add('open');
+            }
+          }
+        </script>
       </main>
 
       <aside class="sidebar">
@@ -287,6 +349,7 @@
         <a href="/concrete/">Concrete</a>
         <a href="/lumber/">Lumber</a>
         <a href="/roofing/">Roofing</a>
+        <a href="/stair/">Stair Layout</a>
       </div>
       <div class="footer-col">
         <h4>Resources</h4>

@@ -9,7 +9,7 @@
   <title>Stair Riser & Stringer Layout Calculator | TradeConvert</title>
 
   <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Stair Calculator | Rise, Run & Stringer Layout Estimator | TradeConvert 2026">
+  <meta property="og:title" content="Stair Calculator | Rise, Run & Stringer Layout Estimator | TradeConvert">
   <meta property="og:description" content="Calculate professional stair risers, treads, stringer length, and incline angle. Based on IRC stair building codes. Instantly computes precise run adjustments.">
   <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
   <meta property="og:url" content="https://tradeconvert.pro/stair/">
@@ -17,7 +17,7 @@
   <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
 
   <meta name="description" content="Calculate stair riser heights, tread run layouts, and stringer angles automatically based on IRC building code limits (7.75-inch max rise).">
-  <meta name="keywords" content="stair calculator, stair riser calculator, stringer length calculator, stair tread calculator, stairs rise and run, stair angle formula">
+  <meta name="keywords" content="stair calculator, stair stringer calculator, stair riser calculator, stair stringer calculations, rise and run stairs, stair stringer code, stair tread calculator, stairs rise and run, stair angle formula">
   
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="canonical" href="https://tradeconvert.pro/stair/">
@@ -76,6 +76,8 @@
         <span class="nav-item">Electrical</span>
         <div class="dropdown-content">
           <a href="/electrical/">Watts to Amps</a>
+          <a href="/voltage-drop/">Voltage Drop Calc</a>
+          <a href="/conduit-fill/">Conduit Fill Calc</a>
           <a href="/blog/voltage-drop-calculation-nec/">Voltage Drop Guide</a>
         </div>
       </div>
@@ -94,6 +96,9 @@
           <a href="/concrete/">Concrete & Bags</a>
           <a href="/lumber/">Lumber & BF</a>
           <a href="/roofing/">Roofing & Squares</a>
+          <a href="/drywall/">Drywall Calculator</a>
+          <a href="/paint/">Paint Calculator</a>
+          <a href="/stair/">Stair Layout</a>
           <a href="/length/">Length & Layout</a>
           <a href="/torque/">Torque Specs</a>
         </div>
@@ -240,6 +245,63 @@
             <caption>IRC Section R311.7 safety bounds for residential stair layouts.</caption>
           </table>
         </div>
+
+        <div class="rule-single"></div>
+
+        <h2>Frequently Asked Questions (Stair Calculations & Codes)</h2>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How do you calculate rise and run for stairs? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">
+            <p>To calculate the rise and run of a staircase:</p>
+            <ol>
+              <li>Measure the exact **Total Rise** (the vertical height from the finished lower floor to the finished upper floor).</li>
+              <li>Divide the Total Rise by a target riser height (typically **7 inches**). For example: <code>100" ÷ 7 = 14.28</code>. Round this to the nearest whole step (14 risers).</li>
+              <li>Divide the Total Rise by the step count to find the exact riser height: <code>100" ÷ 14 = 7.14 inches</code>.</li>
+              <li>Find the tread count. If flush, it is 1 step less than the riser count (13 treads). Multiply the treads by the target tread depth (e.g. 10 inches) to get a **Total Run** of 130 inches.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What is the maximum stair riser height under building codes? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">
+            <p>According to the International Residential Code (IRC 2026 / Section R311.7.5):</p>
+            <ul>
+              <li>The maximum height of a residential stair riser is exactly <strong>7.75 inches (7-3/4")</strong>.</li>
+              <li>For commercial structures (IBC), the limit is even stricter at exactly <strong>7.0 inches</strong>.</li>
+              <li>Crucially, the greatest riser height within any flight of stairs must not exceed the smallest by more than <strong>3/8 of an inch (0.375")</strong> to prevent tripping hazards.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How do I find the correct size and length of a stair stringer board? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">
+            <p>To calculate the raw stringer board length:</p>
+            <ul>
+              <li>Use the Pythagorean formula: <code>Stringer Length = √[Total Rise² + Total Run²]</code>. For a rise of 100" and run of 130", the hypotenuse is exactly <code>√[100² + 130²] = 164 inches (13.6 feet)</code>.</li>
+              <li>Always add at least **12 to 14 inches** to this length to account for the top and bottom structural cuts. A 13.6 ft length requires ordering a standard **16-foot board**.</li>
+              <li>For structural safety, always cut stringers using a minimum of <strong>2x12 dimensional lumber</strong>. 2x10 lumber is not recommended as the triangular notches leave too little structural wood remaining.</li>
+            </ul>
+          </div>
+        </div>
+
+        <script>
+          function toggleFaq(el) {
+            const container = el.parentElement;
+            const answer = container.querySelector('.faq-a');
+            const arrow = el.querySelector('.faq-arrow');
+            
+            if (answer.style.display === 'block') {
+              answer.style.display = 'none';
+              el.classList.remove('open');
+            } else {
+              answer.style.display = 'block';
+              el.classList.add('open');
+            }
+          }
+        </script>
       </main>
 
       <aside class="sidebar">
