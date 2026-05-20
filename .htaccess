@@ -30,8 +30,10 @@ RewriteRule ^tile-calculator(?:\.html)?/?$ /tile/ [R=301,L]
 RewriteRule ^excavation-calculator(?:\.html)?/?$ /excavation/ [R=301,L]
 RewriteRule ^conduit-fill-calculator(?:\.html)?/?$ /conduit-fill/ [R=301,L]
 RewriteRule ^voltage-drop-calculator(?:\.html)?/?$ /voltage-drop/ [R=301,L]
+RewriteRule ^about(?:\.html)?/?$ /about/ [R=301,L]
 RewriteRule ^privacy(?:\.html)?/?$ /privacy/ [R=301,L]
-RewriteRule ^favicon\.ico$ /assets/favicon.png [R=301,L]
+RewriteRule ^apple-app-site-association$ .well-known/apple-app-site-association [L]
+RewriteRule ^favicon\.ico$ /favicon.ico [L]
 RewriteRule ^search$ / [R=301,L]
 
 # SEO 301 Redirects for Blog URLs (fixing 404s)
