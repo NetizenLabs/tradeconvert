@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
 
-  <title>Excavation Spoil & Backfill Calculator | TradeConvert</title>
+  <title>Excavation Spoil &amp; Backfill Calculator | TradeConvert</title>
 
   <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Excavation & Backfill Calculator | Dirt Volume & Hauling Estimator | TradeConvert">
+  <meta property="og:title" content="Excavation &amp; Backfill Calculator | Dirt Volume &amp; Hauling Estimator | TradeConvert">
   <meta property="og:description" content="Calculate excavation bank volume, swell loose volume, compacted backfill, and required dump truck hauling trips. NIST and OSHA standard soil reference.">
   <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
   <meta property="og:url" content="https://tradeconvert.pro/excavation/">
@@ -24,8 +22,8 @@
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/css/main.css">
   
@@ -47,7 +45,27 @@
   </script>
   <meta property="og:site_name" content="TradeConvert">
   <meta property="og:type" content="website">
-</head>
+
+<script type="application/ld+json" id="tc-breadcrumb-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://tradeconvert.pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Excavation Calculator",
+      "item": "https://tradeconvert.pro/excavation/"
+    }
+  ]
+}
+</script></head>
 <body>
 
   <div class="top-bar">
@@ -93,14 +111,14 @@
       <div class="nav-dropdown">
         <span class="nav-item active">Building</span>
         <div class="dropdown-content">
-          <a href="/concrete/">Concrete & Bags</a>
-          <a href="/lumber/">Lumber & BF</a>
-          <a href="/roofing/">Roofing & Squares</a>
+          <a href="/concrete/">Concrete &amp; Bags</a>
+          <a href="/lumber/">Lumber &amp; BF</a>
+          <a href="/roofing/">Roofing &amp; Squares</a>
           <a href="/stair/">Stair Layout</a>
           <a href="/drywall/">Drywall Calculator</a>
           <a href="/paint/">Paint Calculator</a>
           <a href="/excavation/">Excavation Calc</a>
-          <a href="/length/">Length & Layout</a>
+          <a href="/length/">Length &amp; Layout</a>
           <a href="/torque/">Torque Specs</a>
         </div>
       </div>
@@ -109,7 +127,7 @@
         <span class="nav-item">Site</span>
         <div class="dropdown-content">
           <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight & Ton</a>
+          <a href="/weight/">Weight &amp; Ton</a>
         </div>
       </div>
 
@@ -125,7 +143,7 @@
 
   <div class="site-wrapper">
     <div class="page-hero">
-      <h1>Excavation & Backfill Calculator &mdash; Dirt Volume & Hauling Estimator</h1>
+      <h1>Excavation &amp; Backfill Calculator — Dirt Volume &amp; Hauling Estimator</h1>
       <p class="hero-desc">Calculate trench, hole, or foundation excavation volume in cubic yards. Adjusts for bank soil density, spoil swell expansion, and backfill compaction requirements.</p>
     </div>
 
@@ -159,8 +177,8 @@
             <div class="input-group">
               <label class="input-label" for="ex-soil">Soil/Material Class</label>
               <select class="input-field" id="ex-soil" onchange="calcEx()">
-                <option value="15" selected>Standard Earth / Clay (15% Swell)</option>
-                <option value="25">Sand & Gravel (25% Swell)</option>
+                <option value="15" selected="">Standard Earth / Clay (15% Swell)</option>
+                <option value="25">Sand &amp; Gravel (25% Swell)</option>
                 <option value="35">Hard Rock / Caliche (35% Swell)</option>
                 <option value="10">Dry Sand (10% Swell)</option>
               </select>
@@ -178,7 +196,7 @@
             </div>
             <div class="input-group">
               <label class="input-label" style="opacity:0.5;">Target standard</label>
-              <input class="input-field" style="background:var(--paper3); color:var(--ink3)" disabled value="Bank / Spoil Logistics">
+              <input class="input-field" style="background:var(--paper3); color:var(--ink3)" disabled="" value="Bank / Spoil Logistics">
             </div>
           </div>
           
@@ -222,7 +240,7 @@
           <span class="mono">Dump Truck Loads = Ceil( Loose Volume (LCY) ÷ Truck Capacity )</span>
         </div>
 
-        <h2>Standard Soil Density & Swell Chart</h2>
+        <h2>Standard Soil Density &amp; Swell Chart</h2>
         <div class="ref-table-wrap">
           <table class="ref-table">
             <thead>
@@ -244,7 +262,7 @@
                 <td style="font-weight:600;">Common Earth / Topsoil</td>
                 <td class="mono">15% - 20%</td>
                 <td class="mono">15% - 20%</td>
-                <td>Standard residential lawn & general site prep.</td>
+                <td>Standard residential lawn &amp; general site prep.</td>
               </tr>
               <tr>
                 <td style="font-weight:600;">Heavy Clay</td>
@@ -275,12 +293,12 @@
           <div class="sidebar-title">Hauling Metrics</div>
           <div class="prose" style="font-size:12px">
             <p><strong>Truck capacities:</strong>
-              <ul>
+              </p><ul>
                 <li><strong>Single Axle:</strong> 5 - 6 Cubic Yards</li>
                 <li><strong>Standard Tandem:</strong> 10 - 12 Cubic Yards</li>
                 <li><strong>Tri-Axle / Semi:</strong> 15 - 18 Cubic Yards</li>
               </ul>
-            </p>
+            <p></p>
           </div>
         </div>
         <div class="trade-tip">
@@ -363,5 +381,6 @@
 
     window.addEventListener('DOMContentLoaded', calcEx);
   </script>
-</body>
-</html>
+
+
+</body></html>

@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
 
-  <title>Flooring & Tile Layout Calculator | TradeConvert</title>
+  <title>Flooring &amp; Tile Layout Calculator | TradeConvert</title>
 
   <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Tile Calculator | Flooring & Backsplash Estimator | TradeConvert">
+  <meta property="og:title" content="Tile Calculator | Flooring &amp; Backsplash Estimator | TradeConvert">
   <meta property="og:description" content="Calculate standard flooring and wall tiles needed. Handles custom tile dimensions, grout joint widths, diagonal layouts, and waste offsets.">
   <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
   <meta property="og:url" content="https://tradeconvert.pro/tile/">
@@ -24,8 +22,8 @@
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/css/main.css">
   
@@ -47,7 +45,27 @@
   </script>
   <meta property="og:site_name" content="TradeConvert">
   <meta property="og:type" content="website">
-</head>
+
+<script type="application/ld+json" id="tc-breadcrumb-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://tradeconvert.pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tile Calculator",
+      "item": "https://tradeconvert.pro/tile/"
+    }
+  ]
+}
+</script></head>
 <body>
 
   <div class="top-bar">
@@ -93,15 +111,15 @@
       <div class="nav-dropdown">
         <span class="nav-item active">Building</span>
         <div class="dropdown-content">
-          <a href="/concrete/">Concrete & Bags</a>
-          <a href="/lumber/">Lumber & BF</a>
-          <a href="/roofing/">Roofing & Squares</a>
+          <a href="/concrete/">Concrete &amp; Bags</a>
+          <a href="/lumber/">Lumber &amp; BF</a>
+          <a href="/roofing/">Roofing &amp; Squares</a>
           <a href="/stair/">Stair Layout</a>
           <a href="/drywall/">Drywall Calculator</a>
           <a href="/paint/">Paint Calculator</a>
           <a href="/excavation/">Excavation Calc</a>
           <a href="/tile/">Tile Calculator</a>
-          <a href="/length/">Length & Layout</a>
+          <a href="/length/">Length &amp; Layout</a>
           <a href="/torque/">Torque Specs</a>
         </div>
       </div>
@@ -110,7 +128,7 @@
         <span class="nav-item">Site</span>
         <div class="dropdown-content">
           <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight & Ton</a>
+          <a href="/weight/">Weight &amp; Ton</a>
         </div>
       </div>
 
@@ -126,7 +144,7 @@
 
   <div class="site-wrapper">
     <div class="page-hero">
-      <h1>Tile Calculator &mdash; Flooring & Backsplash Estimator</h1>
+      <h1>Tile Calculator — Flooring &amp; Backsplash Estimator</h1>
       <p class="hero-desc">Calculate the exact number of tiles and boxes needed to cover a floor or wall area. Automatically accounts for grout joint width margins and custom scrap waste factors.</p>
     </div>
 
@@ -138,8 +156,8 @@
       <main>
         <div class="tool-card">
           <div class="tool-card-header">
-            <div class="tool-card-title">Flooring & Wall Tile Calculator</div>
-            <div class="tool-card-sub">Joint Width & Diagonal Offsets Adjustment</div>
+            <div class="tool-card-title">Flooring &amp; Wall Tile Calculator</div>
+            <div class="tool-card-sub">Joint Width &amp; Diagonal Offsets Adjustment</div>
           </div>
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
             <div class="input-group">
@@ -156,7 +174,7 @@
             <div class="input-group">
               <label class="input-label" for="t-size">Standard Tile Profile (in)</label>
               <select class="input-field" id="t-size" onchange="adjustCustomTile(this.value)">
-                <option value="12x12" selected>12" × 12" Square Tile</option>
+                <option value="12x12" selected="">12" × 12" Square Tile</option>
                 <option value="24x24">24" × 24" Large Format</option>
                 <option value="18x18">18" × 18" Medium Square</option>
                 <option value="3x6">3" × 6" Subway Tile</option>
@@ -167,11 +185,11 @@
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
               <div class="input-group">
                 <label class="input-label" for="t-tile-w">Width (in)</label>
-                <input data-agent-input="t-tile-w" aria-label="Input field for Width (in)" class="input-field" id="t-tile-w" type="number" value="12" disabled oninput="calcTile()">
+                <input data-agent-input="t-tile-w" aria-label="Input field for Width (in)" class="input-field" id="t-tile-w" type="number" value="12" disabled="" oninput="calcTile()">
               </div>
               <div class="input-group">
                 <label class="input-label" for="t-tile-h">Length (in)</label>
-                <input data-agent-input="t-tile-h" aria-label="Input field for Length (in)" class="input-field" id="t-tile-h" type="number" value="12" disabled oninput="calcTile()">
+                <input data-agent-input="t-tile-h" aria-label="Input field for Length (in)" class="input-field" id="t-tile-h" type="number" value="12" disabled="" oninput="calcTile()">
               </div>
             </div>
           </div>
@@ -182,7 +200,7 @@
               <select class="input-field" id="t-grout" onchange="calcTile()">
                 <option value="0">No Grout Joint (Butt joint)</option>
                 <option value="0.0625">1/16" Joint</option>
-                <option value="0.125" selected>1/8" Joint</option>
+                <option value="0.125" selected="">1/8" Joint</option>
                 <option value="0.1875">3/16" Joint</option>
                 <option value="0.25">1/4" Joint</option>
               </select>
@@ -279,11 +297,11 @@
           <div class="sidebar-title">Grout Spacers</div>
           <div class="prose" style="font-size:12px">
             <p><strong>Spacing Tips:</strong>
-              <ul>
+              </p><ul>
                 <li><strong>Glass tile:</strong> Max 1/16" grout line standard.</li>
                 <li><strong>Handmade tile:</strong> Use larger 3/16" or 1/4" joint line to hide size variances.</li>
               </ul>
-            </p>
+            <p></p>
           </div>
         </div>
         <div class="trade-tip">
@@ -390,5 +408,6 @@
 
     window.addEventListener('DOMContentLoaded', calcTile);
   </script>
-</body>
-</html>
+
+
+</body></html>

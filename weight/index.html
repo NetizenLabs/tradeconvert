@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="HandheldFriendly" content="True">
@@ -8,7 +6,7 @@
   <title>Weight Converter (lb, kg, US Ton) | TradeConvert</title>
 
   <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Weight Converter | lb to kg & US Ton | TradeConvert 2026">
+  <meta property="og:title" content="Weight Converter | lb to kg &amp; US Ton | TradeConvert 2026">
   <meta property="og:description" content="Professional weight unit converter for construction and shipping. Convert lb to kg, US tons to metric tons, and more with verified accuracy. Updated for 2026.">
   <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
   <meta property="og:url" content="https://tradeconvert.pro/weight/">
@@ -23,8 +21,8 @@
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/css/main.css">
   
@@ -46,7 +44,27 @@
   </script>
   <meta property="og:site_name" content="TradeConvert">
   <meta property="og:type" content="website">
-</head>
+
+<script type="application/ld+json" id="tc-breadcrumb-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://tradeconvert.pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Weight",
+      "item": "https://tradeconvert.pro/weight/"
+    }
+  ]
+}
+</script></head>
 <body>
 
   <div class="top-bar">
@@ -90,9 +108,9 @@
       <div class="nav-dropdown">
         <span class="nav-item">Building</span>
         <div class="dropdown-content">
-          <a href="/concrete/">Concrete & Bags</a>
-          <a href="/lumber/">Lumber & BF</a>
-          <a href="/length/">Length & Layout</a>
+          <a href="/concrete/">Concrete &amp; Bags</a>
+          <a href="/lumber/">Lumber &amp; BF</a>
+          <a href="/length/">Length &amp; Layout</a>
           <a href="/torque/">Torque Specs</a>
         </div>
       </div>
@@ -101,7 +119,7 @@
         <span class="nav-item active">Site</span>
         <div class="dropdown-content">
           <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight & Ton</a>
+          <a href="/weight/">Weight &amp; Ton</a>
         </div>
       </div>
 
@@ -117,7 +135,7 @@
 
   <div class="site-wrapper">
     <div class="page-hero">
-      <h1>Weight Converter — Lbs, Kg, Tons for Materials & Shipping</h1>
+      <h1>Weight Converter — Lbs, Kg, Tons for Materials &amp; Shipping</h1>
       <p class="hero-desc">High-precision weight conversion for structural calculations and freight logistics. Optimized for construction material estimation.</p>
     </div>
 
@@ -133,7 +151,7 @@
               <label class="input-label" for="w-from">From</label>
               <input data-agent-input="w-from" aria-label="Input field for From" class="input-field" id="w-from" type="number" value="100" oninput="calcWeight()">
               <select class="unit-select" id="w-from-u" onchange="calcWeight()">
-                <option value="lb" selected>Pounds (lb)</option>
+                <option value="lb" selected="">Pounds (lb)</option>
                 <option value="kg">Kilograms (kg)</option>
                 <option value="ton_us">US Ton (2000 lb)</option>
                 <option value="ton_m">Metric Ton (1000 kg)</option>
@@ -143,10 +161,10 @@
             <button class="swap-btn" onclick="swapW()" aria-label="Swap units">⇄</button>
             <div class="input-group">
               <label class="input-label" for="w-to">To</label>
-              <input data-agent-input="w-to" aria-label="Input field for To" class="input-field output" id="w-to" type="text" readonly>
+              <input data-agent-input="w-to" aria-label="Input field for To" class="input-field output" id="w-to" type="text" readonly="">
               <select class="unit-select" id="w-to-u" onchange="calcWeight()">
                 <option value="lb">Pounds (lb)</option>
-                <option value="kg" selected>Kilograms (kg)</option>
+                <option value="kg" selected="">Kilograms (kg)</option>
                 <option value="ton_us">US Ton (2000 lb)</option>
                 <option value="ton_m">Metric Ton (1000 kg)</option>
                 <option value="oz">Ounces (oz)</option>
@@ -205,5 +223,6 @@
   </footer>
 
   <script src="/js/converters.js"></script>
-</body>
-</html>
+
+
+</body></html>

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="HandheldFriendly" content="True">
@@ -23,8 +21,8 @@
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/css/main.css">
   
@@ -46,7 +44,27 @@
   </script>
   <meta property="og:site_name" content="TradeConvert">
   <meta property="og:type" content="website">
-</head>
+
+<script type="application/ld+json" id="tc-breadcrumb-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://tradeconvert.pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Temperature",
+      "item": "https://tradeconvert.pro/temperature/"
+    }
+  ]
+}
+</script></head>
 <body>
 
   <div class="top-bar">
@@ -90,9 +108,9 @@
       <div class="nav-dropdown">
         <span class="nav-item">Building</span>
         <div class="dropdown-content">
-          <a href="/concrete/">Concrete & Bags</a>
-          <a href="/lumber/">Lumber & BF</a>
-          <a href="/length/">Length & Layout</a>
+          <a href="/concrete/">Concrete &amp; Bags</a>
+          <a href="/lumber/">Lumber &amp; BF</a>
+          <a href="/length/">Length &amp; Layout</a>
           <a href="/torque/">Torque Specs</a>
         </div>
       </div>
@@ -101,7 +119,7 @@
         <span class="nav-item">Site</span>
         <div class="dropdown-content">
           <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight & Ton</a>
+          <a href="/weight/">Weight &amp; Ton</a>
         </div>
       </div>
 
@@ -133,7 +151,7 @@
               <label class="input-label" for="t-from">From</label>
               <input data-agent-input="t-from" aria-label="Input field for From" class="input-field" id="t-from" type="number" value="68" oninput="calcTemp()">
               <select class="unit-select" id="t-from-u" onchange="calcTemp()">
-                <option value="f" selected>Fahrenheit (°F)</option>
+                <option value="f" selected="">Fahrenheit (°F)</option>
                 <option value="c">Celsius (°C)</option>
                 <option value="k">Kelvin (K)</option>
               </select>
@@ -141,10 +159,10 @@
             <div style="width:44px"></div>
             <div class="input-group">
               <label class="input-label" for="t-to">To</label>
-              <input data-agent-input="t-to" aria-label="Input field for To" class="input-field output" id="t-to" type="text" readonly>
+              <input data-agent-input="t-to" aria-label="Input field for To" class="input-field output" id="t-to" type="text" readonly="">
               <select class="unit-select" id="t-to-u" onchange="calcTemp()">
                 <option value="f">Fahrenheit (°F)</option>
-                <option value="c" selected>Celsius (°C)</option>
+                <option value="c" selected="">Celsius (°C)</option>
                 <option value="k">Kelvin (K)</option>
               </select>
             </div>
@@ -201,5 +219,6 @@
   </footer>
 
   <script src="/js/converters.js"></script>
-</body>
-</html>
+
+
+</body></html>

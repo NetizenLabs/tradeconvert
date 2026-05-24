@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <!-- ═══════════════════════════════════
        SEO — BLOG POST META
        Replace everything in [brackets] per article
@@ -164,7 +162,7 @@
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -428,7 +426,47 @@
       .art-title { font-size: 22px; }
     }
   </style>
-</head>
+
+<script type="application/ld+json" id="tc-faq-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What PSI is too high for residential water pressure?\n                ▶",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Any pressure above 80 PSI (5.52 bar) is too high for residential plumbing under the Uniform Plumbing Code (UPC §608). Ideal range is 40–60 PSI. Pressure above 80 PSI requires a pressure reducing valve by code and voids most fixture warranties.</p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What damage does high water pressure cause?\n                ▶",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>High pressure above 80 PSI causes washing machine hose failures, dripping faucets, running toilets, dishwasher valve erosion, T&amp;P valve weeping on water heaters, and pipe hammer. Most manufacturer warranties are explicitly voided by sustained pressure exceeding 80 PSI.</p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I test my home water pressure?\n                ▶",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Attach a $10–20 screw-on pressure gauge to an outdoor hose bib with all interior fixtures off. Open fully and read the static pressure. Test early morning for peak municipal pressure. If it reads above 80 PSI, a PRV is required per UPC §608.</p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a PRV reduce hot water pressure too?\n                ▶",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Yes. A PRV installed on the main cold supply line reduces pressure to both the cold and hot water systems, since the water heater is fed from the reduced-pressure cold line. This is correct and intentional. A thermal expansion tank must be added downstream of the water heater if a PRV creates a closed system.</p>"
+      }
+    }
+  ]
+}
+</script></head>
 
 <body>
 
@@ -436,7 +474,7 @@
   <div class="topbar">
     Professional reference for the building trades ·
     <a href="https://tradeconvert.pro">tradeconvert.pro</a> ·
-    All values verified against NIST & trade codes
+    All values verified against NIST &amp; trade codes
   </div>
 
   <!-- MASTHEAD -->
@@ -504,7 +542,7 @@
       <!-- ══════════════════════════════
            ARTICLE MAIN COLUMN
       ══════════════════════════════ -->
-      <article class="article-body" role="main" itemscope itemtype="https://schema.org/Article">
+      <article class="article-body" role="main" itemscope="" itemtype="https://schema.org/Article">
 
         <!-- ANSWER CAPSULE — The 40-60 word AI citation target -->
         <div class="answer-capsule" role="note">
@@ -520,7 +558,7 @@
               <label class="e-label" for="b-from">Value</label>
               <input class="e-input" id="b-from" type="number" value="80" oninput="embedCalc()">
               <select class="e-select" id="b-from-u" onchange="embedCalc()">
-                <option value="psi" selected>PSI (lb/in²)</option>
+                <option value="psi" selected="">PSI (lb/in²)</option>
                 <option value="bar">Bar</option>
                 <option value="kpa">kPa</option>
                 <option value="mpa">MPa</option>
@@ -529,10 +567,10 @@
             <button class="e-swap" onclick="embedSwap()" aria-label="Swap">⇄</button>
             <div class="e-group">
               <label class="e-label" for="b-to">Result</label>
-              <input class="e-input e-output" id="b-to" type="text" readonly>
+              <input class="e-input e-output" id="b-to" type="text" readonly="">
               <select class="e-select" id="b-to-u" onchange="embedCalc()">
                 <option value="psi">PSI (lb/in²)</option>
-                <option value="bar" selected>Bar</option>
+                <option value="bar" selected="">Bar</option>
                 <option value="kpa">kPa</option>
                 <option value="mpa">MPa</option>
               </select>
@@ -690,7 +728,7 @@
                 <tr><td>Standard residential PRV</td><td>1"</td><td class="num">$80–130</td><td>Larger homes, 1" main</td></tr>
                 <tr><td>Lead-free PRV (California/Vermont)</td><td>¾"</td><td class="num">$90–150</td><td>Required in some states</td></tr>
                 <tr><td>Combination PRV + strainer</td><td>¾"</td><td class="num">$110–180</td><td>Single-unit code-compliant installation</td></tr>
-                <tr><td>Whole-house PRV + bypass</td><td>1"</td><td class="num">$200–350</td><td>Commercial-grade or >2,500 SF homes</td></tr>
+                <tr><td>Whole-house PRV + bypass</td><td>1"</td><td class="num">$200–350</td><td>Commercial-grade or &gt;2,500 SF homes</td></tr>
               </tbody>
             </table>
           </div>
@@ -709,7 +747,7 @@
                 <label class="e-label">Your reading</label>
                 <input class="e-input" id="b2-from" type="number" value="95" oninput="embedCalc2()">
                 <select class="e-select" id="b2-from-u" onchange="embedCalc2()">
-                  <option value="psi" selected>PSI</option>
+                  <option value="psi" selected="">PSI</option>
                   <option value="bar">Bar</option>
                   <option value="kpa">kPa</option>
                 </select>
@@ -717,9 +755,9 @@
               <div style="font-size:20px;color:var(--rule2);align-self:center;margin-top:18px;text-align:center">→</div>
               <div class="e-group">
                 <label class="e-label">In bar &amp; kPa</label>
-                <input class="e-input e-output" id="b2-to" type="text" readonly>
+                <input class="e-input e-output" id="b2-to" type="text" readonly="">
                 <select class="e-select" id="b2-to-u" onchange="embedCalc2()">
-                  <option value="bar" selected>Bar</option>
+                  <option value="bar" selected="">Bar</option>
                   <option value="psi">PSI</option>
                   <option value="kpa">kPa</option>
                 </select>
@@ -751,7 +789,7 @@
                 <span class="faq-arrow">▶</span>
               </div>
               <div class="faq-a">
-                <p>High pressure above 80 PSI causes washing machine hose failures, dripping faucets, running toilets, dishwasher valve erosion, T&P valve weeping on water heaters, and pipe hammer. Most manufacturer warranties are explicitly voided by sustained pressure exceeding 80 PSI.</p>
+                <p>High pressure above 80 PSI causes washing machine hose failures, dripping faucets, running toilets, dishwasher valve erosion, T&amp;P valve weeping on water heaters, and pipe hammer. Most manufacturer warranties are explicitly voided by sustained pressure exceeding 80 PSI.</p>
               </div>
             </div>
 
@@ -793,7 +831,7 @@
           <div class="related-grid">
             <a class="related-card" href="https://tradeconvert.pro/blog/air-compressor-psi-guide">
               <div class="rc-cat">Pneumatics</div>
-              <div class="rc-title">Air Compressor PSI Guide for Nailers & Spray Guns</div>
+              <div class="rc-title">Air Compressor PSI Guide for Nailers &amp; Spray Guns</div>
               <div class="rc-desc">Right pressure for framing, finish, and brad nailers</div>
             </a>
             <a class="related-card" href="https://tradeconvert.pro/blog/concrete-psi-strength">
@@ -824,7 +862,7 @@
             <li class="toc-item"><a href="#psi-limits"><span class="toc-num">02</span>The Code Numbers</a></li>
             <li class="toc-item"><a href="#damage"><span class="toc-num">03</span>What It Destroys</a></li>
             <li class="toc-item"><a href="#how-to-test"><span class="toc-num">04</span>How to Test</a></li>
-            <li class="toc-item"><a href="#prv"><span class="toc-num">05</span>PRV Guide & Costs</a></li>
+            <li class="toc-item"><a href="#prv"><span class="toc-num">05</span>PRV Guide &amp; Costs</a></li>
             <li class="toc-item"><a href="#faq"><span class="toc-num">06</span>FAQ</a></li>
           </ul>
         </div>
@@ -855,7 +893,7 @@
           </a>
           <a class="sb-link" href="https://tradeconvert.pro/volume">
             <div class="sbl-icon">💧</div>
-            <div><div class="sbl-name">Volume Converter</div><div class="sbl-desc">Gallons, liters, cubic ft & yards</div></div>
+            <div><div class="sbl-name">Volume Converter</div><div class="sbl-desc">Gallons, liters, cubic ft &amp; yards</div></div>
           </a>
           <a class="sb-link" href="https://tradeconvert.pro/concrete">
             <div class="sbl-icon">🏗</div>
@@ -1006,5 +1044,6 @@
     embedCalc();
     embedCalc2();
   </script>
-</body>
-</html>
+
+
+</body></html>

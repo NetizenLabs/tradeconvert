@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="HandheldFriendly" content="True">
@@ -24,8 +22,8 @@
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/css/main.css">
   
@@ -47,7 +45,59 @@
   </script>
   <meta property="og:site_name" content="TradeConvert">
   <meta property="og:type" content="website">
-</head>
+
+<script type="application/ld+json" id="tc-faq-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many #8 THHN wires can fit in a 3/4\" EMT conduit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>According to the National Electrical Code (NEC) Chapter 9:</p>\n            <ul>\n              <li>A <strong>3/4\" EMT conduit</strong> has a total internal area of <strong>0.533 square inches</strong>.</li>\n              <li>Under the 40% fill limit rule for three or more conductors, the maximum allowable fill area is <strong>0.213 square inches</strong>.</li>\n              <li>A single <strong>#8 AWG THHN wire</strong> has an insulated cross-sectional area of <strong>0.0366 square inches</strong>.</li>\n              <li>Dividing allowable area by wire area: <code>0.213 ÷ 0.0366 = 5.82</code>.</li>\n            </ul>\n            <p>Therefore, you can pull a maximum of <strong>5 wires of #8 THHN in a 3/4\" EMT conduit</strong>.</p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many #6 THHN wires can fit in a 3/4\" EMT conduit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Applying the standard NEC spatial rules:</p>\n            <ul>\n              <li>Allowable 40% fill area in <strong>3/4\" EMT</strong> is <strong>0.213 square inches</strong>.</li>\n              <li>A single <strong>#6 AWG THHN wire</strong> has an insulated area of <strong>0.0507 square inches</strong>.</li>\n              <li>Dividing allowable area: <code>0.213 ÷ 0.0507 = 4.20</code>.</li>\n            </ul>\n            <p>Therefore, you can run a maximum of exactly <strong>4 wires of #6 THHN in a 3/4\" EMT conduit</strong>.</p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate conduit fill for specialty Belden cables or multi-conductor cables?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>For custom cables (like Belden industrial automation, ethernet, or control cables):</p>\n            <ol>\n              <li>Find the cable's Outer Diameter (OD) from the manufacturer's spec sheet.</li>\n              <li>Calculate individual area using the circular formula: <code>Area = 0.7854 × OD²</code>.</li>\n              <li>Sum the areas of all cables you intend to run.</li>\n              <li>Verify that the sum does not exceed the 40% fill limit for your chosen conduit size (e.g., 0.213 in² for 3/4\" EMT).</li>\n            </ol>"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json" id="tc-breadcrumb-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://tradeconvert.pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Conduit Fill Calculator",
+      "item": "https://tradeconvert.pro/conduit-fill/"
+    }
+  ]
+}
+</script></head>
 <body>
 
   <div class="top-bar">
@@ -93,13 +143,13 @@
       <div class="nav-dropdown">
         <span class="nav-item">Building</span>
         <div class="dropdown-content">
-          <a href="/concrete/">Concrete & Bags</a>
-          <a href="/lumber/">Lumber & BF</a>
-          <a href="/roofing/">Roofing & Squares</a>
+          <a href="/concrete/">Concrete &amp; Bags</a>
+          <a href="/lumber/">Lumber &amp; BF</a>
+          <a href="/roofing/">Roofing &amp; Squares</a>
           <a href="/stair/">Stair Layout</a>
           <a href="/drywall/">Drywall Calculator</a>
           <a href="/paint/">Paint Calculator</a>
-          <a href="/length/">Length & Layout</a>
+          <a href="/length/">Length &amp; Layout</a>
           <a href="/torque/">Torque Specs</a>
         </div>
       </div>
@@ -108,7 +158,7 @@
         <span class="nav-item">Site</span>
         <div class="dropdown-content">
           <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight & Ton</a>
+          <a href="/weight/">Weight &amp; Ton</a>
         </div>
       </div>
 
@@ -141,9 +191,9 @@
           </div>
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
             <div class="input-group">
-              <label class="input-label" for="cf-conduit">Conduit Size & Type</label>
+              <label class="input-label" for="cf-conduit">Conduit Size &amp; Type</label>
               <select class="input-field" id="cf-conduit" onchange="calcFill()">
-                <option value="0.304" selected>1/2" EMT (0.304 in²)</option>
+                <option value="0.304" selected="">1/2" EMT (0.304 in²)</option>
                 <option value="0.533">3/4" EMT (0.533 in²)</option>
                 <option value="0.864">1" EMT (0.864 in²)</option>
                 <option value="1.496">1-1/4" EMT (1.496 in²)</option>
@@ -157,7 +207,7 @@
               <label class="input-label" for="cf-wire">Wire Insulation / Size</label>
               <select class="input-field" id="cf-wire" onchange="calcFill()">
                 <option value="0.0097">14 AWG THHN (0.0097 in²)</option>
-                <option value="0.0133" selected>12 AWG THHN (0.0133 in²)</option>
+                <option value="0.0133" selected="">12 AWG THHN (0.0133 in²)</option>
                 <option value="0.0211">10 AWG THHN (0.0211 in²)</option>
                 <option value="0.0366">8 AWG THHN (0.0366 in²)</option>
                 <option value="0.0507">6 AWG THHN (0.0507 in²)</option>
@@ -178,7 +228,7 @@
             </div>
             <div class="input-group">
               <label class="input-label" style="opacity: 0.5;">Target standard</label>
-              <input class="input-field" style="background:var(--paper3); color:var(--ink3)" disabled value="NEC 2026 Compliance">
+              <input class="input-field" style="background:var(--paper3); color:var(--ink3)" disabled="" value="NEC 2026 Compliance">
             </div>
           </div>
           
@@ -422,5 +472,6 @@
 
     window.addEventListener('DOMContentLoaded', calcFill);
   </script>
-</body>
-</html>
+
+
+</body></html>
