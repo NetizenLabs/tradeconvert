@@ -1,246 +1,109 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-  <title>Watts to Amps Calculator &amp; AWG Guide | TradeConvert</title>
-
-  <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Electrical Calculator | Watts to Amps | TradeConvert 2026">
-  <meta property="og:description" content="Calculate Watts to Amps, find AWG wire gauge ampacity, and check NEC circuit breaker rules. Verified for 2026 standards.">
-  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
-  <meta property="og:url" content="https://tradeconvert.pro/electrical/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
-
-  <meta name="description" content="Convert Watts to Amps, find AWG copper wire gauge sizing, and verify circuit breaker capacities under standard NEC continuous load rules.">
-  <meta name="keywords" content="watts to amps, amps to watts, awg wire gauge, wire size chart, circuit breaker sizing, electrical calculator">
-  
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="canonical" href="https://tradeconvert.pro/electrical/">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/main.css">
-  
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "TradeConvert Electrical Calculator",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web Browser",
-  "url": "https://tradeconvert.pro/electrical/",
-  "description": "Professional electrical unit converter and wire gauge reference tool.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-  </script>
-  <meta property="og:site_name" content="TradeConvert">
-  <meta property="og:type" content="website">
-
-<script type="application/ld+json" id="tc-breadcrumb-schema">
+---
+layout: base.njk
+title: Watts to Amps Calculator & AWG Guide | TradeConvert
+description: Convert Watts to Amps, find AWG copper wire gauge sizing, and verify circuit breaker capacities under standard NEC continuous load rules.
+keywords: watts to amps, amps to watts, awg wire gauge, wire size chart, circuit breaker sizing, electrical calculator
+og_title: Electrical Calculator | Watts to Amps | TradeConvert 2026
+og_description: Calculate Watts to Amps, find AWG wire gauge ampacity, and check NEC circuit breaker rules. Verified for 2026 standards.
+breadcrumbs:
+  - name: Electrical
+    url: "/electrical/"
+---
+<script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://tradeconvert.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Electrical",
-      "item": "https://tradeconvert.pro/electrical/"
-    }
-  ]
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": "TradeConvert Electrical Calculator",
+"applicationCategory": "BusinessApplication",
+"operatingSystem": "Web Browser",
+"url": "https://tradeconvert.pro/electrical/",
+"description": "Professional electrical unit converter and wire gauge reference tool.",
+"offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
 }
-</script></head>
-<body>
+}
+</script>
+<script src="/js/converters.js"></script>
 
-  <div class="top-bar">
-    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · NEC 2026 Compliant
+<main class="site-wrapper">
+  <section class="page-hero">
+    <h1>Electrical Calculator — Watts to Amps & AWG Wire Gauge Guide</h1>
+    <p class="hero-desc">Calculate electrical loads, determine circuit breaker requirements, and reference AWG wire sizes. All values based on NEC 2026 standards.</p>
+  </section>
+
+  <div class="answer-capsule">
+    <p>To calculate <strong>Amps</strong> from <strong>Watts</strong>: divide Watts by Volts (<strong>I = P / V</strong>). For example, a 2400W load on 240V draws 10A. NEC requires a 125% safety factor for continuous loads, meaning a 10A continuous load requires a 15A breaker (the 80% rule).</p>
   </div>
 
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="logo-block">
-        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
-        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
-      </div>
-      <div class="masthead-meta">
-        <strong>Field Notes · Construction Reference</strong>
-        Plumbing · Electrical · HVAC · Concrete<br>
-        NIST Verified Standards
-      </div>
-    </div>
-  </header>
+  <div class="content-grid">
+    <section>
+      <article class="tool-card">
+        <header class="tool-card-header">
+          <h2 class="tool-card-title">Watts to Amps Calculator</h2>
+          <div class="tool-card-sub">Single Phase · AC/DC</div>
+        </header>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
+          <div class="input-group">
+            <label class="input-label" for="e-watts">Watts (Power)</label>
+            <input data-agent-input="e-watts" aria-label="Input field for Watts (Power)" class="input-field" id="e-watts" type="number" value="2400" oninput="calcElec()">
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="e-volts">Voltage</label>
+            <select class="unit-select" id="e-volts" aria-label="Select Voltage" onchange="calcElec()">
+              <option value="12">12V DC</option>
+              <option value="24">24V DC</option>
+              <option value="110">110V AC</option>
+              <option value="120" selected>120V AC</option>
+              <option value="208">208V 3Ø</option>
+              <option value="240">240V AC</option>
+              <option value="277">277V AC</option>
+              <option value="480">480V 3Ø</option>
+            </select>
+          </div>
+        </div>
+        <div class="result-display">
+          <span class="result-number" id="e-result-n" aria-live="polite" role="status" data-agent-output="e-result-n" aria-label="Output calculation result for e result n">20.00</span>
+          <span class="result-unit">Amps</span>
+          <div class="result-eq" id="e-result-eq" aria-live="polite" role="status" data-agent-output="e-result-eq" aria-label="Output calculation result for e result eq">2400W ÷ 120V = 20.00A</div>
+        </div>
+        <div class="formula-box">
+          <div class="formula-label">Ohm's Law (P = I × V)</div>
+          <div class="formula-text" id="e-formula">I = P ÷ V → 2400 ÷ 120 = 20.00A</div>
+        </div>
+      </article>
 
-  <nav class="primary-nav">
-    <div class="primary-nav-inner">
-      <a href="/" class="nav-item">Home</a>
-      
-      <div class="nav-dropdown">
-        <span class="nav-item active">Electrical</span>
-        <div class="dropdown-content">
-          <a href="/electrical/">Watts to Amps</a>
-          <a href="/blog/voltage-drop-calculation-nec/">Voltage Drop Guide</a>
+      <h2 style="margin-top: 32px;">AWG Wire Gauge & Ampacity Reference</h2>
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead><tr><th>AWG</th><th>mm²</th><th>Ampacity 60°C</th><th>75°C</th><th>Common Use</th></tr></thead>
+          <tbody>
+            <tr><td>14 AWG</td><td class="mono">2.08</td><td class="mono">15A</td><td class="mono">20A</td><td>Lighting, 15A circuits</td></tr>
+            <tr><td>12 AWG</td><td class="mono">3.31</td><td class="mono">20A</td><td class="mono">25A</td><td>Outlets, 20A circuits</td></tr>
+            <tr><td>10 AWG</td><td class="mono">5.26</td><td class="mono">30A</td><td class="mono">35A</td><td>Dryers, A/C</td></tr>
+            <tr><td>8 AWG</td><td class="mono">8.37</td><td class="mono">40A</td><td class="mono">50A</td><td>Ranges, EV Chargers</td></tr>
+            <tr><td>6 AWG</td><td class="mono">13.3</td><td class="mono">55A</td><td class="mono">65A</td><td>Subpanels</td></tr>
+          </tbody>
+          <caption>Simplified ampacity chart for copper wire (NEC Table 310.16).</caption>
+        </table>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="sidebar-card accent-top">
+        <h3 class="sidebar-title">Code Reference</h3>
+        <div class="prose" style="font-size:12px">
+          <p>Need deep NEC breaker sizing charts, continuous vs non-continuous rules, or electrician formulas? Read our brand new comprehensive research guide: <a href="/blog/circuit-breaker-sizing-guide-2026/">Circuit Breaker Sizing Guide 2026</a>.</p>
         </div>
       </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item">HVAC/Plumbing</span>
-        <div class="dropdown-content">
-          <a href="/pressure/">Pressure Units</a>
-          <a href="/temperature/">Temperature</a>
+      <div class="sidebar-card accent-top" style="margin-top:16px">
+        <h3 class="sidebar-title">The 80% Rule</h3>
+        <div class="prose" style="font-size:12px">
+          <p>NEC 210.20(A) requires that continuous loads (on for 3+ hours) not exceed 80% of a breaker's rated ampacity.</p>
+          <p><strong>Example:</strong> A 20A breaker can only supply 16A continuously.</p>
         </div>
       </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item">Building</span>
-        <div class="dropdown-content">
-          <a href="/concrete/">Concrete &amp; Bags</a>
-          <a href="/lumber/">Lumber &amp; BF</a>
-          <a href="/length/">Length &amp; Layout</a>
-          <a href="/torque/">Torque Specs</a>
-        </div>
-      </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item">Site</span>
-        <div class="dropdown-content">
-          <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight &amp; Ton</a>
-        </div>
-      </div>
-
-      <a href="/blog/" class="nav-item">Field Notes</a>
-    </div>
-  </nav>
-
-  <div class="breadcrumb-bar">
-    <div class="breadcrumb-inner">
-      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Electrical</span>
-    </div>
+    </aside>
   </div>
-
-  <div class="site-wrapper">
-    <div class="page-hero">
-      <h1>Electrical Calculator — Watts to Amps &amp; Wire Gauge Guide</h1>
-      <p class="hero-desc">Calculate electrical loads, determine circuit breaker requirements, and reference AWG wire sizes. All values based on NEC 2026 standards.</p>
-    </div>
-
-    <div class="answer-capsule">
-      <p>To calculate <strong>Amps</strong> from <strong>Watts</strong>: divide Watts by Volts (<strong>I = P / V</strong>). For example, a 2400W load on 240V draws 10A. NEC requires a 125% safety factor for continuous loads, meaning a 10A continuous load requires a 15A breaker (the 80% rule).</p>
-    </div>
-
-    <div class="content-grid">
-      <main>
-        <div class="tool-card">
-          <div class="tool-card-header">
-            <div class="tool-card-title">Watts to Amps Calculator</div>
-            <div class="tool-card-sub">Single Phase · AC/DC</div>
-          </div>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
-            <div class="input-group">
-              <label class="input-label" for="e-watts">Watts (Power)</label>
-              <input data-agent-input="e-watts" aria-label="Input field for Watts (Power)" class="input-field" id="e-watts" type="number" value="2400" oninput="calcElec()">
-            </div>
-            <div class="input-group">
-              <label class="input-label" for="e-volts">Voltage</label>
-              <select class="unit-select" id="e-volts" onchange="calcElec()">
-                <option value="12">12V DC</option>
-                <option value="24">24V DC</option>
-                <option value="110">110V AC</option>
-                <option value="120" selected="">120V AC</option>
-                <option value="208">208V 3Ø</option>
-                <option value="240">240V AC</option>
-                <option value="277">277V AC</option>
-                <option value="480">480V 3Ø</option>
-              </select>
-            </div>
-          </div>
-          <div class="result-display">
-            <span class="result-number" id="e-result-n" aria-live="polite" role="status" data-agent-output="e-result-n" aria-label="Output calculation result for e result n">20.00</span>
-            <span class="result-unit">Amps</span>
-            <div class="result-eq" id="e-result-eq" aria-live="polite" role="status" data-agent-output="e-result-eq" aria-label="Output calculation result for e result eq">2400W ÷ 120V = 20.00A</div>
-          </div>
-          <div class="formula-box">
-            <div class="formula-label">Ohm's Law (P = I × V)</div>
-            <div class="formula-text" id="e-formula">I = P ÷ V → 2400 ÷ 120 = 20.00A</div>
-          </div>
-        </div>
-
-        <h2>AWG Wire Gauge &amp; Ampacity Reference</h2>
-        <div class="ref-table-wrap">
-          <table class="ref-table">
-            <thead><tr><th>AWG</th><th>mm²</th><th>Ampacity 60°C</th><th>75°C</th><th>Common Use</th></tr></thead>
-            <tbody>
-              <tr><td>14 AWG</td><td class="mono">2.08</td><td class="mono">15A</td><td class="mono">20A</td><td>Lighting, 15A circuits</td></tr>
-              <tr><td>12 AWG</td><td class="mono">3.31</td><td class="mono">20A</td><td class="mono">25A</td><td>Outlets, 20A circuits</td></tr>
-              <tr><td>10 AWG</td><td class="mono">5.26</td><td class="mono">30A</td><td class="mono">35A</td><td>Dryers, A/C</td></tr>
-              <tr><td>8 AWG</td><td class="mono">8.37</td><td class="mono">40A</td><td class="mono">50A</td><td>Ranges, EV Chargers</td></tr>
-              <tr><td>6 AWG</td><td class="mono">13.3</td><td class="mono">55A</td><td class="mono">65A</td><td>Subpanels</td></tr>
-            </tbody>
-            <caption>Simplified ampacity chart for copper wire (NEC Table 310.16).</caption>
-          </table>
-        </div>
-      </main>
-
-      <aside class="sidebar">
-        <div class="sidebar-card accent-top">
-          <div class="sidebar-title">Code Reference</div>
-          <div class="prose" style="font-size:12px">
-            <p>Need deep NEC breaker sizing charts, continuous vs non-continuous rules, or electrician formulas? Read our brand new comprehensive research guide: <a href="/blog/circuit-breaker-sizing-guide-2026/">Circuit Breaker Sizing Guide 2026</a>.</p>
-          </div>
-        </div>
-        <div class="sidebar-card accent-top" style="margin-top:16px">
-          <div class="sidebar-title">The 80% Rule</div>
-          <div class="prose" style="font-size:12px">
-            <p>NEC 210.20(A) requires that continuous loads (on for 3+ hours) not exceed 80% of a breaker's rated ampacity.</p>
-            <p><strong>Example:</strong> A 20A breaker can only supply 16A continuously.</p>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>
-
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="f-name">Trade<em>Convert</em></div>
-        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Tools</h4>
-        <a href="/pressure/">Pressure</a>
-        <a href="/electrical/">Electrical</a>
-        <a href="/concrete/">Concrete</a>
-        <a href="/lumber/">Lumber</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/blog/">Field Notes</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 TradeConvert · NIST Verified</span>
-      <a href="/privacy/">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <script src="/js/converters.js"></script>
-
-
-</body></html>
+</main>

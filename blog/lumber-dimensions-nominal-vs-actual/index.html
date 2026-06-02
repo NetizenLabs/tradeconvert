@@ -1,98 +1,34 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
+---
+layout: base.njk
+title: "Lumber Sizes: Nominal vs. Actual | TradeConvert"
+description: "Why a 2x4 is not a 2x4. Read our guide to PS 20-20 lumber standards, moisture content shrinkage, and timber framing specifications."
+keywords: "lumber dimensions, nominal vs actual, PS 20 lumber standard, wood shrinkage, S4S surfacing, structural framing code, IRC lumber tables"
+og_title: "TradeConvert 2026 — Professional Trade Reference"
+og_description: "Know exactly what you're owed and calculate trade units with precision. Verified for 2026."
+breadcrumbs:
+  - name: Field Notes
+    url: "/blog/"
+  - name: "Article"
+---
 
-  <title>Lumber Sizes: Nominal vs. Actual | TradeConvert</title>
+  <script>
+  function calcActual() {
+    const w = parseFloat(document.getElementById('n-w').value) || 0;
+    const d = parseFloat(document.getElementById('n-d').value) || 0;
+    let aw = w - 0.5;
+    if (w >= 8) aw = w - 0.75;
+    if (w <= 1) aw = 0.75;
+    let ad = d - 0.5;
+    if (d >= 8) ad = d - 0.75;
+    if (d <= 1) ad = 0.75;
+    const area = (aw * ad).toFixed(2);
+    document.getElementById('a-res').textContent = area;
+    document.getElementById('a-eq').textContent = `Actual: ${aw}" × ${ad}" = ${area} in²`;
+  }
+  window.addEventListener('DOMContentLoaded', calcActual);
+</script>
 
-  <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="TradeConvert 2026 — Professional Trade Reference">
-  <meta property="og:description" content="Know exactly what you're owed and calculate trade units with precision. Verified for 2026.">
-  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
-  <meta property="og:url" content="https://tradeconvert.pro/blog/lumber-dimensions-nominal-vs-actual/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
-
-  <meta name="description" content="Why a 2x4 is not a 2x4. Read our guide to PS 20-20 lumber standards, moisture content shrinkage, and timber framing specifications.">
-  <meta name="keywords" content="lumber dimensions, nominal vs actual, PS 20 lumber standard, wood shrinkage, S4S surfacing, structural framing code, IRC lumber tables">
-  
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="canonical" href="https://tradeconvert.pro/blog/lumber-dimensions-nominal-vs-actual/">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/main.css">
-  <meta property="og:site_name" content="TradeConvert">
-  <meta property="og:type" content="article">
-
-<script type="application/ld+json" id="tc-breadcrumb-schema">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://tradeconvert.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Field Notes",
-      "item": "https://tradeconvert.pro/blog/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Lumber Dimensions Guide",
-      "item": "https://tradeconvert.pro/blog/lumber-dimensions-nominal-vs-actual/"
-    }
-  ]
-}
-</script></head>
-<body>
-
-  <div class="top-bar">
-    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · NIST Verified
-  </div>
-
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="logo-block">
-        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
-        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
-      </div>
-      <div class="masthead-meta">
-        <strong>Field Notes · Construction Reference</strong>
-        Carpentry · Framing · Structural Code<br>
-        PS 20 Verified Standards
-      </div>
-    </div>
-  </header>
-
-  <nav class="primary-nav">
-    <div class="primary-nav-inner">
-      <a href="/" class="nav-item">Home</a>
-      <a href="/lumber/" class="nav-item active">Lumber</a>
-      <a href="/length/" class="nav-item">Length</a>
-      <a href="/blog/" class="nav-item">Field Notes <span class="nav-new">NEW</span></a>
-    </div>
-  </nav>
-
-  <div class="breadcrumb-bar">
-    <div class="breadcrumb-inner">
-      <a href="/">Home</a> <span class="bc-sep">›</span> 
-      <a href="/blog/">Field Notes</a> <span class="bc-sep">›</span> 
-      <span>Lumber Dimensions Guide</span>
-    </div>
-  </div>
-
-  <div class="site-wrapper">
+<main class="site-wrapper">
     <div class="page-hero">
       <h1>Lumber Dimensions: Why "Nominal" Size Isn't "Actual" Size</h1>
       <p class="hero-desc">The "2x4" is a shorthand for a standardized engineering product. Understanding the American Softwood Lumber Standard (PS 20) is critical for structural calculations and precise framing.</p>
@@ -172,50 +108,6 @@
         </div>
       </aside>
     </div>
-  </div>
+  </main>
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="f-name">Trade<em>Convert</em></div>
-        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Tools</h4>
-        <a href="/pressure/">Pressure</a>
-        <a href="/electrical/">Electrical</a>
-        <a href="/concrete/">Concrete</a>
-        <a href="/lumber/">Lumber</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/blog/">Field Notes</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 TradeConvert · Engineering Hub</span>
-      <a href="/privacy/">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <script>
-    function calcActual() {
-      const w = parseFloat(document.getElementById('n-w').value) || 0;
-      const d = parseFloat(document.getElementById('n-d').value) || 0;
-      let aw = w - 0.5;
-      if (w >= 8) aw = w - 0.75;
-      if (w <= 1) aw = 0.75;
-      let ad = d - 0.5;
-      if (d >= 8) ad = d - 0.75;
-      if (d <= 1) ad = 0.75;
-      const area = (aw * ad).toFixed(2);
-      document.getElementById('a-res').textContent = area;
-      document.getElementById('a-eq').textContent = `Actual: ${aw}" × ${ad}" = ${area} in²`;
-    }
-    window.addEventListener('DOMContentLoaded', calcActual);
-  </script>
-
-
-</body></html>
+  

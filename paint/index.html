@@ -1,178 +1,84 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-
-  <title>Paint Gallon &amp; Coverage Calculator | TradeConvert</title>
-
-  <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Paint Coverage Calculator | Gallon &amp; Quart Estimator | TradeConvert">
-  <meta property="og:description" content="Calculate standard paint gallons and quarts needed for your walls and ceilings. Instantly handles doors, windows, multiple coats, and custom spreads.">
-  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
-  <meta property="og:url" content="https://tradeconvert.pro/paint/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
-
-  <meta name="description" content="Estimate paint gallons and quarts needed for walls and ceilings. Assumes standard commercial coverage thresholds with adjustable coat options.">
-  <meta name="keywords" content="paint calculator, paint coverage estimator, gallons of paint needed, wall painting calculator, paint quart calculator, paint spread rate">
-  
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="canonical" href="https://tradeconvert.pro/paint/">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/main.css">
-  
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "TradeConvert Paint Coverage Calculator",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web Browser",
-  "url": "https://tradeconvert.pro/paint/",
-  "description": "Professional interior wall and ceiling paint coverage estimator.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-  </script>
-  <meta property="og:site_name" content="TradeConvert">
-  <meta property="og:type" content="website">
-
-<script type="application/ld+json" id="tc-faq-schema">
+---
+layout: base.njk
+title: "Paint Gallon &amp; Coverage Calculator | TradeConvert"
+description: "Estimate paint gallons and quarts needed for walls and ceilings. Assumes standard commercial coverage thresholds with adjustable coat options."
+keywords: "paint calculator, paint coverage estimator, gallons of paint needed, wall painting calculator, paint quart calculator, paint spread rate"
+og_title: "Paint Coverage Calculator | Gallon &amp; Quart Estimator | TradeConvert"
+og_description: "Calculate standard paint gallons and quarts needed for your walls and ceilings. Instantly handles doors, windows, multiple coats, and custom spreads."
+breadcrumbs:
+  - name: Building
+  - name: Paint
+    url: "/paint/"
+---
+<script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "If a gallon of paint covers a fraction of a wall, how many quarts of paint are needed for the entire wall?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "<p>To solve this math and measurement problem, follow these step-by-step calculations:</p>\n            <p><strong>1. Understand the unit equivalents:</strong> There are exactly <strong>4 quarts in 1 gallon</strong>.</p>\n            <p><strong>2. Apply the fraction coverage formula:</strong></p>\n            <ul>\n              <li>If 1 gallon of paint covers <strong>1/2 (half)</strong> of a wall, you need 2 gallons, which equals <strong>8 quarts</strong> of paint for the entire wall.</li>\n              <li>If 1 gallon of paint covers <strong>1/3</strong> of a wall, you need 3 gallons, which equals <strong>12 quarts</strong> of paint for the entire wall.</li>\n              <li>If 1 gallon of paint covers <strong>1/4</strong> of a wall, you need 4 gallons, which equals <strong>16 quarts</strong> of paint for the entire wall.</li>\n              <li>If 1 gallon of paint covers <strong>3/4</strong> of a wall, you need 4/3 gallons, which equals <strong>5.33 quarts</strong> of paint for the entire wall.</li>\n            </ul>\n            <p><strong>General Formula:</strong> <code>Quarts Needed = 4 ÷ (Fraction of wall covered by 1 gallon)</code>. For instance, if 1 gallon covers 2/3 of a wall, then <code>4 ÷ (2/3) = 6 quarts</code> are required to paint the entire wall.</p>"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many square feet does 1 quart or 1 gallon of paint cover?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "<p>Standard coverage standards for building paint are as follows:</p>\n            <ul>\n              <li><strong>1 Gallon of Paint:</strong> Typically covers between <strong>350 and 400 square feet</strong> on smooth, primed walls, and 250 to 300 square feet on textured surfaces or raw drywall.</li>\n              <li><strong>1 Quart of Paint:</strong> Covers approximately <strong>88 to 100 square feet</strong> on smooth walls (obtained by dividing the gallon rate by 4). Perfect for accent trims, doors, or bathrooms.</li>\n            </ul>"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many gallons of paint are needed for standard room sizes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "<p>For standard interior sizes with standard 8-foot high ceilings (assuming 2 coats of paint and a standard 350 sq ft spread rate):</p>\n            <ul>\n              <li><strong>10x10 Room:</strong> Total wall area ~320 sq ft. You will need <strong>2 Gallons</strong> (exact: 1.83 Gal).</li>\n              <li><strong>12x12 Room:</strong> Total wall area ~384 sq ft. You will need <strong>2.5 Gallons</strong> (exact: 2.2 Gal - Buy 2 Gallons + 2 Quarts).</li>\n              <li><strong>12x15 Room:</strong> Total wall area ~432 sq ft. You will need <strong>3 Gallons</strong> (exact: 2.47 Gal).</li>\n            </ul>"
-      }
-    }
-  ]
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": "TradeConvert Paint Coverage Calculator",
+"applicationCategory": "BusinessApplication",
+"operatingSystem": "Web Browser",
+"url": "https://tradeconvert.pro/paint/",
+"description": "Professional interior wall and ceiling paint coverage estimator.",
+"offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+}
 }
 </script>
-<script type="application/ld+json" id="tc-breadcrumb-schema">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://tradeconvert.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Paint Calculator",
-      "item": "https://tradeconvert.pro/paint/"
+<script>
+  function calcPaint() {
+    const length = parseFloat(document.getElementById('p-l').value) || 0;
+    const width = parseFloat(document.getElementById('p-w').value) || 0;
+    const height = parseFloat(document.getElementById('p-h').value) || 0;
+    const spread = parseFloat(document.getElementById('p-spread').value) || 350;
+    const deduct = parseFloat(document.getElementById('p-deduct').value) || 0;
+    const coats = parseInt(document.getElementById('p-coats').value) || 2;
+    const mode = document.getElementById('p-mode').value;
+
+    // 1. Calculate ceiling area
+    let ceilingArea = length * width;
+    if (mode === 'walls') ceilingArea = 0;
+
+    // 2. Calculate wall area
+    let wallArea = 2 * (length + width) * height;
+    if (mode === 'ceiling') wallArea = 0;
+
+    // 3. Compute net total surface area
+    let netArea = (ceilingArea + wallArea) - deduct;
+    if (netArea < 0) netArea = 0;
+
+    // 4. Paint needed based on coats and spread rates
+    const totalSpreadArea = netArea * coats;
+    const gallonsExact = totalSpreadArea / spread;
+    const gallonsNeeded = Math.ceil(gallonsExact);
+
+    // 5. Smart Buy recommendation (Gallons + Quarts)
+    const wholeGallons = Math.floor(gallonsExact);
+    const remainingGallonFraction = gallonsExact - wholeGallons;
+    const quartsNeeded = Math.ceil(remainingGallonFraction * 4);
+    
+    let smartBuyText = "";
+    if (quartsNeeded === 0) {
+      smartBuyText = `Buy exactly ${wholeGallons} Gallon` + (wholeGallons !== 1 ? "s" : "");
+    } else if (quartsNeeded === 3 && wholeGallons > 0) {
+      smartBuyText = `Buy ${wholeGallons + 1} Gallon` + (wholeGallons !== 0 ? "s" : "") + ` (Cheaper than adding quarts!)`;
+    } else {
+      smartBuyText = `Exact: ${gallonsExact.toFixed(2)} Gal (Buy ${wholeGallons} Gal + ${quartsNeeded} Quart` + (quartsNeeded !== 1 ? "s" : "") + `)`;
     }
-  ]
-}
-</script></head>
-<body>
 
-  <div class="top-bar">
-    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · Paint V1.0
-  </div>
+    // 6. Write outputs
+    document.getElementById('out-p-ceiling').textContent = ceilingArea.toFixed(0) + " ft²";
+    document.getElementById('out-p-walls').textContent = wallArea.toFixed(0) + " ft²";
+    document.getElementById('out-p-net').textContent = netArea.toFixed(0) + " ft²";
+    document.getElementById('out-p-gallons').textContent = gallonsNeeded + " Gallon" + (gallonsNeeded !== 1 ? "s" : "");
+    document.getElementById('out-p-quarts').textContent = smartBuyText;
+  }
 
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="logo-block">
-        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
-        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
-      </div>
-      <div class="masthead-meta">
-        <strong>Field Notes · Construction Reference</strong>
-        Plumbing · Electrical · HVAC · Carpentry<br>
-        Professional Painting Standards
-      </div>
-    </div>
-  </header>
+  window.addEventListener('DOMContentLoaded', calcPaint);
+</script>
 
-  <nav class="primary-nav">
-    <div class="primary-nav-inner">
-      <a href="/" class="nav-item">Home</a>
-      
-      <div class="nav-dropdown">
-        <span class="nav-item">Electrical</span>
-        <div class="dropdown-content">
-          <a href="/electrical/">Watts to Amps</a>
-          <a href="/voltage-drop/">Voltage Drop Calc</a>
-          <a href="/conduit-fill/">Conduit Fill Calc</a>
-          <a href="/blog/voltage-drop-calculation-nec/">Voltage Drop Guide</a>
-        </div>
-      </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item">HVAC/Plumbing</span>
-        <div class="dropdown-content">
-          <a href="/pressure/">Pressure Units</a>
-          <a href="/temperature/">Temperature</a>
-        </div>
-      </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item active">Building</span>
-        <div class="dropdown-content">
-          <a href="/concrete/">Concrete &amp; Bags</a>
-          <a href="/lumber/">Lumber &amp; BF</a>
-          <a href="/roofing/">Roofing &amp; Squares</a>
-          <a href="/stair/">Stair Layout</a>
-          <a href="/drywall/">Drywall Calculator</a>
-          <a href="/paint/">Paint Calculator</a>
-          <a href="/length/">Length &amp; Layout</a>
-          <a href="/torque/">Torque Specs</a>
-        </div>
-      </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item">Site</span>
-        <div class="dropdown-content">
-          <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight &amp; Ton</a>
-        </div>
-      </div>
-
-      <a href="/blog/" class="nav-item">Field Notes</a>
-    </div>
-  </nav>
-
-  <div class="breadcrumb-bar">
-    <div class="breadcrumb-inner">
-      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Paint Calculator</span>
-    </div>
-  </div>
-
-  <div class="site-wrapper">
+<main class="site-wrapper">
     <div class="page-hero">
       <h1>Paint Coverage Calculator — Gallon &amp; Quart Estimator</h1>
       <p class="hero-desc">Estimate the exact amount of paint needed for your next renovation. Calculates wall and ceiling areas, opening deductions, and recommends matching container sizes.</p>
@@ -389,91 +295,6 @@
         </div>
       </aside>
     </div>
-  </div>
+  </main>
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="f-name">Trade<em>Convert</em></div>
-        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Tools</h4>
-        <a href="/pressure/">Pressure</a>
-        <a href="/electrical/">Electrical</a>
-        <a href="/concrete/">Concrete</a>
-        <a href="/lumber/">Lumber</a>
-        <a href="/roofing/">Roofing</a>
-        <a href="/stair/">Stair Layout</a>
-        <a href="/voltage-drop/">Voltage Drop</a>
-        <a href="/conduit-fill/">Conduit Fill</a>
-        <a href="/drywall/">Drywall</a>
-        <a href="/paint/">Paint</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/blog/">Field Notes</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 TradeConvert · NIST Verified</span>
-      <a href="/privacy/">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <script>
-    function calcPaint() {
-      const length = parseFloat(document.getElementById('p-l').value) || 0;
-      const width = parseFloat(document.getElementById('p-w').value) || 0;
-      const height = parseFloat(document.getElementById('p-h').value) || 0;
-      const spread = parseFloat(document.getElementById('p-spread').value) || 350;
-      const deduct = parseFloat(document.getElementById('p-deduct').value) || 0;
-      const coats = parseInt(document.getElementById('p-coats').value) || 2;
-      const mode = document.getElementById('p-mode').value;
-
-      // 1. Calculate ceiling area
-      let ceilingArea = length * width;
-      if (mode === 'walls') ceilingArea = 0;
-
-      // 2. Calculate wall area
-      let wallArea = 2 * (length + width) * height;
-      if (mode === 'ceiling') wallArea = 0;
-
-      // 3. Compute net total surface area
-      let netArea = (ceilingArea + wallArea) - deduct;
-      if (netArea < 0) netArea = 0;
-
-      // 4. Paint needed based on coats and spread rates
-      const totalSpreadArea = netArea * coats;
-      const gallonsExact = totalSpreadArea / spread;
-      const gallonsNeeded = Math.ceil(gallonsExact);
-
-      // 5. Smart Buy recommendation (Gallons + Quarts)
-      const wholeGallons = Math.floor(gallonsExact);
-      const remainingGallonFraction = gallonsExact - wholeGallons;
-      const quartsNeeded = Math.ceil(remainingGallonFraction * 4);
-      
-      let smartBuyText = "";
-      if (quartsNeeded === 0) {
-        smartBuyText = `Buy exactly ${wholeGallons} Gallon` + (wholeGallons !== 1 ? "s" : "");
-      } else if (quartsNeeded === 3 && wholeGallons > 0) {
-        smartBuyText = `Buy ${wholeGallons + 1} Gallon` + (wholeGallons !== 0 ? "s" : "") + ` (Cheaper than adding quarts!)`;
-      } else {
-        smartBuyText = `Exact: ${gallonsExact.toFixed(2)} Gal (Buy ${wholeGallons} Gal + ${quartsNeeded} Quart` + (quartsNeeded !== 1 ? "s" : "") + `)`;
-      }
-
-      // 6. Write outputs
-      document.getElementById('out-p-ceiling').textContent = ceilingArea.toFixed(0) + " ft²";
-      document.getElementById('out-p-walls').textContent = wallArea.toFixed(0) + " ft²";
-      document.getElementById('out-p-net').textContent = netArea.toFixed(0) + " ft²";
-      document.getElementById('out-p-gallons').textContent = gallonsNeeded + " Gallon" + (gallonsNeeded !== 1 ? "s" : "");
-      document.getElementById('out-p-quarts').textContent = smartBuyText;
-    }
-
-    window.addEventListener('DOMContentLoaded', calcPaint);
-  </script>
-
-
-</body></html>
+  

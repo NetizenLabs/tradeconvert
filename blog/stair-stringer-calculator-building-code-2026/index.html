@@ -1,165 +1,91 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
+---
+layout: base.njk
+title: "Stair Stringer Layout &amp; IRC Codes | TradeConvert"
+description: "Step-by-step guide to laying out stair stringers using rise, run, and stringer calculations. Strictly reviews IRC maximum riser height guidelines."
+keywords: "stair stringer calculator, stair building code, how to calculate stair stringers, stair rise and run calculator, staircase riser tread limits"
+og_title: "Stair Stringer Calculator &amp; Building Code Guide 2026 | TradeConvert"
+og_description: "Complete 2026 stair stringer calculator guide. Master riser heights, tread depths, stringer layout angles, and international IRC building codes."
+breadcrumbs:
+  - name: Field Notes
+    url: "/blog/"
+  - name: "Article"
+---
 
-  <title>Stair Stringer Layout &amp; IRC Codes | TradeConvert</title>
-
-  <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Stair Stringer Calculator &amp; Building Code Guide 2026 | TradeConvert">
-  <meta property="og:description" content="Complete 2026 stair stringer calculator guide. Master riser heights, tread depths, stringer layout angles, and international IRC building codes.">
-  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
-  <meta property="og:url" content="https://tradeconvert.pro/blog/stair-stringer-calculator-building-code-2026/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
-
-  <meta name="description" content="Step-by-step guide to laying out stair stringers using rise, run, and stringer calculations. Strictly reviews IRC maximum riser height guidelines.">
-  <meta name="keywords" content="stair stringer calculator, stair building code, how to calculate stair stringers, stair rise and run calculator, staircase riser tread limits">
-  
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="canonical" href="https://tradeconvert.pro/blog/stair-stringer-calculator-building-code-2026/">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/main.css">
-  
   <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Stair Stringer Calculator & Building Code Guide 2026",
-  "description": "Complete stair stringer layout calculator and IRC building code compliance rules.",
-  "author": {
-    "@type": "Person",
-    "name": "Abu Sufyan",
-    "jobTitle": "Creator of TradeConvert.pro"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "TradeConvert",
-    "url": "https://tradeconvert.pro/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://tradeconvert.pro/assets/logo.png"
-    }
-  },
-  "datePublished": "2026-05-17",
-  "dateModified": "2026-05-17",
-  "image": "https://tradeconvert.pro/assets/og-image.png"
-}
-  </script>
-  <meta property="og:site_name" content="TradeConvert">
-  <meta property="og:type" content="article">
-
-<script type="application/ld+json" id="tc-breadcrumb-schema">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://tradeconvert.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Field Notes",
-      "item": "https://tradeconvert.pro/blog/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Stair Building Code Guide 2026",
-      "item": "https://tradeconvert.pro/blog/stair-stringer-calculator-building-code-2026/"
-    }
-  ]
+"@context": "https://schema.org",
+"@type": "Article",
+"headline": "Stair Stringer Calculator & Building Code Guide 2026",
+"description": "Complete stair stringer layout calculator and IRC building code compliance rules.",
+"author": {
+  "@type": "Person",
+  "name": "Abu Sufyan",
+  "jobTitle": "Creator of TradeConvert.pro"
+},
+"publisher": {
+  "@type": "Organization",
+  "name": "TradeConvert",
+  "url": "https://tradeconvert.pro/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://tradeconvert.pro/assets/logo.png"
+  }
+},
+"datePublished": "2026-05-17",
+"dateModified": "2026-05-17",
+"image": "https://tradeconvert.pro/assets/og-image.png"
 }
-</script></head>
-<body>
+</script>
 
-  <div class="top-bar">
-    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · Stair V1.0
-  </div>
+  <script>
+  function calcStair() {
+    const rise = parseFloat(document.getElementById('s-rise').value) || 0;
+    const run = parseFloat(document.getElementById('s-run').value) || 10;
 
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="logo-block">
-        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
-        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
-      </div>
-      <div class="masthead-meta">
-        <strong>Field Notes · Construction Reference</strong>
-        Carpentry · Framing · Stair Code<br>
-        IRC 2026 Verified Standards
-      </div>
-    </div>
-  </header>
+    if (rise <= 0) return;
 
-  <nav class="primary-nav">
-    <div class="primary-nav-inner">
-      <a href="/" class="nav-item">Home</a>
-      
-      <div class="nav-dropdown">
-        <span class="nav-item">Electrical</span>
-        <div class="dropdown-content">
-          <a href="/electrical/">Watts to Amps</a>
-          <a href="/voltage-drop/">Voltage Drop Calc</a>
-          <a href="/conduit-fill/">Conduit Fill Calc</a>
-          <a href="/blog/voltage-drop-calculation-nec/">Voltage Drop Guide</a>
-        </div>
-      </div>
+    // 1. Calculate step count
+    const stepsCount = Math.ceil(rise / 7.25);
+    const exactRiser = rise / stepsCount;
 
-      <div class="nav-dropdown">
-        <span class="nav-item">HVAC/Plumbing</span>
-        <div class="dropdown-content">
-          <a href="/pressure/">Pressure Units</a>
-          <a href="/temperature/">Temperature</a>
-        </div>
-      </div>
+    // 2. Compute angle of incline
+    const rad = Math.atan(exactRiser / run);
+    const angle = rad * (180 / Math.PI);
 
-      <div class="nav-dropdown">
-        <span class="nav-item">Building</span>
-        <div class="dropdown-content">
-          <a href="/concrete/">Concrete &amp; Bags</a>
-          <a href="/lumber/">Lumber &amp; BF</a>
-          <a href="/roofing/">Roofing &amp; Squares</a>
-          <a href="/stair/">Stair Layout</a>
-          <a href="/drywall/">Drywall Calculator</a>
-          <a href="/paint/">Paint Calculator</a>
-          <a href="/excavation/">Excavation Calc</a>
-          <a href="/tile/">Tile Calculator</a>
-          <a href="/length/">Length &amp; Layout</a>
-          <a href="/torque/">Torque Specs</a>
-        </div>
-      </div>
+    // 3. Stringer hypotenuse run
+    const runTotal = run * (stepsCount - 1);
+    const stringerHyp = Math.sqrt(Math.pow(rise, 2) + Math.pow(runTotal, 2));
 
-      <div class="nav-dropdown">
-        <span class="nav-item">Site</span>
-        <div class="dropdown-content">
-          <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight &amp; Ton</a>
-        </div>
-      </div>
+    // 4. Code Compliance validation
+    let passes = true;
+    let reason = "✔ IRC COMPLIANT";
+    if (exactRiser > 7.75) {
+      passes = false;
+      reason = "✘ RISER TOO TALL (> 7.75\")";
+    } else if (run < 10) {
+      passes = false;
+      reason = "✘ TREAD TOO SHORT (< 10\")";
+    }
 
-      <a href="/blog/" class="nav-item active">Field Notes</a>
-    </div>
-  </nav>
+    // 5. Outputs writing
+    document.getElementById('res-s-steps').textContent = stepsCount;
+    document.getElementById('res-s-exact').textContent = exactRiser.toFixed(2) + "\"";
+    document.getElementById('res-s-angle').textContent = angle.toFixed(1) + "°";
+    document.getElementById('res-s-board').textContent = Math.round(stringerHyp) + " in (Use " + Math.ceil(stringerHyp / 12) + " ft Board)";
 
-  <div class="breadcrumb-bar">
-    <div class="breadcrumb-inner">
-      <a href="/">Home</a> <span class="bc-sep">›</span> 
-      <a href="/blog/">Field Notes</a> <span class="bc-sep">›</span> 
-      <span>Stair Building Code Guide 2026</span>
-    </div>
-  </div>
+    const codeEl = document.getElementById('res-s-code');
+    codeEl.textContent = reason;
+    if (passes) {
+      codeEl.style.color = "#15803d";
+    } else {
+      codeEl.style.color = "#b91c1c";
+    }
+  }
 
-  <div class="site-wrapper">
+  window.addEventListener('DOMContentLoaded', calcStair);
+</script>
+
+<main class="site-wrapper">
     <div class="page-hero">
       <h1>Stair Stringer Calculator &amp; Building Code Guide 2026</h1>
       <div style="font-family: var(--serif); font-style: italic; color: var(--ink3); margin-top: 12px; font-size: 14px;">
@@ -297,82 +223,6 @@
         </div>
       </aside>
     </div>
-  </div>
+  </main>
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="f-name">Trade<em>Convert</em></div>
-        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Tools</h4>
-        <a href="/pressure/">Pressure</a>
-        <a href="/electrical/">Electrical</a>
-        <a href="/concrete/">Concrete</a>
-        <a href="/lumber/">Lumber</a>
-        <a href="/roofing/">Roofing</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/blog/">Field Notes</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 TradeConvert · Engineering Hub</span>
-      <a href="/privacy/">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <script>
-    function calcStair() {
-      const rise = parseFloat(document.getElementById('s-rise').value) || 0;
-      const run = parseFloat(document.getElementById('s-run').value) || 10;
-
-      if (rise <= 0) return;
-
-      // 1. Calculate step count
-      const stepsCount = Math.ceil(rise / 7.25);
-      const exactRiser = rise / stepsCount;
-
-      // 2. Compute angle of incline
-      const rad = Math.atan(exactRiser / run);
-      const angle = rad * (180 / Math.PI);
-
-      // 3. Stringer hypotenuse run
-      const runTotal = run * (stepsCount - 1);
-      const stringerHyp = Math.sqrt(Math.pow(rise, 2) + Math.pow(runTotal, 2));
-
-      // 4. Code Compliance validation
-      let passes = true;
-      let reason = "✔ IRC COMPLIANT";
-      if (exactRiser > 7.75) {
-        passes = false;
-        reason = "✘ RISER TOO TALL (> 7.75\")";
-      } else if (run < 10) {
-        passes = false;
-        reason = "✘ TREAD TOO SHORT (< 10\")";
-      }
-
-      // 5. Outputs writing
-      document.getElementById('res-s-steps').textContent = stepsCount;
-      document.getElementById('res-s-exact').textContent = exactRiser.toFixed(2) + "\"";
-      document.getElementById('res-s-angle').textContent = angle.toFixed(1) + "°";
-      document.getElementById('res-s-board').textContent = Math.round(stringerHyp) + " in (Use " + Math.ceil(stringerHyp / 12) + " ft Board)";
-
-      const codeEl = document.getElementById('res-s-code');
-      codeEl.textContent = reason;
-      if (passes) {
-        codeEl.style.color = "#15803d";
-      } else {
-        codeEl.style.color = "#b91c1c";
-      }
-    }
-
-    window.addEventListener('DOMContentLoaded', calcStair);
-  </script>
-
-
-</body></html>
+  

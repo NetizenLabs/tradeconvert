@@ -1,145 +1,76 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-
-  <title>Drywall &amp; Sheet Material Estimator | TradeConvert</title>
-
-  <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Drywall &amp; Sheet Material Calculator | Wall &amp; Ceiling Estimator | TradeConvert">
-  <meta property="og:description" content="Calculate standard drywall sheets needed for room walls and ceilings. Instantly handles 4x8 and 4x12 sheet sizes, custom waste, and openings.">
-  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
-  <meta property="og:url" content="https://tradeconvert.pro/drywall/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
-
-  <meta name="description" content="Estimate drywall sheets, joint compound, tape, and screws needed for residential wall and ceiling framing, with adjustable waste factor controls.">
-  <meta name="keywords" content="drywall calculator, sheetrock estimator, board calculator, gypsum sheet calculator, wall drywall sheets, ceiling sheetrock estimator">
-  
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="canonical" href="https://tradeconvert.pro/drywall/">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/main.css">
-  
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "TradeConvert Drywall Calculator",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web Browser",
-  "url": "https://tradeconvert.pro/drywall/",
-  "description": "Professional wall and ceiling drywall board estimation calculator.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-  </script>
-  <meta property="og:site_name" content="TradeConvert">
-  <meta property="og:type" content="website">
-
-<script type="application/ld+json" id="tc-breadcrumb-schema">
+---
+layout: base.njk
+title: "Drywall &amp; Sheet Material Estimator | TradeConvert"
+description: "Estimate drywall sheets, joint compound, tape, and screws needed for residential wall and ceiling framing, with adjustable waste factor controls."
+keywords: "drywall calculator, sheetrock estimator, board calculator, gypsum sheet calculator, wall drywall sheets, ceiling sheetrock estimator"
+og_title: "Drywall &amp; Sheet Material Calculator | Wall &amp; Ceiling Estimator | TradeConvert"
+og_description: "Calculate standard drywall sheets needed for room walls and ceilings. Instantly handles 4x8 and 4x12 sheet sizes, custom waste, and openings."
+breadcrumbs:
+  - name: Building
+  - name: Drywall
+    url: "/drywall/"
+---
+<script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://tradeconvert.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Drywall Calculator",
-      "item": "https://tradeconvert.pro/drywall/"
-    }
-  ]
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": "TradeConvert Drywall Calculator",
+"applicationCategory": "BusinessApplication",
+"operatingSystem": "Web Browser",
+"url": "https://tradeconvert.pro/drywall/",
+"description": "Professional wall and ceiling drywall board estimation calculator.",
+"offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
 }
-</script></head>
-<body>
+}
+</script>
+<script>
+  function calcDrywall() {
+    const length = parseFloat(document.getElementById('dw-l').value) || 0;
+    const width = parseFloat(document.getElementById('dw-w').value) || 0;
+    const height = parseFloat(document.getElementById('dw-h').value) || 0;
+    const sheetArea = parseFloat(document.getElementById('dw-size').value) || 32;
+    const deduct = parseFloat(document.getElementById('dw-deduct').value) || 0;
+    const waste = parseFloat(document.getElementById('dw-waste').value) || 0;
+    const mode = document.getElementById('dw-mode').value;
 
-  <div class="top-bar">
-    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · Drywall V1.0
-  </div>
+    // 1. Calculate ceiling area
+    let ceilingArea = length * width;
+    if (mode === 'walls') ceilingArea = 0;
 
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="logo-block">
-        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
-        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
-      </div>
-      <div class="masthead-meta">
-        <strong>Field Notes · Construction Reference</strong>
-        Plumbing · Electrical · HVAC · Carpentry<br>
-        Professional Estimating Standards
-      </div>
-    </div>
-  </header>
+    // 2. Calculate wall area
+    let wallArea = 2 * (length + width) * height;
+    if (mode === 'ceiling') wallArea = 0;
 
-  <nav class="primary-nav">
-    <div class="primary-nav-inner">
-      <a href="/" class="nav-item">Home</a>
-      
-      <div class="nav-dropdown">
-        <span class="nav-item">Electrical</span>
-        <div class="dropdown-content">
-          <a href="/electrical/">Watts to Amps</a>
-          <a href="/voltage-drop/">Voltage Drop Calc</a>
-          <a href="/conduit-fill/">Conduit Fill Calc</a>
-          <a href="/blog/voltage-drop-calculation-nec/">Voltage Drop Guide</a>
-        </div>
-      </div>
+    // 3. Compute net total surface area
+    let netArea = (ceilingArea + wallArea) - deduct;
+    if (netArea < 0) netArea = 0;
 
-      <div class="nav-dropdown">
-        <span class="nav-item">HVAC/Plumbing</span>
-        <div class="dropdown-content">
-          <a href="/pressure/">Pressure Units</a>
-          <a href="/temperature/">Temperature</a>
-        </div>
-      </div>
+    // 4. Sheets needed with waste
+    const areaWithWaste = netArea * (1 + (waste / 100));
+    const sheetsNeeded = Math.ceil(areaWithWaste / sheetArea);
 
-      <div class="nav-dropdown">
-        <span class="nav-item active">Building</span>
-        <div class="dropdown-content">
-          <a href="/concrete/">Concrete &amp; Bags</a>
-          <a href="/lumber/">Lumber &amp; BF</a>
-          <a href="/roofing/">Roofing &amp; Squares</a>
-          <a href="/stair/">Stair Layout</a>
-          <a href="/drywall/">Drywall Calculator</a>
-          <a href="/length/">Length &amp; Layout</a>
-          <a href="/torque/">Torque Specs</a>
-        </div>
-      </div>
+    // 5. Joint Compound, Joint Tape and Screw quantities
+    // Comfort estimation rules:
+    // ~0.05 lbs of screws per sq ft, ~0.25 linear ft of tape per sq ft.
+    const screwsLbs = Math.ceil(netArea * 0.035);
+    const tapeLinearFt = Math.ceil(netArea * 0.25);
 
-      <div class="nav-dropdown">
-        <span class="nav-item">Site</span>
-        <div class="dropdown-content">
-          <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight &amp; Ton</a>
-        </div>
-      </div>
+    // 6. Write to UI
+    document.getElementById('out-dw-ceiling').textContent = ceilingArea.toFixed(0) + " ft²";
+    document.getElementById('out-dw-walls').textContent = wallArea.toFixed(0) + " ft²";
+    document.getElementById('out-dw-net').textContent = netArea.toFixed(0) + " ft²";
+    document.getElementById('out-dw-sheets').textContent = sheetsNeeded + " Sheet" + (sheetsNeeded !== 1 ? "s" : "");
 
-      <a href="/blog/" class="nav-item">Field Notes</a>
-    </div>
-  </nav>
+    document.getElementById('out-dw-checklist').textContent = screwsLbs + " lbs screws · " + tapeLinearFt + " linear ft tape";
+  }
 
-  <div class="breadcrumb-bar">
-    <div class="breadcrumb-inner">
-      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Drywall Calculator</span>
-    </div>
-  </div>
+  window.addEventListener('DOMContentLoaded', calcDrywall);
+</script>
 
-  <div class="site-wrapper">
+<main class="site-wrapper">
     <div class="page-hero">
       <h1>Drywall &amp; Sheet Material Calculator — Wall &amp; Ceiling Estimator</h1>
       <p class="hero-desc">Estimate the exact number of drywall panels required for your room project. Accounts for wall dimensions, ceiling heights, doors, windows, and custom waste factors.</p>
@@ -297,82 +228,6 @@
         </div>
       </aside>
     </div>
-  </div>
+  </main>
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="f-name">Trade<em>Convert</em></div>
-        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Tools</h4>
-        <a href="/pressure/">Pressure</a>
-        <a href="/electrical/">Electrical</a>
-        <a href="/concrete/">Concrete</a>
-        <a href="/lumber/">Lumber</a>
-        <a href="/roofing/">Roofing</a>
-        <a href="/stair/">Stair Layout</a>
-        <a href="/voltage-drop/">Voltage Drop</a>
-        <a href="/conduit-fill/">Conduit Fill</a>
-        <a href="/drywall/">Drywall</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/blog/">Field Notes</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 TradeConvert · NIST Verified</span>
-      <a href="/privacy/">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <script>
-    function calcDrywall() {
-      const length = parseFloat(document.getElementById('dw-l').value) || 0;
-      const width = parseFloat(document.getElementById('dw-w').value) || 0;
-      const height = parseFloat(document.getElementById('dw-h').value) || 0;
-      const sheetArea = parseFloat(document.getElementById('dw-size').value) || 32;
-      const deduct = parseFloat(document.getElementById('dw-deduct').value) || 0;
-      const waste = parseFloat(document.getElementById('dw-waste').value) || 0;
-      const mode = document.getElementById('dw-mode').value;
-
-      // 1. Calculate ceiling area
-      let ceilingArea = length * width;
-      if (mode === 'walls') ceilingArea = 0;
-
-      // 2. Calculate wall area
-      let wallArea = 2 * (length + width) * height;
-      if (mode === 'ceiling') wallArea = 0;
-
-      // 3. Compute net total surface area
-      let netArea = (ceilingArea + wallArea) - deduct;
-      if (netArea < 0) netArea = 0;
-
-      // 4. Sheets needed with waste
-      const areaWithWaste = netArea * (1 + (waste / 100));
-      const sheetsNeeded = Math.ceil(areaWithWaste / sheetArea);
-
-      // 5. Joint Compound, Joint Tape and Screw quantities
-      // Comfort estimation rules:
-      // ~0.05 lbs of screws per sq ft, ~0.25 linear ft of tape per sq ft.
-      const screwsLbs = Math.ceil(netArea * 0.035);
-      const tapeLinearFt = Math.ceil(netArea * 0.25);
-
-      // 6. Write to UI
-      document.getElementById('out-dw-ceiling').textContent = ceilingArea.toFixed(0) + " ft²";
-      document.getElementById('out-dw-walls').textContent = wallArea.toFixed(0) + " ft²";
-      document.getElementById('out-dw-net').textContent = netArea.toFixed(0) + " ft²";
-      document.getElementById('out-dw-sheets').textContent = sheetsNeeded + " Sheet" + (sheetsNeeded !== 1 ? "s" : "");
-
-      document.getElementById('out-dw-checklist').textContent = screwsLbs + " lbs screws · " + tapeLinearFt + " linear ft tape";
-    }
-
-    window.addEventListener('DOMContentLoaded', calcDrywall);
-  </script>
-
-
-</body></html>
+  

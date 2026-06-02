@@ -1,130 +1,27 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
+---
+layout: base.njk
+title: "Water Pressure Limits &amp; Plumber Guide | TradeConvert"
+description: "Understanding UPC §608.2. Why residential static water pressure above 80 PSI damages pipes, voids appliance warranties, and requires a PRV valve."
+keywords: "water pressure too high, residential PSI limit, pressure reducing valve, PRV plumbing, UPC 608, PSI to bar converter"
+og_title: "TradeConvert 2026 — Professional Trade Reference"
+og_description: "Know exactly what you're owed and calculate trade units with precision. Verified for 2026."
+breadcrumbs:
+  - name: Field Notes
+    url: "/blog/"
+  - name: "Article"
+---
 
-  <title>Water Pressure Limits &amp; Plumber Guide | TradeConvert</title>
+  <script>
+  function calcP() {
+    const v = parseFloat(document.getElementById('p-val').value) || 0;
+    const bar = (v * 0.0689476).toFixed(2);
+    document.getElementById('p-res').textContent = bar;
+    document.getElementById('p-eq').textContent = `${v} PSI = ${bar} bar`;
+  }
+  window.addEventListener('DOMContentLoaded', calcP);
+</script>
 
-  <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="TradeConvert 2026 — Professional Trade Reference">
-  <meta property="og:description" content="Know exactly what you're owed and calculate trade units with precision. Verified for 2026.">
-  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
-  <meta property="og:url" content="https://tradeconvert.pro/blog/what-water-pressure-is-too-high/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
-
-  <meta name="description" content="Understanding UPC §608.2. Why residential static water pressure above 80 PSI damages pipes, voids appliance warranties, and requires a PRV valve.">
-  <meta name="keywords" content="water pressure too high, residential PSI limit, pressure reducing valve, PRV plumbing, UPC 608, PSI to bar converter">
-  
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="canonical" href="https://tradeconvert.pro/blog/what-water-pressure-is-too-high/">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/main.css">
-  <meta property="og:site_name" content="TradeConvert">
-  <meta property="og:type" content="article">
-
-<script type="application/ld+json" id="tc-breadcrumb-schema">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://tradeconvert.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Field Notes",
-      "item": "https://tradeconvert.pro/blog/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Water Pressure Limits",
-      "item": "https://tradeconvert.pro/blog/what-water-pressure-is-too-high/"
-    }
-  ]
-}
-</script></head>
-<body>
-
-  <div class="top-bar">
-    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · NIST Verified
-  </div>
-
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="logo-block">
-        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
-        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
-      </div>
-      <div class="masthead-meta">
-        <strong>Field Notes · Construction Reference</strong>
-        Plumbing · HVAC · Code Compliance<br>
-        UPC Verified Standards
-      </div>
-    </div>
-  </header>
-
-  <nav class="primary-nav">
-    <div class="primary-nav-inner">
-      <a href="/" class="nav-item">Home</a>
-      
-      <div class="nav-dropdown">
-        <span class="nav-item">Electrical</span>
-        <div class="dropdown-content">
-          <a href="/electrical/">Watts to Amps</a>
-          <a href="/blog/voltage-drop-calculation-nec/">Voltage Drop Guide</a>
-        </div>
-      </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item">HVAC/Plumbing</span>
-        <div class="dropdown-content">
-          <a href="/pressure/">Pressure Units</a>
-          <a href="/temperature/">Temperature</a>
-        </div>
-      </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item">Building</span>
-        <div class="dropdown-content">
-          <a href="/concrete/">Concrete &amp; Bags</a>
-          <a href="/lumber/">Lumber &amp; BF</a>
-          <a href="/length/">Length &amp; Layout</a>
-          <a href="/torque/">Torque Specs</a>
-        </div>
-      </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item">Site</span>
-        <div class="dropdown-content">
-          <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight &amp; Ton</a>
-        </div>
-      </div>
-
-      <a href="/blog/" class="nav-item active">Field Notes</a>
-    </div>
-  </nav>
-
-  <div class="breadcrumb-bar">
-    <div class="breadcrumb-inner">
-      <a href="/">Home</a> <span class="bc-sep">›</span> 
-      <a href="/blog/">Field Notes</a> <span class="bc-sep">›</span> 
-      <span>Water Pressure Limits</span>
-    </div>
-  </div>
-
-  <div class="site-wrapper">
+<main class="site-wrapper">
     <div class="page-hero">
       <h1>What Water Pressure Is Too High? A Plumber's Guide to PSI Limits</h1>
       <p class="hero-desc">High water pressure is a silent killer of plumbing systems. Understanding the threshold between "strong shower" and "pipe failure" is critical for home safety and code compliance.</p>
@@ -186,43 +83,6 @@
         </div>
       </aside>
     </div>
-  </div>
+  </main>
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="f-name">Trade<em>Convert</em></div>
-        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Tools</h4>
-        <a href="/pressure/">Pressure</a>
-        <a href="/electrical/">Electrical</a>
-        <a href="/concrete/">Concrete</a>
-        <a href="/lumber/">Lumber</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/blog/">Field Notes</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 TradeConvert · Engineering Hub</span>
-      <a href="/privacy/">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <script>
-    function calcP() {
-      const v = parseFloat(document.getElementById('p-val').value) || 0;
-      const bar = (v * 0.0689476).toFixed(2);
-      document.getElementById('p-res').textContent = bar;
-      document.getElementById('p-eq').textContent = `${v} PSI = ${bar} bar`;
-    }
-    window.addEventListener('DOMContentLoaded', calcP);
-  </script>
-
-
-</body></html>
+  

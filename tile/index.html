@@ -1,148 +1,95 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-
-  <title>Flooring &amp; Tile Layout Calculator | TradeConvert</title>
-
-  <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Tile Calculator | Flooring &amp; Backsplash Estimator | TradeConvert">
-  <meta property="og:description" content="Calculate standard flooring and wall tiles needed. Handles custom tile dimensions, grout joint widths, diagonal layouts, and waste offsets.">
-  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
-  <meta property="og:url" content="https://tradeconvert.pro/tile/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
-
-  <meta name="description" content="Calculate floor and backsplash tile quantities, dynamic grout offsets, grout bag weight yields, and waste multipliers for grid tile patterns.">
-  <meta name="keywords" content="tile calculator, flooring tile estimator, backsplash calculator, tile size grout width, subway tile counts, tile grid diagonal estimator">
-  
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="canonical" href="https://tradeconvert.pro/tile/">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/main.css">
-  
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "TradeConvert Tile Calculator",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web Browser",
-  "url": "https://tradeconvert.pro/tile/",
-  "description": "Professional flooring and wall backsplashes tile layout capacity estimator.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-  </script>
-  <meta property="og:site_name" content="TradeConvert">
-  <meta property="og:type" content="website">
-
-<script type="application/ld+json" id="tc-breadcrumb-schema">
+---
+layout: base.njk
+title: "Flooring &amp; Tile Layout Calculator | TradeConvert"
+description: "Calculate floor and backsplash tile quantities, dynamic grout offsets, grout bag weight yields, and waste multipliers for grid tile patterns."
+keywords: "tile calculator, flooring tile estimator, backsplash calculator, tile size grout width, subway tile counts, tile grid diagonal estimator"
+og_title: "Tile Calculator | Flooring &amp; Backsplash Estimator | TradeConvert"
+og_description: "Calculate standard flooring and wall tiles needed. Handles custom tile dimensions, grout joint widths, diagonal layouts, and waste offsets."
+breadcrumbs:
+  - name: Building
+  - name: Tile
+    url: "/tile/"
+---
+<script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://tradeconvert.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Tile Calculator",
-      "item": "https://tradeconvert.pro/tile/"
-    }
-  ]
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": "TradeConvert Tile Calculator",
+"applicationCategory": "BusinessApplication",
+"operatingSystem": "Web Browser",
+"url": "https://tradeconvert.pro/tile/",
+"description": "Professional flooring and wall backsplashes tile layout capacity estimator.",
+"offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
 }
-</script></head>
-<body>
-
-  <div class="top-bar">
-    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · Tiling V1.0
-  </div>
-
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="logo-block">
-        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
-        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
-      </div>
-      <div class="masthead-meta">
-        <strong>Field Notes · Construction Reference</strong>
-        Plumbing · Electrical · HVAC · Tiling<br>
-        Professional Layout Standards
-      </div>
-    </div>
-  </header>
-
-  <nav class="primary-nav">
-    <div class="primary-nav-inner">
-      <a href="/" class="nav-item">Home</a>
+}
+</script>
+<script>
+  function adjustCustomTile(val) {
+    const wInput = document.getElementById('t-tile-w');
+    const hInput = document.getElementById('t-tile-h');
+    
+    if (val === 'custom') {
+      wInput.removeAttribute('disabled');
+      hInput.removeAttribute('disabled');
+    } else {
+      wInput.setAttribute('disabled', 'true');
+      hInput.setAttribute('disabled', 'true');
       
-      <div class="nav-dropdown">
-        <span class="nav-item">Electrical</span>
-        <div class="dropdown-content">
-          <a href="/electrical/">Watts to Amps</a>
-          <a href="/voltage-drop/">Voltage Drop Calc</a>
-          <a href="/conduit-fill/">Conduit Fill Calc</a>
-          <a href="/blog/voltage-drop-calculation-nec/">Voltage Drop Guide</a>
-        </div>
-      </div>
+      const dims = val.split('x');
+      wInput.value = dims[0];
+      hInput.value = dims[1];
+    }
+    calcTile();
+  }
 
-      <div class="nav-dropdown">
-        <span class="nav-item">HVAC/Plumbing</span>
-        <div class="dropdown-content">
-          <a href="/pressure/">Pressure Units</a>
-          <a href="/temperature/">Temperature</a>
-        </div>
-      </div>
+  function calcTile() {
+    const length = parseFloat(document.getElementById('t-l').value) || 0;
+    const width = parseFloat(document.getElementById('t-w').value) || 0;
+    const tW = parseFloat(document.getElementById('t-tile-w').value) || 12;
+    const tH = parseFloat(document.getElementById('t-tile-h').value) || 12;
+    const grout = parseFloat(document.getElementById('t-grout').value) || 0;
+    const waste = parseFloat(document.getElementById('t-waste').value) || 0;
+    const boxQty = parseInt(document.getElementById('t-box').value) || 1;
 
-      <div class="nav-dropdown">
-        <span class="nav-item active">Building</span>
-        <div class="dropdown-content">
-          <a href="/concrete/">Concrete &amp; Bags</a>
-          <a href="/lumber/">Lumber &amp; BF</a>
-          <a href="/roofing/">Roofing &amp; Squares</a>
-          <a href="/stair/">Stair Layout</a>
-          <a href="/drywall/">Drywall Calculator</a>
-          <a href="/paint/">Paint Calculator</a>
-          <a href="/excavation/">Excavation Calc</a>
-          <a href="/tile/">Tile Calculator</a>
-          <a href="/length/">Length &amp; Layout</a>
-          <a href="/torque/">Torque Specs</a>
-        </div>
-      </div>
+    if (length <= 0 || width <= 0 || tW <= 0 || tH <= 0) return;
 
-      <div class="nav-dropdown">
-        <span class="nav-item">Site</span>
-        <div class="dropdown-content">
-          <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight &amp; Ton</a>
-        </div>
-      </div>
+    // 1. Target overall area
+    const roomArea = length * width;
 
-      <a href="/blog/" class="nav-item">Field Notes</a>
-    </div>
-  </nav>
+    // 2. Adjust individual tile dimensions adding grout joint
+    const adjustedTileW = tW + grout;
+    const adjustedTileH = tH + grout;
 
-  <div class="breadcrumb-bar">
-    <div class="breadcrumb-inner">
-      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Tile Calculator</span>
-    </div>
-  </div>
+    // 3. Area of a single tile (in square feet)
+    const tileAreaSqIn = adjustedTileW * adjustedTileH;
+    const tileAreaSqFt = tileAreaSqIn / 144;
 
-  <div class="site-wrapper">
+    // 4. Exact tile count
+    const exactTiles = roomArea / tileAreaSqFt;
+
+    // 5. Recommended buy count with waste factor
+    const totalTiles = Math.ceil(exactTiles * (1 + (waste / 100)));
+
+    // 6. Box estimation
+    const boxesNeeded = Math.ceil(totalTiles / boxQty);
+    const totalTilesBought = boxesNeeded * boxQty;
+
+    // 7. Write outputs to UI
+    document.getElementById('out-t-area').textContent = roomArea.toLocaleString() + " ft²";
+    document.getElementById('out-t-tile-size').textContent = tileAreaSqFt.toFixed(3) + " ft² (with joint)";
+    document.getElementById('out-t-exact-n').textContent = Math.ceil(exactTiles) + " Tiles";
+    document.getElementById('out-t-total-n').textContent = totalTiles + " Tiles";
+
+    document.getElementById('out-t-boxes').textContent = `Buy ${boxesNeeded} Full Box` + (boxesNeeded !== 1 ? "es" : "") + ` (${totalTilesBought} tiles total)`;
+  }
+
+  window.addEventListener('DOMContentLoaded', calcTile);
+</script>
+
+<main class="site-wrapper">
     <div class="page-hero">
       <h1>Tile Calculator — Flooring &amp; Backsplash Estimator</h1>
       <p class="hero-desc">Calculate the exact number of tiles and boxes needed to cover a floor or wall area. Automatically accounts for grout joint width margins and custom scrap waste factors.</p>
@@ -310,104 +257,6 @@
         </div>
       </aside>
     </div>
-  </div>
+  </main>
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="f-name">Trade<em>Convert</em></div>
-        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Tools</h4>
-        <a href="/pressure/">Pressure</a>
-        <a href="/electrical/">Electrical</a>
-        <a href="/concrete/">Concrete</a>
-        <a href="/lumber/">Lumber</a>
-        <a href="/roofing/">Roofing</a>
-        <a href="/stair/">Stair Layout</a>
-        <a href="/voltage-drop/">Voltage Drop</a>
-        <a href="/conduit-fill/">Conduit Fill</a>
-        <a href="/drywall/">Drywall</a>
-        <a href="/paint/">Paint</a>
-        <a href="/excavation/">Excavation</a>
-        <a href="/tile/">Tile</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/blog/">Field Notes</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 TradeConvert · NIST Verified</span>
-      <a href="/privacy/">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <script>
-    function adjustCustomTile(val) {
-      const wInput = document.getElementById('t-tile-w');
-      const hInput = document.getElementById('t-tile-h');
-      
-      if (val === 'custom') {
-        wInput.removeAttribute('disabled');
-        hInput.removeAttribute('disabled');
-      } else {
-        wInput.setAttribute('disabled', 'true');
-        hInput.setAttribute('disabled', 'true');
-        
-        const dims = val.split('x');
-        wInput.value = dims[0];
-        hInput.value = dims[1];
-      }
-      calcTile();
-    }
-
-    function calcTile() {
-      const length = parseFloat(document.getElementById('t-l').value) || 0;
-      const width = parseFloat(document.getElementById('t-w').value) || 0;
-      const tW = parseFloat(document.getElementById('t-tile-w').value) || 12;
-      const tH = parseFloat(document.getElementById('t-tile-h').value) || 12;
-      const grout = parseFloat(document.getElementById('t-grout').value) || 0;
-      const waste = parseFloat(document.getElementById('t-waste').value) || 0;
-      const boxQty = parseInt(document.getElementById('t-box').value) || 1;
-
-      if (length <= 0 || width <= 0 || tW <= 0 || tH <= 0) return;
-
-      // 1. Target overall area
-      const roomArea = length * width;
-
-      // 2. Adjust individual tile dimensions adding grout joint
-      const adjustedTileW = tW + grout;
-      const adjustedTileH = tH + grout;
-
-      // 3. Area of a single tile (in square feet)
-      const tileAreaSqIn = adjustedTileW * adjustedTileH;
-      const tileAreaSqFt = tileAreaSqIn / 144;
-
-      // 4. Exact tile count
-      const exactTiles = roomArea / tileAreaSqFt;
-
-      // 5. Recommended buy count with waste factor
-      const totalTiles = Math.ceil(exactTiles * (1 + (waste / 100)));
-
-      // 6. Box estimation
-      const boxesNeeded = Math.ceil(totalTiles / boxQty);
-      const totalTilesBought = boxesNeeded * boxQty;
-
-      // 7. Write outputs to UI
-      document.getElementById('out-t-area').textContent = roomArea.toLocaleString() + " ft²";
-      document.getElementById('out-t-tile-size').textContent = tileAreaSqFt.toFixed(3) + " ft² (with joint)";
-      document.getElementById('out-t-exact-n').textContent = Math.ceil(exactTiles) + " Tiles";
-      document.getElementById('out-t-total-n').textContent = totalTiles + " Tiles";
-
-      document.getElementById('out-t-boxes').textContent = `Buy ${boxesNeeded} Full Box` + (boxesNeeded !== 1 ? "es" : "") + ` (${totalTilesBought} tiles total)`;
-    }
-
-    window.addEventListener('DOMContentLoaded', calcTile);
-  </script>
-
-
-</body></html>
+  

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <title>{{ title | default("TradeConvert | Construction Unit Converter & Reference") }}</title>
+  <meta name="description" content="{{ description | default("Verified client-side calculation tools for the building trades. Convert pressure, electrical, concrete, and lumber specifications accurately under NIST.") }}">
+  {% if keywords %}<meta name="keywords" content="{{ keywords }}">{% endif %}
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ og_title | default(title) | default("TradeConvert 2026 — Professional Trade Reference") }}">
+  <meta property="og:description" content="{{ og_description | default(description) | default("Know exactly what you're owed and calculate trade units with precision. Updated for 2026.") }}">
+  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
+  <meta property="og:url" content="https://tradeconvert.pro{{ page.url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/favicon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0d1117">
+  <link rel="canonical" href="https://tradeconvert.pro{{ page.url }}">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  </noscript>
+  
+  {{ head_scripts | safe }}
+  
+  <link rel="preload" as="style" href="/css/main.css">
+  <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/css/main.css"></noscript>
+  <meta property="og:site_name" content="TradeConvert">
+  <meta property="og:type" content="website">
+</head>
+<body>
+
+  <div class="top-bar">
+    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · NIST Verified
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="logo-block">
+        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
+        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
+      </div>
+      <div class="masthead-meta">
+        <strong>Field Notes · Construction Reference</strong>
+        Plumbing · Electrical · HVAC · Concrete<br>
+        NIST Verified Standards
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary-nav">
+    <div class="primary-nav-inner">
+      <a href="/" class="nav-item {% if page.url == '/' %}active{% endif %}">Home</a>
+      
+      <div class="nav-dropdown">
+        <span class="nav-item {% if 'electrical' in page.url or 'voltage-drop' in page.url or 'conduit-fill' in page.url %}active{% endif %}" tabindex="0">Electrical</span>
+        <div class="dropdown-content">
+          <a href="/electrical/">Watts to Amps</a>
+          <a href="/voltage-drop/">Voltage Drop Calc</a>
+          <a href="/conduit-fill/">Conduit Fill Calc</a>
+          <a href="/blog/voltage-drop-calculation-nec/">Voltage Drop Guide</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item {% if 'pressure' in page.url or 'temperature' in page.url %}active{% endif %}" tabindex="0">HVAC/Plumbing</span>
+        <div class="dropdown-content">
+          <a href="/pressure/">Pressure Units</a>
+          <a href="/temperature/">Temperature</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item {% if 'concrete' in page.url or 'lumber' in page.url or 'roofing' in page.url or 'stair' in page.url or 'drywall' in page.url or 'paint' in page.url or 'excavation' in page.url or 'tile' in page.url or 'length' in page.url or 'torque' in page.url %}active{% endif %}" tabindex="0">Building</span>
+        <div class="dropdown-content">
+          <a href="/concrete/">Concrete & Bags</a>
+          <a href="/lumber/">Lumber & BF</a>
+          <a href="/roofing/">Roofing & Squares</a>
+          <a href="/stair/">Stair Layout</a>
+          <a href="/drywall/">Drywall Calculator</a>
+          <a href="/paint/">Paint Calculator</a>
+          <a href="/excavation/">Excavation Calc</a>
+          <a href="/tile/">Tile Calculator</a>
+          <a href="/length/">Length & Layout</a>
+          <a href="/torque/">Torque Specs</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <span class="nav-item {% if 'volume' in page.url or 'weight' in page.url %}active{% endif %}" tabindex="0">Site</span>
+        <div class="dropdown-content">
+          <a href="/volume/">Volume Calc</a>
+          <a href="/weight/">Weight & Ton</a>
+        </div>
+      </div>
+
+      <a href="/blog/" class="nav-item {% if 'blog' in page.url %}active{% endif %}">Field Notes</a>
+    </div>
+  </nav>
+
+  {% if breadcrumbs %}
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a> 
+      {% for crumb in breadcrumbs %}
+        <span class="bc-sep">›</span> 
+        {% if crumb.url %}
+          <a href="{{ crumb.url }}">{{ crumb.name }}</a>
+        {% else %}
+          <span>{{ crumb.name }}</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {{ content | safe }}
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="f-name">Trade<em>Convert</em></div>
+        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/pressure/">Pressure</a>
+        <a href="/electrical/">Electrical</a>
+        <a href="/concrete/">Concrete</a>
+        <a href="/lumber/">Lumber</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog/">Field Notes</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Network</h4>
+        <a href="https://wtkpro.site" target="_blank" rel="noopener noreferrer" aria-label="Visit WebToolkit Pro - 150+ Developer Tools">WebToolkit Pro (150+ Tools)</a>
+        <a href="https://www.severancecalculator.xyz" target="_blank" rel="noopener noreferrer" aria-label="Visit Severance Pay Calculator">Severance Pay</a>
+        <a href="https://abusufyan.xyz" target="_blank" rel="noopener noreferrer" aria-label="Visit Abu Sufyan Portfolio">Abu Sufyan</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TradeConvert · NIST Verified</span>
+      <a href="/privacy/">Privacy Policy</a>
+    </div>
+  </footer>
+
+  {{ foot_scripts | safe }}
+  
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }).catch(error => {
+          console.log('ServiceWorker registration failed: ', error);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

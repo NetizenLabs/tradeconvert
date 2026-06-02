@@ -1,143 +1,95 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-
-  <title>Voltage Drop Calculator (NEC 2026) | TradeConvert</title>
-
-  <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Voltage Drop Calculator | NEC 2026 Wire Size Estimator | TradeConvert">
-  <meta property="og:description" content="Calculate electrical voltage drop percentage for copper or aluminum wire runs. Handles single &amp; three-phase configurations under NEC limits.">
-  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
-  <meta property="og:url" content="https://tradeconvert.pro/voltage-drop/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
-
-  <meta name="description" content="Estimate electrical voltage drop over long wire runs. Calculates single-phase drop percentage and recommends minimum AWG wire sizing for efficiency.">
-  <meta name="keywords" content="voltage drop calculator, wire size calculator, line voltage drop formula, nec wire sizing, single phase voltage drop, three phase drop">
-  
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="canonical" href="https://tradeconvert.pro/voltage-drop/">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/main.css">
-  
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "TradeConvert Voltage Drop Calculator",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web Browser",
-  "url": "https://tradeconvert.pro/voltage-drop/",
-  "description": "Professional NEC-compliant electrical wire voltage drop estimator.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-  </script>
-  <meta property="og:site_name" content="TradeConvert">
-  <meta property="og:type" content="website">
-
-<script type="application/ld+json" id="tc-breadcrumb-schema">
+---
+layout: base.njk
+title: "Voltage Drop Calculator (NEC 2026) | TradeConvert"
+description: "Estimate electrical voltage drop over long wire runs. Calculates single-phase drop percentage and recommends minimum AWG wire sizing for efficiency."
+keywords: "voltage drop calculator, wire size calculator, line voltage drop formula, nec wire sizing, single phase voltage drop, three phase drop"
+og_title: "Voltage Drop Calculator | NEC 2026 Wire Size Estimator | TradeConvert"
+og_description: "Calculate electrical voltage drop percentage for copper or aluminum wire runs. Handles single &amp; three-phase configurations under NEC limits."
+breadcrumbs:
+  - name: Electrical
+  - name: Voltage Drop
+    url: "/voltage-drop/"
+---
+<script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://tradeconvert.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Voltage Drop Calculator",
-      "item": "https://tradeconvert.pro/voltage-drop/"
-    }
-  ]
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": "TradeConvert Voltage Drop Calculator",
+"applicationCategory": "BusinessApplication",
+"operatingSystem": "Web Browser",
+"url": "https://tradeconvert.pro/voltage-drop/",
+"description": "Professional NEC-compliant electrical wire voltage drop estimator.",
+"offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
 }
-</script></head>
-<body>
+}
+</script>
+<script>
+  function calcVD() {
+    const srcV = parseFloat(document.getElementById('vd-voltage').value) || 120;
+    const phase = parseFloat(document.getElementById('vd-phase').value) || 1;
+    const mat = document.getElementById('vd-material').value;
+    const cm = parseFloat(document.getElementById('vd-wire').value) || 6530;
+    const amps = parseFloat(document.getElementById('vd-amps').value) || 0;
+    const length = parseFloat(document.getElementById('vd-length').value) || 0;
 
-  <div class="top-bar">
-    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · Electrical V1.2
-  </div>
+    // 1. Determine K resistivity constant
+    const K = (mat === 'copper') ? 12.9 : 21.2;
 
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="logo-block">
-        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
-        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
-      </div>
-      <div class="masthead-meta">
-        <strong>Field Notes · Construction Reference</strong>
-        Plumbing · Electrical · HVAC · Carpentry<br>
-        NEC Code Verified Standards
-      </div>
-    </div>
-  </header>
+    // 2. Voltage drop calculation
+    let vDrop = 0;
+    if (phase === 3) {
+      vDrop = (Math.sqrt(3) * K * amps * length) / cm;
+    } else {
+      vDrop = (2 * K * amps * length) / cm;
+    }
 
-  <nav class="primary-nav">
-    <div class="primary-nav-inner">
-      <a href="/" class="nav-item">Home</a>
-      
-      <div class="nav-dropdown">
-        <span class="nav-item active">Electrical</span>
-        <div class="dropdown-content">
-          <a href="/electrical/">Watts to Amps</a>
-          <a href="/voltage-drop/">Voltage Drop Calc</a>
-          <a href="/blog/voltage-drop-calculation-nec/">Voltage Drop Guide</a>
-        </div>
-      </div>
+    const vDropPct = (vDrop / srcV) * 100;
+    const termV = srcV - vDrop;
 
-      <div class="nav-dropdown">
-        <span class="nav-item">HVAC/Plumbing</span>
-        <div class="dropdown-content">
-          <a href="/pressure/">Pressure Units</a>
-          <a href="/temperature/">Temperature</a>
-        </div>
-      </div>
+    // 3. Write results
+    document.getElementById('out-vd-volts').textContent = vDrop.toFixed(2) + " V";
+    document.getElementById('out-vd-pct').textContent = vDropPct.toFixed(2) + " %";
+    document.getElementById('out-terminal-v').textContent = termV.toFixed(2) + " V";
+    document.getElementById('out-cm-spec').textContent = Number(cm).toLocaleString() + " CM";
 
-      <div class="nav-dropdown">
-        <span class="nav-item">Building</span>
-        <div class="dropdown-content">
-          <a href="/concrete/">Concrete &amp; Bags</a>
-          <a href="/lumber/">Lumber &amp; BF</a>
-          <a href="/roofing/">Roofing &amp; Squares</a>
-          <a href="/stair/">Stair Layout</a>
-          <a href="/length/">Length &amp; Layout</a>
-          <a href="/torque/">Torque Specs</a>
-        </div>
-      </div>
+    // 4. Code Checks (Limit: 3%)
+    const codeEl = document.getElementById('out-vd-code');
+    const statusEl = document.getElementById('out-vd-status');
+    
+    if (vDropPct <= 3.0) {
+      codeEl.textContent = "✔ NEC COMPLIANT";
+      codeEl.style.color = "#15803d";
+      statusEl.textContent = "Within 3% branch code limit.";
+    } else if (vDropPct <= 5.0) {
+      codeEl.textContent = "⚠ ADVISORY WARNING";
+      codeEl.style.color = "#b45309";
+      statusEl.textContent = "Caution: Exceeds 3% branch recommendation.";
+    } else {
+      codeEl.textContent = "✘ CODE EXCEEDED";
+      codeEl.style.color = "#b91c1c";
+      statusEl.textContent = "Exceeds 5% combined feeder/branch limit!";
+    }
+  }
 
-      <div class="nav-dropdown">
-        <span class="nav-item">Site</span>
-        <div class="dropdown-content">
-          <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight &amp; Ton</a>
-        </div>
-      </div>
+  // Auto-adjust phases drop dropdown list based on standard voltages select values
+  document.getElementById('vd-voltage').addEventListener('change', function() {
+    const val = parseInt(this.value);
+    const phaseSelect = document.getElementById('vd-phase');
+    if (val === 208 || val === 480) {
+      phaseSelect.value = "3";
+    } else {
+      phaseSelect.value = "1";
+    }
+    calcVD();
+  });
 
-      <a href="/blog/" class="nav-item">Field Notes</a>
-    </div>
-  </nav>
+  window.addEventListener('DOMContentLoaded', calcVD);
+</script>
 
-  <div class="breadcrumb-bar">
-    <div class="breadcrumb-inner">
-      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Voltage Drop Calculator</span>
-    </div>
-  </div>
-
-  <div class="site-wrapper">
+<main class="site-wrapper">
     <div class="page-hero">
       <h1>Voltage Drop Calculator — NEC Wire Size Estimator</h1>
       <p class="hero-desc">Calculate the exact voltage drop percentage and final load voltage over long branch circuits or feeders. Built to the National Electrical Code standards.</p>
@@ -340,99 +292,6 @@
         </div>
       </aside>
     </div>
-  </div>
+  </main>
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="f-name">Trade<em>Convert</em></div>
-        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Tools</h4>
-        <a href="/pressure/">Pressure</a>
-        <a href="/electrical/">Electrical</a>
-        <a href="/concrete/">Concrete</a>
-        <a href="/lumber/">Lumber</a>
-        <a href="/roofing/">Roofing</a>
-        <a href="/stair/">Stair Layout</a>
-        <a href="/voltage-drop/">Voltage Drop</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/blog/">Field Notes</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 TradeConvert · NIST Verified</span>
-      <a href="/privacy/">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <script>
-    function calcVD() {
-      const srcV = parseFloat(document.getElementById('vd-voltage').value) || 120;
-      const phase = parseFloat(document.getElementById('vd-phase').value) || 1;
-      const mat = document.getElementById('vd-material').value;
-      const cm = parseFloat(document.getElementById('vd-wire').value) || 6530;
-      const amps = parseFloat(document.getElementById('vd-amps').value) || 0;
-      const length = parseFloat(document.getElementById('vd-length').value) || 0;
-
-      // 1. Determine K resistivity constant
-      const K = (mat === 'copper') ? 12.9 : 21.2;
-
-      // 2. Voltage drop calculation
-      let vDrop = 0;
-      if (phase === 3) {
-        vDrop = (Math.sqrt(3) * K * amps * length) / cm;
-      } else {
-        vDrop = (2 * K * amps * length) / cm;
-      }
-
-      const vDropPct = (vDrop / srcV) * 100;
-      const termV = srcV - vDrop;
-
-      // 3. Write results
-      document.getElementById('out-vd-volts').textContent = vDrop.toFixed(2) + " V";
-      document.getElementById('out-vd-pct').textContent = vDropPct.toFixed(2) + " %";
-      document.getElementById('out-terminal-v').textContent = termV.toFixed(2) + " V";
-      document.getElementById('out-cm-spec').textContent = Number(cm).toLocaleString() + " CM";
-
-      // 4. Code Checks (Limit: 3%)
-      const codeEl = document.getElementById('out-vd-code');
-      const statusEl = document.getElementById('out-vd-status');
-      
-      if (vDropPct <= 3.0) {
-        codeEl.textContent = "✔ NEC COMPLIANT";
-        codeEl.style.color = "#15803d";
-        statusEl.textContent = "Within 3% branch code limit.";
-      } else if (vDropPct <= 5.0) {
-        codeEl.textContent = "⚠ ADVISORY WARNING";
-        codeEl.style.color = "#b45309";
-        statusEl.textContent = "Caution: Exceeds 3% branch recommendation.";
-      } else {
-        codeEl.textContent = "✘ CODE EXCEEDED";
-        codeEl.style.color = "#b91c1c";
-        statusEl.textContent = "Exceeds 5% combined feeder/branch limit!";
-      }
-    }
-
-    // Auto-adjust phases drop dropdown list based on standard voltages select values
-    document.getElementById('vd-voltage').addEventListener('change', function() {
-      const val = parseInt(this.value);
-      const phaseSelect = document.getElementById('vd-phase');
-      if (val === 208 || val === 480) {
-        phaseSelect.value = "3";
-      } else {
-        phaseSelect.value = "1";
-      }
-      calcVD();
-    });
-
-    window.addEventListener('DOMContentLoaded', calcVD);
-  </script>
-
-
-</body></html>
+  

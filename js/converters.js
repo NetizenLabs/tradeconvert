@@ -160,7 +160,13 @@ function calcElec() {
   if (elAmps) elAmps.value = rf;
   
   const elResN = document.getElementById('e-result-n');
-  if (elResN) elResN.textContent = rf;
+  if (elResN) {
+    elResN.textContent = rf;
+    elResN.classList.remove('pop');
+    void elResN.offsetWidth;
+    elResN.classList.add('pop');
+    setTimeout(() => elResN.classList.remove('pop'), 200);
+  }
   
   const elResEq = document.getElementById('e-result-eq');
   if (elResEq) elResEq.textContent = `${w}W ÷ ${v}V = ${rf}A · Breaker: ${breaker}A (80% rule)`;

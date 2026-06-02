@@ -1,157 +1,91 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
+---
+layout: base.njk
+title: "Concrete Slabs &amp; Bag Sizing Guide | TradeConvert"
+description: "Calculate concrete volume, Quikrete bags, and structural slab cost with our expert field guide. Includes nominal thickness compaction factors."
+keywords: "concrete calculator, concrete bag calculator, how much concrete do I need, concrete cost estimator, ready mix concrete, slab volume calculation"
+og_title: "Concrete Calculator 2026: Volume, Bags &amp; Cost Estimation Guide for Slabs, Footings &amp; Driveways"
+og_description: "Free concrete calculator for 2026. Accurately calculate concrete volume, number of bags, and cost for slabs, footings, columns, and driveways with waste factor and ready-mix tips."
+breadcrumbs:
+  - name: Field Notes
+    url: "/blog/"
+  - name: "Article"
+---
 
-  <title>Concrete Slabs &amp; Bag Sizing Guide | TradeConvert</title>
-
-  <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Concrete Calculator 2026: Volume, Bags &amp; Cost Estimation Guide for Slabs, Footings &amp; Driveways">
-  <meta property="og:description" content="Free concrete calculator for 2026. Accurately calculate concrete volume, number of bags, and cost for slabs, footings, columns, and driveways with waste factor and ready-mix tips.">
-  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
-  <meta property="og:url" content="https://tradeconvert.pro/blog/concrete-calculator-2026/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
-
-  <meta name="description" content="Calculate concrete volume, Quikrete bags, and structural slab cost with our expert field guide. Includes nominal thickness compaction factors.">
-  <meta name="keywords" content="concrete calculator, concrete bag calculator, how much concrete do I need, concrete cost estimator, ready mix concrete, slab volume calculation">
-  
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="canonical" href="https://tradeconvert.pro/blog/concrete-calculator-2026/">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/main.css">
   <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Concrete Calculator 2026: Volume, Bags & Cost Estimation Guide",
-  "description": "Free concrete calculator for 2026. Accurately calculate concrete volume, number of bags, and cost for slabs, footings, columns, and driveways with waste factor and ready-mix tips.",
-  "author": {
-    "@type": "Person",
-    "name": "Abu Sufyan",
-    "jobTitle": "Creator of TradeConvert.pro"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "TradeConvert",
-    "url": "https://tradeconvert.pro/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://tradeconvert.pro/assets/logo.png"
-    }
-  },
-  "datePublished": "2026-05-17",
-  "dateModified": "2026-05-17",
-  "image": "https://tradeconvert.pro/assets/og-image.png"
-}
-  </script>
-  <meta property="og:site_name" content="TradeConvert">
-  <meta property="og:type" content="article">
-
-<script type="application/ld+json" id="tc-breadcrumb-schema">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://tradeconvert.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Field Notes",
-      "item": "https://tradeconvert.pro/blog/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Concrete Calculator 2026",
-      "item": "https://tradeconvert.pro/blog/concrete-calculator-2026/"
-    }
-  ]
+"@context": "https://schema.org",
+"@type": "Article",
+"headline": "Concrete Calculator 2026: Volume, Bags & Cost Estimation Guide",
+"description": "Free concrete calculator for 2026. Accurately calculate concrete volume, number of bags, and cost for slabs, footings, columns, and driveways with waste factor and ready-mix tips.",
+"author": {
+  "@type": "Person",
+  "name": "Abu Sufyan",
+  "jobTitle": "Creator of TradeConvert.pro"
+},
+"publisher": {
+  "@type": "Organization",
+  "name": "TradeConvert",
+  "url": "https://tradeconvert.pro/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://tradeconvert.pro/assets/logo.png"
+  }
+},
+"datePublished": "2026-05-17",
+"dateModified": "2026-05-17",
+"image": "https://tradeconvert.pro/assets/og-image.png"
 }
-</script></head>
-<body>
+</script>
 
-  <div class="top-bar">
-    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · NIST Verified
-  </div>
+  <script>
+  function toggleInputs() {
+    const shape = document.getElementById('c-shape').value;
+    if (shape === 'slab') {
+      document.getElementById('group-l').style.display = 'block';
+      document.getElementById('group-w').style.display = 'block';
+      document.getElementById('group-d').style.display = 'none';
+      document.getElementById('group-h').style.display = 'none';
+      document.getElementById('label-t').textContent = 'Thickness (in)';
+    } else {
+      document.getElementById('group-l').style.display = 'none';
+      document.getElementById('group-w').style.display = 'none';
+      document.getElementById('group-d').style.display = 'block';
+      document.getElementById('group-h').style.display = 'block';
+      document.getElementById('label-t').textContent = 'Thickness (in) - Optional';
+    }
+  }
 
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="logo-block">
-        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
-        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
-      </div>
-      <div class="masthead-meta">
-        <strong>Field Notes · Construction Reference</strong>
-        Concrete · Structural Design · Load Specs<br>
-        ACI 318 Verified Standards
-      </div>
-    </div>
-  </header>
+  function calcConcrete() {
+    const shape = document.getElementById('c-shape').value;
+    const waste = 1 + (parseFloat(document.getElementById('c-waste').value) || 0) / 100;
+    let cf = 0;
 
-  <nav class="primary-nav">
-    <div class="primary-nav-inner">
-      <a href="/" class="nav-item">Home</a>
-      
-      <div class="nav-dropdown">
-        <span class="nav-item">Electrical</span>
-        <div class="dropdown-content">
-          <a href="/electrical/">Watts to Amps</a>
-          <a href="/blog/voltage-drop-calculation-nec/">Voltage Drop Guide</a>
-        </div>
-      </div>
+    if (shape === 'slab') {
+      const l = parseFloat(document.getElementById('c-l').value) || 0;
+      const w = parseFloat(document.getElementById('c-w').value) || 0;
+      const t = (parseFloat(document.getElementById('c-t').value) || 0) / 12;
+      cf = l * w * t * waste;
+    } else {
+      const d = (parseFloat(document.getElementById('c-d').value) || 0) / 12;
+      const h = parseFloat(document.getElementById('c-h').value) || 0;
+      cf = Math.PI * Math.pow(d / 2, 2) * h * waste;
+    }
 
-      <div class="nav-dropdown">
-        <span class="nav-item">HVAC/Plumbing</span>
-        <div class="dropdown-content">
-          <a href="/pressure/">Pressure Units</a>
-          <a href="/temperature/">Temperature</a>
-        </div>
-      </div>
+    const cy = cf / 27;
+    const bags = Math.ceil(cf / 0.60);
 
-      <div class="nav-dropdown">
-        <span class="nav-item">Building</span>
-        <div class="dropdown-content">
-          <a href="/concrete/">Concrete &amp; Bags</a>
-          <a href="/lumber/">Lumber &amp; BF</a>
-          <a href="/roofing/">Roofing &amp; Squares</a>
-          <a href="/length/">Length &amp; Layout</a>
-          <a href="/torque/">Torque Specs</a>
-        </div>
-      </div>
+    document.getElementById('res-cy').textContent = cy.toFixed(2);
+    document.getElementById('res-cf').textContent = cf.toFixed(1);
+    document.getElementById('res-bags').textContent = bags;
+  }
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    toggleInputs();
+    calcConcrete();
+  });
+</script>
 
-      <div class="nav-dropdown">
-        <span class="nav-item">Site</span>
-        <div class="dropdown-content">
-          <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight &amp; Ton</a>
-        </div>
-      </div>
-
-      <a href="/blog/" class="nav-item active">Field Notes</a>
-    </div>
-  </nav>
-
-  <div class="breadcrumb-bar">
-    <div class="breadcrumb-inner">
-      <a href="/">Home</a> <span class="bc-sep">›</span> 
-      <a href="/blog/">Field Notes</a> <span class="bc-sep">›</span> 
-      <span>Concrete Calculator 2026</span>
-    </div>
-  </div>
-
-  <div class="site-wrapper">
+<main class="site-wrapper">
     <div class="page-hero">
       <h1>Concrete Calculator 2026: Volume, Bags &amp; Cost Estimation Guide for Slabs, Footings &amp; Driveways</h1>
       <div style="font-family: var(--serif); font-style: italic; color: var(--ink3); margin-top: 12px; font-size: 14px;">
@@ -319,82 +253,6 @@
         </div>
       </aside>
     </div>
-  </div>
+  </main>
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="f-name">Trade<em>Convert</em></div>
-        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Tools</h4>
-        <a href="/pressure/">Pressure</a>
-        <a href="/electrical/">Electrical</a>
-        <a href="/concrete/">Concrete</a>
-        <a href="/lumber/">Lumber</a>
-        <a href="/roofing/">Roofing</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/blog/">Field Notes</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 TradeConvert · Engineering Hub</span>
-      <a href="/privacy/">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <script>
-    function toggleInputs() {
-      const shape = document.getElementById('c-shape').value;
-      if (shape === 'slab') {
-        document.getElementById('group-l').style.display = 'block';
-        document.getElementById('group-w').style.display = 'block';
-        document.getElementById('group-d').style.display = 'none';
-        document.getElementById('group-h').style.display = 'none';
-        document.getElementById('label-t').textContent = 'Thickness (in)';
-      } else {
-        document.getElementById('group-l').style.display = 'none';
-        document.getElementById('group-w').style.display = 'none';
-        document.getElementById('group-d').style.display = 'block';
-        document.getElementById('group-h').style.display = 'block';
-        document.getElementById('label-t').textContent = 'Thickness (in) - Optional';
-      }
-    }
-
-    function calcConcrete() {
-      const shape = document.getElementById('c-shape').value;
-      const waste = 1 + (parseFloat(document.getElementById('c-waste').value) || 0) / 100;
-      let cf = 0;
-
-      if (shape === 'slab') {
-        const l = parseFloat(document.getElementById('c-l').value) || 0;
-        const w = parseFloat(document.getElementById('c-w').value) || 0;
-        const t = (parseFloat(document.getElementById('c-t').value) || 0) / 12;
-        cf = l * w * t * waste;
-      } else {
-        const d = (parseFloat(document.getElementById('c-d').value) || 0) / 12;
-        const h = parseFloat(document.getElementById('c-h').value) || 0;
-        cf = Math.PI * Math.pow(d / 2, 2) * h * waste;
-      }
-
-      const cy = cf / 27;
-      const bags = Math.ceil(cf / 0.60);
-
-      document.getElementById('res-cy').textContent = cy.toFixed(2);
-      document.getElementById('res-cf').textContent = cf.toFixed(1);
-      document.getElementById('res-bags').textContent = bags;
-    }
-    
-    window.addEventListener('DOMContentLoaded', () => {
-      toggleInputs();
-      calcConcrete();
-    });
-  </script>
-
-
-</body></html>
+  

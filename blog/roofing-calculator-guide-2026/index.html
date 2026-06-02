@@ -1,157 +1,66 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
+---
+layout: base.njk
+title: "Roofing Materials &amp; Square Guide | TradeConvert"
+description: "Learn how to calculate roof squares, underlayment rolls, and shingle bundles. Includes pitch factor tables and edge starter strip guidelines."
+keywords: "roofing calculator, shingle bundle calculator, roofing squares, calculate roof pitch, roof material estimate, asphalt shingles metal roofing"
+og_title: "Roofing Calculator Guide 2026: Shingles, Metal &amp; Tiles – How to Calculate Roofing Materials Accurately"
+og_description: "2026 Roofing material calculator and guide. Learn how to calculate roof square footage, number of shingles, underlayment, and waste for different roofing types."
+breadcrumbs:
+  - name: Field Notes
+    url: "/blog/"
+  - name: "Article"
+---
 
-  <title>Roofing Materials &amp; Square Guide | TradeConvert</title>
-
-  <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Roofing Calculator Guide 2026: Shingles, Metal &amp; Tiles – How to Calculate Roofing Materials Accurately">
-  <meta property="og:description" content="2026 Roofing material calculator and guide. Learn how to calculate roof square footage, number of shingles, underlayment, and waste for different roofing types.">
-  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
-  <meta property="og:url" content="https://tradeconvert.pro/blog/roofing-calculator-guide-2026/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
-
-  <meta name="description" content="Learn how to calculate roof squares, underlayment rolls, and shingle bundles. Includes pitch factor tables and edge starter strip guidelines.">
-  <meta name="keywords" content="roofing calculator, shingle bundle calculator, roofing squares, calculate roof pitch, roof material estimate, asphalt shingles metal roofing">
-  
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="canonical" href="https://tradeconvert.pro/blog/roofing-calculator-guide-2026/">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/main.css">
   <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Roofing Calculator Guide 2026: Shingles, Metal & Tiles",
-  "description": "2026 Roofing material calculator and guide. Learn how to calculate roof square footage, number of shingles, underlayment, and waste for different roofing types.",
-  "author": {
-    "@type": "Person",
-    "name": "Abu Sufyan",
-    "jobTitle": "Creator of TradeConvert.pro"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "TradeConvert",
-    "url": "https://tradeconvert.pro/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://tradeconvert.pro/assets/logo.png"
-    }
-  },
-  "datePublished": "2026-05-17",
-  "dateModified": "2026-05-17",
-  "image": "https://tradeconvert.pro/assets/og-image.png"
-}
-  </script>
-  <meta property="og:site_name" content="TradeConvert">
-  <meta property="og:type" content="article">
-
-<script type="application/ld+json" id="tc-breadcrumb-schema">
 {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://tradeconvert.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Field Notes",
-      "item": "https://tradeconvert.pro/blog/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Roofing Calculator Guide 2026",
-      "item": "https://tradeconvert.pro/blog/roofing-calculator-guide-2026/"
-    }
-  ]
+"@context": "https://schema.org",
+"@type": "Article",
+"headline": "Roofing Calculator Guide 2026: Shingles, Metal & Tiles",
+"description": "2026 Roofing material calculator and guide. Learn how to calculate roof square footage, number of shingles, underlayment, and waste for different roofing types.",
+"author": {
+  "@type": "Person",
+  "name": "Abu Sufyan",
+  "jobTitle": "Creator of TradeConvert.pro"
+},
+"publisher": {
+  "@type": "Organization",
+  "name": "TradeConvert",
+  "url": "https://tradeconvert.pro/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://tradeconvert.pro/assets/logo.png"
+  }
+},
+"datePublished": "2026-05-17",
+"dateModified": "2026-05-17",
+"image": "https://tradeconvert.pro/assets/og-image.png"
 }
-</script></head>
-<body>
+</script>
 
-  <div class="top-bar">
-    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · NIST Verified
-  </div>
+  <script>
+  function calcRoof() {
+    const w = parseFloat(document.getElementById('r-w').value) || 0;
+    const l = parseFloat(document.getElementById('r-l').value) || 0;
+    const pitch = parseFloat(document.getElementById('r-pitch').value) || 0;
+    const waste = 1 + (parseFloat(document.getElementById('r-waste').value) || 0) / 100;
 
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="logo-block">
-        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
-        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
-      </div>
-      <div class="masthead-meta">
-        <strong>Field Notes · Construction Reference</strong>
-        Roofing · Layout Design · Framing<br>
-        IBC Code Verified Standards
-      </div>
-    </div>
-  </header>
+    // Calculate Slope Multiplier
+    const slope = Math.sqrt(1 + Math.pow(pitch / 12, 2));
+    const baseArea = w * l;
+    const surfaceArea = baseArea * slope * waste;
+    const squares = surfaceArea / 100;
+    const bundles = Math.ceil(squares * 3);
 
-  <nav class="primary-nav">
-    <div class="primary-nav-inner">
-      <a href="/" class="nav-item">Home</a>
-      
-      <div class="nav-dropdown">
-        <span class="nav-item">Electrical</span>
-        <div class="dropdown-content">
-          <a href="/electrical/">Watts to Amps</a>
-          <a href="/blog/voltage-drop-calculation-nec/">Voltage Drop Guide</a>
-        </div>
-      </div>
+    document.getElementById('res-slope').textContent = slope.toFixed(3);
+    document.getElementById('res-sqft').textContent = Math.round(surfaceArea);
+    document.getElementById('res-sq').textContent = squares.toFixed(1);
+    document.getElementById('res-bundles').textContent = bundles;
+  }
+  
+  window.addEventListener('DOMContentLoaded', calcRoof);
+</script>
 
-      <div class="nav-dropdown">
-        <span class="nav-item">HVAC/Plumbing</span>
-        <div class="dropdown-content">
-          <a href="/pressure/">Pressure Units</a>
-          <a href="/temperature/">Temperature</a>
-        </div>
-      </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item">Building</span>
-        <div class="dropdown-content">
-          <a href="/concrete/">Concrete &amp; Bags</a>
-          <a href="/lumber/">Lumber &amp; BF</a>
-          <a href="/roofing/">Roofing &amp; Squares</a>
-          <a href="/length/">Length &amp; Layout</a>
-          <a href="/torque/">Torque Specs</a>
-        </div>
-      </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item">Site</span>
-        <div class="dropdown-content">
-          <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight &amp; Ton</a>
-        </div>
-      </div>
-
-      <a href="/blog/" class="nav-item active">Field Notes</a>
-    </div>
-  </nav>
-
-  <div class="breadcrumb-bar">
-    <div class="breadcrumb-inner">
-      <a href="/">Home</a> <span class="bc-sep">›</span> 
-      <a href="/blog/">Field Notes</a> <span class="bc-sep">›</span> 
-      <span>Roofing Calculator Guide 2026</span>
-    </div>
-  </div>
-
-  <div class="site-wrapper">
+<main class="site-wrapper">
     <div class="page-hero">
       <h1>Roofing Calculator Guide 2026: Shingles, Metal &amp; Tiles – How to Calculate Roofing Materials Accurately</h1>
       <div style="font-family: var(--serif); font-style: italic; color: var(--ink3); margin-top: 12px; font-size: 14px;">
@@ -312,57 +221,6 @@
         </div>
       </aside>
     </div>
-  </div>
+  </main>
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="f-name">Trade<em>Convert</em></div>
-        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Tools</h4>
-        <a href="/pressure/">Pressure</a>
-        <a href="/electrical/">Electrical</a>
-        <a href="/concrete/">Concrete</a>
-        <a href="/lumber/">Lumber</a>
-        <a href="/roofing/">Roofing</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/blog/">Field Notes</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 TradeConvert · Engineering Hub</span>
-      <a href="/privacy/">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <script>
-    function calcRoof() {
-      const w = parseFloat(document.getElementById('r-w').value) || 0;
-      const l = parseFloat(document.getElementById('r-l').value) || 0;
-      const pitch = parseFloat(document.getElementById('r-pitch').value) || 0;
-      const waste = 1 + (parseFloat(document.getElementById('r-waste').value) || 0) / 100;
-
-      // Calculate Slope Multiplier
-      const slope = Math.sqrt(1 + Math.pow(pitch / 12, 2));
-      const baseArea = w * l;
-      const surfaceArea = baseArea * slope * waste;
-      const squares = surfaceArea / 100;
-      const bundles = Math.ceil(squares * 3);
-
-      document.getElementById('res-slope').textContent = slope.toFixed(3);
-      document.getElementById('res-sqft').textContent = Math.round(surfaceArea);
-      document.getElementById('res-sq').textContent = squares.toFixed(1);
-      document.getElementById('res-bundles').textContent = bundles;
-    }
-    
-    window.addEventListener('DOMContentLoaded', calcRoof);
-  </script>
-
-
-</body></html>
+  

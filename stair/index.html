@@ -1,178 +1,93 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-
-  <title>Stair Riser &amp; Stringer Layout Calculator | TradeConvert</title>
-
-  <!-- Open Graph / SEO 2026 -->
-  <meta property="og:title" content="Stair Calculator | Rise, Run &amp; Stringer Layout Estimator | TradeConvert">
-  <meta property="og:description" content="Calculate professional stair risers, treads, stringer length, and incline angle. Based on IRC stair building codes. Instantly computes precise run adjustments.">
-  <meta property="og:image" content="https://tradeconvert.pro/assets/og-image.png">
-  <meta property="og:url" content="https://tradeconvert.pro/stair/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tradeconvert.pro/assets/og-image.png">
-
-  <meta name="description" content="Calculate stair riser heights, tread run layouts, and stringer angles automatically based on IRC building code limits (7.75-inch max rise).">
-  <meta name="keywords" content="stair calculator, stair stringer calculator, stair riser calculator, stair stringer calculations, rise and run stairs, stair stringer code, stair tread calculator, stairs rise and run, stair angle formula">
-  
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <link rel="canonical" href="https://tradeconvert.pro/stair/">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/main.css">
-  
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "TradeConvert Stair Calculator",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web Browser",
-  "url": "https://tradeconvert.pro/stair/",
-  "description": "Professional stair riser, tread, stringer length, and incline angle calculator.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-  </script>
-  <meta property="og:site_name" content="TradeConvert">
-  <meta property="og:type" content="website">
-
-<script type="application/ld+json" id="tc-faq-schema">
+---
+layout: base.njk
+title: "Stair Riser &amp; Stringer Layout Calculator | TradeConvert"
+description: "Calculate stair riser heights, tread run layouts, and stringer angles automatically based on IRC building code limits (7.75-inch max rise)."
+keywords: "stair calculator, stair stringer calculator, stair riser calculator, stair stringer calculations, rise and run stairs, stair stringer code, stair tread calculator, stairs rise and run, stair angle formula"
+og_title: "Stair Calculator | Rise, Run &amp; Stringer Layout Estimator | TradeConvert"
+og_description: "Calculate professional stair risers, treads, stringer length, and incline angle. Based on IRC stair building codes. Instantly computes precise run adjustments."
+breadcrumbs:
+  - name: Building
+  - name: Stair
+    url: "/stair/"
+---
+<script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do you calculate rise and run for stairs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "<p>To calculate the rise and run of a staircase:</p>\n            <ol>\n              <li>Measure the exact **Total Rise** (the vertical height from the finished lower floor to the finished upper floor).</li>\n              <li>Divide the Total Rise by a target riser height (typically **7 inches**). For example: <code>100\" ÷ 7 = 14.28</code>. Round this to the nearest whole step (14 risers).</li>\n              <li>Divide the Total Rise by the step count to find the exact riser height: <code>100\" ÷ 14 = 7.14 inches</code>.</li>\n              <li>Find the tread count. If flush, it is 1 step less than the riser count (13 treads). Multiply the treads by the target tread depth (e.g. 10 inches) to get a **Total Run** of 130 inches.</li>\n            </ol>"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the maximum stair riser height under building codes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "<p>According to the International Residential Code (IRC 2026 / Section R311.7.5):</p>\n            <ul>\n              <li>The maximum height of a residential stair riser is exactly <strong>7.75 inches (7-3/4\")</strong>.</li>\n              <li>For commercial structures (IBC), the limit is even stricter at exactly <strong>7.0 inches</strong>.</li>\n              <li>Crucially, the greatest riser height within any flight of stairs must not exceed the smallest by more than <strong>3/8 of an inch (0.375\")</strong> to prevent tripping hazards.</li>\n            </ul>"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I find the correct size and length of a stair stringer board?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "<p>To calculate the raw stringer board length:</p>\n            <ul>\n              <li>Use the Pythagorean formula: <code>Stringer Length = √[Total Rise² + Total Run²]</code>. For a rise of 100\" and run of 130\", the hypotenuse is exactly <code>√[100² + 130²] = 164 inches (13.6 feet)</code>.</li>\n              <li>Always add at least **12 to 14 inches** to this length to account for the top and bottom structural cuts. A 13.6 ft length requires ordering a standard **16-foot board**.</li>\n              <li>For structural safety, always cut stringers using a minimum of <strong>2x12 dimensional lumber</strong>. 2x10 lumber is not recommended as the triangular notches leave too little structural wood remaining.</li>\n            </ul>"
-      }
-    }
-  ]
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": "TradeConvert Stair Calculator",
+"applicationCategory": "BusinessApplication",
+"operatingSystem": "Web Browser",
+"url": "https://tradeconvert.pro/stair/",
+"description": "Professional stair riser, tread, stringer length, and incline angle calculator.",
+"offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+}
 }
 </script>
-<script type="application/ld+json" id="tc-breadcrumb-schema">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://tradeconvert.pro/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Stair Calculator",
-      "item": "https://tradeconvert.pro/stair/"
+<script>
+  function calcStairs() {
+    const rise = parseFloat(document.getElementById('s-rise').value) || 0;
+    const targetRiser = parseFloat(document.getElementById('s-target').value) || 7;
+    const treadDepth = parseFloat(document.getElementById('s-tread').value) || 10;
+    const topStep = document.getElementById('s-flush').value;
+
+    if (rise <= 0 || targetRiser <= 0) return;
+
+    // 1. Calculate number of risers (round to nearest step)
+    let numRisers = Math.round(rise / targetRiser);
+    if (numRisers < 1) numRisers = 1;
+
+    // 2. Exact riser height
+    const exactRiser = rise / numRisers;
+
+    // 3. Number of treads based on flush condition
+    const numTreads = (topStep === 'flush') ? (numRisers - 1) : numRisers;
+
+    // 4. Total run length
+    const totalRun = numTreads * treadDepth;
+
+    // 5. Stringer hypotenuse calculation
+    const stringerRaw = Math.sqrt(Math.pow(rise, 2) + Math.pow(totalRun, 2));
+    // Standard allowance: add 14 inches to cover structural ends
+    const stringerLumber = stringerRaw + 14;
+
+    // 6. Incline Angle
+    const angleRad = Math.atan2(rise, totalRun);
+    const angleDeg = angleRad * (180 / Math.PI);
+
+    // 7. Comfort Check (2R + T)
+    const comfortValue = (2 * exactRiser) + treadDepth;
+    const comfortPassed = (comfortValue >= 24 && comfortValue <= 25);
+
+    // 8. Code Compliance (IRC max 7.75" rise, min 10" tread)
+    const codeCompliant = (exactRiser <= 7.75 && treadDepth >= 10);
+
+    // Output to UI
+    document.getElementById('out-num-risers').textContent = numRisers;
+    document.getElementById('out-riser-height').textContent = exactRiser.toFixed(2) + " in";
+    document.getElementById('out-num-treads').textContent = numTreads;
+    document.getElementById('out-total-run').textContent = totalRun.toFixed(1) + " in (" + (totalRun / 12).toFixed(1) + " ft)";
+    document.getElementById('out-stringer').textContent = Math.ceil(stringerRaw) + " in (" + (stringerLumber / 12).toFixed(1) + " ft board)";
+    document.getElementById('out-angle').textContent = angleDeg.toFixed(1) + "°";
+
+    document.getElementById('out-comfort').textContent = (comfortPassed ? "Passes" : "Strained") + " (2R + T = " + comfortValue.toFixed(2) + " in)";
+    
+    const codeEl = document.getElementById('out-code');
+    if (codeCompliant) {
+      codeEl.textContent = "✔ IRC COMPLIANT";
+      codeEl.style.color = "#15803d";
+    } else {
+      codeEl.textContent = "⚠ CODE WARNING";
+      codeEl.style.color = "#b91c1c";
     }
-  ]
-}
-</script></head>
-<body>
+  }
 
-  <div class="top-bar">
-    Professional reference for the building trades · <a href="/">tradeconvert.pro</a> · Stair V1.0
-  </div>
+  window.addEventListener('DOMContentLoaded', calcStairs);
+</script>
 
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="logo-block">
-        <a href="/" style="text-decoration:none"><div class="logo-name">Trade<em>Convert</em></div></a>
-        <div class="logo-tagline">Professional Unit Conversions for the Building Trades</div>
-      </div>
-      <div class="masthead-meta">
-        <strong>Field Notes · Construction Reference</strong>
-        Plumbing · Electrical · HVAC · Carpentry<br>
-        IRC Code Verified Standards
-      </div>
-    </div>
-  </header>
-
-  <nav class="primary-nav">
-    <div class="primary-nav-inner">
-      <a href="/" class="nav-item">Home</a>
-      
-      <div class="nav-dropdown">
-        <span class="nav-item">Electrical</span>
-        <div class="dropdown-content">
-          <a href="/electrical/">Watts to Amps</a>
-          <a href="/voltage-drop/">Voltage Drop Calc</a>
-          <a href="/conduit-fill/">Conduit Fill Calc</a>
-          <a href="/blog/voltage-drop-calculation-nec/">Voltage Drop Guide</a>
-        </div>
-      </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item">HVAC/Plumbing</span>
-        <div class="dropdown-content">
-          <a href="/pressure/">Pressure Units</a>
-          <a href="/temperature/">Temperature</a>
-        </div>
-      </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item active">Building</span>
-        <div class="dropdown-content">
-          <a href="/concrete/">Concrete &amp; Bags</a>
-          <a href="/lumber/">Lumber &amp; BF</a>
-          <a href="/roofing/">Roofing &amp; Squares</a>
-          <a href="/drywall/">Drywall Calculator</a>
-          <a href="/paint/">Paint Calculator</a>
-          <a href="/stair/">Stair Layout</a>
-          <a href="/length/">Length &amp; Layout</a>
-          <a href="/torque/">Torque Specs</a>
-        </div>
-      </div>
-
-      <div class="nav-dropdown">
-        <span class="nav-item">Site</span>
-        <div class="dropdown-content">
-          <a href="/volume/">Volume Calc</a>
-          <a href="/weight/">Weight &amp; Ton</a>
-        </div>
-      </div>
-
-      <a href="/blog/" class="nav-item">Field Notes</a>
-    </div>
-  </nav>
-
-  <div class="breadcrumb-bar">
-    <div class="breadcrumb-inner">
-      <a href="/">Home</a> <span class="bc-sep">›</span> <span>Stair Calculator</span>
-    </div>
-  </div>
-
-  <div class="site-wrapper">
+<main class="site-wrapper">
     <div class="page-hero">
       <h1>Stair Calculator — Riser, Tread &amp; Stringer Estimator</h1>
       <p class="hero-desc">Determine stair layouts automatically. Enter total vertical rise to calculate perfect tread counts, exact riser heights, total run, stringer length, and incline angles.</p>
@@ -379,96 +294,6 @@
         </div>
       </aside>
     </div>
-  </div>
+  </main>
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="f-name">Trade<em>Convert</em></div>
-        <p>Professional unit conversion tools for the building trades. Verified against NIST standards.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Tools</h4>
-        <a href="/pressure/">Pressure</a>
-        <a href="/electrical/">Electrical</a>
-        <a href="/concrete/">Concrete</a>
-        <a href="/lumber/">Lumber</a>
-        <a href="/roofing/">Roofing</a>
-        <a href="/stair/">Stair Calculator</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/blog/">Field Notes</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 TradeConvert · NIST Verified</span>
-      <a href="/privacy/">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <script>
-    function calcStairs() {
-      const rise = parseFloat(document.getElementById('s-rise').value) || 0;
-      const targetRiser = parseFloat(document.getElementById('s-target').value) || 7;
-      const treadDepth = parseFloat(document.getElementById('s-tread').value) || 10;
-      const topStep = document.getElementById('s-flush').value;
-
-      if (rise <= 0 || targetRiser <= 0) return;
-
-      // 1. Calculate number of risers (round to nearest step)
-      let numRisers = Math.round(rise / targetRiser);
-      if (numRisers < 1) numRisers = 1;
-
-      // 2. Exact riser height
-      const exactRiser = rise / numRisers;
-
-      // 3. Number of treads based on flush condition
-      const numTreads = (topStep === 'flush') ? (numRisers - 1) : numRisers;
-
-      // 4. Total run length
-      const totalRun = numTreads * treadDepth;
-
-      // 5. Stringer hypotenuse calculation
-      const stringerRaw = Math.sqrt(Math.pow(rise, 2) + Math.pow(totalRun, 2));
-      // Standard allowance: add 14 inches to cover structural ends
-      const stringerLumber = stringerRaw + 14;
-
-      // 6. Incline Angle
-      const angleRad = Math.atan2(rise, totalRun);
-      const angleDeg = angleRad * (180 / Math.PI);
-
-      // 7. Comfort Check (2R + T)
-      const comfortValue = (2 * exactRiser) + treadDepth;
-      const comfortPassed = (comfortValue >= 24 && comfortValue <= 25);
-
-      // 8. Code Compliance (IRC max 7.75" rise, min 10" tread)
-      const codeCompliant = (exactRiser <= 7.75 && treadDepth >= 10);
-
-      // Output to UI
-      document.getElementById('out-num-risers').textContent = numRisers;
-      document.getElementById('out-riser-height').textContent = exactRiser.toFixed(2) + " in";
-      document.getElementById('out-num-treads').textContent = numTreads;
-      document.getElementById('out-total-run').textContent = totalRun.toFixed(1) + " in (" + (totalRun / 12).toFixed(1) + " ft)";
-      document.getElementById('out-stringer').textContent = Math.ceil(stringerRaw) + " in (" + (stringerLumber / 12).toFixed(1) + " ft board)";
-      document.getElementById('out-angle').textContent = angleDeg.toFixed(1) + "°";
-
-      document.getElementById('out-comfort').textContent = (comfortPassed ? "Passes" : "Strained") + " (2R + T = " + comfortValue.toFixed(2) + " in)";
-      
-      const codeEl = document.getElementById('out-code');
-      if (codeCompliant) {
-        codeEl.textContent = "✔ IRC COMPLIANT";
-        codeEl.style.color = "#15803d";
-      } else {
-        codeEl.textContent = "⚠ CODE WARNING";
-        codeEl.style.color = "#b91c1c";
-      }
-    }
-
-    window.addEventListener('DOMContentLoaded', calcStairs);
-  </script>
-
-
-</body></html>
+  
