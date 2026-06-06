@@ -40,6 +40,10 @@ RewriteRule ^search$ / [R=301,L]
 RewriteRule ^blog/board-feet-estimation-guide(?:\.html)?/?$ /blog/board-feet-calculator-lumber-estimation-2026/ [R=301,L]
 RewriteRule ^blog/circuit-breaker-sizing-nec-80-rule(?:\.html)?/?$ /blog/circuit-breaker-sizing-guide-2026/ [R=301,L]
 
+# SEO 301 Redirects for Missing Images (fixing 404s)
+RewriteRule ^tradeconvert_favicon_.*\.png$ /favicon.png [R=301,L]
+RewriteRule ^assets/logo\.png$ /assets/favicon.png [R=301,L]
+
 # Serve sitemap.xml dynamically via sitemap.php
 RewriteRule ^sitemap\.xml$ sitemap.php [L]
 

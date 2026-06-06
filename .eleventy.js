@@ -13,6 +13,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("sw.js");
   eleventyConfig.addPassthroughCopy(".htaccess");
   eleventyConfig.addPassthroughCopy("sitemap.php");
+  eleventyConfig.addPassthroughCopy(".well-known");
 
   return {
     dir: {
