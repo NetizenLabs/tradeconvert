@@ -1,0 +1,127 @@
+---
+layout: base.njk
+title: "Pipe Size & GPM Flow Rate Calculator | TradeConvert"
+description: "Calculate pipe water flow rates in Gallons Per Minute (GPM) based on pipe internal diameter and water velocity."
+keywords: "pipe size gpm calculator, flow rate pipe size, water flow calculator, gpm calculator, pipe diameter flow rate"
+og_title: "Pipe Size & Flow Rate Calculator | GPM Estimator | TradeConvert"
+og_description: "Calculate water flow rates in Gallons Per Minute (GPM) for various pipe sizes and velocities. Professional plumbing tool."
+breadcrumbs:
+  - name: Plumbing
+  - name: Pipe Flow
+    url: "/pipe-flow/"
+---
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": "TradeConvert Pipe Size & GPM Calculator",
+"applicationCategory": "BusinessApplication",
+"operatingSystem": "Web Browser",
+"url": "https://tradeconvert.pro/pipe-flow/",
+"description": "Professional plumbing flow rate and GPM calculator based on pipe diameter.",
+"offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+}
+}
+</script>
+<script>
+  function calcFlow() {
+    const diameter = parseFloat(document.getElementById('pipe-dia').value) || 0;
+    const velocity = parseFloat(document.getElementById('pipe-vel').value) || 0;
+
+    if (diameter <= 0 || velocity <= 0) return;
+
+    // Radius in inches
+    const r = diameter / 2;
+    
+    // Area in square inches
+    const areaSqIn = Math.PI * Math.pow(r, 2);
+    
+    // Area in square feet
+    const areaSqFt = areaSqIn / 144;
+    
+    // Flow rate in Cubic Feet per Second (CFS) = Area (sq ft) * Velocity (ft/s)
+    const cfs = areaSqFt * velocity;
+    
+    // Flow rate in Gallons Per Minute (GPM)
+    // 1 cubic foot = 7.48052 gallons
+    // 1 minute = 60 seconds
+    const gpm = cfs * 7.48052 * 60;
+
+    // Outputs
+    document.getElementById('out-area').textContent = areaSqIn.toFixed(3) + " in²";
+    document.getElementById('out-cfs').textContent = cfs.toFixed(3) + " ft³/s";
+    document.getElementById('out-gpm').textContent = Math.round(gpm).toLocaleString() + " GPM";
+  }
+
+  window.addEventListener('DOMContentLoaded', calcFlow);
+</script>
+
+<main class="site-wrapper">
+    <div class="page-hero">
+      <h1>Pipe Size & GPM Flow Rate Calculator</h1>
+      <p class="hero-desc">Calculate the water flow rate in Gallons Per Minute (GPM) based on the internal diameter of the pipe and the water flow velocity in feet per second.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>The standard water flow velocity for residential copper and PEX plumbing lines is generally kept between <strong>4 and 8 feet per second (ft/s)</strong> to prevent pipe erosion and loud water hammer noises. A standard 1/2-inch pipe at 5 ft/s delivers roughly <strong>4 to 5 GPM</strong>.</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Flow Rate & GPM Calculator</div>
+            <div class="tool-card-sub">Diameter & Velocity Input</div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px">
+            <div class="input-group">
+              <label class="input-label" for="pipe-dia">Internal Pipe Diameter (inches)</label>
+              <input data-agent-input="pipe-dia" aria-label="Input field for Internal Pipe Diameter (inches)" class="input-field" id="pipe-dia" type="number" value="0.5" step="0.125" oninput="calcFlow()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="pipe-vel">Water Velocity (ft/s)</label>
+              <input data-agent-input="pipe-vel" aria-label="Input field for Water Velocity (ft/s)" class="input-field" id="pipe-vel" type="number" value="5" oninput="calcFlow()">
+            </div>
+          </div>
+          
+          <div class="section-head">Flow Rate Output</div>
+          <div class="chart-grid">
+            <div class="chart-cell header">Metric / Unit</div>
+            <div class="chart-cell header">Calculated Value</div>
+            
+            <div class="chart-cell"><span class="cv-from">Cross-Sectional Area</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-area">0.196 in²</span></div>
+            
+            <div class="chart-cell"><span class="cv-from">Cubic Feet per Second (CFS)</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-cfs">0.007 ft³/s</span></div>
+            
+            <div class="chart-cell"><span class="cv-from">Gallons Per Minute (GPM)</span></div>
+            <div class="chart-cell"><span class="cv-to" style="font-weight:700; color:var(--accent);" id="out-gpm">3 GPM</span></div>
+          </div>
+        </div>
+
+        <h2>Using a Pipe Size GPM Calculator</h2>
+        <p>A reliable <strong>pipe size gpm calculator</strong> is essential for plumbers determining supply line sizes for high-demand fixtures like custom showers or commercial kitchens.</p>
+        <ul>
+          <li><strong>Flow Rate Pipe Size Limits:</strong> According to the IPC (International Plumbing Code), the maximum velocity for water distribution systems is typically limited to 8 ft/s. Exceeding this velocity causes excessive friction, pipe wear, and acoustic noise.</li>
+          <li><strong>Calculating GPM:</strong> Gallons Per Minute (GPM) is a function of the pipe's internal cross-sectional area and the speed at which the water is moving. If you double the diameter of the pipe, the total cross-sectional area (and therefore the flow capacity) quadruples!</li>
+        </ul>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card gold-top">
+          <div class="sidebar-title">Code Reference</div>
+          <div class="prose" style="font-size:12px">
+            <p>For detailed breakdowns of specific pipe materials (PEX, Copper, PVC) and their internal diameter variances, see our guide on <a href="/blog/pipe-size-water-flow-calculator-2026/">Pipe Sizing & Water Flow</a>.</p>
+          </div>
+        </div>
+        <div class="trade-tip">
+          <strong>Field Note</strong>
+          Nominal pipe sizes (like "1/2-inch PEX") do not always perfectly equal 0.5 inches inside. Copper Type M, Type L, and PEX all have slightly different Internal Diameters (ID). For exact GPM calculations on critical industrial jobs, always measure the true ID!
+        </div>
+      </aside>
+    </div>
+  </main>

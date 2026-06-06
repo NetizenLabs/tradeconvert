@@ -1,0 +1,135 @@
+---
+layout: base.njk
+title: "Dirt Removal & Hauling Calculator | Spoil Load Estimator | TradeConvert"
+description: "Calculate how many dump trucks you need for dirt removal based on Loose Cubic Yards (LCY) and soil swell expansion."
+keywords: "dirt removal calculator, soil removal calculator, spoil calculator, hauling calculator, dirt haul off estimator"
+og_title: "Dirt Removal Calculator | Dump Truck Hauling Estimator | TradeConvert"
+og_description: "Calculate dump truck loads, loose cubic yards (LCY), and spoil swell factors for dirt removal and excavation hauling."
+breadcrumbs:
+  - name: Building
+  - name: Dirt Removal
+    url: "/dirt-removal/"
+---
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": "TradeConvert Dirt Removal Calculator",
+"applicationCategory": "BusinessApplication",
+"operatingSystem": "Web Browser",
+"url": "https://tradeconvert.pro/dirt-removal/",
+"description": "Professional dirt removal and dump truck hauling estimator.",
+"offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+}
+}
+</script>
+<script>
+  function calcDirt() {
+    const bcy = parseFloat(document.getElementById('dr-bcy').value) || 0;
+    const swell = parseFloat(document.getElementById('dr-swell').value) || 20;
+    const truckCap = parseFloat(document.getElementById('dr-truck').value) || 10;
+    const costPerLoad = parseFloat(document.getElementById('dr-cost').value) || 0;
+
+    if (bcy <= 0) return;
+
+    // Loose Cubic Yards
+    const lcy = bcy * (1 + (swell / 100));
+    
+    // Truck Loads
+    const loads = Math.ceil(lcy / truckCap);
+    
+    // Total Cost
+    const totalCost = loads * costPerLoad;
+
+    document.getElementById('out-lcy').textContent = lcy.toFixed(1) + " LCY";
+    document.getElementById('out-loads').textContent = loads + " Load" + (loads !== 1 ? "s" : "");
+    document.getElementById('out-cost').textContent = "$" + totalCost.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  }
+
+  window.addEventListener('DOMContentLoaded', calcDirt);
+</script>
+
+<main class="site-wrapper">
+    <div class="page-hero">
+      <h1>Dirt Removal & Hauling Calculator</h1>
+      <p class="hero-desc">Calculate exactly how many dump trucks are required to haul off excavated soil. Automatically adjusts Bank Cubic Yards (BCY) to Loose Cubic Yards (LCY) using soil swell factors.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>When you dig a hole, the dirt expands. You must use a <strong>spoil calculator</strong> to convert the solid ground volume (BCY) into the loose, expanded volume (LCY). A standard tandem dump truck holds exactly <strong>10 to 12 cubic yards of loose dirt</strong>.</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Dump Truck Hauling Estimator</div>
+            <div class="tool-card-sub">Spoil Volume & Logistics Budget</div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
+            <div class="input-group">
+              <label class="input-label" for="dr-bcy">Excavation Volume (Bank yd³)</label>
+              <input data-agent-input="dr-bcy" aria-label="Input for BCY" class="input-field" id="dr-bcy" type="number" value="100" oninput="calcDirt()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="dr-swell">Soil Swell Expansion (%)</label>
+              <select class="input-field" id="dr-swell" onchange="calcDirt()">
+                <option value="15">Sand / Gravel (15%)</option>
+                <option value="20" selected="">Common Earth / Topsoil (20%)</option>
+                <option value="25">Heavy Clay (25%)</option>
+                <option value="35">Rock / Caliche (35%)</option>
+              </select>
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px">
+            <div class="input-group">
+              <label class="input-label" for="dr-truck">Dump Truck Capacity (yd³)</label>
+              <input data-agent-input="dr-truck" aria-label="Input for Truck" class="input-field" id="dr-truck" type="number" value="10" oninput="calcDirt()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="dr-cost">Cost per Truck Load ($)</label>
+              <input data-agent-input="dr-cost" aria-label="Input for Cost" class="input-field" id="dr-cost" type="number" value="250" oninput="calcDirt()">
+            </div>
+          </div>
+          
+          <div class="section-head">Hauling Output</div>
+          <div class="chart-grid">
+            <div class="chart-cell header">Logistics Metric</div>
+            <div class="chart-cell header">Calculated Requirement</div>
+            
+            <div class="chart-cell"><span class="cv-from">Loose Spoil Volume (LCY)</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-lcy">120.0 LCY</span></div>
+            
+            <div class="chart-cell"><span class="cv-from">Dump Trucks Required</span></div>
+            <div class="chart-cell"><span class="cv-to" style="font-weight:700; color:#15803d;" id="out-loads">12 Loads</span></div>
+            
+            <div class="chart-cell"><span class="cv-from">Total Estimated Haul Cost</span></div>
+            <div class="chart-cell"><span class="cv-to" style="font-weight:700; color:var(--accent);" id="out-cost">$3,000.00</span></div>
+          </div>
+        </div>
+
+        <h2>Using a Dirt Removal Calculator</h2>
+        <p>A professional <strong>dirt removal calculator</strong> must be based on LCY (Loose Cubic Yards) rather than the raw blueprint dimensions.</p>
+        <ul>
+          <li><strong>Soil Removal Calculator Mistakes:</strong> The most common estimating error in earthwork is failing to use a <strong>spoil calculator</strong> factor. If you dig a 100-yard hole in heavy clay, you don't haul away 100 yards of dirt. Due to the 25% swell factor, you actually haul away 125 yards.</li>
+          <li><strong>Weight vs Volume:</strong> While dump trucks have a volume capacity (e.g. 10 cubic yards), they also have a strict highway weight limit (usually restricted by DOT axle ratings). Wet mud or heavy rock may force you to "short-load" the trucks to avoid overweight tickets, increasing your total loads.</li>
+        </ul>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card gold-top">
+          <div class="sidebar-title">Code Reference</div>
+          <div class="prose" style="font-size:12px">
+            <p>Confused by the difference between BCY, LCY, and CCY? Read our detailed field note: <a href="/blog/lcy-meaning-construction/">What is LCY Meaning in Construction?</a></p>
+          </div>
+        </div>
+        <div class="trade-tip">
+          <strong>Field Note</strong>
+          If you are loading the dirt with a small skid steer rather than a large excavator, the dirt gets "fluffed" even more during the bucket transfer. Bump your swell factor up by 5% when using small equipment!
+        </div>
+      </aside>
+    </div>
+  </main>

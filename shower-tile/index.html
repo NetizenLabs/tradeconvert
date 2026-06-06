@@ -1,0 +1,141 @@
+---
+layout: base.njk
+title: "Shower Tile Calculator | Wet Area Tile Estimator | TradeConvert"
+description: "Calculate shower wall tile, pan tile, and waste factor for custom wet areas. Designed for bathroom remodelers and tile setters."
+keywords: "shower tile calculator, shower wall tile calculator, bathroom tile estimator, tile waste factor, shower pan tile calculation"
+og_title: "Shower Tile Calculator | Wall & Pan Estimator | TradeConvert"
+og_description: "Calculate shower wall, ceiling, and pan tile requirements. Includes customizable waste margins for complex patterns and niches."
+breadcrumbs:
+  - name: Flooring
+  - name: Shower Tile
+    url: "/shower-tile/"
+---
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": "TradeConvert Shower Tile Calculator",
+"applicationCategory": "BusinessApplication",
+"operatingSystem": "Web Browser",
+"url": "https://tradeconvert.pro/shower-tile/",
+"description": "Professional shower tile and bathroom remodel estimator.",
+"offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+}
+}
+</script>
+<script>
+  function calcTile() {
+    // Inputs (inches)
+    const wD = parseFloat(document.getElementById('sh-depth').value) || 0;
+    const wW = parseFloat(document.getElementById('sh-width').value) || 0;
+    const wH = parseFloat(document.getElementById('sh-height').value) || 0;
+    const waste = parseFloat(document.getElementById('sh-waste').value) || 15;
+    
+    if (wD <= 0 || wW <= 0 || wH <= 0) return;
+
+    // Surface Areas (sq in)
+    const wall1Area = wD * wH; // Side wall
+    const wall2Area = wD * wH; // Side wall
+    const backWallArea = wW * wH; // Back wall
+    
+    // Total Wall Area (sq in) -> Sq ft
+    const totalWallAreaSqIn = wall1Area + wall2Area + backWallArea;
+    const totalWallAreaSqFt = totalWallAreaSqIn / 144;
+    
+    // Pan Area (floor) -> Sq ft
+    const panAreaSqIn = wD * wW;
+    const panAreaSqFt = panAreaSqIn / 144;
+
+    // Apply Waste Factor
+    const wallWithWaste = totalWallAreaSqFt * (1 + (waste / 100));
+    const panWithWaste = panAreaSqFt * (1 + (waste / 100));
+
+    // Outputs
+    document.getElementById('out-wall-area').textContent = totalWallAreaSqFt.toFixed(1) + " ft²";
+    document.getElementById('out-pan-area').textContent = panAreaSqFt.toFixed(1) + " ft²";
+    document.getElementById('out-wall-order').textContent = Math.ceil(wallWithWaste) + " ft²";
+    document.getElementById('out-pan-order').textContent = Math.ceil(panWithWaste) + " ft²";
+  }
+
+  window.addEventListener('DOMContentLoaded', calcTile);
+</script>
+
+<main class="site-wrapper">
+    <div class="page-hero">
+      <h1>Shower Tile Calculator — Wall & Pan Estimator</h1>
+      <p class="hero-desc">Calculate the exact square footage of tile required for standard 3-wall shower enclosures. Output includes net area and recommended material orders with waste margins.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>For custom showers, professional tile setters recommend a <strong>15% to 20% waste factor</strong>. The high number of corners, niches, plumbing fixtures, and drain cuts inside a shower enclosure leads to far more broken or unusable off-cuts than a standard floor installation.</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Shower Tile Area Estimator</div>
+            <div class="tool-card-sub">3-Wall Enclosure Setup</div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px">
+            <div class="input-group">
+              <label class="input-label" for="sh-depth">Shower Depth / Side Walls (inches)</label>
+              <input data-agent-input="sh-depth" aria-label="Input for Depth" class="input-field" id="sh-depth" type="number" value="36" oninput="calcTile()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="sh-width">Shower Width / Back Wall (inches)</label>
+              <input data-agent-input="sh-width" aria-label="Input for Width" class="input-field" id="sh-width" type="number" value="60" oninput="calcTile()">
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px">
+            <div class="input-group">
+              <label class="input-label" for="sh-height">Tile Height on Walls (inches)</label>
+              <input data-agent-input="sh-height" aria-label="Input for Height" class="input-field" id="sh-height" type="number" value="84" oninput="calcTile()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="sh-waste">Waste Factor (%)</label>
+              <input data-agent-input="sh-waste" aria-label="Input for Waste" class="input-field" id="sh-waste" type="number" value="15" oninput="calcTile()">
+            </div>
+          </div>
+          
+          <div class="section-head">Material Output</div>
+          <div class="chart-grid">
+            <div class="chart-cell header">Surface Area</div>
+            <div class="chart-cell header">Net Sq. Ft.</div>
+            <div class="chart-cell header">Recommended Order (w/ Waste)</div>
+            
+            <div class="chart-cell"><span class="cv-from">Shower Wall Tile</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-wall-area">77.0 ft²</span></div>
+            <div class="chart-cell"><span class="cv-to" style="font-weight:700; color:var(--accent);" id="out-wall-order">89 ft²</span></div>
+            
+            <div class="chart-cell"><span class="cv-from">Shower Pan / Floor Tile</span></div>
+            <div class="chart-cell"><span class="cv-to" id="out-pan-area">15.0 ft²</span></div>
+            <div class="chart-cell"><span class="cv-to" style="font-weight:700; color:var(--accent);" id="out-pan-order">18 ft²</span></div>
+          </div>
+        </div>
+
+        <h2>Using a Shower Tile Calculator</h2>
+        <p>A reliable <strong>shower tile calculator</strong> is critical because bathrooms are tight spaces requiring precise cuts around plumbing.</p>
+        <ul>
+          <li><strong>Shower Wall Tile Calculator:</strong> When calculating wall tile, remember to measure the total height you intend to tile up to. Standard builder-grade showers stop at 72 inches (6 feet), but premium custom showers often tile all the way to the 8-foot ceiling or even across the ceiling itself!</li>
+          <li><strong>Diagonal Patterns:</strong> If you plan to lay your shower pan tile or wall tile on a 45-degree diagonal pattern, you must increase your waste factor to at least 20%. Diagonal layouts require cutting almost every single perimeter tile, significantly reducing the usable square footage of your material.</li>
+        </ul>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card gold-top">
+          <div class="sidebar-title">Code Reference</div>
+          <div class="prose" style="font-size:12px">
+            <p>Ensure your waterproofing membrane behind the tile is completely seamless and watertight before adhering any wall tile.</p>
+          </div>
+        </div>
+        <div class="trade-tip">
+          <strong>Field Note</strong>
+          Are you building custom soap niches or a shaving bench? These features require bullnose trim or Schluter edge profiles. Make sure you calculate the linear footage of all outside corners to order the correct amount of edge trim!
+        </div>
+      </aside>
+    </div>
+  </main>

@@ -1,0 +1,118 @@
+---
+layout: base.njk
+title: "Step Flashing Calculator | Roof Wall Flashing Estimator | TradeConvert"
+description: "Calculate how many pieces of step flashing you need for roof-to-wall intersections based on linear footage and overlap."
+keywords: "step flashing calculator, roof flashing calculator, step flashing estimate, roof wall intersection, flashing tin calculation"
+og_title: "Step Flashing Calculator | Roofing Estimator | TradeConvert"
+og_description: "Calculate exactly how many step flashing tins you need to waterproof a roof-to-wall intersection."
+breadcrumbs:
+  - name: Roofing
+  - name: Roof Flashing
+    url: "/roof-flashing/"
+---
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": "TradeConvert Step Flashing Calculator",
+"applicationCategory": "BusinessApplication",
+"operatingSystem": "Web Browser",
+"url": "https://tradeconvert.pro/roof-flashing/",
+"description": "Professional roofing step flashing material estimator.",
+"offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+}
+}
+</script>
+<script>
+  function calcFlashing() {
+    const wallLength = parseFloat(document.getElementById('fl-len').value) || 0;
+    const exposure = parseFloat(document.getElementById('fl-exp').value) || 5;
+
+    if (wallLength <= 0 || exposure <= 0) return;
+
+    // Convert wall length (feet) to inches
+    const lengthInches = wallLength * 12;
+
+    // The number of tins is determined by the exposure of each shingle. 
+    // Standard architectural shingles have a 5 to 5 5/8 inch exposure.
+    // One step flashing tin is installed per shingle course.
+    
+    // Pieces required per side
+    const piecesNeeded = Math.ceil(lengthInches / exposure);
+    
+    // Add 2 pieces as starters/waste per wall run
+    const totalPieces = piecesNeeded + 2;
+
+    document.getElementById('out-pieces').textContent = totalPieces;
+  }
+
+  window.addEventListener('DOMContentLoaded', calcFlashing);
+</script>
+
+<main class="site-wrapper">
+    <div class="page-hero">
+      <h1>Step Flashing Calculator</h1>
+      <p class="hero-desc">Calculate exactly how many pieces of step flashing you need to properly waterproof a sloped roof intersecting a vertical wall.</p>
+    </div>
+
+    <div class="answer-capsule">
+      <p>Step flashing is installed woven into every single shingle course where a roof meets a wall (like a dormer or chimney). Because standard architectural shingles have a <strong>5-inch to 5⅝-inch exposure</strong>, you will typically need about <strong>2.5 pieces of step flashing for every 1 linear foot</strong> of wall.</p>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-card-title">Roof Flashing Estimator</div>
+            <div class="tool-card-sub">Shingle Exposure Overlap Method</div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px">
+            <div class="input-group">
+              <label class="input-label" for="fl-len">Wall Intersection Length (feet)</label>
+              <input data-agent-input="fl-len" aria-label="Input for Wall Length" class="input-field" id="fl-len" type="number" value="10" oninput="calcFlashing()">
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="fl-exp">Shingle Exposure (inches)</label>
+              <select class="input-field" id="fl-exp" onchange="calcFlashing()">
+                <option value="5" selected="">5" (Standard 3-Tab)</option>
+                <option value="5.625">5 5/8" (Standard Architectural)</option>
+                <option value="7">7" (Oversized / Metric)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="section-head">Material Output</div>
+          <div class="chart-grid">
+            <div class="chart-cell header">Component</div>
+            <div class="chart-cell header">Total Required</div>
+            
+            <div class="chart-cell"><span class="cv-from">Individual Step Flashing Tins</span></div>
+            <div class="chart-cell"><span class="cv-to" style="font-weight:700; color:var(--accent);" id="out-pieces">26</span></div>
+          </div>
+        </div>
+
+        <h2>Using a Step Flashing Calculator</h2>
+        <p>A <strong>step flashing calculator</strong> takes the guesswork out of ordering pre-bent 4x4x8 tins. When you use a generic <strong>roof flashing calculator</strong>, it might just give you linear feet, but step flashing is sold by the piece or the bundle (usually 50 or 100 pieces).</p>
+        <ul>
+          <li><strong>The Weave Method:</strong> Unlike continuous roll flashing, step flashing must overlap. Each piece covers the top of the shingle below it and goes under the shingle above it. This means the spacing of your flashing perfectly matches the "exposure" (the visible part) of your shingles.</li>
+          <li><strong>Kickout Flashing:</strong> Don't forget that at the very bottom edge of your step flashing run, building codes require a specialized "kickout" flashing to direct water away from the siding and into the gutter!</li>
+        </ul>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-card gold-top">
+          <div class="sidebar-title">Code Reference</div>
+          <div class="prose" style="font-size:12px">
+            <p>Ensure your flashing tins overlap by at least 2 inches to prevent capillary action from pulling water backward into the house wrap.</p>
+          </div>
+        </div>
+        <div class="trade-tip">
+          <strong>Field Note</strong>
+          Never use a single continuous piece of "L" flashing running down a sloped wall intersection. Water will inevitably run sideways under the shingles. True step-flashing is the only code-approved method for sloped shingle-to-wall joints!
+        </div>
+      </aside>
+    </div>
+  </main>

@@ -213,60 +213,13 @@ breadcrumbs:
 
         <div class="rule-single"></div>
 
-        <h2>Frequently Asked Questions (Stair Calculations &amp; Codes)</h2>
-
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">How do you calculate rise and run for stairs? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">
-            <p>To calculate the rise and run of a staircase:</p>
-            <ol>
-              <li>Measure the exact **Total Rise** (the vertical height from the finished lower floor to the finished upper floor).</li>
-              <li>Divide the Total Rise by a target riser height (typically **7 inches**). For example: <code>100" ÷ 7 = 14.28</code>. Round this to the nearest whole step (14 risers).</li>
-              <li>Divide the Total Rise by the step count to find the exact riser height: <code>100" ÷ 14 = 7.14 inches</code>.</li>
-              <li>Find the tread count. If flush, it is 1 step less than the riser count (13 treads). Multiply the treads by the target tread depth (e.g. 10 inches) to get a **Total Run** of 130 inches.</li>
-            </ol>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">What is the maximum stair riser height under building codes? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">
-            <p>According to the International Residential Code (IRC 2026 / Section R311.7.5):</p>
-            <ul>
-              <li>The maximum height of a residential stair riser is exactly <strong>7.75 inches (7-3/4")</strong>.</li>
-              <li>For commercial structures (IBC), the limit is even stricter at exactly <strong>7.0 inches</strong>.</li>
-              <li>Crucially, the greatest riser height within any flight of stairs must not exceed the smallest by more than <strong>3/8 of an inch (0.375")</strong> to prevent tripping hazards.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">How do I find the correct size and length of a stair stringer board? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">
-            <p>To calculate the raw stringer board length:</p>
-            <ul>
-              <li>Use the Pythagorean formula: <code>Stringer Length = √[Total Rise² + Total Run²]</code>. For a rise of 100" and run of 130", the hypotenuse is exactly <code>√[100² + 130²] = 164 inches (13.6 feet)</code>.</li>
-              <li>Always add at least **12 to 14 inches** to this length to account for the top and bottom structural cuts. A 13.6 ft length requires ordering a standard **16-foot board**.</li>
-              <li>For structural safety, always cut stringers using a minimum of <strong>2x12 dimensional lumber</strong>. 2x10 lumber is not recommended as the triangular notches leave too little structural wood remaining.</li>
-            </ul>
-          </div>
-        </div>
-
-        <script>
-          function toggleFaq(el) {
-            const container = el.parentElement;
-            const answer = container.querySelector('.faq-a');
-            const arrow = el.querySelector('.faq-arrow');
-            
-            if (answer.style.display === 'block') {
-              answer.style.display = 'none';
-              el.classList.remove('open');
-            } else {
-              answer.style.display = 'block';
-              el.classList.add('open');
-            }
-          }
-        </script>
+        <h2>Stair Tread &amp; Stringer Estimating</h2>
+        <p>A professional <strong>stair building calculator</strong> relies on strict geometric ratios to prevent tripping hazards. When calculating rise and run, you must also consider the structural framing. Using a <strong>stair stringer calculator</strong> helps you determine the exact diagonal length (hypotenuse) of the stair carriage.</p>
+        <ul>
+          <li><strong>Stair Tread Calculator:</strong> A standard stair tread must be a minimum of 10 inches deep (IRC residential code). When measuring for treads, the "run" is the horizontal distance between riser faces, while the actual tread board often includes a 1-inch overhanging nosing.</li>
+          <li><strong>Stair Stringer Limits:</strong> When cutting the structural notches into a 2x12 stringer, ensure that at least 5 inches of solid, uncut wood remains at the deepest part of the notch. If a <strong>stair calculator</strong> gives you a very deep riser and tread combination, you may need to use engineered LVL lumber to maintain structural integrity.</li>
+          <li><strong>Calculate Angle of Stairs:</strong> The ideal incline angle for comfortable residential stairs is between 34 and 37 degrees. Steeper angles (up to 45 degrees) are only permitted in specific utility access or alternating tread applications.</li>
+        </ul>
       </main>
 
       <aside class="sidebar">

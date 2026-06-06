@@ -223,63 +223,15 @@ breadcrumbs:
 
         <div class="rule-single"></div>
 
-        <h2>Frequently Asked Questions (NEC Conduit Sizing)</h2>
-
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">How many #8 THHN wires can fit in a 3/4" EMT conduit? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">
-            <p>According to the National Electrical Code (NEC) Chapter 9:</p>
-            <ul>
-              <li>A <strong>3/4" EMT conduit</strong> has a total internal area of <strong>0.533 square inches</strong>.</li>
-              <li>Under the 40% fill limit rule for three or more conductors, the maximum allowable fill area is <strong>0.213 square inches</strong>.</li>
-              <li>A single <strong>#8 AWG THHN wire</strong> has an insulated cross-sectional area of <strong>0.0366 square inches</strong>.</li>
-              <li>Dividing allowable area by wire area: <code>0.213 ÷ 0.0366 = 5.82</code>.</li>
-            </ul>
-            <p>Therefore, you can pull a maximum of <strong>5 wires of #8 THHN in a 3/4" EMT conduit</strong>.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">How many #6 THHN wires can fit in a 3/4" EMT conduit? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">
-            <p>Applying the standard NEC spatial rules:</p>
-            <ul>
-              <li>Allowable 40% fill area in <strong>3/4" EMT</strong> is <strong>0.213 square inches</strong>.</li>
-              <li>A single <strong>#6 AWG THHN wire</strong> has an insulated area of <strong>0.0507 square inches</strong>.</li>
-              <li>Dividing allowable area: <code>0.213 ÷ 0.0507 = 4.20</code>.</li>
-            </ul>
-            <p>Therefore, you can run a maximum of exactly <strong>4 wires of #6 THHN in a 3/4" EMT conduit</strong>.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">How do I calculate conduit fill for specialty Belden cables or multi-conductor cables? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">
-            <p>For custom cables (like Belden industrial automation, ethernet, or control cables):</p>
-            <ol>
-              <li>Find the cable's Outer Diameter (OD) from the manufacturer's spec sheet.</li>
-              <li>Calculate individual area using the circular formula: <code>Area = 0.7854 × OD²</code>.</li>
-              <li>Sum the areas of all cables you intend to run.</li>
-              <li>Verify that the sum does not exceed the 40% fill limit for your chosen conduit size (e.g., 0.213 in² for 3/4" EMT).</li>
-            </ol>
-          </div>
-        </div>
-
-        <script>
-          function toggleFaq(el) {
-            const container = el.parentElement;
-            const answer = container.querySelector('.faq-a');
-            const arrow = el.querySelector('.faq-arrow');
-            
-            if (answer.style.display === 'block') {
-              answer.style.display = 'none';
-              el.classList.remove('open');
-            } else {
-              answer.style.display = 'block';
-              el.classList.add('open');
-            }
-          }
-        </script>
+        <h2>Real World NEC Sizing Example: 8 THHN in 3/4 EMT</h2>
+        <p>A frequent job-site question when using a <strong>conduit sizing calculator</strong> is determining exact wire counts for common runs. For instance, exactly <strong>how many 8 thhn in 3 4 emt</strong> can you safely pull?</p>
+        <ul>
+          <li><strong>1. Find the Conduit Area:</strong> According to NEC Chapter 9, a 3/4" EMT conduit has a total internal area of 0.533 square inches. Under the 40% fill rule, the maximum allowable fill is <strong>0.213 square inches</strong>.</li>
+          <li><strong>2. Find the Wire Area:</strong> A single #8 AWG THHN wire has a cross-sectional area of <strong>0.0366 square inches</strong>.</li>
+          <li><strong>3. The Math:</strong> Divide the allowable area by the wire area (0.213 ÷ 0.0366 = 5.82).</li>
+          <li><strong>Conclusion:</strong> You can legally and safely pull a maximum of <strong>5 wires of #8 THHN in a 3/4" EMT conduit</strong>.</li>
+        </ul>
+        <p>This same mathematical process applies regardless of what <strong>wire size in conduit</strong> you are calculating. Always use the strict 40% limit for three or more conductors to prevent overheating and insulation damage during the pull.</p>
       </main>
 
       <aside class="sidebar">
