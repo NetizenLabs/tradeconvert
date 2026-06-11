@@ -2,7 +2,7 @@
 header("Content-Type: application/xml; charset=utf-8");
 
 $baseUrl = "https://tradeconvert.pro";
-$excludeDirs = [".git", "assets", "css", "js", "scratch", "tools"];
+$excludeDirs = [".git", "assets", "css", "js", "scratch", "tools", "_site", "node_modules"];
 $urls = [];
 
 // Helper function to recursively find directories with index.html or standalone html files
