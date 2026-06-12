@@ -7,10 +7,10 @@ const ogTagsTemplate = `
   <!-- Open Graph / SEO 2026 -->
   <meta property="og:title" content="TradeConvert 2026 — Professional Trade Reference">
   <meta property="og:description" content="Know exactly what you're owed and calculate trade units with precision. Verified for 2026.">
-  <meta property="og:image" content="/assets/og-image.png">
+  <meta property="og:image" content="/assets/og-image.jpg">
   <meta property="og:url" content="https://tradeconvert.pro/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/assets/og-image.png">
+  <meta name="twitter:image" content="/assets/og-image.jpg">
 `;
 
 function processFiles(dir) {

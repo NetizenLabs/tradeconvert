@@ -4,7 +4,7 @@ const STATIC_ASSETS = [
   '/css/main.css',
   '/js/converters.js',
   '/assets/favicon.png',
-  '/assets/og-image.png',
+  '/assets/og-image.jpg',
   'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap'
 ];
 
