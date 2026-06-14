@@ -38,6 +38,7 @@ https://tradeconvert.pro/_site/roofing/
 https://tradeconvert.pro/_site/shower-tile/
 https://tradeconvert.pro/_site/stair/
 https://tradeconvert.pro/_site/temperature/
+https://tradeconvert.pro/_site/terms/
 https://tradeconvert.pro/_site/tile/
 https://tradeconvert.pro/_site/torque/
 https://tradeconvert.pro/_site/tradeconvert-blog-template/
@@ -83,6 +84,7 @@ https://tradeconvert.pro/roofing/
 https://tradeconvert.pro/shower-tile/
 https://tradeconvert.pro/stair/
 https://tradeconvert.pro/temperature/
+https://tradeconvert.pro/terms/
 https://tradeconvert.pro/tile/
 https://tradeconvert.pro/torque/
 https://tradeconvert.pro/voltage-drop/

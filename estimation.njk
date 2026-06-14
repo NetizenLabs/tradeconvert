@@ -1,0 +1,122 @@
+---
+layout: base.njk
+pagination:
+  data: pseo
+  size: 1
+  alias: calc
+permalink: "estimation/{{ calc.slug }}/"
+eleventyComputed:
+  title: "How much {{ calc.formattedMat }} for a {{ calc.formattedStory }} {{ calc.formattedPlot }}?"
+  description: "Calculate the exact {{ calc.formattedMat }} requirements for a {{ calc.formattedStory }} {{ calc.formattedPlot }} project. Estimated requirement: {{ calc.amount }} {{ calc.unit }}."
+---
+
+<main class="site-wrapper">
+  
+  <!-- JSON-LD Schema Injection -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "{{ calc.formattedPlot }} {{ calc.formattedStory }} {{ calc.formattedMat }} Calculator",
+    "applicationCategory": "CalculatorApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Estimated requirement of {{ calc.formattedMat | lower }} is {{ calc.amount }} {{ calc.unit }}."
+  }
+  </script>
+
+  <!-- 1. Dynamic Hero & Live Counter -->
+  <section class="page-hero" style="text-align: center; margin-bottom: 40px;">
+    <h1 style="font-size: 2.5rem; line-height: 1.2; margin-bottom: 24px; text-transform: capitalize;">
+      How much {{ calc.formattedMat | lower }} is required for a {{ calc.formattedStory | lower }} {{ calc.formattedPlot | lower }} project?
+    </h1>
+    
+    <div style="background-color: var(--accent); color: #fff; padding: 32px; border-radius: 12px; display: inline-block; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-top: 16px;">
+      <p style="text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; opacity: 0.9; margin-bottom: 8px; font-size: 14px;">Estimated Requirement</p>
+      <p style="font-size: 4rem; font-weight: 900; line-height: 1; margin: 0;">
+        {{ calc.amountFormatted }} <span style="font-size: 1.5rem; opacity: 0.9;">{{ calc.unit }}</span>
+      </p>
+      <p style="margin-top: 16px; font-size: 13px; opacity: 0.85;">Based on standard engineering area of {{ calc.areaSqFtFormatted }} sq ft.</p>
+    </div>
+  </section>
+
+  <!-- 2. Interactive Variation Slider / Selector -->
+  <section style="background: var(--paper2); border: 1px solid var(--rule); padding: 32px; border-radius: 12px; margin: 40px 0;">
+    <h2 style="margin-top: 0; margin-bottom: 24px; font-size: 1.5rem;">Adjust Your Parameters</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+      
+      <!-- Plot Size Dropdown -->
+      <div>
+        <label style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px;">Plot Size</label>
+        <select id="select-plot" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid var(--rule2); background: var(--paper); color: var(--ink); font-size: 16px;">
+          {% for category, sizes in calc.plotSizesCategorized %}
+            <optgroup label="{{ category }}">
+              {% for size in sizes %}
+                <option value="{{ size }}" {% if size == calc.plotSize %}selected{% endif %}>{{ size | replace("-", " ") | upper }}</option>
+              {% endfor %}
+            </optgroup>
+          {% endfor %}
+        </select>
+      </div>
+
+      <!-- Story Dropdown -->
+      <div>
+        <label style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px;">Story Depth</label>
+        <select id="select-story" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid var(--rule2); background: var(--paper); color: var(--ink); font-size: 16px;">
+          {% for story in calc.allStories %}
+            <option value="{{ story }}" {% if story == calc.story %}selected{% endif %}>{{ story | replace("-", " ") | upper }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <!-- Material Dropdown -->
+      <div>
+        <label style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px;">Material Focus</label>
+        <select id="select-mat" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid var(--rule2); background: var(--paper); color: var(--ink); font-size: 16px;">
+          {% for mat in calc.allMaterials %}
+            <option value="{{ mat }}" {% if mat == calc.material %}selected{% endif %}>{{ mat | replace("-", " ") | upper }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      
+    </div>
+  </section>
+
+  <script>
+    // Vanilla JS handler for redirecting dynamic pages
+    document.addEventListener('DOMContentLoaded', function() {
+      const plotSelect = document.getElementById('select-plot');
+      const storySelect = document.getElementById('select-story');
+      const matSelect = document.getElementById('select-mat');
+
+      function updateRoute() {
+        const plot = plotSelect.value;
+        const story = storySelect.value;
+        const mat = matSelect.value;
+        window.location.href = `/estimation/${plot}-${story}-${mat}-calculator/`;
+      }
+
+      plotSelect.addEventListener('change', updateRoute);
+      storySelect.addEventListener('change', updateRoute);
+      matSelect.addEventListener('change', updateRoute);
+    });
+  </script>
+
+  <!-- Internal Linking Context -->
+  <section style="margin: 40px 0;">
+    <h3 style="margin-bottom: 16px; font-size: 1.25rem;">Compare with other sizes:</h3>
+    <ul style="list-style: none; padding: 0; display: flex; gap: 16px; flex-wrap: wrap;">
+      {% for link in calc.relatedLinks %}
+        <li><a href="{{ link.url }}" style="display: inline-block; padding: 10px 16px; background: var(--paper2); border: 1px solid var(--rule); border-radius: 6px; text-decoration: none; font-weight: 500;">{{ link.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+
+</main>
+
+
