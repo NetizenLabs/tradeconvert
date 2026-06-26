@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "typecheck": "echo \"No typecheck needed\""
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
   "homepage": "https://github.com/WebToolkit-Pro/tradeconvert#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.5"
+  },
+  "dependencies": {
+    "nodemailer": "^9.0.1"
   }
 }
