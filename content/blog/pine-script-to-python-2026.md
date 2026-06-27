@@ -1,7 +1,7 @@
 ---
 title: "Convert TradingView Pine Script to Python in 2026 — Expert Guide"
 description: "Learn how to accurately convert TradingView Pine Script indicators to Python in 2026. A technical guide on pandas_ta, handling rolling lookbacks, and managing execution limits."
-date: "2026-06-26"
+date: "2026-06-27"
 author: "Abu Sufyan"
 slug: "pine-script-to-python-2026"
 ---
